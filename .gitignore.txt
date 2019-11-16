@@ -1,8 +1,8 @@
 .idea
-\application\command.php
-\application\common.php
-\application\config.php
-\application\database.php
-\application\route.php
-\application\tags.php
-\readme\
+/application/command.php
+/application/common.php
+/application/config.php
+/application/database.php
+/application/route.php
+/application/tags.php
+readme
