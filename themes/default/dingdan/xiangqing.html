@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>罗马快车</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+  <script src="__PUBLIC__/js/mui.min.js"></script>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+</head>
+<style>
+  img{max-width: 100%;}
+   * {-webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              -webkit-user-select: auto;
+              outline: 0;
+              -webkit-tap-highlight-color: transparent;
+              -webkit-tap-highlight-color: transparent;
+              }
+
+  </style>
+<body>
+<div class="container">
+     <header class="mui-bar mui-bar-nav">
+            <a class="mui-icon mui-icon-left-nav mui-pull-left"  href="{:url('index/dingdan/index')}"></a>
+            <h1 class="mui-title">我的订单</h1>
+        </header>
+    <div class="mui-content" >
+            <!--头部导航-->
+            <!-- <div class="am-cf uchome-nav">
+                <ul class="am-avg-sm-5">
+                    <li><a href="#">未付款</a></li>
+                    <li><a href="#">已收货</a></li>
+                    <li><a href="#">待收货</a></li>
+                    <li><a href="#">待评价</a></li>
+                    <li><a href="#">已评价</a></li>
+                </ul>
+            </div> -->
+            <div  id="pullrefresh">
+               
+                  	{if condition="$leescoreorder['type'] eq '0'"/}
+              		 <div style=" padding-top:20px; padding-left:10px; padding-right:10px; width:100%; background:#fff; padding-bottom:20px;">
+						<div class="cart-list-panel" style="padding: 0 20px;">
+							<ul class="am-avg-sm-1 cart-panel-ul" style="">
+								<li style="height: 80px;">
+									<div class="infopanel" style="width: 100%;padding-top: 5px;">
+										<h3 style="width: 100%;display: block;    box-sizing: border-box; font-size:16px;">收货地址：</h3>
+										<p style="margin-top: 5px;">
+										 
+										姓名：{$leescoreorder.firstname}&nbsp;&nbsp;&nbsp;手机号：{$leescoreorder.mobile}
+										</p>
+										<p style="margin-top: 5px;">地址：{$leescoreorder.region}{$leescoreorder.city}{$leescoreorder.xian}{$leescoreorder.address}</p>
+									</div>
+								</li>
+							   
+							</ul>
+						</div>
+                  		</div>
+                  {else/}
+				{/if}
+                	
+                    <ul  id="lis"  class="mui-table-view mui-table-view-chevron" style="font-size: 14px;">
+                            <div class="am-cf cart-panel">
+                                <div class="withdrawals-panel">
+                                    <p class="groupby-t-p">
+                                        <span style="float:right;">
+                                          {$leescoreorder.createtime|date="Y-m-d H:i:s",###}
+                                        </span>
+                                            订单号：{$leescoreorder.order_id}
+                                    </p>
+                                    <hr  class="am-divider am-divider-default am-cf"/>
+                                    <div class="groupby-img-panle">
+                                        <a href="#">
+                                            <div style="background: url({$leescoreorder['goods_thumb']});background-repeat: no-repeat;background-size: 100%;width: 100%;height: 124px;border: 1px solid #ccc;"></div>
+                                           <!--  <img src="{$leescoreorder.goods_thumb}" class="am-img-responsive" /> -->
+                                        </a>
+                                    </div>
+                                    <div class="groupby-info-panle">
+                                        <h3>
+                                           {$leescoreorder.goods_name}
+                                        </h3>
+                                        <p>积分：
+                                            <span class="red2 bold"> {$leescoreorder.trade_money*10}</span> 
+                                                        
+                                        </p>
+                                        <p>   数量：{$leescoreorder.buy_num}</p>
+                                        <p>状态：
+                                            <span class="am-text-success">
+                                            {if condition="$leescoreorder['status'] == 0"/}
+                                                未付款
+                                            {elseif condition="$leescoreorder['status'] == 1"/}
+                                                已付款
+                                            {elseif condition="$leescoreorder['status'] == 2"/}
+                                                已发货
+                                            {elseif condition="$leescoreorder['status'] == 3"/}
+                                                已签收
+                                            {elseif condition="$leescoreorder['status'] == 4"/}
+                                                退货中
+                                            {elseif condition="$leescoreorder['status'] == -1"/}
+                                                已取消订单
+                                            {elseif condition="$leescoreorder['status'] == -2"/}
+                                                已驳回订单
+                                            {elseif condition="$leescoreorder['status'] == 5"/}
+                                                已退款
+                                            {else/}
+                                                订单异常
+                                            {/if}
+                                            </span>
+                                        </p>
+										<p style="color:#2d4bfc;">   核销码/物流号：
+										{$leescoreorder.virtual_sn}</p>
+										<p>  名称/物流名称：{$leescoreorder.virtual_name}</p>
+                                        <p>
+                                           
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                      	
+                    </ul>
+					<div style=" padding-top:10px; padding-left:10px; padding-right:10px; width:100%; background:#fff; padding-bottom:20px;">
+						<div class="cart-list-panel" style="padding: 0 20px;">
+							<ul class="am-avg-sm-1 cart-panel-ul" style="">
+										<h3 style="width: 100%;display: block;    box-sizing: border-box; font-size:16px; text-align:center;">备注</h3>
+										
+										<p style="margin-top: 0px;">{$leescoreorder.content}</p>
+							</ul>
+						</div>
+                	</div>
+            </div>
+        </div>
+   
+    
+    
+</div>
+
+</body>
+</html>

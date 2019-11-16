@@ -1,0 +1,122 @@
+@charset "UTF-8";
+body{font-family: PingFang-SC-Regular;background: #F1F1F1;}
+.container1{
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 1rem;
+}
+.banner{
+    width: 100%;
+    float: left;
+}
+.tab_box{
+    width: 7.1rem;
+    height: 1.28rem;
+    background-color: #ffffff;
+	box-shadow: 0rem 0.04rem 0.08rem 0rem rgba(136, 136, 136, 0.47);
+    border-radius: 0.16rem;
+    margin: 0.3rem auto;
+}
+.tab_item{
+    width: 25%;
+    float: left;
+    text-align: center;
+    padding-top: 0.18rem;
+}
+.tab_item img{
+    width: 0.54rem;
+    display: block;
+    margin: 0 auto;
+}
+.tab_item p{
+    font-size: 0.28rem;
+    color: #333333;
+    margin-top: 0.06rem;
+}
+.edition{
+    width: 7.1rem;
+    height: 1.6rem;
+	background-color: #ffffff;
+	box-shadow: 0rem 0.04rem 0.08rem 0rem rgba(136, 136, 136, 0.47);
+    border-radius: 0.16rem;
+    margin: 0.3rem auto;
+    position: relative;
+    padding: 0.2rem 0.3rem 0.2rem 0.1rem;
+}
+.edition_pic{
+    width: 1.54rem;
+    float: left;
+}
+.edi_cen{
+    float: left;
+    margin-left: 0.1rem;
+}
+.edi_p1{
+    font-size: 0.32rem;
+	font-weight: bold;
+    color: #333333;
+    margin-top: 0.16rem;
+}
+.edi_p2{
+    font-size: 0.24rem;
+    color: #333333;
+    margin-top: 0.1rem;
+}
+.edi_right{
+    float: right;
+    margin-right: 0.6rem;
+}
+.edi_btn{
+    width: 1.6rem;
+	height: 0.5rem;
+	background-image: linear-gradient(87deg, #9874f8 0%, #5720b9 100%), linear-gradient(#7024c6, #7024c6);
+	background-blend-mode: normal, normal;
+    border-radius: 0.29rem;
+    border: none;
+    font-size: 0.26rem;
+	font-weight: bold;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    line-height: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+.edi_hot{
+    width: 0.36rem;
+    position: absolute;
+    top: 0;
+    right: 0.3rem;
+}
+.footer{
+    width: 100%;
+    min-width: 320px;
+    max-width: 750px;
+    height: 0.98rem;
+    background-color: #ffffff;
+	box-shadow: -0.001rem -0.03rem 0.06rem 0rem rgba(184, 184, 184, 0.47);
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.tabbar{
+    width: 25%;
+    float: left;
+    padding-top: 0.14rem;
+}
+.tabbar p{
+    font-size: 0.24rem;
+    color: #666666;
+    text-align: center;
+}
+.tabbar p .iconfont{
+    font-size: 0.34rem;
+}
+.tabbar p:first-of-type{
+    margin-bottom: 0.04rem;
+}
+.tabbar.active p{
+    color: #6c25c8;
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>罗马快车</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+  <script src="__PUBLIC__/js/mui.min.js"></script>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="container">
+     <header class="mui-bar mui-bar-nav">
+            <a class="mui-icon mui-icon-left-nav mui-pull-left"  href="{:url('index/user/index')}"></a>
+            <h1 class="mui-title">我的订单</h1>
+        </header>
+    <div class="mui-content" >
+            <!--头部导航-->
+            <!-- <div class="am-cf uchome-nav">
+                <ul class="am-avg-sm-5">
+                    <li><a href="#">未付款</a></li>
+                    <li><a href="#">已收货</a></li>
+                    <li><a href="#">待收货</a></li>
+                    <li><a href="#">待评价</a></li>
+                    <li><a href="#">已评价</a></li>
+                </ul>
+            </div> -->
+            <div  id="pullrefresh" >
+                <div class="mui-card" style="padding:0;margin:0;background-color: #efeff4;">
+                        <div class="mui-content-padded" style="background-color: #efeff4;">
+                        <div class="mui-input-row mui-search input-search" style="width: 100%;background-color: #efeff4;">
+                       <!--<div><span style=" margin-left:5%;">时间</span><span style="float:right; margin-right:10%;">金额</span></div>-->
+                        </div>
+                    </div>
+                    <ul  id="lis"  class="mui-table-view mui-table-view-chevron" style="font-size: 14px;padding-bottom: 50px;">
+                        {volist name='leescoreorder' id='val'}
+                            <div class="am-cf cart-panel">
+                                <a href="{:url("index/dingdan/xiangqing",array('did'=>$val['id']))}">
+								<div class="withdrawals-panel">
+                                    <p class="groupby-t-p">
+                                        <span style="float:right;">
+                                          {$val.createtime|date="Y-m-d H:i:s",###}
+                                        </span>
+                                            订单号：{$val.order_id}
+                                    </p>
+                                    <hr  class="am-divider am-divider-default am-cf"/>
+                                    <div class="groupby-img-panle">
+                                        
+                                            <div style="background: url({$val['goods_thumb']});background-repeat: no-repeat;background-size: 100%;width: 100%;height: 124px;border: 1px solid #ccc;"></div>
+                                           <!--  <img src="{$val.goods_thumb}" class="am-img-responsive" /> -->
+                                       
+                                    </div>
+                                    <div class="groupby-info-panle">
+                                        <h3>
+                                           {$val.goods_name}
+                                        </h3>
+                                        <p>价格：
+                                            <span class="red2 bold"> {$val.trade_money}</span> 
+                                                        
+                                        </p>
+                                        <p>   数量：{$val.buy_num}</p>
+                                        <p>状态：
+                                            <span class="am-text-success">
+                                            {if condition="$val['status'] == 0"/}
+                                                未付款
+                                            {elseif condition="$val['status'] == 1"/}
+                                                已付款
+                                            {elseif condition="$val['status'] == 2"/}
+                                                已发货
+                                            {elseif condition="$val['status'] == 3"/}
+                                                已签收
+                                            {elseif condition="$val['status'] == 4"/}
+                                                退货中
+                                            {elseif condition="$val['status'] == -1"/}
+                                                已取消订单
+                                            {elseif condition="$val['status'] == -2"/}
+                                                已驳回订单
+                                            {elseif condition="$val['status'] == 5"/}
+                                                已退款
+                                            {else/}
+                                                订单异常
+                                            {/if}
+                                            </span>
+                                        </p>
+                                        <p>
+                                            {if condition="$val['status'] == 1"/}
+                                                <a href="{:url("index/dingdan/fahou",array('did'=>$val['id']))}" class="am-btn am-btn-primary am-btn-xs am-btn-success am-radius" style="background:#2d4bfc;">发货</a>
+                                            {else/}
+                                                <!--<a href="{:url("index/dingdan/quxiao",array('did'=>$val['id']))}" class="am-btn am-btn-primary am-btn-xs am-btn-success am-radius" style="background:#2d4bfc;">取消订单</a>-->
+                                            {/if}
+                                           <a href="{:url("index/dingdan/xiangqing",array('did'=>$val['id']))}" class="am-btn am-btn-primary am-btn-xs am-btn-success am-radius" style="background:#2d4bfc; float:right;">查看详情</a>
+                                        </p>
+                                    </div>
+                                </div>
+								</a>
+                            </div>
+                        {/volist}
+                        {$leescoreorder->render()}
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+   
+    
+    
+</div>
+ <script>
+ mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+                function xiaoqu(id) { 
+                           alert(id);
+                              $.ajax({
+                                        url:'{:url('index/dingdan/quxiao')}',
+                                        type:"post",
+                                        datatype:'json',
+                                        data:{'did':id},
+                                        
+                                        success:function(data){
+                                            //json=$.parseJSON(data);
+                                            alert(data);
+                                    // if(data==1){
+                                    // }else if(data==0){
+                                    //     alert("查询失败");
+                                    // }else if(data==11){
+                                    // }
+                                            }
+                                });
+                            }  
+        </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>及时雨</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+		<script src="__PUBLIC__/js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css"/>
+		<style>
+			.input{
+				width: 80% !important;
+				float:right;
+				padding: 0px !important;
+				margin: 0px !important;
+				height:22px !important;
+				line-height: 22px !important;
+				border:0px !important;
+				text-align: right;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/index')}"></a>
+		    <h1 class="mui-title">设置</h1>
+		    <a href="{:url('index/allindex/bianji')}"><button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">编辑</button></a>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+            <a class="mui-tab-item" href="{:url('index/index/index')}">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            <!-- <a class="mui-tab-item" href="{:url('index/xiaji')}">
+                <span class="mui-icon mui-icon-pengyouquan"></span>
+                <span class="mui-tab-label">我的团队</span>
+            </a> -->
+            <a class="mui-tab-item" href="{:url('index/qrc/view')}">
+                <span class="mui-icon mui-icon-pengyouquan"></span>
+                <span class="mui-tab-label">推广二维码</span>
+            </a>
+            {if condition="$user['type'] eq '1'"}
+            <a class="mui-tab-item" href="{:url('allindex/xiaji')}">
+                <span class="mui-icon mui-icon-contact mui-icon-flag"></span>
+                <span class="mui-tab-label">我的团队</span>
+            </a>
+             {else/}
+                        {/if}
+            <a class="mui-tab-item  mui-active" href="{:url('allindex/gerenxingxin')}">
+                <span class="mui-icon mui-icon-contact mui-icon-icon-contact-filled"></span>
+                <span class="mui-tab-label">个人信息</span>
+            </a>
+            
+        </nav>
+		<script>
+            mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+        </script>
+		<div class="mui-content">
+		   <div class='sz'>
+		   	<ul class="mui-table-view">
+		   	        <li class="mui-table-view-cell"><a href="{:url('allindex/touxiang')}">
+		   	                        头像
+		   	                        {if condition="$user['image'] neq ''"}
+		   	                        <img id="img" style="float:right;height:40px;width:40px" src="{$user.image}"/>
+		   	            {else/}<img id="img" style="float:right;height:40px;width:40px" src="__PUBLIC__/img/logo.jpg"/>{/if}</a>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	姓名
+		   	           	<span class="" style="float:right;">
+		   	           {$user.names}
+		   	            </span>
+		   	        </li>
+
+		   	        <li class="mui-table-view-cell">
+		   	           	编号
+		   	           	<span class="" style="float:right;">
+		   	           {$user.mid}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	            	手机号
+		   	           	<span class="" style="float:right;">
+		   	           {$user.mobile}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	身份证号
+		   	           	<span class="" style="float:right;">
+		   	           {$user.idcard}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	推荐人
+		   	           	<span class="" style="float:right;">
+		   	           {$user.pmid}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	婚姻状况
+		   	           	<span class="" style="float:right;">
+		   	           {$user.hunyin}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	学历
+		   	           	<span class="" style="float:right;">
+		   	           {$user.xueli}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	薪资
+		   	           	<span class="" style="float:right;">
+		   	           {$user.yueshouru}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	社保
+		   	           	<span class="" style="float:right;">
+		   	           {$user.shebao}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	公积金
+		   	           	<span class="" style="float:right;">
+		   	           {$user.gongjijin}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	房产
+		   	           	<span class="" style="float:right;">
+		   	           {$user.fangchan}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	汽车
+		   	           	<span class="" style="float:right;">
+		   	           {$user.cheliang}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	保单
+		   	           	<span class="" style="float:right;">
+		   	           {$user.baodan}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	微粒贷
+		   	           	<span class="" style="float:right;">
+		   	           {$user.weilidai}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	芝麻分
+		   	           	<span class="" style="float:right;">
+		   	           {$user.zhimafen}
+		   	            </span>
+		   	        </li>
+		   	        <li class="mui-table-view-cell">
+		   	           	信用卡最高额度
+		   	           	<span class="" style="float:right;">
+		   	           {$user.xinyongka}
+		   	            </span>
+		   	        </li>
+		   	       
+		   	        
+		   	    </ul>
+		   </div>
+		   <div class="btn">
+	   			<a href="{:url('login/editpd')}"><button id="btn" style="background-color:#3366FF; color:#fff">修改密码</button></a>
+	   		</div>
+		   <div class="btn">
+	   			<a href="{:url('index/login/tuichu')}"><button id="btn" style="background-color:#3366FF; color:#fff">退出登录</button></a>
+	   		</div>
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

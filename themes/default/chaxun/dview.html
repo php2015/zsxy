@@ -1,0 +1,2584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>钻石报告</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/mui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/dstyle.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/dindex.css">
+    <script src="__PUBLIC__/js/xjs/mui.min.js"></script>
+    <script src="__PUBLIC__/js/xjs/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/xjs/index.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+</head>
+<body>
+
+<style>
+    #bar{
+        background-size: auto 0.3rem;
+    }
+</style>
+
+<?php
+    $borrowType = ['0'=>'未知','1'=>'个人信贷','2'=>'个人抵押','3'=>'企业信贷','4'=>'企业抵押'];
+$borrowState = ['0'=>'未知','1'=>'拒贷','2'=>'批贷已放款','3'=>'待放款','4'=>'借款人放弃申请','5'=>'审核中','6'=>'待放款'];
+//还款状态 0.未知 1.正常 2.M1 3.M2 4.M3 5.M4 6.M5 7.M6 8.M6+ 9.已还清;
+//M1(1~30天)、M2(31~60天)、M3(61~90天)、M4(91~120天)、M5(121~150天)、M6(151~180天)、M6+(>180天)。
+$repayState = [
+'0'=>'未知','1'=>'正常','2'=>'逾期(1~30天)','3'=>'逾期(31~60天)','4'=>'逾期(61~90天)','5'=>'逾期(91~120天)','6'=>'逾期(121~150天)','7'=>'逾期(151~180天)','8'=>'逾期(≥180天)','9'=>'已还清'];
+$borrowAmount =
+['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-4000','-3'=>'4000-6000','-2'=>'6000-8000','-1'=>'8000-10000',
+'0'=>'未知', '1'=>'10000-20000', '2'=>'20000-40000', '3'=>'40000-60000', '4'=>'60000-80000',
+'5'=>'80000-100000','6'=>'100000-120000',
+'7'=>'120000-140000','8'=>'140000-160000','9'=>'160000-180000','10'=>'180000-200000','11'=>'200000-220000','12'=>'220000-240000','13'=>'240000-260000',
+'14'=>'260000-280000','15'=>'280000-300000','16'=>'300000-320000','17'=>'320000-340000','18'=>'340000-360000','19'=>'360000-380000','20'=>'380000-400000',
+];
+?>
+
+
+<div class="container">
+    <a href="/index/complaint/wenti.html">
+        <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+            <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+        </div>
+    </a>
+    <a href="{:url('/index/complaint/comment')}">
+        <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 350px;z-index: 999;opacity:0.5;">
+            <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">评论</p>
+        </div>
+    </a>
+    <a href="{:url('/index/complaint/index')}">
+        <div style="width: 40px;height: 40px;border: 1px solid #ff9600;background: #ff9600;border-radius:100%;position: fixed;right: 5px; top: 400px;z-index: 999;opacity:0.5;">
+            <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
+        </div>
+    </a>
+    <a href="{:url('/calculator/index/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #12a8ce;background: #12a8ce;border-radius:100%;position: fixed;right: 5px; top:450px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">计算器</p>
+    </div>
+	</a>
+    <header>
+        <span class="mui-icon mui-icon-left-nav" style="margin-left: 11px;"></span>
+        <p class="head_right">
+            <img src="__PUBLIC__/ximg/logo.png" alt="">钻石报告
+        </p>
+    </header>
+    <div class="dashboard">
+        <div id="yibiao">
+            <div class="yuan1"></div>
+            <div class="clip"></div>
+            <div class="yuan2"></div>
+            <div class="pinfengzhishu">预测通过率</div>
+            <div class="num"><span>{if condition="isset($temp_res['scorecashon'])"/}{$temp_res.scorecashon}{/if}</span>%
+            </div>
+            <div class="pingjie">你的资质评级：
+                {if condition="isset($temp_res['scorecashon'])"/}
+                
+                	{if condition="$temp_res['scorecashon'] < '52'"/}
+                		D
+                	{elseif condition="$temp_res['scorecashon'] > '51' and $temp_res['scorecashon']< '71'"/}
+                		C
+                	{elseif condition="$temp_res['scorecashon'] > '70' and $temp_res['scorecashon']< '83'"/}
+                		B
+                	{elseif condition="$temp_res['scorecashon'] > '82'"/}
+                		A
+                	{else/}
+                		D
+                	{/if}
+                {/if}
+                级
+            </div>
+            <div class="waiquan">
+                <img src="__PUBLIC__/ximg/waiquan.png">
+                <div class="neiquan"><img src="__PUBLIC__/ximg/neiquan.png"></div>
+            </div>
+        </div>
+        <p class="username">{$opnames|mb_substr=0,1,'utf-8'}**&nbsp;&nbsp;&nbsp;{$op}</p>
+        <div class="percent_box">
+            <div id="bar" style="width:0%;">
+                <img src="__PUBLIC__/ximg/huojian01.png">
+            </div>
+        </div>
+        <p class="xinyong_per">您的通过率打败了全国<span id="total"></span>的用户！</p>
+        <p class="init_time">报告生成时间：
+            {if condition="isset($sales.createAt) and !empty($sales.createAt)"/}
+        		{$sales.createAt|date="Y-m-d H:i:s",###}
+        {else/}
+        		{if condition="isset($createdAt) and !empty($createdAt)"/}
+        			{$createdAt|date="Y-m-d H:i:s",###}
+        		{else/}	
+        			{if condition="isset($chaxun['dates']) and !empty($chaxun['dates'])"/}
+        				{$chaxun['dates']|date="Y-m-d H:i:s",###}    			
+            		{else/}
+            			0
+            		{/if}
+            	{/if}
+         {/if}
+        </p>
+
+    </div>
+    <div class="main_content">
+        <div class="content_box">
+            <p class="cont_ti conti_risk"><span>风险解读</span></p>
+            <div class="risk_list clearfix">
+                {if condition="isset($temp_res['scorecashon'])"/}
+
+                {if condition="$temp_res['scorecashon'] <= '40'"/}
+                <?php
+                        $socreasho01 = ['网络小贷高风险','信贷逾期后还款名单','风险群体名单','多头借贷严重名单','网贷黑名单','羊毛党名单','恶意注册名单'];
+                        foreach($socreasho01 as $key => $value){
+                ?>
+                <p><?php echo  $value ?></p>
+                <?php } ?>
+                {if condition="isset($temp_res['ex_execut2_casenum'])" }
+                <p>法院失信名单</p>
+                {/if}
+
+                {if condition="count($fayuan) neq 0 " }
+                <p>法院执行名单</p>
+                {/if}
+                {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                <?php
+                        $socreasho02 = ['网络小贷高风险','信贷逾期后还款名单','风险群体名单','多头借贷严重名单','网贷灰名单','羊毛党名单'];
+                        foreach($socreasho02 as $key => $value){
+                ?>
+                <p><?php echo  $value ?></p>
+                <?php } ?>
+                {if condition="isset($temp_res['ex_execut2_casenum'])" }
+                <p>法院失信名单</p>
+                {/if}
+
+                {if condition="count($fayuan) neq 0 " }
+                <p>法院执行名单</p>
+                {/if}
+
+                {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                <?php
+                        $socreasho03 = ['网络小贷高风险','风险群体名单','网贷灰名单'];
+                        foreach($socreasho03 as $key => $value){
+                ?>
+                <p><?php echo  $value ?></p>
+                <?php } ?>
+                {if condition="isset($temp_res['ex_execut2_casenum'])" }
+                <p>法院失信名单</p>
+                {/if}
+
+                {if condition="count($fayuan) neq 0 " }
+                <p>法院执行名单</p>
+                {/if}
+
+                {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                <?php
+                        $socreasho04 = ['机构关注名单'];
+                        foreach($socreasho04 as $key => $value){
+                ?>
+                <p><?php echo  $value ?></p>
+                <?php } ?>
+                {if condition="isset($temp_res['ex_execut2_casenum'])" }
+                <p>法院失信名单</p>
+                {/if}
+
+                {if condition="count($fayuan) neq 0 " }
+                <p>法院执行名单</p>
+                {/if}
+
+                {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                {if condition="isset($temp_res['ex_execut2_casenum']) || count($fayuan) neq 0 "}
+
+                {if condition="isset($temp_res['ex_execut2_casenum'])" }
+                <p>法院失信名单</p>
+                {/if}
+
+                {if condition="count($fayuan) neq 0 " }
+                <p>法院执行名单</p>
+                {/if}
+
+                {else/}
+                <p>查询成功，未检测到风险 </p>
+                {/if}
+
+                {else/}
+
+                {if condition="isset($temp_res['ex_execut2_casenum']) || count($fayuan) neq 0 "}
+                {if condition="isset($temp_res['ex_execut2_casenum'])" }
+                <p>法院失信名单</p>
+                {/if}
+                {if condition="count($fayuan) neq 0 " }
+                <p>法院执行名单</p>
+                {/if}
+                {else/}
+                <p>查询成功，未检测到风险 </p>
+                {/if}
+                {/if}
+                {else/}
+                {if condition="isset($temp_res['ex_execut2_casenum']) || count($fayuan) neq 0 "}
+                {if condition="isset($temp_res['ex_execut2_casenum'])" }
+                <p>查询成功，未检测到风险点 </p>
+                {/if}
+                {if condition="count($fayuan) neq 0 " }
+                <p>法院执行名单</p>
+                {/if}
+                {else/}
+                    <div class="mui-card-content-inner" style="padding: 30px;padding-bottom: 50px;height: 160px;background-image: url(/public/index/report/tsmd.png);background-size: 82% 160px;margin-left: 15%;background-repeat: no-repeat;"></div>
+                    <p style="text-align: center;clear: both;font-size: 14px;">查询成功，未检测到风险点。</p>
+                {/if}
+                {/if}
+            </div>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>预测额度</span></p>
+            <div class="forecast">
+                <p>信用卡预测额度：</p>
+                <p>
+                    {if condition="isset($temp_res['scorecashon'])"/}
+                    {if condition="$temp_res['scorecashon'] <= '40'"/}
+                    5000以下
+                    {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                    5千—1.5万
+                    {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                    1万—2万
+                    {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                    1.5万—3万
+                    {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                    3万以上
+                    {else/}
+                    无
+                    {/if}
+                    {else/}
+                    无
+                    {/if}
+                </p>
+            </div>
+            <div class="forecast forecast1">
+                <p>贷款预测额度：</p>
+                <p>
+                    {if condition="isset($temp_res['scorecashon'])"/}
+                    {if condition="$temp_res['scorecashon'] <= '40'"/}
+                    10000以下
+                    {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                    8千—2万
+                    {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                    1.5万—3万
+                    {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                    3万—5万
+                    {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                    5万以上
+                    {else/}
+                    无
+                    {/if}
+                    {else/}
+                    无
+                    {/if}
+                </p>
+            </div>
+            <p class="forecast_tips">小钻说：授信额度由钻石报告评测，额度仅供参考，钻石报告仅做获取及展示，不对此额度做任何担保及保证!</p>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>个人信息</span></p>
+            <div class="userinfo">
+                <div class="info_list clearfix">
+                    <p class="info_left">
+                        <img src="__PUBLIC__/ximg/xpf-x.png" alt="">姓名：
+                    </p>
+                    <p class="info_right">{$opnames|mb_substr=0,1,'utf-8'}**</p>
+                </div>
+                <div class="info_list clearfix">
+                    <p class="info_left">
+                        <img src="__PUBLIC__/ximg/xpf-xb.png" alt="">性别：
+                    </p>
+                    <p class="info_right">{$ren}</p>
+                </div>
+                <div class="info_list clearfix">
+                    <p class="info_left">
+                        <img src="__PUBLIC__/ximg/xpf-n.png" alt="">年龄：
+                    </p>
+                    <p class="info_right">{$ningling}岁</p>
+                </div>
+                <div class="info_list clearfix">
+                    <p class="info_left">
+                        <img src="__PUBLIC__/ximg/xpf-sj.png" alt="">手机：
+                    </p>
+                    <p class="info_right">{$op}</p>
+                </div>
+                <div class="info_list clearfix">
+                    <p class="info_left">
+                        <img src="__PUBLIC__/ximg/xpf-shif.png" alt="">身份证：
+                    </p>
+                    <p class="info_right">{$opcard}</p>
+                </div>
+                <div class="info_list clearfix">
+                    <p class="info_left">
+                        <img src="__PUBLIC__/ximg/xpf-sfg.png" alt="">身份证归属地：
+                    </p>
+                    <p class="info_right">{$dizhi.province}{$dizhi.city}</p>
+                </div>
+                <div class="info_list clearfix">
+                    <p class="info_left">
+                        <img src="__PUBLIC__/ximg/xpf-sfg.png" alt="">商户单号：
+                    </p>
+                    <p class="info_right">
+                        {if condition="isset($sales['out_trade_no']) and
+                        !empty($sales['out_trade_no'])"}{$sales['out_trade_no']}{/if}
+                    </p>
+                </div>
+                <div class="info_list clearfix">
+                    <p class="info_left">
+                        <img src="__PUBLIC__/ximg/xpf-sfg.png" alt="">交易单号：
+                    </p>
+                    <p class="info_right">
+                        {if condition="isset($sales['transaction_id']) and
+                        !empty($sales['transaction_id'])"}{$sales['transaction_id']}{/if}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>借款意向验证</span></p>
+            <p class="intention_score">借贷意向评分</p>
+            <p class="intention_num"><span>
+                {if condition="isset($temp_res['scorecashon'])"/}{$temp_res.scorecashon-3}{/if}
+            </span></p>
+            <p class="intention_des">数值越高，表示近期借贷意向越强烈！</p>
+            <p class="intention_tips">小钻说：通过科学的模型推算，分析您的借贷习惯，借贷偏好，借贷趋势等行为特征，为借贷平台提供借款审核参考。</p>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>特殊名单验证</span></p>
+            <div class="anti_fraud">
+                {if condition="count($mingdan)"/}
+                {if condition="isset($mingdan['sl_id_court_bad_time']['k'])"}
+                <div class="cheat clearfix">
+                        <p class="cheat_left">{if condition="isset($mingdan['sl_id_court_bad_time']['k'])"}
+                            {$mingdan['sl_id_court_bad_time']['k']} ：
+                            {/if}
+                        </p>
+
+                        <p class="cheat_right">
+                            {if condition="isset($mingdan['sl_id_court_bad_time']['v'])"}
+                            {$mingdan['sl_id_court_bad_time']['v']}
+                            {/if}
+                        </p>
+
+                </div>
+                {/if}
+                {if condition="isset($mingdan['sl_id_court_bad_allnum']['k'])"}
+                <div class="cheat clearfix">
+
+                        <p class="cheat_left">
+                            {if condition="isset($mingdan['sl_id_court_bad_allnum']['k'])"}
+                            {$mingdan['sl_id_court_bad_allnum']['k']}：
+                            {/if}
+                        </p>
+                        <p class="cheat_right">
+                            {if condition="isset($mingdan['sl_id_court_bad_allnum']['v'])"}
+                            {$mingdan['sl_id_court_bad_allnum']['v']}
+                            {/if}
+                        </p>
+
+                </div>
+                {/if}
+                {if condition="isset($mingdan['sl_id_court_executed']['k'])"}
+                <div class="cheat clearfix">
+                    <p class="cheat_left">
+                        {if condition="isset($mingdan['sl_id_court_executed']['k'])"}
+                        {$mingdan['sl_id_court_executed']['k']}：
+                        {/if}
+                    </p>
+                    <p class="cheat_right">
+                        {if condition="isset($mingdan['sl_id_court_executed']['v'])"}
+                        {$mingdan['sl_id_court_executed']['v']}
+                        {/if}
+                    </p>
+                </div>
+                {/if}
+                {if condition="isset($mingdan['sl_id_court_executed_time']['k'])"}
+                <div class="cheat clearfix">
+                    <p class="cheat_left">
+                        {if condition="isset($mingdan['sl_id_court_executed_time']['k'])"}
+                        {$mingdan['sl_id_court_executed_time']['k']}：
+                        {/if}
+                    </p>
+                    <p class="cheat_right">
+                        {if condition="isset($mingdan['sl_id_court_executed_time']['v'])"}
+                        {$mingdan['sl_id_court_executed_time']['v']}
+                        {/if}
+                    </p>
+                </div>
+                {/if}
+                {if condition="isset($mingdan['sl_id_court_bad']['k'])"}
+                <div class="cheat clearfix">
+                    <p class="cheat_left">
+                        {if condition="isset($mingdan['sl_id_court_bad']['k'])"}
+                        {$mingdan['sl_id_court_bad']['k']}：
+                        {/if}
+                    </p>
+                    <p class="cheat_right">
+                        {if condition="isset($mingdan['sl_id_court_bad']['v'])"}
+                        {$mingdan['sl_id_court_bad']['v']}
+                        {/if}
+                    </p>
+                </div>
+                {/if}
+                {if condition="isset($mingdan['sl_id_court_executed_allnum']['k'])"}
+                <div class="cheat clearfix">
+                    <p class="cheat_left">
+                        {if condition="isset($mingdan['sl_id_court_executed_allnum']['k'])"}
+                        {$mingdan['sl_id_court_executed_allnum']['k']}：
+                        {/if}
+                    </p>
+                    <p class="cheat_right">
+                        {if condition="isset($mingdan['sl_id_court_executed_allnum']['v'])"}
+                        {$mingdan['sl_id_court_executed_allnum']['v']}
+                        {/if}
+                    </p>
+                </div>
+
+                {/if}
+                {else/}
+                    <div class="mui-card-content-inner" style="padding: 30px;padding-bottom: 50px;height: 160px;background-image: url(/public/index/report/tsmd.png);background-size: 82% 160px;margin-left: 15%;background-repeat: no-repeat;"></div>
+                    <p style="text-align: center;clear: both;font-size: 14px;">查询成功，未检测到相关信息。</p>
+                {/if}
+            </div>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>联系人风险</span></p>
+            <div class="contact_box">
+                <div class="info_list clearfix">
+                    <p class="info_left">直接联系人黑名单人数：</p>
+                    <p class="info_right">
+                        {if condition="isset($temp_res['maxarr'])"/}
+                        {$temp_res.maxarr}
+                        {else}
+                        0
+                        {/if}
+                    </p>
+                </div>
+                <div class="info_list clearfix">
+                    <p class="info_left">间接联系人黑名单人数：</p>
+                    <p class="info_right">
+                        {if condition="!isset($temp_res['als_m12_id_bank_allnum'])"/}
+                        {if condition="!isset($temp_res['als_m12_id_nbank_allnum'])"/}
+                        0
+                        {else}
+                        {$temp_res.als_m12_id_nbank_allnum*2}
+                        {/if}
+                        {else}
+                        {if condition="!isset($temp_res['als_m12_id_nbank_allnum'])"/}
+                        {$temp_res.als_m12_id_bank_allnum*2}
+                        {else}
+                        {$temp_res.als_m12_id_bank_allnum*2+$temp_res.als_m12_id_nbank_allnum*2}
+                        {/if}
+                        {/if}
+                    </p>
+                </div>
+            </div>
+            <p class="contact_tips">小钻说：身边的黑名单朋友过多，也会对钻石报告造成影响，物以类聚，人以群分。</p>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>高风险命中查询</span></p>
+            <div class="contact_box">
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">银行机构高风险</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：负债率高，频繁申贷，职业异常</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">非银行机构高风险</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：机构代办，异常审核</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">网络小贷高风险</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] <= '40'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                            <span>未命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：异常支付，仿冒风险</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">线下小贷高风险</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：机构代办，资料异常</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">消费金融高风险</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：负债偏高</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">融资租赁高风险</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：汽车租赁违约</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">汽车金融风险</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：车贷风险名单</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">法院执行名单</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：法院执行人</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">法院失信名单</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：法院失信人</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">信贷逾期名单</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：逾期欠款</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">信贷逾期后还款名单</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] <= '40'"/}
+                            <span class="yes">命中</span>
+                            <!-- <span style="background:red;border-radius: 18px; padding-left: 10px;padding-right: 10px; font-size:13px;color:#fff;"> 命中</span> -->
+                            {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                            <span>未命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：逾期后还款</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">风险群体名单</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] <= '40'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                            <span>未命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span class="no">未命中</span>
+                            {/if}
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：垃圾注册，异常提现、机构代办</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">多头借贷严重名单</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] <= '40'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                            <span>未命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：频繁注册申请贷款</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">欺诈风险名单</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：仿冒风险，资料异常</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">高负债名单</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：负债过高</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">网贷黑名单</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] <= '40'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                            <span>未命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：信用异常</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">行业黑名单</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：从事行业风险过高</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">羊毛党黑名单</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] <= '40'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                            <span>未命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：恶意注册，刷单</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">网贷灰名单</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] <= '40'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                            <span>未命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：多头借款，有逾期倾向</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">恶意注册名单</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] <= '40'"/}
+                            <span class="yes">命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '40' and $temp_res['scorecashon']< '61'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '60' and $temp_res['scorecashon']< '73'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span>未命中</span>
+                            {elseif condition="$temp_res['scorecashon'] > '82'"/}
+                            <span>未命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：异常支付，异常注册</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">车辆租赁违约名单</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：汽车租赁违约</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">犯罪通缉名单</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：刑事犯罪</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">机构关注名单</p>
+                        <p class="info_right">
+                            {if condition="isset($temp_res['scorecashon'])"/}
+                            {if condition="$temp_res['scorecashon'] > '72' and $temp_res['scorecashon']< '83'"/}
+                            <span class="yes">命中</span>
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                            {else/}
+                            <span>未命中</span>
+                            {/if}
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：当事人风险指数有增高倾向</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">身份证命中高风险区域</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：身份证所属地区逾期风险较集中</p>
+                </div>
+                <div class="search_list">
+                    <div class="info_list clearfix">
+                        <p class="info_left">存在信用逾期历史记录</p>
+                        <p class="info_right">
+                            <span>未命中</span>
+                        </p>
+                    </div>
+                    <p class="risk_type">风险类型：逾期，逾期后还款</p>
+                </div>
+            </div>
+            <p class="contact_tips">借款前，放款机构会在金融平台共享信息中查询用户是否存在逾期或者违约行为、是否被其他机构拉入高风险名单。</p>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>多平台注册申请</span></p>
+            <div class="contact_box">
+                <div id="histogram"></div>
+            </div>
+        	
+        	
+            <ul class="register_tab">
+                <li>
+                    <p class="tab_list">
+                        <span>近7天内</span>
+                        <span> <span class="q-jiar"> <?php $day7 = ceil($ctime/8); echo $day7; ?></span>
+                           <i class="mui-icon mui-icon-arrowdown"></i> </span>
+                    </p>
+                    <div class="apply_list">
+                        <p class="apply_ti">身份证申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($day7/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $day7-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+
+
+                        <p class="apply_ti apply_ti1">手机号申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($day7/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $day7-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <p class="tab_list">
+                        <span>近1个月内</span>
+                        <span>
+                             <span class="y-jiar"> <?php $day1 = ceil($ctime/4); echo $day1; ?></span>
+                            <i class="mui-icon mui-icon-arrowdown"></i></span>
+                    </p>
+                    <div class="apply_list">
+                        <p class="apply_ti">身份证申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($day1/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $day1-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_ti apply_ti1">手机号申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($day1/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $day1-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <p class="tab_list">
+                        <span>近3个月内</span>
+                        <span>
+                            <span class="s-jiar">   <?php $day3 = ceil($ctime/3); echo $day3; ?></span>
+                            <i class="mui-icon mui-icon-arrowdown"></i></span>
+                    </p>
+                    <div class="apply_list">
+                        <p class="apply_ti">身份证申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($day3/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $day3-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_ti apply_ti1">手机号申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($day3/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $day3-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <p class="tab_list">
+                        <span>近6个月内</span>
+                        <span>
+                            <span class="l-jiar">  <?php $day6 = ceil($ctime/2); echo $day6; ?> </span>
+                            <i class="mui-icon mui-icon-arrowdown"></i></span>
+                    </p>
+                    <div class="apply_list">
+                        <p class="apply_ti">身份证申请</p>
+
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($day6/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $day6-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+
+                        <p class="apply_ti apply_ti1">手机号申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($day6/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $day6-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <p class="tab_list">
+                        <span>近12个月内</span>
+                        <span>
+                             <span class="e-jiar"><?php echo $ctime; ?>  </span>
+                            <i class="mui-icon mui-icon-arrowdown"></i></span>
+                    </p>
+                    <div class="apply_list">
+                        <p class="apply_ti">身份证申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($ctime/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $ctime-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_ti apply_ti1">手机号申请</p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请次数</span>
+                            <span> <?php $xe = ceil($ctime/2); echo $xe; ?></span>
+                        </p>
+                        <p class="apply_item">
+                            <span>小额现金贷申请机构数</span>
+                            <span>
+                                <?php echo $xe > 3 ? $xe-3 : 1;  ?>
+                            </span>
+                        </p>
+                        <?php $b1 = $ctime-$xe;  $c = ceil($b1/5);  ?>
+                        <p class="apply_item">
+                            <span>现金分期申请次数</span>
+                            <span>
+                                <?php $a7 = $b1-$c; echo $c > 1 ? $c : 1; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>现金分期申请机构数</span>
+                            <span>
+                                  <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+                        <p class="apply_item">
+                            <span>信用卡申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线下消费分期申请机构数</span>
+                            <span>
+                               0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>线上消费分期申请机构数</span>
+                            <span>
+                               <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请次数</span>
+                            <span>
+                                0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>汽车金融申请机构数</span>
+                            <span>
+                             0
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请次数</span>
+                            <span>
+                               <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>p2p机构申请机构数</span>
+                            <span>
+                             <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请次数</span>
+                            <span>
+                              <?php echo $a7 >= $c ? $c : 0 ; $a7 = $a7 >= $c ? $a7 - $c : 0  ;  ?>
+                            </span>
+                        </p>
+
+                        <p class="apply_item">
+                            <span>小贷机构申请机构数</span>
+                            <span>
+                              <?php echo $a7 > 0 ? ($c > 3 ? $c - 3 : $c ) : 0 ; ?>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>详细时间段行为查询</span></p>
+            <div class="contact_box">
+                <div id="polygonal"></div>
+            </div>
+            <div class="table_box">
+                <table border="1">
+                    <tr>
+                        <td></td>
+                        <td>近1个月</td>
+                        <td>近2个月</td>
+                        <td>近3个月</td>
+                        <td>近4个月</td>
+                    </tr>
+                    <tr>
+                        <td>申请次数</td>
+                        <td class="jin-1y-c">
+                            <?php echo ceil($ctime/4); ?>
+                        </td>
+                        <td class="jin-2y-c">
+                            <?php echo ceil(($ctime/3)) > ceil(($ctime/4)) ? ceil(($ctime/3))  - ceil(($ctime/4)) : 0; ?>
+                        </td>
+                        <td class="jin-3y-c">
+                            <?php echo ceil($ctime/3); ?>
+                        </td>
+                        <td class="jin-4y-c">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>申请机构数</td>
+                        <td class="jin-1y-g">
+                            <?php echo ceil($ctime/4/2); ?>
+                        </td>
+                        <td class="jin-2y-g">
+                            <?php echo ceil(($ctime/3/2)) > ceil(($ctime/5/2)) ? ceil(($ctime/3/2)) - ceil(($ctime/5/2)) : 0 ; ?>
+                        </td>
+                        <td class="jin-3y-g">
+                            <?php echo ceil($ctime/3/2); ?>
+                        </td>
+                        <td class="jin-4y-g">
+                            0
+                        </td>
+                    </tr>
+                </table>
+                <table border="1">
+                    <tr>
+                        <td></td>
+                        <td>近5个月</td>
+                        <td>近6个月</td>
+                        <td>近7个月</td>
+                        <td>近8个月</td>
+                    </tr>
+                    <tr>
+                        <td>申请次数</td>
+                        <td class="jin-5y-c">
+                           <?php echo ceil($ctime/2) > ceil($ctime/3) ? ceil($ctime/2) - ceil($ctime/3) : 0 ; ?>
+                        </td>
+                        <td class="jin-6y-c">
+                            <?php echo ceil($ctime/2); ?>
+                        </td>
+                        <td class="jin-7y-c">
+                            0
+                        </td>
+                        <td class="jin-8y-c">
+                            <?php echo ceil($ctime/2) +2; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>申请机构数</td>
+                        <td class="jin-5y-g">
+                            <?php echo ceil($ctime/2/2) > ceil($ctime/3/2) ? ceil($ctime/2/2) - ceil($ctime/3/2) : 0 ; ?>
+                        </td>
+                        <td class="jin-6y-g">
+                            <?php echo ceil($ctime/2/2); ?>
+                        </td>
+                        <td class="jin-7y-g">
+                            0
+                        </td>
+                        <td class="jin-8y-g">
+                            <?php echo ceil($ctime/2/2) +1; ?>
+                        </td>
+                    </tr>
+                </table>
+                <table border="1">
+                    <tr>
+                        <td></td>
+                        <td>近9个月</td>
+                        <td>近10个月</td>
+                        <td>近11个月</td>
+                        <td>近12个月</td>
+                    </tr>
+                    <tr>
+                        <td>申请次数</td>
+                        <td class="jin-9y-c">
+                            0
+                        </td>
+                        <td class="jin-10y-c">
+                            <?php echo ceil($ctime/2) +3; ?>
+                        </td>
+                        <td class="jin-11y-c">
+                            0
+                        </td>
+                        <td class="jin-12y-c">
+                            <?php echo $ctime; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>申请机构数</td>
+                        <td class="jin-9y-g">
+                            0
+                        </td>
+                        <td class="jin-10y-g">
+                              <?php echo ceil($ctime/2) > 1 ? ceil($ctime/2) - 1 : 0 ; ?>
+                        </td>
+                        <td class="jin-11y-g">
+                            0
+                        </td>
+                        <td class="jin-12y-g">
+                            <?php echo ceil($ctime/2); ?>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p class="contact_tips">
+                用户自查询日过去1-12个月，详细时间段的申请行为，例如查询当前日期为10月20日，近1个月指的是9月21日至10月20日，近2个月为8月21-9月20日，依此类推。</p>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>身份证关联信息</span></p>
+            <div class="table_box relation_box">
+                <table border="1">
+                    <tr>
+                        <td>身份证关联</td>
+                        <td>近1个月</td>
+                        <td>近3个月</td>
+                        <td>近6个月</td>
+                        <td>近12个月</td>
+                    </tr>
+                	<tr>
+                        <td>手机号个数</td>
+                		<td><?php $lxr > 0 ? $a = ceil($lxr/2)-1 : $a = 0 ; echo $a;  ?></td>
+                		<td><?php $a >= 5 ? $a = 5 : $a = $a; echo $a;   ?></td>
+                		<td><?php $a >= 5 ? $a = 5 : $a = $a+1; echo $a;   ?></td>
+                		<td><?php $a >= 5 ? $a = 5 : $a = $a; echo $a;   ?></td>
+                    </tr>
+                    <tr>
+                        <td>邮箱个数</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>姓名个数</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>家庭电话个数</td>
+                        <td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+            			<td><?php echo $lxr >= 3 ?  1 : 1  ?></td>
+                    </tr>
+                    <tr>
+                        <td>家庭地址个数</td>
+                        <td><?php echo $lxr == 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr == 3 ?  1 : 1  ?></td>
+                		<td><?php echo $lxr == 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr == 3 ?  1 : 1  ?></td>
+                    </tr>
+                    <tr>
+                        <td>公司地址个数</td>
+                        <td><?php echo $lxr >= 3 ?  1 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 2  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 2  ?></td>
+                		<td><?php echo $lxr >= 3 ?  1 : 2  ?></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>手机号关联信息</span></p>
+            <div class="table_box relation_box relation_box1">
+                 <table border="1">
+                    <tr>
+                        <td>手机号关联</td>
+                        <td>近1个月</td>
+                        <td>近3个月</td>
+                        <td>近6个月</td>
+                        <td>近12个月</td>
+                    </tr>
+                    <tr>
+                        <td>手机号个数</td>
+                        <td><?php $lxr > 0 ? $a = ceil($lxr/3)-1 : $a = 0 ; echo $a;  ?></td>
+                		<td><?php $a >= 5 ? $a = 5 : $a = $a; echo $a;   ?></td>
+                		<td><?php $a >= 5 ? $a = 5 : $a = $a+1; echo $a;   ?></td>
+                		<td><?php $a >= 5 ? $a = 5 : $a = $a; echo $a;   ?></td>
+                    </tr>
+                    <tr>
+                        <td>邮箱个数</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>姓名个数</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>家庭电话个数</td>
+                        <td><?php echo $lxr >= 3 ?  1 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  1 : 1  ?></td>
+                    </tr>
+                    <tr>
+                        <td>家庭地址个数</td>
+                         <td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  1 : 1  ?></td>
+                    </tr>
+                    <tr>
+                        <td>公司地址个数</td>
+                        <td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  1 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  0 : 1  ?></td>
+                		<td><?php echo $lxr >= 3 ?  1 : 1  ?></td>
+                    </tr>
+                </table>
+            </div>
+            <p class="contact_tips">用户在其他机构的申请行为会被钻石报告共享平台记录，住址和工作单位作为重要的风控标准，如用户地址变更频繁，则代表用户生活稳定性偏低，或者有中介代办等行为。</p>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>反欺诈信息</span></p>
+            <div class="anti_fraud">
+                <div class="cheat clearfix">
+                    <p class="cheat_left">借贷意向异常</p>
+                    <p class="cheat_right">
+                        {if condition="!isset($temp_res['Rule_name_CAE056'])"/}
+                        <span>未命中</span>
+                        {else}
+                        {if condition="$temp_res['Rule_name_CAE056'] neq ''"/}
+                        <span>{$temp_res.Rule_name_CAE056}</span>
+                        {else}
+                        0
+                        {/if}
+                        {/if}
+                    </p>
+                </div>
+                <div class="cheat clearfix">
+                    <p class="cheat_left">法院被执行人</p>
+                    <p class="cheat_right">
+                        {if condition="!isset($temp_res['Rule_name_QJE010'])"/}
+                        <span>未命中</span>
+                        {else}
+                        {if condition="$temp_res['Rule_name_QJE010'] neq ''"/}
+                        <span>{$temp_res.Rule_name_QJE010}</span>
+                        {else}
+                        0
+                        {/if}
+                        {/if}
+                    </p>
+                </div>
+                <div class="cheat clearfix">
+                    <p class="cheat_left">特殊名单</p>
+                    <p class="cheat_right">
+                        {if condition="!isset($temp_res['Rule_name_QJT001'])"/}
+                        <span>未命中</span>
+                        {else}
+                        {if condition="$temp_res['Rule_name_QJT001'] neq ''"/}
+                        <span>{$temp_res.Rule_name_QJT001}</span>
+                        {else}
+                        0
+                        {/if}
+                        {/if}
+                    </p>
+                </div>
+                <div class="cheat clearfix">
+                    <p class="cheat_left">身份证关联信息异常</p>
+                    <p class="cheat_right">
+                        {if condition="!isset($temp_res['Rule_name_CBD001'])"/}
+                        <span>未命中</span>
+                        {else}
+                        {if condition="$temp_res['Rule_name_CBD001'] neq ''"/}
+                        <span>{$temp_res.Rule_name_CBD001}</span>
+                        {else}
+                        0
+                        {/if}
+                        {/if}
+                    </p>
+                </div>
+                <div class="cheat clearfix">
+                    <p class="cheat_left">地址信息异常</p>
+                    <p class="cheat_right">
+                        {if condition="!isset($temp_res['Rule_name_CAM001'])"/}
+                            <span>未命中</span>
+                        {else}
+                        {if condition="$temp_res['Rule_name_CAM001'] neq ''"/}
+                            <span>{$temp_res.Rule_name_CAM001}</span>
+                        {else}
+                            0
+                        {/if}
+                        {/if}
+                    </p>
+                </div>
+                <div class="cheat clearfix">
+                    <p class="cheat_left">个人不良信息</p>
+                    <p class="cheat_right">
+                        {if condition="!isset($temp_res['Rule_name_FBB005'])"/}
+                            <span>未命中</span>
+                        {else}
+                        {if condition="$temp_res['Rule_name_FBB005'] neq ''"/}
+                            <span>{$temp_res.Rule_name_FBB005}</span>
+                        {else}
+                            0
+                        {/if}
+                        {/if}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>提高评分消除风险建议</span></p>
+            <div class="proposal_box">
+                <p>1、三个月不要注册申请超过20次贷款，控制申请频率。</p>
+                <p>2、如果有逾期或者被执行等不良记录，保持良好的信用1-2年，记录可以滚动覆盖过去。</p>
+                <p>3、保持良好的借贷习惯，切勿频繁申请，拒绝不明平台的审核邀请。</p>
+                <p>4、信用卡一年申请不超过6次，含同一机构，网贷3个月内申请不超过20次</p>
+                <p>5、减少和网贷黑名单这类人群的联系，使自己的朋友圈都是优良高素质群体</p>
+            </div>
+        </div>
+        <div class="gray_bg"></div>
+        <div class="content_box">
+            <p class="cont_ti"><span>申贷最重要的小技巧</span></p>
+            <div class="proposal_box">
+                <p>1、下载借款APP及申请的时候，平台需要获取定位，通讯录等权限，务必选择允许或者好和同意。</p>
+                <p>2、如果有逾期或者被执行等不良记录，保持良好的信用1-2年，记录可以滚动覆盖过去。</p>
+                <p>3、如果手机号非本人实名，暂时只申请查征信上征信类的贷款，这类贷款不看重手机号是否实名制。</p>
+                <p>4、预留的联系人一定不能是银行或网贷有不良记录的，通话记录一定要和本人较多的。</p>
+                <p>5、删除手机中关于贷款、中介、赌博、网贷有逾期未还者。</p>
+                <p>6、把预留的三个联系人在通讯录中改成真名。</p>
+                <p>7、支付宝收货地址多的删掉，留下一个家庭和一个公司的。</p>
+                <p>8、把支付宝的网贷授权取消掉，申请网贷的同时，申请完一家，申请第二家的时候取消上一家的授权。</p>
+                <p>9、淘宝的收货地址尽量与支付宝保持一致。</p>
+                <p>10、放款机构普遍认为已婚有子女、高学历者，稳定性高，逾期率低，更容易通过。</p>
+                <p>11、人脸识别五官露出来，不带眼镜帽子，光线适中。</p>
+                <p>12、签字必须要正楷，字迹不可潦草。</p>
+                <p>13、接回访电话时，按照所填资料如实回答，表现自己的还款意愿和还款能力，信用卡账单尽量网银导入。</p>
+                <p>14、下载及申请的时候，务必使用手机自带的流量，关闭WIFI信号。</p>
+            </div>
+        </div>
+        <div class="gray_bg"></div>
+       {if condition="$agent['isoem_name'] eq '1'"/}
+    {if condition="!empty($agent['thumb'])"/}
+    <div style="text-align: center;">
+    <img src="/public/{$agent.thumb}" style="width: 140px;margin-top: 20px;"/>
+    <p style="text-align: center;">
+        扫码成为
+        合伙人
+        <br>查信用，赚佣金
+    </p>
+    </div>
+    {/if}
+    {else/}
+    {if condition="$agent['isopen_ewm'] eq '1'"/}
+    <div style="text-align: center;">
+        <img src="__PUBLIC__/img/zsx01.jpg" style="width: 140px;margin-top: 20px;"/>
+        <p style="text-align:center;">
+            长按扫码关注
+            钻石报告
+            <br>查资质，查网黑
+        </p>
+    </div>
+    {/if}
+    {/if}                       
+        <div class="content_box">
+            <div class="bot_box">
+                <div class="bot_top">
+                    <img src="__PUBLIC__/ximg/sanjiao.png" alt="">
+                </div>
+                <p class="data_des">钻石报告报告说明</p>
+                <p class="data_txt">
+                    本报告不是银行征信，和个人信用无关，由本人授权查询，本平台只做获取和整理，报告仅供参考，如您对报告内容有异议，可联系我司沟通协商，最终解释权归本公司所有</p>
+                <!-- <img class="go_top" src="img/fanhuidingbu.png" alt=""> -->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function yibiaopan() {
+        //默认数字0--100，默认数字自增步长1
+        var buchang = 1;
+        var deg = 181.8 * buchang / 100; //每个步长代表的度数
+        var degs = parseInt($(".num span").text()) / buchang * deg; //先计算有几个步长,算出半圆要转的度数
+        var du = 0; //起始度数
+        var bu = 1; //数字自增步长
+        function zhuan() {
+
+            $(".clip").css("transform", "rotate(" + du + "deg)");
+            $(".num span").text(bu);
+            du += deg;
+            bu += buchang;
+            if (du >= degs) {
+                clearInterval(setin);
+            }
+
+        }
+
+        var setin = setInterval(zhuan, 15)
+    }
+
+    yibiaopan()
+
+    function run() {
+        var scorecashon = '{if condition="isset($temp_res.scorecashon)"/}{$temp_res.scorecashon}{/if}';
+        var num = parseInt(scorecashon) + 3;
+        var bar = document.getElementById("bar");
+        var total = document.getElementById("total");
+        bar.style.width = parseInt(bar.style.width) + 1 + "%";
+        total.innerHTML = bar.style.width;
+        if (bar.style.width == num + "%") {
+            window.clearTimeout(timeout);
+            return;
+        }
+        var timeout = window.setTimeout("run()", 15);
+    }
+
+    run();
+
+
+    var q = $('.q-jiar').html();
+
+    var y = $('.y-jiar').html();
+
+    var s = $('.s-jiar').html();
+
+    var l = $('.l-jiar').html();
+
+    var e = $('.e-jiar').html();
+
+    //柱状图
+    function histogram() {
+        var dom = document.getElementById("histogram");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        // app.title = '坐标轴刻度与标签对齐';
+
+        option = {
+            color: ['#ED7D31'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '0%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true,
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['7天内','1个月内', '3个月内', '6个月内', '12个月内'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    scale: true,
+                    min: 0
+                }
+            ],
+            series: [
+                {
+                    name: '直接访问',
+                    type: 'bar',
+                    barWidth: '40%',
+                    data: [q,y,s, l, e],
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true, //开启显示
+                                position: 'insideTop', //在上方显示
+                                textStyle: { //数值样式
+                                    color: '#fff',
+                                    fontSize: '0.26rem'
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+
+    histogram()
+
+    var c1 = $('.jin-1y-c').html();
+    var c2 = $('.jin-2y-c').html();
+    var c3 = $('.jin-3y-c').html();
+    var c4 = $('.jin-4y-c').html();
+    var c5 = $('.jin-5y-c').html();
+    var c6 = $('.jin-6y-c').html();
+    var c7 = $('.jin-7y-c').html();
+    var c8 = $('.jin-8y-c').html();
+    var c9 = $('.jin-9y-c').html();
+    var c10 = $('.jin-10y-c').html();
+    var c11 = $('.jin-11y-c').html();
+    var c12 = $('.jin-12y-c').html();
+    var g1 = $('.jin-1y-g').html();
+    var g2 = $('.jin-2y-g').html();
+    var g3 = $('.jin-3y-g').html();
+    var g4 = $('.jin-4y-g').html();
+    var g5 = $('.jin-5y-g').html();
+    var g6 = $('.jin-6y-g').html();
+    var g7 = $('.jin-7y-g').html();
+    var g8 = $('.jin-8y-g').html();
+    var g9 = $('.jin-9y-g').html();
+    var g10 = $('.jin-10y-g').html();
+    var g11 = $('.jin-11y-g').html();
+    var g12 = $('.jin-12y-g').html();
+
+
+
+    //折线图
+    function polygonal() {
+        var dom = document.getElementById("polygonal");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['申请次数', '申请机构数']
+            },
+            color: ["#5B9BD5", "#EC7E32"],
+            grid: {
+                left: '0%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '申请次数',
+                    type: 'line',
+                    stack: '总量',
+
+                    data: [c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12],
+                },
+                {
+                    name: '申请机构数',
+                    type: 'line',
+                    stack: '总量',
+
+                    data: [g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12],
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+
+    polygonal()
+</script>
+</html>

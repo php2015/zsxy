@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>及时雨</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+        <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+   
+    </head>
+    <body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/note')}"></a>
+            <h1 class="mui-title"></h1>
+        </header>
+
+        <div class="mui-content" style="background: #fff;">
+        <div style="text-align: center;padding-top:20px;">
+            <h class="detail-title" style="box-sizing: border-box; font-size: 24px; text-align: center;white-space: normal;">{$note.title}</h>
+            
+        </div>
+        <p style="margin-left:20px;">最后一次更新时间：{$note.lasttime|date="Y-m-d H:i:s",###}</p>
+        <div>{$note.content}</div>
+      </div>
+        
+    <body>
+        
+    </body>
+
+</html>

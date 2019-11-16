@@ -1,0 +1,471 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>罗马快车</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+        <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+    	<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+    	<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+    	<script src="__PUBLIC__/js/jquery.min.js"></script>
+        <style>
+            
+            .mui-plus .plus{
+                display: inline;
+            }
+            
+            .plus{
+                display: none;
+            }
+            
+            #topPopover {
+                position: fixed;
+                top: 16px;
+                right: 6px;
+            }
+            #topPopover .mui-popover-arrow {
+                left: auto;
+                right: 6px;
+            }
+           
+            span.mui-icon {
+                font-size: 14px;
+                color: #007aff;
+                margin-left: -15px;
+                padding-right: 10px;
+            }
+            .mui-popover {
+                height: 300px;
+            }
+            .mui-content {
+                padding: 0px;
+            }
+            address, blockquote, dl, fieldset, figure, hr, ol, p, pre, ul {
+                    margin: 0 0 0;
+                }
+			.mui-bar .mui-search:before {
+				margin-top: -15px;
+			}
+			.am-panel-default {
+				border-color: #fff;
+				}
+			.am-panel-bd {
+				padding: 1px;
+			}
+        </style>
+    </head>
+    <body style="max-width:550px;margin:0 auto; background:#fff;">
+    <header class="mui-bar" style="padding-right:0;padding-left:0;height:40px;max-width:550px; margin:0 auto; background:#f2f2f2;">
+           <!--  <h1 class="mui-title">罗马快车</h1> -->
+            <div style="">
+                    <div style="float: left;width: 85%;padding: 0;">
+                        <p  style="width: 15%;float: left;padding-top:4px;text-align: center;"  align="center"><img src="__PUBLIC__/img/xinlogo.png" style="width: 80%;float: left;max-width: 33px;margin-left: 1rem;"/></p>
+						<form action="" style="float:left;width:83%;">
+							<div class="mui-input-row mui-search" style="width:100%;">
+								<input id="search" type="search" class="mui-input-clear" placeholder="搜索商品名称" style="width: 100%;border: none;text-align: center;margin-top:5px;border-radius: 0px; background:#fff;">
+							</div>
+						</form>
+                       <!-- <input type="text" placeholder="搜索商品名称" value="" id="namess" name="namess" style="width: 78%;height:30px;border: none;text-align: center;margin-top:5px;border-radius: 5px;">-->
+                    </div>
+                     <p  style="width: 15%;float: right;padding-top:8px;text-align: center;"  align="center">
+					 	<a id="" class="mui-control-item" href="{:url('index/user/index')}">
+					 		<img src="__PUBLIC__/img/ren.png" style="width: 40%;float: left;max-width: 33px;margin-left: 1.5rem;"/>
+						</a>
+					 </p>
+                </div>
+        </header>
+		 <script type="text/javascript">
+                   /* $("#btn").click(function (){
+                        var namess =$("#namess").val();
+                        window.location.href="{:url('index/fenlei')}?namess="+namess;
+                      });*/
+					  
+					document.getElementById("search").addEventListener("keypress",function(event) {
+						if(event.keyCode == "13") {
+						var namess =document.getElementById("search").value;
+						//alert(namess);
+						 window.location.href="{:url('index/fenlei')}?namess="+namess;
+							//document.activeElement.blur();//收起虚拟键盘
+							
+							//alert("回车");
+							//toSearch();//TODO 完成搜索事件
+							event.preventDefault(); // 阻止默认事件---阻止页面刷新
+						}
+					});
+					 /*　document.getElementById('namess').onKeydown = function(e){
+					 alert(keyCode);
+					 alert(123);
+				　　　　if(e.keyCode == 13){
+				alert("键盘");
+				  　　 　　 e.preventDefault();//禁止键盘默认事件
+				   　　　　// bindSearchFn()
+				　　　　}
+				　　}*/
+                </script>
+        <div class="mui-content" style="max-width:550px; background:#fff;">
+        
+       
+        
+        <div >
+       
+                
+                
+                    
+                    <div style="width: 100%;height: 1000px;"></div>
+                        <div  id="pullrefresh"  class="mui-scroll-wrapper" style="margin-top:40px;">
+                            <div class="mui-card" style="padding:0;margin:0;background-color: #fff;">
+                                <div class="mui-content-padded" style="background-color: #efeff4; margin: 0px;">
+                                   <!--  <div class="mui-input-row mui-search input-search" style="width: 100%;background-color: #efeff4;">
+                                   <div><span style=" margin-left:5%;">时间</span><span style="float:right; margin-right:10%;">金额</span></div>
+                                    </div> -->
+                                </div>
+                                 <ul id="lis" class="" style="background-color: #fff;padding: 0;margin:0px;list-style: none;">
+								 		 <div id="slider" class="mui-slider">
+											<div class="mui-slider-group mui-slider-loop">
+												<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+												<div class="mui-slider-item mui-slider-item-duplicate">
+													<a href="#">
+														<img src="{$bannerone.thumb}">
+													</a>
+												</div>
+												<!-- 第一张 -->
+												{volist name="banner" id="vo"}
+												<div class="mui-slider-item">
+													<a href="#">
+														<img src="{$vo.thumb}">
+													</a>
+												</div>
+												{/volist}
+												<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+												<div class="mui-slider-item mui-slider-item-duplicate">
+													<a href="#">
+														<img src="{$bannerone.thumb}">
+													</a>
+												</div>
+											</div>
+										 </div>
+								 	  <div id="box_a" class="mui-segmented-control" style="border:1px solid  rgb(245, 245, 245);width:100%;padding-bottom: 2px;">
+									  
+										{volist name="leescorecategory" id="vo"}
+											<a id="" href="{:url('index/index/fenlei',array('l_id'=>$vo['id'],'lei_naem'=>$vo['tname']))}"
+											style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; padding-bottom: 5px; width:20%; float:left; text-align:center">
+												<p>{$vo.tname}</p>
+											</a>
+										{/volist}
+													<a href="javascript:chuxian();" style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; width:20%;   float:left; text-align:center;">
+														<p style="">
+															<span class="mui-icon mui-icon-arrowdown" style="font-size: 20px;color: #8f8f94;    margin-left: 0px;padding-right: 0px;">
+															</span>
+														</p>
+													</a>
+										</div>
+										<div id="box_b"  class="mui-segmented-control" style="border:1px solid  rgb(245, 245, 245);width:100%;padding-bottom: 2px; background:#fff; display:none;">
+									  <a id="xiaoshi" class="" href="javascript:xiaoshi();"
+											style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; padding-bottom: 5px; width:20%; float: right; text-align:center;">
+												<p><span class="mui-icon mui-icon-arrowup" style="font-size: 20px;color: #8f8f94;    margin-left: 0px;padding-right: 0px;">
+															</span></p>
+													
+													</a>
+										{volist name="leescorecategory_quanbu" id="vo"}
+											<a id=""  href="{:url('index/index/fenlei',array('l_id'=>$vo['id'],'lei_naem'=>$vo['tname']))}"
+											style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; padding-bottom: 5px; width:20%; float:left; text-align:center;">
+												<p>{$vo.tname}</p>
+											</a>
+										{/volist}
+										
+										</div>
+                <script type="text/javascript">
+                  function chuxian() { 
+						 var box_a = document.getElementById("box_a");
+						  var box_b = document.getElementById("box_b");    
+						  box_a.style.display = "none";
+						  box_b.style.display = "block";	           
+					} 
+					function xiaoshi() { 
+						 var box_a = document.getElementById("box_a");
+						  var box_b = document.getElementById("box_b");    
+						  box_a.style.display = "block";
+						  box_b.style.display = "none";	           
+					}  		 
+                  </script>
+								 	<div  style="background-color: #fff;clear: both;"><p style="width: 5px; height: 30px; background:#2d4bfc;float: left;"></p><span style="padding-left: 10px;line-height: 30px;">热门商品</span></div>
+										<div class="am-cf am-g" style="">
+												<ul class="am-avg-sm-2 my-shop-product-list" style="padding: 0;margin:0px;">
+													{volist name="remwn" id="vo"}
+													<li  style="padding: 0px;">
+														<a href="{:url("index/index/product",array('gid'=>$vo['id']))}"><div class="am-panel am-panel-default" >
+															<div class="am-panel-bd">
+																<img src="{$vo.thumb}" style="width: 100%;border: 1px solid #ccc;">
+																<!--<div style="background: url({$vo.thumb});background-repeat: no-repeat;background-size: 100%;width: 100%;height: 170px;border: 1px solid #ccc;"></div>-->
+																<h3 style="margin-bottom:0;"><a href="#" style="text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;    font-size: 16px;line-height: 20px; height: 20px; padding-left:5px;">{$vo.name}</a></h3>
+															  <p style="margin:0;padding: 0;font-size: 10px; padding-left:5px;">
+																	原价：<span style="text-decoration: line-through;font-size: 10px;">{$vo.yuanjia}元</span>
+																</p>
+																<div style="padding:0px 0; padding-left:5px;">
+																	<!--<span class="" style="color: #8f8f94;font-size: 10px;float:left;padding-top:6px;">原价：{$vo.yuanjia}元</span>-->
+																	<span class="" style="color: #2d4bfc;font-size: 10px;"><span style="padding-top:0px;">价格：</span><span style="font-size:14px;">{$vo.money*10}</span></span>
+																	<!--<span class="list-product-commission-span" style="text-align: center;line-height: 17px;color: #2d4bfc;border-radius: 5px;margin-left: 10px;margin-top: 5px;height: 20px;font-size: 12px;float: right;border:1px solid #2d4bfc;">兑换</span>-->
+																</div>
+																<!--<hr data-am-widget="divider" style="" class="am-divider am-divider-default am-cf"/>-->
+															</div>
+														</div>
+                                                      </a>
+													</li>
+												{/volist}
+												</ul>
+											</div>
+										  
+										<div  style="background-color: #fff;"><p style="width: 5px; height: 30px; background:#2d4bfc;float: left;"></p><span style="padding-left: 10px;line-height: 30px;">新上架</span></div>
+										<div class="am-cf am-g">
+												<ul class="am-avg-sm-2 my-shop-product-list"  style="padding: 0;">
+													{volist name="xinpin" id="vo"}
+													<li  style="padding: 0px;">
+														<a href="{:url("index/index/product",array('gid'=>$vo['id']))}"><div class="am-panel am-panel-default" >
+															<div class="am-panel-bd">
+																<img src="{$vo.thumb}" style="width: 100%;border: 1px solid #ccc;">
+																<!--<div style="background: url({$vo.thumb});background-repeat: no-repeat;background-size: 100%;width: 100%;height: 170px;border: 1px solid #ccc;"></div>-->
+																<h3 style="margin-bottom:0;"><a href="#" style="text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;    font-size: 16px;line-height: 20px; height: 20px; padding-left:5px;">{$vo.name}</a></h3>
+															  <p style="margin:0;padding: 0;font-size: 10px; padding-left:5px;">
+																	原价：<span style="text-decoration: line-through;font-size: 10px;">{$vo.yuanjia}元</span>
+																</p>
+																<div style="padding:0px 0; padding-left:5px;">
+																	<!--<span class="" style="color: #8f8f94;font-size: 10px;float:left;padding-top:6px;">原价：{$vo.yuanjia}元</span>-->
+																	<span class="" style="color: #2d4bfc;font-size: 10px;"><span style="padding-top:0px;">价格：</span><span style="font-size:14px;">{$vo.money*10}</span></span>
+																	<!--<span class="list-product-commission-span" style="text-align: center;line-height: 17px;color: #2d4bfc;border-radius: 5px;margin-left: 10px;margin-top: 5px;height: 20px;font-size: 12px;float: right;border:1px solid #2d4bfc;">兑换</span>-->
+																</div>
+																<!--<hr data-am-widget="divider" style="" class="am-divider am-divider-default am-cf"/>-->
+															</div>
+														</div>
+                                                      </a>
+													</li>
+												{/volist}
+												</ul>
+											</div>
+									<div  style="background-color: #fff;"><p style="width: 5px; height: 30px; background:#2d4bfc;float: left;"></p><span style="padding-left: 10px;line-height: 30px;">全部商品</span></div>
+                                   <div style="clear:both;"></div>
+                                </ul>
+                            </div>
+                        </div>
+                   
+          <div style="position: fixed;right: 15px; bottom: 30px;z-index: 999; ">
+            <a href="{:url('index/login/onenote',array('id'=>'7'))}"><img src="__PUBLIC__/img/renwu.png" style="width: 40px; height: 40px;" /></a>
+          </div>
+         <!--  <div style="position: fixed;right: 15px; bottom: 80px;">
+            <a href="{:url('index/user/index')}"><img src="__PUBLIC__/img/renwu.png" style="width: 40px; height: 20px;" /></a>
+          </div>      -->
+		 
+		
+    <script src="__PUBLIC__/js/mui.min.js "></script>
+    <script src="__PUBLIC__/js/jquery.min.js "></script>
+        <script>
+            mui.init({
+                swipeBack:true,//启用右滑关闭功能
+                pullRefresh: {
+                        container: '#pullrefresh',
+                        
+                        down: {
+                             height:50,//可选,默认50.触发下拉刷新拖动距离,
+                            style:'circle',
+                            callback: pulldownRefresh
+                          },
+                          up: {
+                             height:50,//可选,默认50.触发下拉刷新拖动距离,
+                            auto:false,
+                            contentrefresh: '正在加载...',
+                            callback: pullupRefresh
+                          }
+                    }
+            });
+             
+             function pulldownRefresh() {
+                setTimeout(function() {
+                  //addData();
+                  mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+                  //mui.toast("结束了");
+                }, 100);
+              }
+            mui('.mui-scroll-wrapper').scroll();
+            mui('body').on('shown', '.mui-popover', function(e) {
+                //console.log('shown', e.detail.id);//detail为当前popover元素
+            });
+            mui('body').on('hidden', '.mui-popover', function(e) {
+                //console.log('hidden', e.detail.id);//detail为当前popover元素
+            });
+            mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+
+             var lis=document.getElementById("lis");
+            var counter = 0;
+            var length = 4;
+            var Flag ='';
+            var namess =$("#namesssss").val();
+            var l_id =$("#l_id").val();
+            //mui.toast(namess);
+                function pullupRefresh() {
+                    setTimeout(function() {
+                        //参数为true代表没有更多数据了。
+                        
+                $.ajax({
+                    url:'{:url('index/index/chazhaoss')}',
+                    type:'get',
+                   data:{
+                            'page':counter,
+                            'namess':namess,
+                            'l_id':l_id
+                        },
+                    success:function(data){
+                        //alert(data);
+                    if(data.length!==length){
+                        Flag == true;
+                    }else{
+                        Flag == false;
+                    }
+                      if(Flag == false){
+                        //alert(counter);
+                                  counter++;
+                                  //console.log(counter);
+                              }   
+                              mui('#pullrefresh').pullRefresh().endPullupToRefresh((data.length!==length)); 
+                             
+                        for(var a in data){
+                            var tmp1='<li style="width:50%;float:left;padding:0px;"><div class="am-panel am-panel-default" style="background-color:#fff;padding: 0px 0px;margin-bottom: 0px;"><a href="{:url("index/index/product")}?gid='+data[a].id+'"><div class="am-panel-bd"><img src="'+data[a]['thumb']+'" style="width: 100%;border: 1px solid #ccc;"/><h3  style="margin-bottom:0;margin-top: 0.5em; padding-left:5px;"><a href="#" style="text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;    font-size: 16px;line-height: 20px; height: 20px; color:#000;">'+data[a]['name']+'</a></h3><p style="margin:0;padding: 0;font-size: 10px; padding-left:5px;">原价：<span style="text-decoration: line-through;font-size: 10px;">'+data[a]['yuanjia']+'元</span></p><div><span class="" style="color: #2d4bfc;font-size: 10px; padding-left:5px;"><span style="padding-top:0px;">价格：</span><span style="font-size:14px;">'+data[a]['money']*10+'</span></span></div></div></a></div></li>';
+							<!--var tmp1='<li style="width:50%;float:left;padding:0px;"><div class="am-panel am-panel-default" style="background-color:#fff;padding: 0px 0px;margin-bottom: 0px;"><a href="{:url("index/index/product")}?gid='+data[a].id+'"><div class="am-panel-bd"><div style="background: url('+data[a]['thumb']+');background-repeat: no-repeat;background-size: 100%;width: 100%;height: 150px;border: 1px solid #ccc;"></div><h3  style="margin-bottom:0;margin-top: 0.5em;"><a href="#" style="text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;    font-size: 12px;line-height: 16px; height: 32px; color:#000;">'+data[a]['titles']+'</a></h3><div><span class="" style="color: #8f8f94;font-size: 10px;float:left;padding-top:5px;">原价：'+data[a]['yuanjia']+'元</span><span class="" style="color: #2d4bfc;font-size: 10px;float:right"><span style="padding-top:0px;">价格：</span><span style="font-size:14px;">'+data[a]['money']*10+'</span></span></div><hr data-am-widget="divider" style="border-top: 1px solid #ddd;" class="am-divider am-divider-default am-cf"/></div></a></div></li>';-->
+                            lis.innerHTML += tmp1;
+                        }
+                        
+                    }
+                    
+                });
+                        
+                    }, 100);//加载时间
+                }
+                window.addEventListener('toggle', function(event) {
+                if (event.target.id === 'M_Toggle') {
+                    var isActive = event.detail.isActive;
+                    var table = document.querySelector('.mui-table-view');
+                    var card = document.querySelector('.mui-card');
+                    if (isActive) {
+                        card.appendChild(table);
+                        card.style.display = '';
+                    } else {
+                        var content = document.querySelector('.mui-content');
+                        content.insertBefore(table, card);
+                        card.style.display = 'none';
+                    }
+                }
+                
+
+                
+            
+            });
+            
+            (function($) {
+
+                //保存session
+                 var storage = null;
+                 if(window.localStorage)
+                 {  
+                    storage = window.localStorage;     
+                   var storage_name=storage.getItem("name");     //获取
+                   var storage_uid=storage.getItem("uid");     //获取
+                   var storage_logintime=storage.getItem("logintime");     //获取
+                   var storage_pid=storage.getItem("pid");     //获取
+                 }
+                 // alert(storage_name);
+                 //  alert(storage_uid);
+                 //   alert(storage_logintime);
+                 //    alert(storage_pid);
+                 //判断是否
+                if(storage_uid!=null && storage_uid!=undefined && storage_uid !='')
+                {
+                       $.ajax({
+                        url:'{:url('api/login/index')}',
+                        type:"post",
+                        datatype:'json',
+                        data:{'name':storage_name,'uid':storage_uid,'logintime':storage_logintime,'pid':storage_pid},
+                        success:function(data)
+                        {
+                            // if(data == 1)
+                            // {
+                            //     alert('自动登陆成功');
+                            // }else{
+
+                            //     alert('session');
+                            // }
+                        }
+                    });
+                }else{
+                    //alert('123');
+                }
+
+
+
+
+
+
+                $('#scroll').scroll({
+                    indicators: true //是否显示滚动条
+                });
+                
+                 var slider = mui("#slider");
+                    slider.slider({
+                        interval: 1000//自动轮播周期，若为0则不自动播放，默认为0；
+                    });
+                var segmentedControl = document.getElementById('segmentedControl');
+                $('.mui-input-group').on('change', 'input', function() {
+                    if (this.checked) {
+                        var styleEl = document.querySelector('input[name="style"]:checked');
+                        var colorEl = document.querySelector('input[name="color"]:checked');
+                        if (styleEl && colorEl) {
+                            var style = styleEl.value;
+                            var color = colorEl.value;
+                            segmentedControl.className = 'mui-segmented-control' + (style ? (' mui-segmented-control-' + style) : '') + ' mui-segmented-control-' + color;
+                        }
+                    }
+                });
+                var marquee = document.getElementById('marquee');
+                var offset=0;
+                var scrollheight =marquee.offsetWidth;
+                var firstNode = marquee.children[0].cloneNode(true);
+                marquee.appendChild(firstNode);//还有这里
+                setInterval(function(){
+                    if(offset > scrollheight*2){
+                        offset = 0;
+                    }
+                    marquee.style.marginLeft = "-"+offset+"px";
+                    offset += 3;
+                },50);
+            })(mui);
+			 //     window.addEventListener('toggle', function(event) {
+            //     if (event.target.id === 'M_Toggle') {
+            //         var isActive = event.detail.isActive;
+            //         var table = document.querySelector('.mui-table-view');
+            //         var card = document.querySelector('.mui-card');
+            //         if (isActive) {
+            //             card.appendChild(table);
+            //             card.style.display = '';
+            //         } else {
+            //             var content = document.querySelector('.mui-content');
+            //             content.insertBefore(table, card);
+            //             card.style.display = 'none';
+            //         }
+            //     }
+                
+
+                
+            
+            // });
+          
+   
+        </script>
+       
+    <body>
+        
+    </body>
+
+</html>

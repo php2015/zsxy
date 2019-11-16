@@ -1,0 +1,56 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/agentzhuce/index')}">二级代理商注册规则管理</a></li>
+            <li class=""><a href="{:url('admin/agentzhuce/add')}">添加二级代理商注册规则</a></li>
+            <li class="layui-this">编辑二级代理商注册规则</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/agentzhuce/update')}" method="post">
+					<div class="layui-form-item">
+                        <label class="layui-form-label">如果是这个代理</label>
+                        <div class="layui-input-block">
+							<select name="paid" lay-search>
+								<option value="0">请选择</option>
+								{foreach name="agent_list" item="vo"}
+                                <option value="{$vo.id}" {if condition="$agentzhuce.paid==$vo.id"} selected="selected"{/if}>{$vo.agent_name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">那他下面注册成为</label>
+                        <div class="layui-input-block">
+							<select name="maid" lay-search>
+								<option value="0">请选择</option>
+								{foreach name="agent_list1" item="vo"}
+                                <option value="{$vo.id}" {if condition="$agentzhuce.maid==$vo.id"} selected="selected"{/if}>{$vo.agent_name}</option>
+                                {/foreach}
+                        </div>
+                    </div>
+				
+				 <div class="layui-form-item">
+                        <label class="layui-form-label">给不给看总业绩</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="tag" value="1" title="给" {if condition="$agentzhuce.tag==1"} checked="checked"{/if}>
+                            <input type="radio" name="tag" value="0" title="不给" {if condition="$agentzhuce.tag==0"} checked="checked"{/if}>
+                        </div>
+                    </div>
+					
+					<div class="layui-form-item">
+                        <div class="layui-input-block">
+                             <input type="hidden" name="id" value="{$agentzhuce.id}">
+							<button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

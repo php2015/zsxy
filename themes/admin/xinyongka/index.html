@@ -1,0 +1,80 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">信用卡管理</li>
+            <li class=""><a href="{:url('admin/xinyongka/add')}">添加信用卡</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form layui-form-pane" action="{:url('admin/xinyongka/index')}" method="get">
+				
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+						
+                    </div>
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                        <th>信用卡名称</th>
+						<th>信用卡图标</th>
+                        <th>说明</th>
+                        <th>类型名称</th>
+                        <th>链接地址</th>
+                        <th>详情</th>
+                        <th>币种</th>
+                        <th>年费</th>
+                        <th>状态</th>
+                        <th>排序</th>
+                        <th>创建时间</th>
+                        <th>备注</th>
+                       <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="xinyongka_list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.xname}</td>
+						<td><center><img style="height:50px; width:50px;" src="{$vo.thumb}"/></center></td>
+                        <td>{$vo.ktitle}</td>
+                        <td>{$vo.typename}</td>
+                        <td>{$vo.hrefs}</td>
+						<td>{$vo.xchahrefs}</td>
+						<td>{$vo.bizhong}</td>
+						<td>{$vo.nianfei}</td>
+                        <td>{php}echo $vo['state']==1 ? '启用' : '禁用';{/php}</td>
+						<td>{$vo.descc}</td>
+                        <td>{$vo.dates|date="Y-m-d H:i:s",###}</td>
+						<td>{$vo.remarks}</td>
+						
+                        <td style="width:100px">
+						 	 
+                            <a href="{:url('admin/xinyongka/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                            <a href="{:url('admin/xinyongka/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+				<div style="float:right; font-size:20px;"> 信用卡数：{$count}</div>
+                <!--分页-->
+                {$xinyongka_list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

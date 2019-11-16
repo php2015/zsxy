@@ -1,0 +1,3663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>钻石报告</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/mui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/index4.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/base.css?=78945">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/beijingkongzhi.css">
+    <script src="__PUBLIC__/js/xjs/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/xjs/mui.min.js"></script>
+    <script src="__PUBLIC__/js/xjs/index.js?v=78945"></script>
+</head>
+
+<body>
+  
+
+    <div class="container">
+      
+        <a href="/index/complaint/wenti.html">
+        <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+            <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+        </div>
+    </a>
+    <a href="{:url('/index/complaint/comment')}">
+        <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 350px;z-index: 999;opacity:0.5;">
+            <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">评论</p>
+        </div>
+    </a>
+    <a href="{:url('/index/complaint/index')}">
+        <div style="width: 40px;height: 40px;border: 1px solid #ff9600;background: #ff9600;border-radius:100%;position: fixed;right: 5px; top: 400px;z-index: 999;opacity:0.5;">
+            <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
+        </div>
+    </a>
+        <div class="score_box">
+            <div class="zsxy_ti">
+                钻石报告
+                <img src="__PUBLIC__/ximg/logo.png" alt="">
+            </div>
+            <div class="score_grade"><span>B</span></div>
+            <div class="star_box">
+                <img src="__PUBLIC__/ximg/star_y.png" alt="">
+                <img src="__PUBLIC__/ximg/star_y.png" alt="">
+                <img src="__PUBLIC__/ximg/star_y.png" alt="">
+                <img src="__PUBLIC__/ximg/star_y.png" alt="">
+                <img src="__PUBLIC__/ximg/star_w.png" alt="">
+            </div>
+            <p class="score_user">您的预测通过率</p>
+            <div class="score_num">
+                <span>85</span>
+            </div>
+            <div class="score_press">
+                <div class="press_blue" id="bar" style="width: 0%;">
+                    <img src="__PUBLIC__/ximg/huojian.png" alt="">
+                </div>
+            </div>
+            <p class="score_per">您的通过率打败了全国<span id="total"></span>的用户</p>
+        </div>
+        <div class="user_card">
+            <p class="username">张三&nbsp;&nbsp;35岁&nbsp;&nbsp;男</p>
+            <div class="user_info">
+                <p>
+                    <img src="__PUBLIC__/ximg/shoujihao.png" alt="">185****4715
+                </p>
+                <p>
+                    <img src="__PUBLIC__/ximg/guishudi.png" alt="">湖北武汉
+                </p>
+            </div>
+            <div class="user_info">
+                <p>
+                    <img src="__PUBLIC__/ximg/shenfenzheng.png" alt="">47154********5478
+                </p>
+                <p>
+                    <img src="__PUBLIC__/ximg/didian.png" alt="">湖北武汉
+                </p>
+            </div>
+            <p class="init_time">报告生成时间：2019-05-18   14:33:44</p>
+        </div>
+        <div class="risk_box clearfix" style="margin-top:1.5rem;">
+            <div class="risk_left">
+                <p class="risk_ti">
+                    <span>风险解读</span>
+                </p>
+                <ul>
+                    <li>网络小贷高风险</li>
+                    <li>风险群体名单</li>
+                    <li>多头借贷严重名单</li>
+                    <li>网贷黑名单</li>
+                    <li>羊毛党名单</li>
+                    <li>法院失信名单</li>
+                    <li>法院执行名单</li>
+                </ul>
+                <div class="vertical_line">
+                    <span></span>
+                </div>
+            </div>
+            <div class="risk_right">
+                <img src="__PUBLIC__/ximg/fengxianjiedu.png" alt="">
+            </div>
+        </div>
+        <div class="quota_box">
+            <div class="quota_item">
+                <p>信用卡预测额度</p>
+                <p>5000-15000</p>
+            </div>
+            <div class="quota_item quota_item1">
+                <p>贷款预测额度</p>
+                <p>8000-20000</p>
+            </div>
+            <p class="quota_tips">小钻说：授信额度由钻石报告评测，额度仅供参考，钻石报告仅做获取及展示，不对此额度做任何担保及保证！</p>
+        </div>   
+      
+      <div class="reportWrap" id="reportWraps" style='display: none;'>
+
+        <div class="layout">
+            <h3 class="bittitle center">运营商报告</h3>
+            <h4 class="subTitle">1.1基本信息</h4>
+            <h5 class="smallTitle">用户基本信息</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <tbody>
+                            <tr>
+                                <td class="td_bg">姓名：</td>
+                                <td colspan="3">张三</td>
+                                <td class="td_bg">身份证号:</td>
+                                <td colspan="3">
+                                    41111***********1111              </td>
+                            </tr>
+                            <tr> </tr>
+                            <tr>
+                                <td class="td_bg">手机号码：</td>
+                                <td colspan="3">18111111111                </td>
+                                <td class="td_bg">邮箱：</td>
+                                <td colspan="3">运营商未提供邮箱</td>
+                            </tr>
+                            <tr>
+                                <td class="td_bg">性别：</td>
+                                <td colspan="3">男</td>
+                                <td class="td_bg">年龄：</td>
+                                <td colspan="3">28</td>
+
+                            </tr>
+                            <tr>
+
+                                <td class="td_bg">通讯地址：</td>
+                                <td colspan="3">湖北省武汉市</td>
+                                <td class="td_bg">居住地址：</td>
+                                <td colspan="3">武汉</td>
+                            </tr>
+                            <tr>
+                                <td class="td_bg">籍贯：</td>
+                                <td colspan="7">湖北省黄冈市麻城市</td>
+
+                            </tr>
+                            <tr>
+                                <td class="td_bg">手机号码归属地：</td>
+                                <td colspan="7">湖北省武汉市</td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="" class="td_bg">账户余额：</td>
+                                <td colspan="7" class="">231.55元</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="smallTitle">用户信息检测(联系人数据)</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <tbody>
+                            <tr class="center ">
+                                <td rowspan="6" style="text-align: center;vertical-align: middle;width: 15%">
+                                    用户查询信息
+                                </td>
+                                <td> 查询过该用户的相关企业数量
+
+                                </td>
+                                <td class="userinfocheck">
+
+                                    4              </td>
+                            </tr>
+                            <tr class="center ">
+                                <td> 查询过该用户的相关企业类型
+
+                                </td>
+                                <td class="userinfocheck">
+                                    2
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>身份证组合过的其他姓名
+
+                                </td>
+                                <td class="userinfocheck">
+
+                                    6
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>身份证组合过其他电话
+
+                                </td>
+                                <td class="userinfocheck">
+                                    8
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>电话号码组合过其他姓名
+
+                                </td>
+                                <td class="userinfocheck">
+                                    6
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>电话号码组合过其他身份证
+                                </td>
+                                <td class="userinfocheck">
+                                    7
+
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="smallTitle">用户信息检测(黑名单)</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <tbody>
+                            <tr class="center ">
+                                <td rowspan="3" class="hideborder" style="text-align: center;vertical-align: middle;width: 15%">
+                                    黑名单信息
+                                </td>
+                                <td>直接联系人中黑名单人数</td>
+                                <td>
+                                    <span class="errorTip">325</span>
+
+                                    (直接联系人：和被查询号码有通话记录)
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>直接联系人人数</td>
+                                <td>                	565 (直接联系人：和被查询号码有通话记录)</td>
+                            </tr>
+                            <tr>
+                                <td>申请人姓名+身份证号码是否出现在法院黑名单</td>
+                                <td class="center">                 	否                            </td>
+                            </tr>
+                            <tr class="center ">
+                                <td rowspan="1" class="hideborder" style="text-align: center;vertical-align: middle;width: 15%">
+                                    绑定账号信息
+                                </td>
+                                <td>手机号是否绑定支付宝实名账户</td>
+                                <td>
+                                    是
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subTitle">1.2社交分析摘要</h4>
+
+            <h5 class="smallTitle">朋友圈</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">项目</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>朋友圈大小</td>
+                                <td class="center">123</td>
+                                <td class="center">234</td>
+                            </tr>
+                            <tr>
+                                <td>朋友圈亲密度</td>
+                                <td class="center">7</td>
+                                <td class="center">5</td>
+                            </tr>
+                            <tr>
+                                <td>朋友圈中心地</td>
+                                <td class="center">
+                                    武汉</td>
+                                <td class="center">                	武汉</td>
+                            </tr>
+                            <tr>
+                                <td>朋友圈是否在本地</td>
+                                <td class="center">是</td>
+                                <td class="center">是</td>
+                            </tr>
+                            <tr>
+                                <td>互通电话的号码数目</td>
+                                <td class="center">231</td>
+                                <td class="center">543</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <h5 class="smallTitle">联系人Top10(近3月通话次数降序)</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center">
+                                <th>号码</th>
+                                <th>归属地</th>
+                                <th>总通话次数</th>
+                                <th>主/被叫总次数</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>63</td>
+                                <td>23/65</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>39</td>
+                                <td>35/4</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>39</td>
+                                <td>22/17</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>34</td>
+                                <td>18/16</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>深圳市</td>
+                                <td>26</td>
+                                <td>15/11</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>广州市</td>
+                                <td>18</td>
+                                <td>7/11</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>16</td>
+                                <td>4/12</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>16</td>
+                                <td>6/10</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>16</td>
+                                <td>9/7</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>13</td>
+                                <td>5/8</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="smallTitle">联系人Top10(近6月通话次数降序)</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center">
+                                <th>号码</th>
+                                <th>归属地</th>
+                                <th>总通话次数</th>
+
+                                <th>主/被叫总次数</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>108</td>
+                                <!--<td>9985</td><th>总通话时长（分钟）</th>-->
+                                <td>47/61</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>79</td>
+                                <!--<td>2837</td><th>总通话时长（分钟）</th>-->
+                                <td>31/48</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>55</td>
+                                <!--<td>4462</td><th>总通话时长（分钟）</th>-->
+                                <td>31/24</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>42</td>
+                                <!--<td>6251</td><th>总通话时长（分钟）</th>-->
+                                <td>38/4</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>深圳市</td>
+                                <td>28</td>
+                                <!--<td>7258</td><th>总通话时长（分钟）</th>-->
+                                <td>16/12</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>24</td>
+                                <!--<td>891</td><th>总通话时长（分钟）</th>-->
+                                <td>15/9</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>21</td>
+                                <!--<td>3136</td><th>总通话时长（分钟）</th>-->
+                                <td>10/11</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>19</td>
+                                <!--<td>2684</td><th>总通话时长（分钟）</th>-->
+                                <td>8/11</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>广州市</td>
+                                <td>18</td>
+                                <!--<td>12270</td><th>总通话时长（分钟）</th>-->
+                                <td>7/11</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>武汉市</td>
+                                <td>17</td>
+                                <!--<td>471</td><th>总通话时长（分钟）</th>-->
+                                <td>5/12</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body"> </div>
+                </div>
+            </div>
+            <h5 class="smallTitle">联系人地区Top10(近6月通话次数降序)</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center">
+                                <th>地址</th>
+                                <th>通话次数</th>
+                                <th>通话号码数</th>
+
+                                <th>主/被叫次数</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="center">
+                                <td>武汉</td>
+                                <td>432</td>
+                                <td>221</td>
+                                <!--<td>47367</td><th>通话时长（分钟）</th>-->
+                                <td>18735/28632</td>
+                            </tr>
+                            <tr class="center">
+                                <td>全国</td>
+                                <td>68</td>
+                                <td>43</td>
+                                <!--<td>9544</td><th>通话时长（分钟）</th>-->
+                                <td>8718/826</td>
+                            </tr>
+                            <tr class="center">
+                                <td>深圳</td>
+                                <td>32</td>
+                                <td>4</td>
+                                <!--<td>7054</td><th>通话时长（分钟）</th>-->
+                                <td>3358/3696</td>
+                            </tr>
+                            <tr class="center">
+                                <td>广州</td>
+                                <td>20</td>
+                                <td>3</td>
+                                <!--<td>12294</td><th>通话时长（分钟）</th>-->
+                                <td>6275/6019</td>
+                            </tr>
+                            <tr class="center">
+                                <td>上海</td>
+                                <td>19</td>
+                                <td>10</td>
+                                <!--<td>3522</td><th>通话时长（分钟）</th>-->
+                                <td>258/3264</td>
+                            </tr>
+                            <tr class="center">
+                                <td>襄阳</td>
+                                <td>16</td>
+                                <td>5</td>
+                                <!--<td>1668</td><th>通话时长（分钟）</th>-->
+                                <td>745/923</td>
+                            </tr>
+                            <tr class="center">
+                                <td>黄冈</td>
+                                <td>16</td>
+                                <td>5</td>
+                                <!--<td>1748</td><th>通话时长（分钟）</th>-->
+                                <td>185/1563</td>
+                            </tr>
+                            <tr class="center">
+                                <td>北京</td>
+                                <td>11</td>
+                                <td>8</td>
+                                <!--<td>1194</td><th>通话时长（分钟）</th>-->
+                                <td>477/717</td>
+                            </tr>
+                            <tr class="center">
+                                <td>九江</td>
+                                <td>11</td>
+                                <td>5</td>
+                                <!--<td>3509</td><th>通话时长（分钟）</th>-->
+                                <td>1094/2415</td>
+                            </tr>
+                            <tr class="center">
+                                <td>成都</td>
+                                <td>5</td>
+                                <td>5</td>
+                                <!--<td>307</td><th>通话时长（分钟）</th>-->
+                                <td>0/307</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subTitle">1.3风险分析摘要</h4>
+            <h5 class="smallTitle">风险识别</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">变量</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+                                <th>备注</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            <tr>
+                                <td>号码沉默度</td>
+                                <td class="center">
+
+                                    <span class="errorTip"> 3</span>
+
+                                </td>
+                                <td class="center">
+
+                                    <span class="errorTip"> 3</span>
+
+                                </td>
+                                <td class="center">满分10分</td>
+                            </tr>
+                            <tr>
+                                <td>欠费风险度</td>
+                                <td class="center">
+
+                                    <span> 9</span>
+
+                                </td>
+                                <td class="center">
+
+                                    <span> 5</span>
+
+                                </td>
+                                <td class="center">满分10分</td>
+                            </tr>
+                            <tr>
+                                <td>亲情网风险度</td>
+                                <td class="center">
+
+                                    <span class="errorTip">4</span>
+
+                                </td>
+                                <td class="center">6</td>
+                                <td class="center">满分10分</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <h4 class="subTitle">1.4 活跃分析摘要</h4>
+            <h5 class="smallTitle">活跃识别</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">变量</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            <tr>
+                                <td>通话活跃天数</td>
+
+                                <td>85</td>
+                                <td>158</td>
+                            </tr>
+
+                            <tr>
+                                <td>被叫次数</td>
+
+                                <td>504</td>
+                                <td>812</td>
+                            </tr>
+
+                            <tr>
+                                <td>主叫次数</td>
+
+                                <td>321</td>
+                                <td>501</td>
+                            </tr>
+
+                            <tr>
+                                <td>被叫时长（分钟）</td>
+
+                                <td>841.38</td>
+                                <td>1162.62</td>
+                            </tr>
+
+                            <tr>
+                                <td>主叫时长（分钟）</td>
+
+                                <td>682.17</td>
+                                <td>994.95</td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <h4 class="subTitle">1.5 消费分析摘要</h4>
+            <h5 class="smallTitle">消费识别</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data  table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">变量</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td>消费总金额（元）</td>
+
+                                <td>703.25</td>
+                                <td>1301.85</td>
+                            </tr>
+
+                            <tr>
+                                <td>单次充值最大金额（元）</td>
+
+                                <td>300</td>
+                                <td>300</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <h5 class="smallTitle">消费细类统计</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center">
+                                <th>消费类别</th>
+                                <th>近1月</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td>套餐月基本费金额（元）</td>
+                                <td>199</td>
+                                <td>597</td>
+                                <td>1194</td>
+                            </tr>
+
+                            <tr>
+                                <td>网络流量消费金额（元）</td>
+                                <td>30</td>
+                                <td>70</td>
+                                <td>70</td>
+                            </tr>
+
+                            <tr>
+                                <td>增值业务消费金额（元）</td>
+                                <td>68</td>
+                                <td>12</td>
+                                <td>34</td>
+                            </tr>
+
+                            <tr>
+                                <td>通话消费金额（元）</td>
+                                <td>32</td>
+                                <td>16.87</td>
+                                <td>16.87</td>
+                            </tr>
+
+                            <tr>
+                                <td>短信消费金额（元）</td>
+                                <td>0.1</td>
+                                <td>2.18</td>
+                                <td>3.78</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <h5 class="smallTitle">运营商消费数据</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table  table-striped" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center">
+                                <td>月份</td>
+                                <td>通话次数</td>
+                                <td>通话时长(分钟)</td>
+                                <td>主/被叫次数</td>
+                                <td>消费总额(元)</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="center">
+                                <td class="userinfocheck">2019-04</td>
+                                <td class="userinfocheck">317</td>
+                                <td class="userinfocheck">780.9</td>
+                                <td class="userinfocheck">123/194</td>
+                                <td class="userinfocheck">199.1</td>
+                            </tr>
+                            <tr class="center">
+                                <td class="userinfocheck">2019-03</td>
+                                <td class="userinfocheck">206</td>
+                                <td class="userinfocheck">377.45</td>
+                                <td class="userinfocheck">68/138</td>
+                                <td class="userinfocheck">303.75</td>
+                            </tr>
+                            <tr class="center">
+                                <td class="userinfocheck">2019-02</td>
+                                <td class="userinfocheck">297</td>
+                                <td class="userinfocheck">330.55</td>
+                                <td class="userinfocheck">138/159</td>
+                                <td class="userinfocheck">200.4</td>
+                            </tr>
+                            <tr class="center">
+                                <td class="userinfocheck">2019-01</td>
+                                <td class="userinfocheck">240</td>
+                                <td class="userinfocheck">312.55</td>
+                                <td class="userinfocheck">87/153</td>
+                                <td class="userinfocheck">199.4</td>
+                            </tr>
+                            <tr class="center">
+                                <td class="userinfocheck">2018-12</td>
+                                <td class="userinfocheck">168</td>
+                                <td class="userinfocheck">212.13</td>
+                                <td class="userinfocheck">46/122</td>
+                                <td class="userinfocheck">199.5</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subTitle">1.6 漫游分析摘要</h4>
+            <h5 class="smallTitle">漫游分析摘要</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center">
+                                <td>漫游地</td>
+                                <td>近6月漫游天数</td>
+                                <td>近6月最大连续漫游天数</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="center">
+                                <td>鄂州</td>
+                                <td>1</td>
+                                <td>3</td>
+                            </tr>
+                            <tr class="center">
+                                <td>九江</td>
+                                <td>1</td>
+                                <td>4</td>
+                            </tr>
+                            <tr class="center">
+                                <td>韶关</td>
+                                <td>1</td>
+                                <td>7</td>
+                            </tr>
+                            <tr class="center">
+                                <td>黄石</td>
+                                <td>1</td>
+                                <td>4</td>
+                            </tr>
+                            <tr class="center">
+                                <td>渭南</td>
+                                <td>1</td>
+                                <td>3</td>
+                            </tr>
+                            <tr class="center">
+                                <td>黄冈</td>
+                                <td>1</td>
+                                <td>6</td>
+                            </tr>
+                            <tr class="center">
+                                <td>襄樊</td>
+                                <td>2</td>
+                                <td>8</td>
+                            </tr>
+                            <tr class="center">
+                                <td>衡阳</td>
+                                <td>1</td>
+                                <td>7</td>
+                            </tr>
+                            <tr class="center">
+                                <td>长沙</td>
+                                <td>1</td>
+                                <td>8</td>
+                            </tr>
+                            <tr class="center">
+                                <td>全国</td>
+                                <td>14</td>
+                                <td>3</td>
+                            </tr>
+                            <tr class="center">
+                                <td>西安</td>
+                                <td>2</td>
+                                <td>9</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subTitle">2.1 总体统计</h4>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">变量</th>
+                                <th>近1月</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td>被叫次数</td>
+                                <td>161</td>
+                                <td>504</td>
+                                <td>812</td>
+                            </tr>
+
+                            <tr>
+                                <td>主叫次数</td>
+                                <td>94</td>
+                                <td>321</td>
+                                <td>501</td>
+                            </tr>
+
+                            <tr>
+                                <td>被叫号码数</td>
+                                <td>91</td>
+                                <td>268</td>
+                                <td>409</td>
+                            </tr>
+
+                            <tr>
+                                <td>通话号码数目</td>
+                                <td>133</td>
+                                <td>392</td>
+                                <td>602</td>
+                            </tr>
+
+                            <tr>
+                                <td>通话时长（分）</td>
+                                <td>497.93</td>
+                                <td>1523.55</td>
+                                <td>2157.57</td>
+                            </tr>
+
+                            <tr>
+                                <td>通话号码归属地总数</td>
+                                <td>18</td>
+                                <td>45</td>
+                                <td>58</td>
+                            </tr>
+
+                            <tr>
+                                <td>通话次数</td>
+                                <td>255</td>
+                                <td>825</td>
+                                <td>1313</td>
+                            </tr>
+
+                            <tr>
+                                <td>主叫号码数</td>
+                                <td>42</td>
+                                <td>124</td>
+                                <td>193</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <h4 class="subTitle">2.2 详细统计</h4>
+            <h5 class="smallTitle">联系人</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body maxheight">
+                        <table class="data table tablebox table-striped" cellspacing="0" cellpadding="0" border="0" style="width: 100%";>
+                            <thead>
+                            <tr class="center">
+                                <td style="text-align: center;">号码</td>
+                                <td>通话时间（分）</td>
+                                <td>归属地</td>
+                                <td>近六月通话次数</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>92.46</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">108</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>35.92</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">79</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>81.13</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">55</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>148.84</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">42</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>259.22</td>
+                                <td>深圳</td>
+                                <td style="text-align: center;">28</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>38.00</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">23</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>149.34</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">21</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>141.27</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">19</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>681.67</td>
+                                <td>广州</td>
+                                <td style="text-align: center;">18</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>27.71</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">17</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>39.44</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">16</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>152.43</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">14</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>69.85</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">13</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>40.77</td>
+                                <td>上海</td>
+                                <td style="text-align: center;">13</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>62.00</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">13</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>63.00</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">12</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>374.10</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">11</td>
+                            </tr>
+                            <tr class="center">
+                                <td>95017</td>
+                                <td>307.28</td>
+                                <td>全国</td>
+                                <td style="text-align: center;">11</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>28.00</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">10</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>26.30</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">10</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>68.70</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">10</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>117.88</td>
+                                <td>襄阳</td>
+                                <td style="text-align: center;">8</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>77.88</td>
+                                <td>黄冈</td>
+                                <td style="text-align: center;">8</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>50.88</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">8</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>44.15</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">7</td>
+                            </tr>
+                            <tr class="center">
+                                <td>02786811666</td>
+                                <td>26.00</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">7</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>164.43</td>
+                                <td>上海</td>
+                                <td style="text-align: center;">7</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>83.86</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">7</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>84.29</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">7</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>66.67</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">6</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>95.67</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">6</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>134.84</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">6</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>50.50</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">6</td>
+                            </tr>
+                            <tr class="center">
+                                <td>02768865709</td>
+                                <td>45.00</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>10000</td>
+                                <td>71.20</td>
+                                <td>全国</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>128.80</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>68.60</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>20.60</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>46.40</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>138.00</td>
+                                <td>襄阳</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>220.20</td>
+                                <td>黄冈</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>33.40</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>94.00</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>254.20</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>74.60</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>140.60</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>65.20</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>18111111111</td>
+                                <td>186.80</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                            <tr class="center">
+                                <td>02768865683</td>
+                                <td>23.50</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">4</td>
+                            </tr>
+                            <tr class="center">
+                                <td>02768865706</td>
+                                <td>179.00</td>
+                                <td>武汉</td>
+                                <td style="text-align: center;">4</td>
+                            </tr>
+
+
+
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe"> </div>
+            </div>
+
+            <h5 class="smallTitle">联系人手机号码归属地 (近6月联系次数降序)</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body maxheight">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <td>地址</td>
+                                <td>通话号码数</td>
+                                <td>通话次数</td>
+                                <td>主叫次数</td>
+                                <td>被叫次数</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td class="center">武汉</td>
+                                <td class="center">213</td>
+                                <td class="center">586</td>
+                                <td class="center">232</td>
+                                <td class="center">354</td>
+                            </tr>
+                            <tr>
+                                <td class="center">全国</td>
+                                <td class="center">43</td>
+                                <td class="center">68</td>
+                                <td class="center">45</td>
+                                <td class="center">23</td>
+                            </tr>
+                            <tr>
+                                <td class="center">深圳</td>
+                                <td class="center">4</td>
+                                <td class="center">32</td>
+                                <td class="center">16</td>
+                                <td class="center">16</td>
+                            </tr>
+                            <tr>
+                                <td class="center">广州</td>
+                                <td class="center">3</td>
+                                <td class="center">20</td>
+                                <td class="center">7</td>
+                                <td class="center">13</td>
+                            </tr>
+                            <tr>
+                                <td class="center">上海</td>
+                                <td class="center">10</td>
+                                <td class="center">19</td>
+                                <td class="center">4</td>
+                                <td class="center">15</td>
+                            </tr>
+                            <tr>
+                                <td class="center">黄冈</td>
+                                <td class="center">5</td>
+                                <td class="center">16</td>
+                                <td class="center">2</td>
+                                <td class="center">14</td>
+                            </tr>
+                            <tr>
+                                <td class="center">襄阳</td>
+                                <td class="center">5</td>
+                                <td class="center">16</td>
+                                <td class="center">6</td>
+                                <td class="center">10</td>
+                            </tr>
+                            <tr>
+                                <td class="center">北京</td>
+                                <td class="center">8</td>
+                                <td class="center">11</td>
+                                <td class="center">1</td>
+                                <td class="center">10</td>
+                            </tr>
+                            <tr>
+                                <td class="center">九江</td>
+                                <td class="center">5</td>
+                                <td class="center">11</td>
+                                <td class="center">3</td>
+                                <td class="center">8</td>
+                            </tr>
+                            <tr>
+                                <td class="center">成都</td>
+                                <td class="center">5</td>
+                                <td class="center">5</td>
+                                <td class="center">5</td>
+                                <td class="center">5</td>
+                            </tr>
+                            <tr>
+                                <td class="center">荆州</td>
+                                <td class="center">3</td>
+                                <td class="center">5</td>
+                                <td class="center">2</td>
+                                <td class="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="center">荆门</td>
+                                <td class="center">1</td>
+                                <td class="center">4</td>
+                                <td class="center">3</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="center">东莞</td>
+                                <td class="center">3</td>
+                                <td class="center">3</td>
+                                <td class="center">6</td>
+                                <td class="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="center">杭州</td>
+                                <td class="center">3</td>
+                                <td class="center">3</td>
+                                <td class="center">2</td>
+                                <td class="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="center">十堰</td>
+                                <td class="center">1</td>
+                                <td class="center">3</td>
+                                <td class="center">2</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">临沧</td>
+                                <td class="center">1</td>
+                                <td class="center">3</td>
+                                <td class="center">1</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">阜阳</td>
+                                <td class="center">2</td>
+                                <td class="center">2</td>
+                                <td class="center">4</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">铜仁</td>
+                                <td class="center">1</td>
+                                <td class="center">2</td>
+                                <td class="center">6</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">烟台</td>
+                                <td class="center">2</td>
+                                <td class="center">2</td>
+                                <td class="center">2</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">曲靖</td>
+                                <td class="center">2</td>
+                                <td class="center">2</td>
+                                <td class="center">2</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">南京</td>
+                                <td class="center">2</td>
+                                <td class="center">2</td>
+                                <td class="center">3</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">南宁</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">5</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">邵阳</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">6</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">宜昌</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">2</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">潍坊</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">大连</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">8</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">台州</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">7</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">厦门</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">9</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">运城</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">7</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">重庆</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">7</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">佛山</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">7</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">莱芜</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">8</td>
+                            </tr>
+                            <tr>
+                                <td class="center">枣庄</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">8</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">邢台</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">8</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">雅安</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">7</td>
+                            </tr>
+                            <tr>
+                                <td class="center">咸宁</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">6</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">金华</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">5</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">孝感</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">4</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">黔西南布依族苗族</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">5</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">宁德</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">6</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">黄石</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="center">濮阳</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">6</td>
+                            </tr>
+                            <tr>
+                                <td class="center">新余</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">5</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">贵阳</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">7</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">石家庄</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">3</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subTitle">3.1 风险统计</h4>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">变量</th>
+                                <th>近1月</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            <tr class="center">
+                                <td>与中介通话次数</td>
+                                <td>
+                                    <span class="errorTip">34</span>
+                                </td>
+                                <td>
+                                    <span class="errorTip">5</span>
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                55
+              </span>
+
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与中介通话时长(分钟)</td>
+                                <td>
+
+                <span class="errorTip">
+                                345
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                34
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                55
+              </span>
+
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与骚扰通话次数</td>
+                                <td>
+
+                <span class="errorTip">
+                                4
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                17
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                27
+              </span>
+
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与骚扰通话时长(分钟)</td>
+                                <td>
+
+                <span class="errorTip">
+                                11
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                32
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                60
+              </span>
+
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与贷款通话次数</td>
+                                <td>
+
+                <span class="errorTip">
+                               5
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                14
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                               18
+              </span>
+
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与贷款通话时长(分钟)</td>
+                                <td>
+
+                <span class="errorTip">
+                                6
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                25
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                65
+              </span>
+
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与信用卡通话次数</td>
+                                <td>
+
+                <span class="errorTip">
+                                2
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                6
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                5
+              </span>
+
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与信用卡通话时长(分钟)</td>
+                                <td>
+
+                <span class="errorTip">
+                                10
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                25
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                63
+              </span>
+
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与催收通话次数</td>
+                                <td>
+
+                <span class="errorTip">
+                                23
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                3
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                               13
+              </span>
+
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与催收通话时长(分钟)</td>
+                                <td>
+
+                <span class="errorTip">
+                                123
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                2
+              </span>
+
+                                </td>
+                                <td>
+
+                <span class="errorTip">
+                                4
+              </span>
+
+                                </td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <h4 class="subTitle">3.2 稳定性</h4>
+
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">变量</th>
+                                <th>近1月</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr class="center">
+                                <td>是否为亲情网用户</td>
+
+                                <td>否</td>
+                                <td>否</td>
+                                <td>否</td>
+                            </tr>
+                            <tr>
+                                <td class="center">是否为亲情网户主</td>
+                                <td class="center">否</td>
+                                <td class="center">否</td>
+                                <td class="center">否</td>
+                            </tr>
+                            <tr>
+                                <td class="center">连续充值月数</td>
+                                <td class="center">1</td>
+                                <td class="center">3</td>
+                                <td class="center">6</td>
+                            </tr>
+                            <tr>
+                                <td class="center">常联系地址是否为手机归属地</td>
+                                <td class="center">否</td>
+                                <td class="center">否</td>
+                                <td class="center">否</td>
+                            </tr>
+                            <tr>
+                                <td class="center">通话次数 小于 使用月数＊1次</td>
+                                <td class="center">否</td>
+                                <td class="center">否</td>
+                                <td class="center">否</td>
+                            </tr>
+                            <tr>
+                                <td class="center">通话次数 大于 使用月数＊300次</td>
+                                <td class="center">否</td>
+                                <td class="center">否</td>
+                                <td class="center">否</td>
+                            </tr>
+                            <tr>
+                                <td class="center">连续欠费月数</td>
+                                <td class="center">2</td>
+                                <td class="center">4</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">本机号码归属地使用月数</td>
+                                <td class="center">1</td>
+                                <td class="center">1</td>
+                                <td class="center">3</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="smallTitle">常用服务</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center">
+                                <th>服务类型</th>
+                                <th>近1月</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr class="center">
+                                <td>与快递物流通话次数</td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+
+                                    17
+
+                                </td>
+                                <td>
+                                    33
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与快递物流通话时长(分钟)</td>
+                                <td>
+                                    18
+                                </td>
+                                <td>
+                                    27
+                                </td>
+                                <td>
+                                    27
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与广告公司通话次数</td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+
+                                    6
+
+                                </td>
+                                <td>
+                                    14
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与广告公司通话时长(分钟)</td>
+                                <td>
+                                    9
+                                </td>
+                                <td>
+                                    19
+                                </td>
+                                <td>
+                                    46
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与银行通话次数</td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+
+                                    5
+
+                                </td>
+                                <td>
+                                    7
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与银行通话时长(分钟)</td>
+                                <td>
+                                    26
+                                </td>
+                                <td>
+                                    49
+                                </td>
+                                <td>
+                                    83
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与通讯服务机构通话次数</td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+
+                                    2
+
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与通讯服务机构通话时长(分钟)</td>
+                                <td>
+                                    7
+                                </td>
+                                <td>
+                                    15
+                                </td>
+                                <td>
+                                    26
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与出行通话次数</td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+
+                                    7
+
+                                </td>
+                                <td>
+                                    18
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与出行通话时长(分钟)</td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    8
+                                </td>
+                                <td>
+                                    19
+                                </td>
+                            </tr>
+
+                            <tr class="center">
+                                <td>与保险通话次数</td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+
+                                    2
+
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                            </tr>
+                            <tr class="center">
+                                <td>与保险通话时长(分钟)</td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    5
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="smallTitle">与服务号通话详情 (按月统计)</h5>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center">
+                                <th>服务号码</th>
+                                <th>服务商名称</th>
+                                <th>通话次数</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td class="center">02786811666</td>
+                                <td class="center">湖北鼎杰汽车销售服务有限公司</td>
+                                <td class="center">7</td>
+                            </tr>
+                            <tr>
+                                <td class="center">10000</td>
+                                <td class="center">中国电信集团公司客户服务热线</td>
+                                <td class="center">5</td>
+                            </tr>
+                            <tr>
+                                <td class="center">15527973438</td>
+                                <td class="center">快递送餐</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="center">95188</td>
+                                <td class="center">支付宝(中国)网络技术有限公司客户服务热线</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="center">02759767923</td>
+                                <td class="center">保险理财</td>
+                                <td class="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="center">95187</td>
+                                <td class="center">阿里云计算有限公司</td>
+                                <td class="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="center">4001895555</td>
+                                <td class="center">广告推销</td>
+                                <td class="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="center">18111111111</td>
+                                <td class="center">快递送餐</td>
+                                <td class="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="center">18111111111</td>
+                                <td class="center">滴滴/优步</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">110</td>
+                                <td class="center">110</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">116114</td>
+                                <td class="center">中国联通电话导航服务电话</td>
+                                <td class="center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center">01095568</td>
+                                <td class="center">民生银行客服电话</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">18111111111</td>
+                                <td class="center">广告推销</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">18111111111</td>
+                                <td class="center">广告推销</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">18111111111</td>
+                                <td class="center">快递送餐</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">95194014</td>
+                                <td class="center">广告推销</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">18111111111</td>
+                                <td class="center">广告推销</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">95511</td>
+                                <td class="center">中国平安保险（集团）股份有限公司全国服务热线</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">18111111111</td>
+                                <td class="center">广告推销</td>
+                                <td class="center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="center">01082970088</td>
+                                <td class="center">银行</td>
+                                <td class="center">1</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subTitle">4.1 通话活跃</h4>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">变量</th>
+                                <th>近1月</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="center">通话活跃天数</td>
+                                <td class="center">30</td>
+                                <td class="center">85</td>
+                                <td class="center">158</td>
+                            </tr>
+                            <tr>
+                                <td class="center">无呼出天数</td>
+                                <td class="center">5</td>
+                                <td class="center">19</td>
+                                <td class="center">55</td>
+                            </tr>
+                            <tr>
+                                <td class="center">被叫次数</td>
+                                <td class="center">161</td>
+                                <td class="center">504</td>
+                                <td class="center">812</td>
+                            </tr>
+                            <tr>
+                                <td class="center">无通话天数</td>
+                                <td class="center">0</td>
+                                <td class="center">5</td>
+                                <td class="center">8</td>
+                            </tr>
+                            <tr>
+                                <td class="center">最大连续开机天数</td>
+                                <td class="center">29</td>
+                                <td class="center">51</td>
+                                <td class="center">51</td>
+                            </tr>
+                            <tr>
+                                <td class="center">关机天数</td>
+                                <td class="center">1</td>
+                                <td class="center">6</td>
+                                <td class="center">9</td>
+                            </tr>
+                            <tr>
+                                <td class="center">主叫次数</td>
+                                <td class="center">94</td>
+                                <td class="center">321</td>
+                                <td class="center">501</td>
+                            </tr>
+                            <tr>
+                                <td class="center">均次通话时长（分）</td>
+                                <td class="center">1.95</td>
+                                <td class="center">1.85</td>
+                                <td class="center">1.64</td>
+                            </tr>
+                            <tr>
+                                <td class="center">关机天数占比</td>
+                                <td class="center">0.04</td>
+                                <td class="center">0.07</td>
+                                <td class="center">0.06</td>
+                            </tr>
+                            <tr>
+                                <td class="center">被叫号码数</td>
+                                <td class="center">91</td>
+                                <td class="center">268</td>
+                                <td class="center">409</td>
+                            </tr>
+                            <tr>
+                                <td class="center">短信活跃天数</td>
+                                <td class="center">4</td>
+                                <td class="center">14</td>
+                                <td class="center">22</td>
+                            </tr>
+                            <tr>
+                                <td class="center">通话号码数目</td>
+                                <td class="center">133</td>
+                                <td class="center">392</td>
+                                <td class="center">602</td>
+                            </tr>
+                            <tr>
+                                <td class="center">流量套餐使用量（KB）</td>
+                                <td class="center">800</td>
+                                <td class="center">800</td>
+                                <td class="center">800</td>
+                            </tr>
+                            <tr>
+                                <td class="center">流量套餐总量（KB）</td>
+                                <td class="center">800</td>
+                                <td class="center">800</td>
+                                <td class="center">800</td>
+                            </tr>
+                            <tr>
+                                <td class="center">通话时长（分）</td>
+                                <td class="center">497.93</td>
+                                <td class="center">1523.55</td>
+                                <td class="center">2157.57</td>
+                            </tr>
+                            <tr>
+                                <td class="center">通话号码归属地总数</td>
+                                <td class="center">18</td>
+                                <td class="center">45</td>
+                                <td class="center">58</td>
+                            </tr>
+                            <tr>
+                                <td class="center">短信次数</td>
+                                <td class="center">4</td>
+                                <td class="center">23</td>
+                                <td class="center">46</td>
+                            </tr>
+                            <tr>
+                                <td class="center">充值次数</td>
+                                <td class="center">3</td>
+                                <td class="center">5</td>
+                                <td class="center">9</td>
+                            </tr>
+                            <tr>
+                                <td class="center">被叫时长（分）</td>
+                                <td class="center">288.52</td>
+                                <td class="center">841.38</td>
+                                <td class="center">1162.62</td>
+                            </tr>
+                            <tr>
+                                <td class="center">通话次数</td>
+                                <td class="center">255</td>
+                                <td class="center">825</td>
+                                <td class="center">1313</td>
+                            </tr>
+                            <tr>
+                                <td class="center">主叫时长（分）</td>
+                                <td class="center">209.42</td>
+                                <td class="center">682.17</td>
+                                <td class="center">994.95</td>
+                            </tr>
+                            <tr>
+                                <td class="center">无通话天数占比</td>
+                                <td class="center">0.00</td>
+                                <td class="center">0.06</td>
+                                <td class="center">0.05</td>
+                            </tr>
+                            <tr>
+                                <td class="center">主叫号码数</td>
+                                <td class="center">42</td>
+                                <td class="center">124</td>
+                                <td class="center">193</td>
+                            </tr>
+                            <tr>
+                                <td class="center">连续3天以上关机次数</td>
+                                <td class="center">12</td>
+                                <td class="center">2</td>
+                                <td class="center">3</td>
+                            </tr>
+                            <tr>
+                                <td class="center">无呼出天数占比</td>
+                                <td class="center">0.17</td>
+                                <td class="center">0.22</td>
+                                <td class="center">0.25</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subTitle">5.1 消费统计</h4>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th class="left">变量</th>
+                                <th>近1月</th>
+                                <th>近3月</th>
+                                <th>近6月</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="center">套餐月基本费金额（元）</td>
+                                <td class="center">199</td>
+                                <td class="center">597</td>
+                                <td class="center">1194</td>
+                            </tr>
+                            <tr>
+                                <td class="center">网络流量消费金额（元）</td>
+                                <td class="center">53</td>
+                                <td class="center">70</td>
+                                <td class="center">70</td>
+                            </tr>
+                            <tr>
+                                <td class="center">充值金额（元）</td>
+                                <td class="center">280</td>
+                                <td class="center">680</td>
+                                <td class="center">1230</td>
+                            </tr>
+                            <tr>
+                                <td class="center">消费总金额（元）</td>
+                                <td class="center">199.1</td>
+                                <td class="center">703.25</td>
+                                <td class="center">1301.85</td>
+                            </tr>
+                            <tr>
+                                <td class="center">增值业务消费金额（元）</td>
+                                <td class="center">0</td>
+                                <td class="center">0</td>
+                                <td class="center">0</td>
+                            </tr>
+                            <tr>
+                                <td class="center">其它消费金额（元）</td>
+                                <td class="center">0.1</td>
+                                <td class="center">106.25</td>
+                                <td class="center">107.85</td>
+                            </tr>
+                            <tr>
+                                <td class="center">单次充值最大金额（元）</td>
+                                <td class="center">200</td>
+                                <td class="center">300</td>
+                                <td class="center">300</td>
+                            </tr>
+                            <tr>
+                                <td class="center">通话消费金额（元）</td>
+                                <td class="center">23</td>
+                                <td class="center">16.87</td>
+                                <td class="center">16.87</td>
+                            </tr>
+                            <tr>
+                                <td class="center">短信消费金额（元）</td>
+                                <td class="center">0.1</td>
+                                <td class="center">2.18</td>
+                                <td class="center">3.78</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subTitle">6.1 漫游详情统计(近6月漫游日期降序)</h4>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <td>漫游日期</td>
+                                <td>漫游城市</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="center">2019-05-02</td>
+                                <td class="center">襄樊</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2019-05-01</td>
+                                <td class="center">襄樊</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2019-04-05</td>
+                                <td class="center">黄冈</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2019-03-20</td>
+                                <td class="center">九江</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2019-02-25</td>
+                                <td class="center">衡阳</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2019-02-07</td>
+                                <td class="center">渭南</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2019-02-06</td>
+                                <td class="center">西安</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2019-02-05</td>
+                                <td class="center">西安</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-30</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-29</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-28</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-27</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-26</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-25</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-24</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-23</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-22</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-21</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-20</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-19</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-18</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2018-11-17</td>
+                                <td class="center">全国</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <h4 class="subTitle">7.1 出行数据分析</h4>
+            <div class="ivu-table-wrapper">
+                <div class="ivu-table ivu-table-border ivu-table-stripe">
+                    <div class="ivu-table-body">
+                        <table class="data table table-striped"  cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                            <thead>
+                            <tr class="center hideborder" style="text-align: center">
+                                <td>出发地</td>
+                                <td>目的地</td>
+                                <td>出发时间</td>
+                                <td>结束时间</td>
+                                <td>类型</td>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td class="center">武汉</td>
+                                <td class="center">襄樊</td>
+                                <td class="center">2019-05-01</td>
+                                <td class="center">2019-05-02</td>
+                                <td class="center">工作日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">武汉</td>
+                                <td class="center">黄冈</td>
+                                <td class="center">2019-04-05</td>
+                                <td class="center">2019-04-05</td>
+                                <td class="center">节假日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">黄石</td>
+                                <td class="center">鄂州</td>
+                                <td class="center">2019-03-20</td>
+                                <td class="center">2019-03-20</td>
+                                <td class="center">工作日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">九江</td>
+                                <td class="center">黄石</td>
+                                <td class="center">2019-03-20</td>
+                                <td class="center">2019-03-20</td>
+                                <td class="center">工作日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">武汉</td>
+                                <td class="center">九江</td>
+                                <td class="center">2019-03-20</td>
+                                <td class="center">2019-03-20</td>
+                                <td class="center">工作日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">衡阳</td>
+                                <td class="center">韶关</td>
+                                <td class="center">2019-02-25</td>
+                                <td class="center">2019-02-25</td>
+                                <td class="center">工作日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">长沙</td>
+                                <td class="center">衡阳</td>
+                                <td class="center">2019-02-25</td>
+                                <td class="center">2019-02-25</td>
+                                <td class="center">工作日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">武汉</td>
+                                <td class="center">长沙</td>
+                                <td class="center">2019-02-25</td>
+                                <td class="center">2019-02-25</td>
+                                <td class="center">工作日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">西安</td>
+                                <td class="center">渭南</td>
+                                <td class="center">2019-02-07</td>
+                                <td class="center">2019-02-07</td>
+                                <td class="center">节假日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">武汉</td>
+                                <td class="center">西安</td>
+                                <td class="center">2019-02-05</td>
+                                <td class="center">2019-02-06</td>
+                                <td class="center">节假日</td>
+                            </tr>
+                            <tr>
+                                <td class="center">武汉市</td>
+                                <td class="center">全国</td>
+                                <td class="center">2018-11-17</td>
+                                <td class="center">2018-11-30</td>
+                                <td class="center">工作日</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+      
+        <div class="plate_title">
+            <span class="circular circular1"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular3"></span>
+            风险评估等级
+            <span class="circular circular3"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular1"></span>
+        </div>
+        <div class="intention_box">
+            <div class="intention_wrap" style="display:flex">
+                <div class="intention_score" style="width:50%">
+                    <div class="score_bot" style="margin:0 auto;">96</div>
+                    <p class="intention_ti" style="font-size:0.26rem;color:#333;text-align:center;">分数</p>
+                    <p class="intention_txt" style="color:#666;">20分及以下：等级较好</p>
+                    <p class="intention_txt" style="color:#666;">20分 - 80分：等级一般</p>
+                    <p class="intention_txt" style="color:#666;">80分及以上：等级较差</p>
+                </div>
+                <div class="intention_score" style="width:50%">
+                    <div class="score_bot" style="margin:0 auto;">中</div>
+                    <p class="intention_ti" style="font-size:0.26rem;color:#333;text-align:center;">风险</p>
+                    <p class="intention_txt" style="color:#666;">低：较小的欺诈和失信风险</p>
+                    <p class="intention_txt" style="color:#666;">中：有一定欺诈和失信风险</p>
+                    <p class="intention_txt" style="color:#666;">高：较高的欺诈和失信风险</p>
+                </div>
+            </div>
+        </div>
+        <p class="break_faith">
+            <span>失信情况总览</span>
+        </p>
+        <div class="implement_box">
+            <p class="implement_ti">
+                <span>失信被执行人</span>
+            </p>
+            <p class="implement_info">
+                <span>2016年08月19日</span>
+                <span>绵阳市</span>
+                <span>游仙区人民法院</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">执行案号：</span>
+                <span class="info_right">（2016）安执字第00175号</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">执行标的：</span>
+                <span class="info_right">20000</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">立案时间：</span>
+                <span class="info_right">2016年04月05日</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">做出执行依据单位：</span>
+                <span class="info_right">游仙区人民法院</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">被执行人的履行情况：</span>
+                <span class="info_right">全部未履行</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">生效法律文书确定的义务：</span>
+                <span class="info_right">其他有履行能力而拒不履</br>行生效法律文书确定义务</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">失信被执行人行为具体情形：</span>
+                <span class="info_right">其他有履行能力而拒不履<br/>行生效法律文书确定义务</span>
+            </p>
+        </div>
+        <div class="implement_box">
+            <p class="implement_ti">
+                <span>法院被执行人</span>
+            </p>
+            <p class="implement_info">
+                <span>2016年04月05日</span>
+                <span>绵阳市</span>
+                <span>游仙区人民法院</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">执行案号：</span>
+                <span class="info_right">（2016）安执字第00175号</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">执行标的：</span>
+                <span class="info_right">20000</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">立案时间：</span>
+                <span class="info_right">2016年04月05日</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">执行法院：</span>
+                <span class="info_right">游仙区人民法院</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">案件状态：</span>
+                <span class="info_right">执行中</span>
+            </p>
+            <div class="horizontal_line"></div>
+            <p class="implement_info">
+                <span>2016年04月05日</span>
+                <span>绵阳市</span>
+                <span>游仙区人民法院</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">执行案号：</span>
+                <span class="info_right">（2016）安执字第00175号</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">执行标的：</span>
+                <span class="info_right">20000</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">立案时间：</span>
+                <span class="info_right">2016年04月05日</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">执行法院：</span>
+                <span class="info_right">游仙区人民法院</span>
+            </p>
+            <p class="implement_item">
+                <span class="info_left">案件状态：</span>
+                <span class="info_right">终结本次程序</span>
+            </p>
+        </div>
+        <div class="plate_title">
+            <span class="circular circular1"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular3"></span>
+            联系人风险
+            <span class="circular circular3"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular1"></span>
+        </div>
+        <div class="search_id contact_box">
+            <p class="contact_txt">直接联系人黑名单人数：<span>143</span></p>
+            <p class="contact_txt">间接联系人黑名单人数：<span>235</span></p>
+			<p class="contact_txt">主动联系人人数：<span>278</span></p>
+            <p class="contact_txt">被动联系人人数：<span>105</span></p>
+            <p class="contact_tips">小钻说：身边的黑名单朋友过多，也会对钻石报告造成影响，物以类聚，人以群分。</p>
+        </div>
+        <p class="break_faith">
+            <span>高风险命中查询</span>
+        </p>
+        <div class="search_id risk_hit">
+            <p class="implement_ti">
+                <span>消费及汽车金融类高风险</span>
+            </p>
+            <div class="risk_list">
+                <p>消费金融高风险<span>否</span></p>
+                <p>风险类型：负债偏高</p>
+            </div>
+            <div class="risk_list">
+                <p>融资租赁高风险<span>否</span></p>
+                <p>风险类型：汽车租赁违约</p>
+            </div>
+            <div class="risk_list">
+                <p>汽车金融高风险<span>否</span></p>
+                <p>风险类型：车贷风险名单</p>
+            </div>
+            <div class="risk_list">
+                <p>车辆租赁违约名单<span>否</span></p>
+                <p>风险类型：汽车租赁违约</p>
+            </div>
+        </div>
+        <div class="search_id risk_hit">
+            <p class="implement_ti">
+                <span>银行及法院类高风险</span>
+            </p>
+            <div class="risk_list">
+                <p>银行机构高风险<span>否</span></p>
+                <p>风险类型：负债率高，频繁申贷，职业异常</p>
+            </div>
+            <div class="risk_list">
+                <p>非银行机构高风险<span>否</span></p>
+                <p>风险类型：机构代办，异常审核</p>
+            </div>
+            <div class="risk_list">
+                <p>机构关注名单<span>否</span></p>
+                <p>风险类型：当事人风险指数有增高倾向</p>
+            </div>
+            <div class="risk_list">
+                <p>法院失信名单<span>否</span></p>
+                <p>风险类型：法院失信人</p>
+            </div>
+            <div class="risk_list">
+                <p>法院执行名单<span>否</span></p>
+                <p>风险类型：法院执行人</p>
+            </div>
+            <div class="risk_list">
+                <p>犯罪通缉名单<span>否</span></p>
+                <p>风险类型：刑事犯罪</p>
+            </div>
+        </div>
+        <div class="search_id risk_hit">
+            <p class="implement_ti">
+                <span>风险群体类高风险</span>
+            </p>
+            <div class="risk_list">
+                <p>风险群体名单<span class="risk_yes">是</span></p>
+                <p>风险类型：负债率高，频繁申贷，职业异常</p>
+            </div>
+            <div class="risk_list">
+                <p>欺诈风险名单<span class="risk_yes">是</span></p>
+                <p>风险类型：仿冒风险，资料异常</p>
+            </div>
+            <div class="risk_list">
+                <p>高负债名单<span>否</span></p>
+                <p>风险类型：负债过高</p>
+            </div>
+            <div class="risk_list">
+                <p>行业黑名单<span>否</span></p>
+                <p>风险类型：从事行业风险过高</p>
+            </div>
+            <div class="risk_list">
+                <p>羊毛党名单<span class="risk_yes">是</span></p>
+                <p>风险类型：恶意注册，刷单</p>
+            </div>
+            <div class="risk_list">
+                <p>恶意注册名单<span>否</span></p>
+                <p>风险类型：异常支付，异常注册</p>
+            </div>
+            <div class="risk_list">
+                <p>身份证命中高风险区域<span>否</span></p>
+                <p>风险类型：身份证所属地区逾期风险较集中</p>
+            </div>
+        </div>
+        <div class="search_id risk_hit">
+            <p class="implement_ti">
+                <span>信贷及逾期类高风险</span>
+            </p>
+            <div class="risk_list">
+                <p>网络小贷高风险<span class="risk_yes">是</span></p>
+                <p>风险类型：异常支付，仿冒风险</p>
+            </div>
+            <div class="risk_list">
+                <p>线下小贷高风险<span>否</span></p>
+                <p>风险类型：机构代办，资料异常</p>
+            </div>
+            <div class="risk_list">
+                <p>信贷逾期名单<span>否</span></p>
+                <p>风险类型：逾期欠款</p>
+            </div>
+            <div class="risk_list">
+                <p>信贷逾期后还款名单<span class="risk_yes">是</span></p>
+                <p>风险类型：从事行业风险过高</p>
+            </div>
+            <div class="risk_list">
+                <p>网贷黑名单<span>否</span></p>
+                <p>风险类型：信用异常</p>
+            </div>
+            <div class="risk_list">
+                <p>网贷灰名单<span class="risk_yes">是</span></p>
+                <p>风险类型：多头借款，有逾期倾向</p>
+            </div>
+            <div class="risk_list">
+                <p>多头借贷严重名单<span class="risk_yes">是</span></p>
+                <p>风险类型：频繁注册申请贷款</p>
+            </div>
+            <div class="risk_list">
+                <p>存在信用逾期历史记录<span>否</span></p>
+                <p>风险类型：逾期，逾期后还款</p>
+            </div>
+        </div>
+        <div>
+            <p class="break_faith">
+                <span>多平台注册申请</span>
+                <a href="javascript:;">次数</a>
+            </p>
+        </div>
+        <div class="search_id apply_num">
+            <div class="apply_list">
+                <p class="apply_left">近7天内</p>
+                <p class="apply_right">
+                    <span class="apply_per1">10</span>
+                </p>
+            </div>
+            <div class="apply_list">
+                <p class="apply_left">近1个月内</p>
+                <p class="apply_right">
+                    <span class="apply_per2">23</span>
+                </p>
+            </div>
+            <div class="apply_list">
+                <p class="apply_left">近3个月内</p>
+                <p class="apply_right">
+                    <span class="apply_per3">35</span>
+                </p>
+            </div>
+            <div class="apply_list">
+                <p class="apply_left">近6个月内</p>
+                <p class="apply_right">
+                    <span class="apply_per4">77</span>
+                </p>
+            </div>
+            <div class="apply_list">
+                <p class="apply_left">近12个月内</p>
+                <p class="apply_right">
+                    <span class="apply_per5">145</span>
+                </p>
+            </div>
+        </div>
+		<div class="search_id loan_box">
+            <div class="loan_list loan_list1">
+                <p class="loan_list_left">申请总机构数</p>
+                <p class="loan_list_right">
+                    <span class="loan_tell">44</span>
+                </p>
+            </div>
+            <div class="loan_list">
+                <p class="loan_list_left">消费金融类机构数</p>
+                <p class="loan_list_right">
+                    <span class="loan_tell">22</span>
+                </p>
+            </div>
+            <div class="loan_list">
+                <p class="loan_list_left">网络贷款类机构数</p>
+                <p class="loan_list_right">
+                    <span class="loan_tell">11</span>
+                </p>
+            </div>
+        </div>
+        <div class="search_id loan_box">
+            <i class="mui-icon mui-icon-arrowleft previous"></i>
+            <i class="mui-icon mui-icon-arrowright next"></i>
+            <div class="loan_tab clearfix">
+                <div class="loan_item">
+                    <p class="loan_ti">近7天内（7次）</p>
+                    <div class="loan_list">
+                        <p class="loan_list_left">一般消费分期平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">12</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大数据金融</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行个人业务</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">6</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">信用卡中心</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">财产保险</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">9</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">P2P网贷</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大型消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">综合类电商平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">互联网金融门户</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="loan_item">
+                    <p class="loan_ti">近1个月内（11次）</p>
+                    <div class="loan_list">
+                        <p class="loan_list_left">一般消费分期平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">12</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大数据金融</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行个人业务</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">6</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">信用卡中心</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">财产保险</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">9</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">P2P网贷</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大型消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">综合类电商平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">互联网金融门户</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="loan_item">
+                    <p class="loan_ti">近3个月内（16次）</p>
+                    <div class="loan_list">
+                        <p class="loan_list_left">一般消费分期平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">12</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大数据金融</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行个人业务</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">6</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">信用卡中心</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">财产保险</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">9</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">P2P网贷</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大型消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">综合类电商平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">互联网金融门户</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="loan_item">
+                    <p class="loan_ti">近6个月内（21次）</p>
+                    <div class="loan_list">
+                        <p class="loan_list_left">一般消费分期平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">12</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大数据金融</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行个人业务</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">6</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">信用卡中心</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">财产保险</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">9</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">P2P网贷</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大型消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">综合类电商平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">互联网金融门户</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="loan_item">
+                    <p class="loan_ti">近12个月内（26次）</p>
+                    <div class="loan_list">
+                        <p class="loan_list_left">一般消费分期平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">12</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大数据金融</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行个人业务</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">6</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">银行消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">信用卡中心</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">8</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">财产保险</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">9</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">P2P网贷</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">大型消费金融公司</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">综合类电商平台</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                    <div class="loan_list">
+                        <p class="loan_list_left">互联网金融门户</p>
+                        <p class="loan_list_right">
+                            <span class="loan_tell">2</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<p class="break_faith">
+            <span>命中风险关注名单</span>
+        </p>
+        <div class="search_id">
+            <div class="risk_con">
+                <p>匹配类型：<span>借款人手机</span></p>
+                <p>风险类型：<span>信用异常</span></p>
+                <p>风险等级：<span>中</span></p>
+                <p>证据时间：<span>2019-09-20 22:17:53</span></p>
+            </div>
+        </div>
+        <div class="search_id">
+            <div class="risk_con">
+                <p>匹配类型：<span>借款人手机</span></p>
+                <p>风险类型：<span>法院失信</span></p>
+                <p>风险等级：<span>高</span></p>
+                <p>证据时间：<span>2019-09-20 22:17:53</span></p>
+            </div>
+        </div>
+        <p class="break_faith">
+            <span>身份关联信息</span>
+        </p>
+        <div class="search_id">
+            <div class="relation_info">
+                <p class="rela_ti1">3个月内身份证关联多个申请信息</p>
+                <p class="rela_ti2">3个月身份证关联手机号数</p>
+                <p class="rela_ti2">指标个数：<span>4</span></p>
+                <div class="rela_ti2 clearfix">
+                    <p class="rela_tileft">手机号：</p>
+                    <p class="rela_tileft"><span>183****0830</span><span>185****9966</span><br/><span>132****9708</span><span>132****9708</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="search_id">
+            <div class="relation_info">
+                <p class="rela_ti1">3个月内申请信息关联多个身份证</p>
+                <p class="rela_ti2">3个月手机号关联身份证数</p>
+                <p class="rela_ti2">指标个数：<span>2</span></p>
+                <div class="rela_ti2 clearfix">
+                    <p class="rela_tileft">身份证号：</p>
+                    <p class="rela_tileft"><span>130133199002050013</span><br/><span>411303199205013520</span></p>
+                </div>
+            </div>
+        </div>
+		<p class="break_faith">
+            <span>放款平台</span>
+        </p>
+        <div class="search_id loan_box">
+            <div class="loan_list loan_list1">
+                <p class="loan_list_left">一般消费分期平台</p>
+                <p class="loan_list_right">
+                    <span class="loan_tell">11</span>
+                </p>
+            </div>
+            <div class="loan_list">
+                <p class="loan_list_left">银行个人业务</p>
+                <p class="loan_list_right">
+                    <span class="loan_tell">5</span>
+                </p>
+            </div>
+            <div class="loan_list">
+                <p class="loan_list_left">信用卡中心</p>
+                <p class="loan_list_right">
+                    <span class="loan_tell">3</span>
+                </p>
+            </div>
+        </div>
+        <p class="break_faith">
+            <span>实名信息验证</span>
+        </p>
+        <div class="idinfo_date">
+            <div class="details_item">
+                <p class="details_ti">身份证关联信息</p>
+                <div class="details_bot">
+                    <p class="implement_item">
+                        <span class="info_left">关联手机号个数</span>
+                        <span class="info_right">2</span>
+                    </p>
+                    <p class="implement_item">
+                        <span class="info_left">关联邮箱个数</span>
+                        <span class="info_right">2</span>
+                    </p>
+                    <p class="implement_item">
+                        <span class="info_left">关联姓名个数</span>
+                        <span class="info_right">1</span>
+                    </p>
+                    <p class="implement_item">
+                        <span class="info_left">关联设备数</span>
+                        <span class="info_right">2</span>
+                    </p>
+                    <p class="implement_item">
+                        <span class="info_left">关联家庭地址个数</span>
+                        <span class="info_right">1</span>
+                    </p>
+                    <p class="implement_item">
+                        <span class="info_left">关联公司地址个数</span>
+                        <span class="info_right">2</span>
+                    </p>
+                    <p class="implement_item">
+                        <span class="info_left">身份证号是否关联异常</span>
+                        <span class="info_right">否</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="conceal_propose" style="display:block">
+            <div class="plate_title">
+                <span class="circular circular1"></span>
+                <span class="circular circular2"></span>
+                <span class="circular circular3"></span>
+                提高评分消除风险建议
+                <span class="circular circular3"></span>
+                <span class="circular circular2"></span>
+                <span class="circular circular1"></span>
+            </div>
+            <div class="search_id propose_box">
+                <p>1.三个月不要注册申请超过20次贷款，控制申请频率</p>
+                <p>2.如果有逾期或者被执行等不良记录，保持良好的信用1-2年，记录可以滚动覆盖过去</p>
+                <p>3.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>4.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>5.？？？？？？？？？？？？？？？？？？？？</p>
+            </div>
+            <div class="plate_title">
+                <span class="circular circular1"></span>
+                <span class="circular circular2"></span>
+                <span class="circular circular3"></span>
+                申贷小技巧
+                <span class="circular circular3"></span>
+                <span class="circular circular2"></span>
+                <span class="circular circular1"></span>
+            </div>
+            <div class="search_id propose_box">
+                <p>1.下载借款APP及申请的时候，平台需要获取定位、通讯录等权限，务必选择允许或者同意</p>
+                <p>2.务必使用自己的实名制手机号，且号码使用超过半年</p>
+                <p>3.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>4.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>5.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>6.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>7.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>8.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>9.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>10.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>11.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>12.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>13.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>14.？？？？？？？？？？？？？？？？？？？？</p>
+            </div>
+            <div class="plate_title">
+                <span class="circular circular1"></span>
+                <span class="circular circular2"></span>
+                <span class="circular circular3"></span>
+                贷款最难及容易通过的行业
+                <span class="circular circular3"></span>
+                <span class="circular circular2"></span>
+                <span class="circular circular1"></span>
+            </div>
+            <div class="search_id propose_box">
+                <p>
+                    <span>最难通过的行业</span>
+                </p>
+                <p>1.房地产有关的所有行业，包括建筑、装饰、建材、房产中介</p>
+                <p>2.美容美发</p>
+                <p>3.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>4.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>5.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>6.？？？？？？？？？？？？？？？？？？？？</p>
+            </div>
+            <div class="search_id propose_box">
+                <p>
+                    <span>容易通过的行业</span>
+                </p>
+                <p>1.大型国企事业单位</p>
+                <p>2.连锁型商场、超市</p>
+                <p>3.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>4.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>5.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>6.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>7.？？？？？？？？？？？？？？？？？？？？</p>
+                <p>8.？？？？？？？？？？？？？？？？？？？？</p>
+                <p class="industry_tips">小钻说：有实体经营，收入稳定的公司更容易通过贷款申请哦！</p>
+            </div>
+        </div>
+        <button class="see_more_btn">收起信息详情列表</button>
+        <div class="bot_box">
+            <p class="data_des">钻石报告说明</p>
+            <p class="data_txt">本报告不是银行征信，和个人信用无关，由本人授权查询，本平台只做获取和整理，报告仅供参考，如您对报告内容有异议，可联系我司沟通协商，最终解释权归本公司所有</p>
+            <img class="go_top" src="__PUBLIC__/ximg/fanhuidingbu.png" alt="">
+        </div>
+    </div>
+    <script>
+      
+       $('#yunyss').click(function () {
+            if ($('#reportWraps').attr('style') == 'display: none;') {
+                $('#reportWraps').slideDown();
+                $('#wenzis').html('收起运营商报告');
+                $('#iiimmgs').attr('src', '/public/index/report/up.png');
+            } else {
+                $('#reportWraps').slideUp();
+                $('#wenzis').html('点击查看运营商报告');
+                $('#reportWraps').attr('style', 'display: none;')
+                $('#iiimmgs').attr('src', '/public/index/report/down.png');
+            }
+        })
+      
+        var bu = 1; 
+        var nums = $(".score_num span").text();
+        function zhuan() {
+            $(".score_num span").text(bu);
+            bu ++;
+            if(bu > nums) {
+                clearInterval(setin);
+            }
+        }
+        var setin = setInterval(zhuan, 15)
+        function run(){ 
+            var bar = document.getElementById("bar");
+            var total = document.getElementById("total");
+            bar.style.width=parseInt(bar.style.width) + 1 + "%"; 
+            total.innerHTML = bar.style.width;  
+            if(bar.style.width == "75%"){ 
+            window.clearTimeout(timeout);
+            return;
+            }
+            var timeout=window.setTimeout("run()",10);
+        }
+        run();
+    </script>
+</body>
+</html>

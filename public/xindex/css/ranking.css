@@ -1,0 +1,58 @@
+@charset "UTF-8";
+body{font-family: PingFang-SC-Regular;background: #fff;}
+.container{
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+}
+.rank_top{
+    width: 100%;
+    height: 3rem;
+    background: url("../img/ranking_bg1.png") no-repeat;
+    background-size: 100%;
+    padding-top: 1.44rem;
+}
+.rank_top p{
+    font-size: 0.3rem;
+    color: #ffffff;
+    padding-left: 0.4rem;
+    line-height: 0.46rem;
+}
+.rank_box{
+    background: #fff;
+    padding: 0 0.4rem;
+    border-top: 0.26rem solid #F1F1F1;
+}
+.rank_box ul li{
+    height: 0.66rem;
+    line-height: 0.66rem;
+    display: flex;
+    border-top: 0.02rem solid #f1f1f1;
+}
+.rank_box ul li:first-of-type{
+    height: 0.72rem;
+    line-height: 0.72rem;
+    border-top: none;
+}
+.rank_box ul li p{
+    flex: 1;
+    font-size: 0.26rem;
+    color: #333333;
+    text-align: center;
+}
+.rank_box ul li:first-of-type p{
+    font-size: 0.3rem;
+}
+.rank_box ul li p span{
+    display: inline-block;
+    width: 0.64rem;
+    position: relative;
+}
+.rank_box ul li p span img{
+    width: 0.3rem;
+    vertical-align: middle;
+}
+.rank_box ul li p.rank_money{
+    color: #ff5224;
+}

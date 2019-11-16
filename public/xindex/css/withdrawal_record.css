@@ -1,0 +1,68 @@
+@charset "UTF-8";
+body{font-family: PingFang-SC-Regular;background: #F1F1F1;}
+.container{
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0.1rem 0 1rem 0;
+}
+.my_order{
+    padding: 0.2rem 0.5rem;
+    font-size: 0.28rem;
+	font-weight: bold;
+    color: #333333;
+    position: relative;
+    background: #fff;
+}
+.my_order:before{
+    content: '';
+    width: 0.04rem;
+	height: 0.32rem;
+	background-color: #6c25c8;
+    border-radius: 0.01rem;
+    position: absolute;
+    top: 50%;
+    left: 0.4rem;
+    transform: translateY(-50%);
+}
+.order_box{
+    padding: 0 0.2rem;
+    margin-top: 0.3rem;
+}
+.order_list{
+    background-color: #ffffff;
+    border-radius: 0.18rem;
+    padding: 0.06rem 0.2rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+}
+.order_list p{
+    font-size: 0.26rem;
+    color: #333333;
+    line-height: 0.44rem;
+}
+.order_list p span{
+    display: inline-block;
+	height: 0.36rem;
+    border-radius: 0.06rem;
+    font-size: 0.26rem;
+	line-height: 0.36rem;
+    color: #ffffff;
+    text-align: center;
+    margin-left: 0.6rem;
+    padding: 0 0.1rem;
+}
+.order_list p span.success{
+    background-color: #41b21a;
+}
+.order_list p span.fail{
+    background-color: #ff722d;
+}
+.order_list p span.audit{
+    background-color: #585ea2;
+}
+.order_list p.order_time{
+    font-size: 0.24rem;
+	color: #888888;
+}

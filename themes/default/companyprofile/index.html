@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>钻石报告</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="/public/index/css/slide.css" rel="stylesheet" type="text/css" />
+    <script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+    <script src="/public/bootstrap/js/bootstrap.js"></script>
+    <script src="/public/index/js/slide.js?v=789456"></script>
+    <script type='text/javascript'src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=f50ea5f0-5c14-11e9-8670-5bf8fe2cdd9c&autoShow=false&language=ZHCN' async='async'></script>
+
+</head>
+<style>
+    .container{
+        padding:0;
+    }
+    .circleChart_canvas{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        transform: rotate(133deg) ! important ;
+        position: absolute;
+        top: -107px;
+        left: 47px;
+    }
+    .circleChart_text{
+        position: absolute;
+        line-height: 100px;
+        top: -114px ! important;
+        left: 43px;
+        width: 104px ! important ;
+        margin: 0px;
+        padding: 0px;
+        color:#f77926;
+        text-align: center;
+        font-size: 14.2857px;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+
+
+    .layer{position:relative;}
+    .layer03-panel{position:relative;float:left;}
+    .layer03-left-chart{position:relative;float:left;}
+    .welfare-text ul li{
+        list-style-type: square;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #4b4b4b;
+        letter-spacing: 3px;
+    }
+
+    .con-show01 {
+        width: 50px;
+        height: 60px;
+        float: left;
+        overflow: hidden;
+        transform: rotate(120deg);
+    }
+
+    .con-show02 {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transform: rotate(-60deg);
+    }
+
+    .con-show03 {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transform: rotate(-60deg);
+        position: relative;
+    }
+
+    .area-text .area-b{
+        margin-left: 26px;
+        margin-top: 5px;
+        color: #3a4360;
+        font-size: 14px;
+    }
+    .area-text .area-c{
+        margin-left: 12px;
+        margin-top: 5px;
+        font-size: 10px;
+        color: #4b4b4b;
+    }
+    .clear{
+        clear: both;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 50px;
+        margin-bottom: 10px;
+         border: 0 solid transparent;
+    }
+    .panel{
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 0px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        box-shadow: 0 0px 0px rgba(0,0,0,.05);
+    }
+
+    .about-text li {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #4b4b4b;
+    }
+
+    .row{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .yun a {
+        margin-left: 14px;
+        font-size: 1rem;
+        position: relative;
+        right: 50%;
+
+    }
+
+
+
+
+    #jswbox{position:relative;top: 50%;left: 50%;margin-top: 20px;margin-left: -211px;width: 100%;}
+    #jswbox ul{position:relative;height:100px;}
+    #jswbox li{position:absolute;width:0;height:0;z-index:0;cursor:pointer;overflow:hidden;top:10px;left:10px;}
+    #jswbox li img{width:120px;vertical-align:top;float:left;}
+    #jswbox .prev, #jswbox .next{display:none;}
+
+
+    .breadcrumb{
+        margin-bottom: 10px;
+    }
+</style>
+
+<body >
+<div class="container" style="background-color:#fff;">
+<a href="/index/complaint/wenti.html">
+    <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+    </div>
+</a>
+    <div style="background-color: #fff;">
+
+        <div style="margin-top:20px">
+                <img src="/public/index/sy/log100.png" style="width: 12%;float:left;margin-left: 10px;">
+                <div style=" float: left;display: inline-block;position: relative;left: 32%;" class="yun">
+                    <a href="{:url('index/login/login')}" class="tab-h2" style="background:#f4cd47;border-radius: 4px;padding: 3px 4px;margin-left: 10px;color: #fff;">代理中心</a>
+                    <a href="{:url('dailishang/login/index')}"  style="background:#9fb6ff;border-radius: 4px;padding: 3px 4px;">PC端后台</a>
+                    <a href="http://c7.gg/fD3YM"  style="background:#ff9366;border-radius:4px;padding:3px 4px;color: #fff;">大数据查询</a>
+                </div>
+               <img src="/public/index/sy/smt01.png" style="width: 16%;float:right;margin-right: 10px;">
+        </div>
+        <div id="turn" class="turn">
+            <div class="turn-loading"><img src="/public/index/lubo/loading_comment.gif" /></div>
+            <ul class="turn-pic">
+                <li><a href="#"><img src="/public/index/lubo/guanw01.png"  /></a></li>
+                <li><a href="#"><img src="/public/index/lubo/guanw02.png" /></a></li>
+                <li><a href="#"><img src="/public/index/lubo/guanw03.png"/></a></li>
+                <li><a href="#"><img src="/public/index/lubo/guanw04.png" /></a></li>
+            </ul>
+        </div>
+
+
+        <div style="margin-top: 50px;">
+            <p style="color:rgb(58, 67, 96);font-size: 20px; margin-top: 30px;text-align: center;"> <span style="font-size: 20px;"> —&nbsp· </span>报告内容包含<span style="font-size: 20px;"> ·&nbsp—  </span></p>
+            <div class="welfare-text" style="margin: 15px auto;margin-left: 15px;margin-right: 5px;margin-top: 15px;">
+                <ul >
+                    <li>信用评分、预估额度测算、联系人黑名单、国内最全面的运营商报告、司法信息检测、黑名单检测、多头注册申请详情、信贷和网贷贷款信息总览，借贷放款明细，钻石报告参照征信设计，包含贷款类型，借贷状态，合同金额，合同日期，合同期数，还款状态，是否逾期，逾期金额，逾期时间等  </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <p style="color:rgb(58, 67, 96);font-size: 20px;margin-top: 30px;text-align: center;"> <span style="font-size: 20px;"> —&nbsp· </span>服务优势<span style="font-size: 20px;"> ·&nbsp—  </span></p>
+
+            <div class="service-info pub-row" style="margin-top:40px;margin-right: 5px;">
+                <div class="col-sm-6 col-md-6 service-l pub-row">
+                    <img src="/public/index/sy/sj01.png"alt="" style="float:left;border-radius: 100%;width: 50px;height: 50px;">
+                    <div class="pub-column"  style="margin-left: 65px;">
+                        <ul class="list-group">
+                            <li><p style="font-size: 16px; font-weight: bold;color: #000000;margin-bottom: 5px;">数据覆盖广</p></li>
+                            <li><p style="font-size: 14px;color:#4b4b4b;">基于各类征信，电商，社交，金融机构，运营商等。</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-info pub-row" style="margin-top: 30px; margin-right: 5px;">
+                <div class="col-sm-6 col-md-6 service-l pub-row">
+                    <img src="/public/index/sy/wx01.png"alt="" style="float:left;border-radius: 100%;width: 50px;height: 50px;">
+                    <div class="pub-column"  style="margin-left: 75px;">
+                        <ul class="list-group">
+                            <li><p style="font-size: 16px; font-weight: bold;color: #000000;margin-bottom: 5px;">无需下载，方便快捷</p></li>
+                            <li><p style="font-size: 14px;color:#4b4b4b;">直接关注微信公众号<span>钻石报告</span>即可，分分钟出结果。</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="service-info pub-row" style="margin-top: 30px;margin-right: 5px;">
+                <div class="col-sm-6 col-md-6 service-l pub-row">
+                    <img src="/public/index/sy/tg01.png"alt="" style="float:left;border-radius: 100%;width: 50px;height: 50px;">
+                    <div class="pub-column"  style="margin-left: 75px;">
+                        <ul class="list-group">
+                            <li><p style="font-size: 16px; font-weight: bold;color: #000000;margin-bottom: 5px;">推广代理</p></li>
+                            <li><p style="font-size: 14px;color:#4b4b4b;">即可获得代理佣金</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-info pub-row" style="margin-top: 30px; margin-right: 5px;">
+                <div class="col-sm-6 col-md-6 service-l pub-row">
+                    <img src="/public/index/sy/gr01.png"alt="" style="float:left;border-radius: 100%;width: 50px;height: 50px;">
+                    <div class="pub-column"  style="margin-left: 75px;">
+                        <ul class="list-group">
+                            <li><p style="font-size: 16px; font-weight: bold;color: #000000;margin-bottom: 5px;">个人信息保密</p></li>
+                            <li><p style="font-size: 14px;color:#4b4b4b;">钻石报告只接受本人授权查询，由第三方支付公司监管，绝不对外泄露任何客户信息，信用报告的使用由客户本人全权决策。</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="">
+            <p style="color:rgb(58, 67, 96);font-size: 20px;margin-left: 2px; margin-top: 30px;text-align: center;"> <span style="font-size: 20px;"> —&nbsp· </span>服务领域<span style="font-size: 20px;"> ·&nbsp—  </span></p>
+            <div class="col-sm-6 col-md-6" style="margin-top: 40px;">
+                <div class="con-show01">
+                    <div class="con-show02">
+                        <div class="con-show03 bg01">
+                            <img src="/public/index/sy/mj01.png" alt="" style="width: 50px;height: 60px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-column"  style="float: left;margin-left: 72px;margin-top: -48px;clear: both;line-height: 19px;">
+                    <ul>
+                        <li><p style="font-size: 16px; font-weight: bold;color: #000000;margin-bottom: 5px;">民间借贷</p></li>
+                        <li><p style="font-size: 14px;color: #4b4b4b;">借款人可快速向出借人提供评估信用报告</p></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="col-sm-6 col-md-6" style="margin-top: 40px;">
+                <div class="con-show01">
+                    <div class="con-show02">
+                        <div class="con-show03 bg01">
+                            <img src="/public/index/sy/xf01.png" alt="" style="width: 50px;height: 60px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-column"  style="float: left;margin-left: 72px;margin-top: -48px;clear: both;line-height: 19px;">
+                    <ul>
+                        <li><p style="font-size: 16px; font-weight: bold;color: #000000;margin-bottom: 5px;">消费金融</p></li>
+                        <li><p style="font-size: 14px;color: #4b4b4b;">依据信用评分和信用足迹提供分期消费方案</p></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="row" style="">
+            <div class="col-sm-6 col-md-6" style="margin-top: 50px;">
+                <div class="con-show01">
+                    <div class="con-show02">
+                        <div class="con-show03 bg01">
+                            <img src="/public/index/sy/jr01.png" alt="" style="width: 50px;height: 60px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-column"  style="float: left;margin-left: 72px;margin-top: -48px;clear: both;line-height: 19px;">
+                    <ul>
+                        <li><p style="font-size: 16px; font-weight: bold;color: #000000;margin-bottom: 5px;">互联网金融</p></li>
+                        <li><p style="font-size: 14px;color: #4b4b4b;">把钻石报告集成至风控体系</p></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-6" style="margin-top: 50px;">
+                <div class="con-show01">
+                    <div class="con-show02">
+                        <div class="con-show03 bg01">
+                            <img src="/public/index/sy/sj01.png" alt="" style="width: 50px;height: 60px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-column"  style="float: left;margin-left: 72px;margin-top: -48px;clear: both;line-height: 19px;">
+                    <ul>
+                        <li><p style="font-size: 16px; font-weight: bold;color: #000000;margin-bottom: 5px;">大数据分析</p></li>
+                        <li><p style="font-size: 14px;color: #4b4b4b;">大数据又一次引领技术变革大潮，智者会审时度势、寻觅良机</p></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+
+        <div class="media">
+            <div class="media-body">
+                <p style="color:rgb(58, 67, 96);font-size: 20px;margin-top: 40px;text-align: center;"> <span style="font-size: 20px;"> —&nbsp· </span>代理商招募<span style="font-size: 20px;"> ·&nbsp—  </span></p>
+                <div class="welfare-text" style="margin: 15px auto; margin-left: 15px;margin-right: 5px;margin-top: 30px;">
+                    <ul >
+                        <li><span style="font-size: 16px;color: #7d8292;">代理商招募：</span>钻石报告限时免费代理中。全国独家首创自主定价模式，平台只收取成本价，代理商可以随时所欲设定售价，居间利润全部为代理商所有！查信用，测预估额度。分析用户资质，赚取高额佣金！</li>
+                        <li><span style="font-size: 16px;color: #7d8292;">合作方式：</span>CPS结算（百分百进量，发现扣量一次奖励10000元，并可全网曝光）</li>
+                        <li><span style="font-size: 16px;color: #7d8292;">电销及个人中介：</span>通过给客户推送推广链接或者二维码，引导用户付费查询。</li>
+                        <li><span style="font-size: 16px;color: #7d8292;">利润测算：</span>一个员工一天加人50个左右，推广查询成功大约30单，每单利润按40计算，一个员工一天创收1200元，20个员工一天可创收24000元！</li>
+                        <li><span style="font-size: 16px;color: #7d8292;">公众号及贷超：</span>将H5链接放公众号菜单或者APP内。自然流量或者代理推广</li>
+                        <li><span style="font-size: 16px;color: #7d8292;">利润测算：</span>我们的界面根据用户需求所设计，自然流量用户点击主页到付费实测转化率30%以上，平台上架我们产品，点击用户如果一天3000人，交易以后900人，一天利润36000元！</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p style="color:rgb(58, 67, 96);font-size: 20px;margin-top:40px;text-align: center;"> <span style="font-size: 20px;"> —&nbsp· </span>关于我们<span style="font-size: 20px;"> ·&nbsp—  </span></p>
+            <div class="about-text" style="margin-left: 10px;margin-right:5px;margin-top: 30px;">
+                <ul>
+                    <li style="font-size: 16px;text-align:center;">“钻石报告”由一群顶级国内外金融风控从业精英共同研发：</li>
+                    <li style="font-size: 16px;text-align: center;">汇集电商，三大运营商，众多金融机构数据，搭建中国顶级的大数据信用生态圈，服务亿万群众。</li>
+                </ul>
+            </div>
+        </div>
+    <footer>
+        <div class="footer-bg" style="position:relative;width: 100%;background: #4b4b4b;margin-top: 10px;">
+            <div class="wx-code pub-row" style="text-align: center;">
+                <img src="/public/index/sy/log01.jpg" alt="" style="width: 10%; margin-top: 13px;">
+                <div class="wx-text" style="color: #fff;margin-top: 4px;">
+                    <p>扫一扫</p>
+                    <p style="margin-top:-9px;">关注微信公众号</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    if(document.body.clientWidth > 900){
+        $('.yun').css('top','12px');
+         $('.yun a').css({"font-size":"2rem"});
+    }else{
+        $('.yun a').css('font-size','1rem');
+    }
+
+
+    (function(id,t){
+        if(!document.getElementById(id)){return false;}
+        var doc = document,
+            auto='',
+            oId = doc.getElementById(id),
+            IE = /msie (\d+\.\d)/i.test(navigator.userAgent),
+            num = 0,
+            bot = true,
+            setOpacity = function(obj, opacity){
+                if(IE){
+                    obj.style.filter = 'Alpha(Opacity=' + (opacity * 100) + ')';
+                }
+                else{
+                    obj.style.opacity = opacity;
+                };
+            },
+            setBottom = function(obj, bottom){
+                obj.style.bottom = bottom + 'px';
+            },
+            fideIn = function(obj, timeLimit){
+                if(obj.style.display === 'none'){
+                    obj.style.display = 'block';
+                };
+                setOpacity(obj, 0);
+                obj.style.zIndex = 1;
+                if(!timeLimit){
+                    timeLimit = 200;
+                };
+                var opacity = 0,
+                    step = timeLimit / 20;
+                clearTimeout(fideInTime);
+                var fideInTime = setTimeout(function(){
+                    bot = false;
+                    if(opacity >= 1){
+                        bot = true;
+                        return;
+                    };
+                    opacity += 1 / step;
+                    setOpacity(obj, opacity);
+                    fideInTime = setTimeout(arguments.callee, 20);
+                },20);
+            },
+            fideOut = function(obj, timeLimit){
+                if(!timeLimit){
+                    timeLimit = 200;
+                };
+                setOpacity(obj, 1);
+                obj.style.zIndex = 0;
+                var opacity = 1,
+                    step = timeLimit / 20;
+                clearTimeout(fideOutTime);
+                var fideOutTime = setTimeout(function(){
+                    if (opacity <= 0) {
+                        setOpacity(obj, 0);
+                        return;
+                    };
+                    opacity -= 1 / step;
+                    setOpacity(obj, opacity);
+                    fideOutTime = setTimeout(arguments.callee, 20);
+
+                },20);
+            },
+            heightIn = function(obj, timeLimit){
+                if(obj.style.display === 'none'){
+                    obj.style.display = 'block';
+                };
+                setBottom(obj, -40);
+                if(!timeLimit){
+                    timeLimit = 200;
+                };
+                var bottom = -40,
+                    step = timeLimit / 20;
+                clearTimeout(heightInTime);
+                var heightInTime = setTimeout(function(){
+                    if(bottom >= 8){
+                        setBottom(obj, 8);
+                        return;
+                    };
+                    bottom += 28 / step;
+                    setBottom(obj, bottom);
+                    heightInTime = setTimeout(arguments.callee, 20);
+                },20);
+            },
+            heightOut = function(obj, timeLimit){
+                if(!timeLimit){
+                    timeLimit = 200;
+                };
+                setBottom(obj, 8);
+                var bottom = 8,
+                    step = timeLimit / 20;
+                clearTimeout(heightOutTime);
+                var heightOutTime = setTimeout(function(){
+                    if(bottom <= -40){
+                        setBottom(obj, -40);
+                        return;
+                    };
+                    bottom -= 28 / step;
+                    setBottom(obj, bottom);
+                    heightOutTime = setTimeout(arguments.callee, 20);
+                },20);
+            },
+            getClass = function(oElem, strTagName, strClassName){
+                var arrElements = (strTagName == '*' && oElem.all) ? oElem.all : oElem.getElementsByTagName(strTagName);
+                var returnArrElements = new Array();
+                var oRegExp =  new RegExp('(^|\\s)' + strClassName + '($|\\s)');
+                for(var i=0; i<arrElements.length; i++){
+                    if(oRegExp.test(arrElements[i].className)){
+                        returnArrElements.push(arrElements[i]);
+                    }
+                }
+                return (returnArrElements);
+            },
+            createElement = function(tag, id, cla){
+                var elem = document.createElement(tag);
+                if(id && id !== ""){
+                    elem.id = id;
+                }
+                if(cla && cla !== ""){
+                    elem.className = cla;
+                }
+                return elem;
+            },
+            showImg = function(n,b){
+                var turnPic = getClass(oId,'ul','turn-pic')[0];
+                var oLi = turnPic.getElementsByTagName('li');
+                var turnTit = getClass(oId,'ul','turn-tit')[0];
+                var oLi2 = turnTit.getElementsByTagName('li');
+                var turnBtn = getClass(oId,'div','turn-btn')[0];
+                var oSpan = turnBtn.getElementsByTagName('span')[0];
+                fideIn(oLi[n],300);
+                heightIn(oLi2[n],300);
+                oSpan.innerHTML = (n+1)+'/'+oLi.length;
+                if(b==true){
+                    if(n==oLi.length-1){
+                        fideOut(oLi[0],300);
+                        heightOut(oLi2[0],300);
+                    }
+                    if(n<oLi.length-1){
+                        fideOut(oLi[n+1],300);
+                        heightOut(oLi2[n+1],300);
+                    }
+                }
+                else{
+                    if(n>0){
+                        fideOut(oLi[n-1],300);
+                        heightOut(oLi2[n-1],300);
+                    }
+                    if(n==0){
+                        fideOut(oLi[oLi.length-1],300);
+                        heightOut(oLi2[oLi2.length-1],300);
+                    }
+                }
+            },
+            addHtml = function(){
+                var oBg = createElement('div','','turn-bg');
+                var oTit = createElement('ul','','turn-tit');
+                var oBtn = createElement('div','','turn-btn');
+                var turnPic = getClass(oId,'ul','turn-pic')[0];
+                var oA = turnPic.getElementsByTagName('a');
+                var oImg = turnPic.getElementsByTagName('img');
+                for(var i=0,len=oA.length;i<len;i++){
+                    oTit.innerHTML += '<li><a href="'+ oA[i].href +'">'+ oImg[i].title +'</a></li>';
+                }
+                oBtn.innerHTML = '<div class="lb"></div><div class="rb"></div><span></span>';
+                oId.appendChild(oBg);
+                oId.appendChild(oTit);
+                oId.appendChild(oBtn);
+            },
+            init = function(){
+                addHtml();
+                showImg(0);
+                var turnLoading = getClass(oId,'div','turn-loading')[0];
+                oId.removeChild(turnLoading);
+                oId.onmouseover = function(){
+                    clearInterval(auto);
+                };
+                oId.onmouseout = function(){
+                    auto = setInterval(autoTurn, t*1000);
+                };
+                var turnPic = getClass(oId,'ul','turn-pic')[0];
+                var oLi = turnPic.getElementsByTagName('li');
+                var oLb = getClass(oId,'div','lb')[0];
+                var oRb = getClass(oId,'div','rb')[0];
+                oLb.onmouseover = function(){
+                    this.style.backgroundPosition = '-12px 0';
+                }
+                oLb.onmouseout = function(){
+                    this.style.backgroundPosition = '0 0';
+                }
+                oLb.onclick = function(){
+                    if(!bot){ return false; }
+                    if(num==0){
+                        num = oLi.length-1;
+                    }
+                    else{
+                        num = num - 1;
+                    }
+                    showImg(num,1);
+                }
+                oRb.onmouseover = function(){
+                    this.style.backgroundPosition = '-18px 0';
+                }
+                oRb.onmouseout = function(){
+                    this.style.backgroundPosition = '-6px 0';
+                }
+                oRb.onclick = function(){
+                    if(!bot){ return false; }
+                    if(num==oLi.length-1){
+                        num = 0;
+                    }
+                    else{
+                        num = num + 1;
+                    }
+                    showImg(num);
+                }
+            },
+            autoTurn=function(){
+                var turnPic = getClass(oId,'ul','turn-pic')[0];
+                var oLi = turnPic.getElementsByTagName('li');
+                if(num==oLi.length-1){
+                    num = 0;
+                }
+                else{
+                    num = num + 1;
+                }
+                showImg(num);
+            };
+        init();
+        auto = setInterval(autoTurn, t*1000);
+    })('turn',3);
+
+    $('.accordion-toggle').click(function() {
+        $(this).parent().next().collapse('toggle');
+    });
+</script>

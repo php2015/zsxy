@@ -1,0 +1,92 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:37:"./themes/default/login/protocol2.html";i:1571971626;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>活动规则</title>
+    <link rel="stylesheet" href="/public/index/css/xcss/style.css">
+    <style>
+        body{font-family: PingFang-SC-Regular;background: #F7F7F7;}
+        .container{
+            min-width: 320px;
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .main{
+            padding: 0.2rem;
+        }
+        .agree_ti{
+            font-size: 0.3rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 0.2rem;
+            font-weight: bold;
+        }
+        .agree_txt{
+            margin-bottom: 0.3rem;
+        }
+        .agree_txt p{
+            font-size: 0.24rem;
+            color: #666;
+            line-height: 0.4rem;
+            margin-bottom: 0.1rem;
+        }
+        .agree_txt p.rule_ti{
+            padding-left: 0.2rem;
+            color: #FE5E18;
+            position: relative;
+            margin-bottom: 0;
+        }
+        .rule_ti:before{
+            content: '';
+            width: 0.08rem;
+            height: 0.08rem;
+            background: #FE5E18;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .agree_txt p.rule_ti1{
+            color: #666;
+            margin-bottom: 0.1rem;
+        }
+        .rule_ti1:before{
+            top: 0.16rem;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <p class="agree_ti">活动规则</p>
+            <div class="agree_txt">
+                <p class="rule_ti">投保规定：</p>
+                <p>本保险身故受益人为法定受益人。本保险的保险对象为25-50周岁身体健康、能正常工作或正常生活的自然人。</p>
+                <p class="rule_ti">保险限制：</p>
+                <p>每位客户受赠保险以1份为限。根据监管新规，大都会保险投保人、被保人是外国政要或国际组织高级管理人员不得承保免费保险。</p>
+                <p class="rule_ti">保险期限：</p>
+                <p>本保险的保障期限为以保障详情为准，以保单载明的保险起止日期为准。对保险起止日期外所发生的保险事故本公司不承担保险金责任。</p>
+                <p class="rule_ti">告知义务：</p>
+                <p>本保险仅提供电子保单，仅限赠送。保单生效后客户会自动收到短信通知，请将短信保存并将短信上的电子保单号记录在适当的位置，以方便查询及理赔。您也可以通过所获赠险相应保险公司官方平台查询您的保单信息。</p>
+                <p class="rule_ti">赠险赞助商</p>
+                <p>发生保险事故后，请被保险人或受益人及时凭电子保险单号及身份信息向保险公司报案，并提供相关证明和资料，保险公司将尽快按照有关条款履行给付责任。</p>
+                <p>本保险不接受撤保、退保、加保及被保险人更换，相关赠险仅限本人领取。</p>
+                <p>如对本活动有疑问和建议请拨打【400-960-9190】进行咨询(咨询时间:工作日9:30至17:30); 如对赠险内容及理赔有疑问请联系所获赠险的保险公司进行咨询(咨询时间:24小时)。</p>
+                <p>本活动解释权归活动主办方所有。</p>
+            </div>
+            <p class="agree_ti">信息安全说明</p>
+            <div class="agree_txt">
+                <p class="rule_ti rule_ti1">本人授权保险公司，除法律另有规定之外，将本人提供给保险公司的信息、享受保险公司服务产生的信息（包括本〔单证〕签署之前提供和产生的信息）以及保险公司根据本条约定查询、收集的信息，用于保险公司及其因服务必要委托的合作伙伴为本人提供服务、推荐产品、开展市场调查与信息数据分析。</p>
+                <p class="rule_ti rule_ti1">本人授权保险公司，除法律另有规定之外，基于为本人提供更优质服务和产品的目的，向保险公司因服务必要开展合作的伙伴提供、查询、收集本人的信息，并同意接受其合作伙伴新旦保险进行电话回访。为确保本人信息的安全，保险公司及其合作伙伴对上述信息负有保密义务，并采取各种措施保证信息安全。</p>
+                <p class="rule_ti rule_ti1">本条款自本〔单证〕签署时生效，具有独立法律效力 , 不受合同成立与否及效力状态变化的影响。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>钻石信用</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/icons-extra.css">
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+</head>
+<body>
+    <div class="mui-content">
+        <div style=" height: 200px;background-color:#0062CC; " >
+            <div style=" height: 130px;  background:url(__PUBLIC__/img/fangzi.png);
+            background-repeat: no-repeat;
+            background-size: 40%;
+            background-position: center;
+             opacity: 0.7;
+            ">
+              {if condition="$scorecashon neq ''"}
+            <p  class="p1 timer" data-to="{$scorecashon/10+5}" data-speed="1500" style="color: #fff; font-size: 40px;padding-top: 60px;text-align: center ;"></p>
+              {else/}
+              <p style="color: #fff; font-size: 22px;padding-top: 60px;text-align: center ;margin-top:100px;">&nbsp;未获取</p>
+              {/if}
+            <!--<p style="color: #fff; font-size: 22px;padding-top: 100px;text-align: center ;">未获取</p>-->
+             <p style="color: #fff; font-size: 14px;text-align: center ;">&nbsp;&nbsp;钻石信用分</p>
+            </div>  
+        </div>
+        <img src="__PUBLIC__/img/zi.jpg" style="width: 70%;margin-left:15%;box-shadow: 0 4px 12px rgba(0,0,0,0.2);position: relative;top:-70px;"/>
+        <div style="width: 90px; margin: 5%; background-color: #fff;padding: ;">
+            
+        </div>
+        <div style="background-color: #fff; height: 30px;  position: relative;top:-80px;">
+            <div>
+                <p style="font-size: 14px;text-align: center; color: #8b98c2;line-height: 30px;float: left;width: 25%;margin-left:0%;color: #273fa5;">信用查询</p>
+                <p style="width:35%;color: #8b98c2;text-align: center; line-height: 28px; float: left;margin-left:0%;font-size: 14px;border:1px solid #273fa5"><a href="{:url('index/index/yangshi1')}" style="color: #273fa5;">基础版报告示例</a></p>
+              <p style="width:35%;color: #8b98c2;text-align: center; line-height: 28px; float: left;margin-left:2%;font-size: 14px;border:1px solid #273fa5"><a href="{:url('index/index/yangshi2')}" style="color: #273fa5;">高级版报告示例</a></p>
+            </div>
+        </div>
+        <ul class="mui-table-view" style=" position: relative;top:-85px;clear: both; margin-top:10px;width:96%; margin-left:2%;font-size: 16px;">
+            {volist name="product" id="vo"}
+                <li class="mui-table-view-cell mui-media" style="margin-top:0px;">
+                    <a href="javascript:buy({$vo.id},{$vo.price})" style="">
+                      <div style="width: 25%;float:left;">
+                        {if condition="$vo['thumb'] neq ''"}
+                            <img class="mui-media-object mui-pull-left" src="__PUBLIC__/{$vo.thumb}" style="max-width: 100px;width: 80px;max-height: 100px;height: 80px;border: 1px solid #c8c7cc;">
+                                
+                            {else/}
+                               <img class="mui-media-object mui-pull-left" src="__PUBLIC__/img/logo.jpg" style="max-width: 100px;width: 80px;max-height: 100px;height: 80px;">
+                            {/if}
+                      </div>
+                      <div style="width: 75%;float:left;padding-left:10px;">
+                        <div class="mui-media-body" id="buy">
+                            <span>{$vo.product_name}</span>
+                                <span style="background-color: #728dfe;padding:2px 20px ;color: #fff;margin-right:20px; float: right; font-size: 14px;">查询</span>
+                            
+                            
+                        </div>
+                     
+                        <div class="" style="font-size: 13px;white-space:pre-line ;padding-bottom:5px;margin-top:-10px; ">
+                            <div style="">{$vo.marks}</div></div>
+                        <!--<div class="mui-media-body" style=" font-size: 14px;">
+                            ￥{$vo.price}
+                            
+                        </div>-->
+                      </div>
+                    </a>
+                </li>
+            {/volist}  
+   <script>
+                            function buy(id,price) { 
+                           
+                              $.ajax({
+                                        url:'{:url('api/buy/buy')}',
+                                        type:"post",
+                                        datatype:'json',
+                                        data:{'pid':id,'price':price},
+                                        
+                                        success:function(data){
+                                            //json=$.parseJSON(data);
+                                            //alert(data);
+                                                        if(data==1){
+                                                            //alert(data.msg);
+                                       // window.location.href="{:url('index/credit/credit')}";
+                                         window.location.href='{:url('index/index/pay')}?price='+price+'&pid='+id;
+                                    }else if(data==0){
+                                        alert("查询失败");
+                                       // window.location.href="{:url('index/login/editpd')}";
+                                    }else if(data==11){
+                                        //alert("请登录");
+                                        window.location.href='{:url('index/index/query')}?price='+price+'&pid='+id;
+                                    }
+                                            }
+                                });
+                            }  
+                        </script>
+            </ul>
+    </div>
+    <nav class="mui-bar mui-bar-tab">
+            <a class="mui-tab-item mui-active" href="{:url('index/index/index')}">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            <a class="mui-tab-item" href="{:url('index/allindex/mingxi')}">
+                <span class="mui-icon mui-icon-extra mui-icon-extra-alipay"></span>
+                <span class="mui-tab-label">收入</span>
+            </a>
+            <a class="mui-tab-item" href="{:url('index/allindex/fenxiang')}">
+                <span class="mui-icon mui-icon-chat"></span>
+                <span class="mui-tab-label">分享</span>
+            </a>
+            <a class="mui-tab-item" href="{:url('index/allindex/geren')}">
+                <span class="mui-icon mui-icon-contact"></span>
+                <span class="mui-tab-label">我的</span>
+            </a>
+        </nav>
+    
+        <script src="__PUBLIC__/js/jquery.min.js"></script>
+        <script>
+            
+            mui.init({
+                swipeBack: true //启用右滑关闭功能
+            });
+            
+         mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+var istrue = true;
+$(window).on("scroll",
+  function() {
+    var s = $(window).scrollTop();
+    $(".timer").each(count);
+    function count(a) {
+        var b = $(this);
+        a = $.extend({},
+        a || {},
+        b.data("countToOptions") || {});
+        b.countTo(a)
+    };
+    istrue = false;
+    $(".timer").removeClass("timer")
+})
+//设置计数
+$.fn.countTo = function (options) {
+    options = options || {};
+    return $(this).each(function () {
+        //当前元素的选项
+        var settings = $.extend({}, $.fn.countTo.defaults, {
+            from:            $(this).data('from'),
+            to:              $(this).data('to'),
+            speed:           $(this).data('speed'),
+            refreshInterval: $(this).data('refresh-interval'),
+            decimals:        $(this).data('decimals')
+        }, options);
+        //更新值
+        var loops = Math.ceil(settings.speed / settings.refreshInterval),
+            increment = (settings.to - settings.from) / loops;
+        //更改应用和变量
+        var self = this,
+        $self = $(this),
+        loopCount = 0,
+        value = settings.from,
+        data = $self.data('countTo') || {};
+        $self.data('countTo', data);
+        //如果有间断，找到并清除
+        if (data.interval) {
+            clearInterval(data.interval);
+        };
+        data.interval = setInterval(updateTimer, settings.refreshInterval);
+        //初始化起始值
+        render(value);
+        function updateTimer() {
+            value += increment;
+            loopCount++;
+            render(value);
+            if (typeof(settings.onUpdate) == 'function') {
+                settings.onUpdate.call(self, value);
+            }
+            if (loopCount >= loops) {
+                //移出间隔
+                $self.removeData('countTo');
+                clearInterval(data.interval);
+                value = settings.to;
+                if (typeof(settings.onComplete) == 'function') {
+                    settings.onComplete.call(self, value);
+                }
+            }
+        }
+        function render(value) {
+            var formattedValue = settings.formatter.call(self, value, settings);
+            $self.html(formattedValue);
+        }
+        });
+    };
+    $.fn.countTo.defaults={
+        from:0,               //数字开始的值
+        to:0,                 //数字结束的值
+        speed:1000,           //设置步长的时间
+        refreshInterval:40,  //隔间值
+        decimals:0,           //显示小位数
+        formatter: formatter, //渲染之前格式化
+        onUpdate:null,        //每次更新前的回调方法
+        onComplete:null       //完成更新的回调方法
+    };
+    function formatter(value, settings){
+        return value.toFixed(settings.decimals);
+    }
+    //自定义格式
+    $('#count-number').data('countToOptions',{
+        formmatter:function(value, options){
+            return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+    });
+    //定时器
+    $('.timer').each(count);
+    function count(options){
+        var $this=$(this);
+        options=$.extend({}, options||{}, $this.data('countToOptions')||{});
+        $this.countTo(options);
+    }
+        </script>
+</body>
+</html>

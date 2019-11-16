@@ -1,0 +1,31 @@
+@charset "UTF-8";
+body{font-family: PingFang-SC-Regular;background: #fff;}
+.container{
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+}
+.main{
+    border-top: 0.1rem solid #F1F1F1;
+}
+.main ul li{
+    padding: 0 0.4rem;
+    height: 0.9rem;
+    border-bottom: 0.02rem solid #F1F1F1;
+    line-height: 0.9rem;
+    font-size: 0.26rem;
+    color: #333;
+}
+.main ul li span{
+    float: right;
+}
+.main ul li span img{
+    width: 0.6rem;
+    height: 0.6rem;
+    object-fit: cover;
+    vertical-align: middle;
+}
+.main ul li span.no_bind{
+    color: #4437E7;
+}

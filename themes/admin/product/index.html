@@ -1,0 +1,72 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">版本管理</li>
+           <!-- <li class=""><a href="{:url('admin/product/add')}">添加版本</a></li>-->
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form layui-form-pane" action="{:url('admin/product/index')}" method="get">
+				
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+						
+                    </div>
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                        <th>代理商</th>
+                        <th>代理商类型</th>
+						<th>版本</th>
+                        <th>自定义名称</th>
+                        <th>自定义价格</th>
+                        <th>版本说明</th>
+                        <th>时间</th>
+                      	<th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="product_list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.names}</td>
+                        <td>{$vo.agent_name}</td>
+                        <td>{$vo.product_name}</td>
+                        <td>{$vo.rename}</td>
+                        <td>{$vo.price}</td>
+                        <td>{$vo.marks}</td>
+						<td>{$vo.createtime|date="Y-m-d H:i:s",###}</td>
+						
+						
+						
+                        <td style="width:100px">
+						 	 
+                            <a href="{:url('admin/product/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">改价</a>
+                            <a href="{:url('admin/product/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+				<div style="float:right; font-size:20px;"> 版本数：{$count}</div>
+                <!--分页-->
+                {$product_list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

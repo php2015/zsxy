@@ -1,0 +1,121 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/shenhe/index')}">审核评价管理</a></li>
+            <li class=""><a href="{:url('admin/shenhe/add')}">添加审核评价</a></li>
+            <li class="layui-this">编辑用户</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/shenhe/update')}" method="post">
+				 <div class="layui-form-item">
+                        <label class="layui-form-label">审核评价名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="{$shenhe.name}" required lay-verify="required" placeholder="请输入审核评价名称" class="layui-input">
+                        </div>
+                    </div>
+                     <div class="layui-form-item">
+                        <label class="layui-form-label">审核评价图片</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="thumb" value="{$shenhe.thumb}" class="layui-input layui-input-inline" placeholder="请上传正方形图片" id="thumb">
+                            <input type="file" name="file" class="layui-upload-file">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">简介</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="titles" value="{$shenhe.titles}" required  placeholder="请输入标题" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+							<input type="radio" name="type" value="0" title="实物产品" {if condition="$shenhe.type==0"} checked="checked"{/if}>
+                            <input type="radio" name="type" value="1" title="虚拟产品" {if condition="$shenhe.type==1"} checked="checked"{/if}>
+                           
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">价格</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="money" value="{$shenhe.money}" placeholder="请输入详情" class="layui-input">
+                        </div>
+                    </div>
+					
+					<div class="layui-form-item">
+                        <label class="layui-form-label">分类</label>
+                        <div class="layui-input-block">
+							 <select name="category_id" lay-search>
+								{foreach name="type_list" item="vo"}
+                                <option value="{$vo.id}" {if condition="$vo.id==$shenhe.category_id"} selected="selected"{/if}>{$vo.tname}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">火</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="hott" value="0" title="否" {if condition="$shenhe.hott==0"} checked="checked"{/if}>
+                            <input type="radio" name="hott" value="1" title="是" {if condition="$shenhe.hott==1"} checked="checked"{/if}>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">新</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="news" value="0" title="否" {if condition="$shenhe.news==0"} checked="checked"{/if}>
+                            <input type="radio" name="news" value="1" title="是" {if condition="$shenhe.news==1"} checked="checked"{/if}>
+                        </div>
+                    </div>
+					
+					
+					<div class="layui-form-item">
+                        <label class="layui-form-label">排序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="weigh" value="{$shenhe.weigh}" lay-verify="number" placeholder="排序" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                           
+                             <input type="radio" name="status" value="0" title="禁用" {if condition="$shenhe.status==0"} checked="checked"{/if}>
+                            <input type="radio" name="status" value="1" title="启用" {if condition="$shenhe.status==1"} checked="checked"{/if}>
+                        </div>
+                    </div>
+					
+					 <div class="layui-form-item">
+                        
+                        <div class="layui-input-block">
+                            <textarea id="container" name="content" cols="30" rows="15" style="width:100%; margin: 0 auto;">
+								{$shenhe.content}
+    						</textarea>
+                        </div>
+                    </div>
+					     
+    				 <script type="text/javascript" src="__STATIC__/ueditor/ueditor.config.js"></script>
+				    <!-- 编辑器源码文件 -->
+				    <script type="text/javascript" src="__STATIC__/ueditor/ueditor.all.js"></script>
+				    <!-- 实例化编辑器 -->
+				    <script type="text/javascript">
+				        //var ue = UE.getEditor('container');
+				        var ue = UE.getEditor('container', {
+				            autoHeightEnabled:false,
+				            initialFrameHeight:420
+				        });
+				    </script>
+					<div class="layui-form-item">
+                        <div class="layui-input-block">
+                             <input type="hidden" name="id" value="{$shenhe.id}">
+							<button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

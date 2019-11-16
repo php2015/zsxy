@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>罗马快车</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/mui.min.js"></script>
+<style type="text/css">
+    img{max-width: 100%;}
+    </style>
+<script>
+function checkIsInteger(str)
+{
+  //如果为空，则通过校验
+  if(str == "")
+    return true;
+     if(/^(\-?)(\d+)$/.test(str))
+       return true;
+     else
+       return false;
+}
+var errordialog=function(c){
+	alert(c)
+}
+//检验商品数量
+function checkCounts(id) {
+    var Counts = $("#" + id).val();
+    if (Counts == "") {
+        errordialog("请填写数量!");
+        return false;
+    }
+    else if (!checkIsInteger(Counts)) {
+        errordialog("商品数量不是整数!");
+        return false;
+    }
+    else if (Counts < 1) {
+        errordialog("商品数量不能小于1!");
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+function addQty(){
+	checkCounts('txtQty');
+  var qty = parseInt($('#txtQty').val());
+  //判断是否超过限购数量
+  if({$leescoregoods['max_buy_number'] - 1} < qty){
+      errordialog("商品数量不能超过限购数量");
+    return;
+  }
+	
+	$('#txtQty').val(qty+1);
+}
+function subtractQty(){
+	checkCounts('txtQty');
+	var qty = parseInt($('#txtQty').val());
+	if(qty <=1){
+		errordialog("商品数量不能小于1");
+		return;
+	}
+	$('#txtQty').val(qty-1);
+}
+</script>
+</head>
+
+<body>
+<div class="container">
+  <header class="mui-bar mui-bar-nav" style="">
+        <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/index')}" style="color: #2d4bfc;"></a>
+            <h1 class="mui-title" style="color: #000;">{$leescoregoods.name}</h1>
+           
+        </header>
+	
+    <!-- banner -->
+    <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{&quot;directionNav&quot;:false}'>
+      <ul class="am-slides" style="margin-top:44px;">
+        <li>
+          <img src="{$leescoregoods.thumb}">
+        </li>
+        <!-- <li>
+          <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
+        </li>
+        <li>
+          <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
+        </li>
+        <li>
+          <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
+        </li> -->
+      </ul>
+    </div>
+	<div class="mui-content" style="background: #fff;padding-top: 0px;">
+    	<div class="paoduct-title-panel">
+        	<h1 class="product-h1">{$leescoregoods.name}</h1>
+            <p><!-- <span class="am-fr product-title-gray-text"><i class="am-icon-star"></i>收藏</span> --><span class="bold"></span><span class="red2" style="font-size: 18px;">价格：{$leescoregoods.money}</span>&nbsp;&nbsp;<span style="font-size: 12px;">原价：</span><span style="text-decoration: line-through;font-size: 12px;">{$leescoregoods.yuanjia}元</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="product-title-gray-text">库存：{$leescoregoods.stock}</span></p>
+        </div>
+        <!-- <div class="my-search-title-panel">
+        	<ul class="am-avg-sm-4 am-text-center am-text-sm">
+            	<li class="am-text-center">销量<br />0件</li>
+                <li class="am-text-center">库存<br />0件</li>
+                <li class="am-text-center">订单<br />0个</li>
+                <li class="am-text-center">评价<br />0条</li>
+            </ul>
+    	</div> -->
+        <div class="my-search-title-panel">
+           <hr data-am-widget="divider" style="" class="am-divider-default am-margin-bottom-sm"/>
+            <p class="my-search-titp-p am-text-sm bold">数量</p>
+            <div style="overflow:hidden">
+            <form class="am-form-inline" role="form">
+            	<button type="button" class="am-btn am-btn-default" style="float:left" onClick="subtractQty();" ><i class="am-icon-minus"></i></button>
+                <input type="number" name="txtQty" id="txtQty" class="am-form-field txt-qty am-text-center am-text-sm" value="1" style=" width:60px; margin-right:0px; height:37px; display:inline; float:left">
+                <button type="button" class="am-btn am-btn-default" style="float:left" onClick="addQty();"><i class="am-icon-plus"></i></button>
+              
+            </form>
+				<div>
+
+            	<ul class="am-avg-sm-2 am-text-center">
+                    <li class="am-text-center am-padding-sm" style="margin-left:50%;margin-top:-62px;"><button  onclick="buy()" style="background: #2d4bfc;width:60px;height:60px;border-radius:50%;color:white;">购买</button></li>
+                </ul>
+            </div>
+            </div>
+            <hr data-am-widget="divider" style="" class="am-divider-default am-margin-bottom-sm"/>
+            <p class="my-search-titp-p am-text-sm bold">简介</p>
+            <div style="overflow:hidden">
+             <p class="my-search-titp-p am-text-sm bold"><a href="#" style="text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;    font-size: 12px;line-height: 16px; color: #8f8f94;">{$leescoregoods.titles}</a></p>
+            
+            </div>
+           <!-- <hr data-am-widget="divider" style="" class="am-divider-default am-margin-bottom-sm"/> 
+				<div>
+
+            	<ul class="am-avg-sm-2 am-text-center">
+                	<!-- <li class="am-text-center am-padding-sm"><button  class="am-btn am-btn-success am-btn-block am-radius">加入购物车</button></li>  原隐藏
+                    <li class="am-text-center am-padding-sm" style="margin-left:25%;"><button class="am-btn am-btn-danger am-btn-block am-radius"  onclick="buy()" style="background: #2d4bfc;">立即兑换</button></li>
+                </ul>
+            </div>-->
+        </div>
+        <script src="__PUBLIC__/js/jquery.min.js"></script>
+          <script type="text/javascript">
+                        function buy(kid) { 
+                            var num = $("#txtQty").val();
+                            var maxnum = '{$leescoregoods.max_buy_number}';
+                            //alert(maxnum);
+                          var kucun = '{$leescoregoods.stock}';
+                            if(num > kucun){
+                              alert('库存不足');
+                              return false;
+                            }
+                            if(num > maxnum){
+                              if(maxnum != 0){
+                              alert('商品限购');
+                            	}else{
+                              window.location.href='{:url('index/index/tijiao')}?gid={$leescoregoods.id}&num='+num;
+                            }
+                            }else{
+                              window.location.href='{:url('index/index/tijiao')}?gid={$leescoregoods.id}&num='+num;
+                            }
+                            //alert(num);
+                            
+                  }  
+                  </script>
+            <!-- 商品详情 -->
+        
+        <div data-am-widget="tabs" class="am-tabs am-tabs-d2">
+          <ul class="am-tabs-nav am-cf">
+            <li class="am-active">
+              <a href="[data-tab-panel-0]">详情</a>
+            </li>
+           <!--  <li class="">
+              <a href="[data-tab-panel-1]">交易记录</a>
+            </li> -->
+          <!--   <li class="">
+              <a href="[data-tab-panel-2]">评价</a>
+            </li> -->
+          </ul>
+         </div>
+            <div style="width: 100%;">{$leescoregoods.content}</div>
+</div>
+      <script>
+	  	function showFooterNav(){
+			$("#footNav").toggle();
+		}
+	  </script>
+   
+</div>
+</body>
+</html>

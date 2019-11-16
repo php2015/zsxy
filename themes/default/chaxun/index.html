@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>钻石报告</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+    <link href="/public/index/css/astyle.css?v=123456" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/icons-extra.css">
+   <script src="__PUBLIC__/js/jquery.min.js"></script>
+  <script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=f50ea5f0-5c14-11e9-8670-5bf8fe2cdd9c&autoShow=false&language=ZHCN' async='async'></script>
+
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+    <style>
+        body{margin: 0;padding: 0;}
+         ul,li{list-style:none;display:block;}
+            #scrollBox{height:70px;width:100%;color:#f47725;overflow:hidden;font-size:12px; text-align: center;}
+            #scrollBox #con1,#con2{width:100%;float:left;}
+            #scrollBox li{height:12px;line-height:15px;text-align:center;}
+        .outer_layer_centered{
+            border: 1px solid #fff;
+            background-color: #fff;
+            border-bottom: 20px solid #fff;
+            margin-right: 0px;
+            margin-left: 0px;
+            margin-top: 0px;
+            border-radius: 0px;
+            box-shadow: 0 0px 0px 0px #d7d7d7;
+        }
+        .news-item_outer_layer_centered{
+            border: 0px solid #f6f6f6;
+            margin-top: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0px 0px 0px #f6f6f6;
+        }
+  
+      .jsProvince{
+   		cursor: pointer;
+	}
+    </style>
+</head>
+<body>
+     <div class="mui-content" style="margin: 0;padding: ;">
+        <img src="__PUBLIC__/img/sahngmian221.png"  style="width: 100%;margin-top:0px;margin-left:0%;"/>
+        <div style="">
+            
+<a href="/index/complaint/index.html">
+    <div style="width: 40px;height: 40px;border: 1px solid #ff9600;background: #ff9600;border-radius:100%;position: fixed;right: 5px; top: 350px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
+    </div>
+</a>
+          
+        
+           <div style="background: #fff;margin-top:-16px;padding-top: 0px;">
+        {if condition="isset($product)"}
+            {volist name="product" id="vo"}
+                 <a href="javascript:;" onclick="buy({$vo.id},{$vo.price},{$vo.a_g_id})" style="" class="jsProvince">
+                               <div style="background:url(__PUBLIC__/img/btnss.png);background-size: 70%;margin-top: 10px;
+                            background-position: center;background-repeat: no-repeat;height: 60px;">
+                                <p style="text-align: center;line-height: 60px;color:#fff;font-size: 16px;"><b>立即获取分析报告</b></p>
+                            </div>
+                    </a>
+             {/volist}
+        {else/}
+            {volist name="goods" id="vo"}
+                 <a href="javascript:;" onclick="buy({$vo.id},{$vo.price},{$vo.a_g_id})" style="" class="jsProvince">
+                 {if condition="$vo['id'] eq '1'"}
+                <div style="background:url(__PUBLIC__/img/btnss.png);background-size: 70%;background-position: center;background-repeat: no-repeat;height: 60px;margin-top: 30px;">
+                    <p style="text-align: center;line-height: 60px;color:#f47725;font-size: 16px;">立即获取分析报告</p>
+                </div>
+                 {else/}
+                 <div style="background:url(__PUBLIC__/img/btnss.png);background-size: 70%;margin-top: 10px; background-position: center;background-repeat: no-repeat;height: 60px;">
+                       <p style="text-align: center;line-height: 60px;color:#fff;font-size: 16px;"><b>立即获取分析报告</b></p>
+                 </div>
+               {/if}
+                    </a>
+             {/volist}
+        {/if}
+        <div style="width: 100%;display: block;clear: both;padding-top: 15px;padding-bottom: 20px;">
+          <div style="font-size: 14px;padding-top: 0px;float: left;width: 50%;text-align: center;">
+               {if condition="isset($product)"}
+                  {if condition="$product[0]['a_g_id'] eq 2"}
+                  <a href="{:url('index/chaxun/yangshi1')}" style=""> <div style="background:url(__PUBLIC__/img/shili.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+                  {else/}
+                  <a href="{:url('index/chaxun/yangshi2')}" style=""> <div style="background:url(__PUBLIC__/img/shili.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+                  {/if}
+              {else/}
+              <a href="{:url('index/chaxun/yangshi2')}" style=""> <div style="background:url(__PUBLIC__/img/shili.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+              {/if}
+            </div>
+              <div style="font-size: 14px;padding-top: 0px;float: left;width: 50%;text-align: center;">
+              {if condition="$price eq ''"}
+                {if condition="!isset($uid)"/}
+                <a  href="javascript:jilu()" id="sb" style=""><div style="background:url(__PUBLIC__/img/jilu.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+                {else/}
+                 <a href="{:url('index/user/chaxunjilu',array('p_id'=>$p_id))}" style=""><div style="background:url(__PUBLIC__/img/jilu.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+                {/if}
+              {else/}
+              {/if}
+            </div>
+          </div>
+
+      <div style="text-align: center;padding-top:20px; padding-bottom: 10px;"><span style="font-size: 14px;">已有</span> <span style="color: #ff7b00;font-size: 18px;">{$shulaing}</span>                      <span style="font-size: 14px;">通过分析提高了下款率</span>
+          </div>
+               <img src="__PUBLIC__/img/weibu.png"  style="width: 100%;margin-top:0px;margin-left:0%;background: #fff;"/>
+               <div class="outer_layer_centered" style="border: 1px solid #fff;background-color: #fff;border-bottom: 20px solid #fff;">
+                   <div>
+                       <p class="text_p" style=" margin-top: 10px;font-size: 14px;color:#000">用户评价</p>
+                   </div>
+                   <div style="border-top:1px solid #f0f0f0"></div>
+                   <div class="panel panel-default" style="    margin-right: 23px;margin-left: 26px;margin-top: 10px;">
+                       <div class="carousel col-xs-12">
+                           <ul class="demo1">
+                               {volist name="comment" id="vo"}
+                               <li class="news-item">
+                                   <div class="text_span" style="">
+                                       {if condition="$vo.types eq 1"}
+                                       <img src="/public/index/img/analysis14.png" width="25" height="25" style="float:left">
+                                       {else/}
+                                       <img src="/public/index/img/analysis13.png" width="25" height="25" style="float:left">
+                                       {/if}
+                                       <div style="float: left;margin: 2px;">
+                                       <span>{$vo.title|mb_substr=0,1,'utf-8'}**</span><span>尾号{$vo.thumb}</span><span>{$vo.jianjie}</span>
+                                       </div>
+                                       <!-- <p style="float: right;margin-top: 3px;color: #999999;    font-size: 12px;margin-right:14px">{$vo.lasttime|date='Y-m-d H:i:s',###}</p> -->
+
+                                        <div class="information">
+                                           <p style="margin-top: 5px;">{$vo.content|htmlspecialchars_decode|strip_tags|mb_substr=0,100,'utf-8'}</p>
+                                       </div>
+                                       <div class="clear"></div>
+                                   </div>
+                                   <div style="border-top:1px solid #f0f0f0"></div>
+                               </li>
+
+                               {/volist}
+                           </ul>
+                       </div>
+                       <div class="clear"></div>
+                   </div>
+
+                   <div style="margin-top: 20px;margin-left: 15px;    margin-right: 15px;">
+                       <p style="font-size: 14px;font-weight: bold; color:#000">评论内容：</p>
+                       <textarea style="font-size: 14px;border: 1px solid #9d9d9d;outline:none;width: 100%;height: 80px;border-radius: 7px;background: #f3f3f3;text-indent: 15px;" placeholder="请输入您要评论的内容...(字数不少于5字)"></textarea>
+                       <button type="submit" id="sub" class="btn btn-warning" style="float: right;width: 37%;font-size: 14px;font-weight: bold;background: #ee823a;">发布</button>
+                   </div>
+                   <div class="clear"></div>
+               </div>
+
+
+
+
+
+               <div class="outer_layer_centered">
+                   <div style="border:1px solid #ebebeb"></div>
+                   <div style="    margin-top: 10px;">
+                       <p class="text_p" style=" margin-top: 2px;font-size: 14px;"><img src="/public/index/img/analysis11.png" style="width: 20px;height: 40px; margin-right: 10px;">真实案例<img src="/public/index/img/analysis10.png"  style="width: 20px;height: 40px; margin-left: 10px;"></p>
+                   </div>
+                   <div style="border:1px solid #ebebeb"></div>
+                   <div class="panel panel-default" style="    margin-right: 23px;margin-left: 26px;margin-top: 10px;">
+                       <div class="carousel col-xs-12">
+                           <ul class="demo1s">
+                               {volist name="note" id="vo"}
+                               <li class="news-item">
+                                   <a href="{:url('/index/chaxun/anaview',array('id'=>$vo['id']))}" style="text-decoration:none;out-line: none;color:#444;">
+                                       <div class="news-item_outer_layer_centered">
+                                           <h5 style="font-weight: bold;margin-top: 20px;">&nbsp&nbsp&nbsp{$vo.title}</h5>
+                                           <p style="text-indent: 36px;font-size: 12px;color: #888888;margin-left: 8px;margin-right: 8px;">{$vo.content|htmlspecialchars_decode|strip_tags|mb_substr=0,100,'utf-8'}.....</p>
+                                           <div style="border-top:1px solid #f0f0f0"></div>
+                                       </div>
+                                   </a>
+                               </li>
+                               {/volist}
+                           </ul>
+
+                       </div>
+                       <div class="clear"></div>
+                   </div>
+               </div>
+
+
+
+      </div>
+
+
+
+   <a href="/index/complaint/wenti.html">
+    	<div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+        	<p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+    	</div>
+	</a>
+
+
+
+
+
+<script  type="text/javascript">
+                         function jilu(jl=1){ 
+                                       //alert("如你已付费查询!请用手机号做为账号登陆!初始密码123456");
+                                       window.location.href="{:url('index/login/loginss')}?p_id={$p_id}";
+                            }  
+    
+ </script>
+            
+    <script type="text/javascript">            
+                var area =document.getElementById('scrollBox');
+                var con1 = document.getElementById('con1');
+                var con2 = document.getElementById('con2');
+                con2.innerHTML=con1.innerHTML;
+                function scrollUp(){
+                if(area.scrollTop>=con1.offsetHeight){
+                    area.scrollTop=0;
+                }else{
+                    area.scrollTop++
+                }
+                }                
+                var time = 50;
+                var mytimer=setInterval(scrollUp,time);
+                area.onmouseover=function(){
+                    clearInterval(mytimer);
+                }
+                area.onmouseout=function(){
+                    mytimer=setInterval(scrollUp,time);
+                }
+        </script>
+
+
+
+</div>
+  
+   <script>
+                         function buy(id,price,a_g_id) { 
+                           
+                              $.ajax({
+                                        url:'{:url('api/buy/buy')}',
+                                        type:"post",
+                                        datatype:'json',
+                                        data:{'pid':id,'price':price},
+                                        
+                                        success:function(data){
+                                    if(data==1){
+                                      if(a_g_id == 3){
+                                        window.location.href='{:url('index/chaxun/query1')}?price='+price+'&pid='+id;
+                                      }else{
+                                        window.location.href='{:url('index/chaxun/query2')}?price='+price+'&pid='+id;
+                                      }
+                                    }else if(data==0){
+                                        alert("查询失败");
+                                    }else if(data==11){
+                                       if(a_g_id == 3){
+                                        window.location.href='{:url('index/chaxun/query1')}?price='+price+'&pid='+id;
+                                      }else{
+                                        window.location.href='{:url('index/chaxun/query2')}?price='+price+'&pid='+id;
+                                      }
+                                    }
+                                            }
+                                });
+                            }  
+                        </script>
+     </div>
+        <script src="__PUBLIC__/js/jquery.min.js"></script>
+     <script src="/public/bootstrap/js/jquery.bootstrap.newsbox.min.js"></script>
+     <script src="/public/layer/layer.js"></script>
+         <script>
+            
+            mui.init({
+                swipeBack: true //启用右滑关闭功能
+            });
+
+            $('#sub').on('click',function(){
+                layer.msg('请查询后，在报告内评价');
+            })
+
+            $(".demo1").bootstrapNews({
+                newsPerPage: 3,
+                autoplay: true,
+                pauseOnHover: true,
+                navigation:false,
+                direction: 'up',
+                newsTickerInterval: 4000,
+                onToDo: function () {
+
+                    //console.log(this);
+
+                }
+
+            });
+            
+        /* mui('body').on('tap','a',function(){
+    		window.top.location.href=this.href;
+		});*/
+        </script>
+
+
+
+</body>
+</html>

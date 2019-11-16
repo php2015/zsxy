@@ -1,0 +1,146 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/withdraw/index')}">提现管理</a></li>
+            <li class="layui-this">添加提现</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/withdraw/save')}" method="post">
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户</label>
+                        <div class="layui-input-block" id="wrapper">
+							<select name="user_id" id="wrappessr">
+                                {foreach name="user_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.names}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="money" value="" required  lay-verify="required" placeholder="请输入金额" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="type" value="" required  lay-verify="required" placeholder="银行或支付宝" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">卡号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bankcard" value="" required  lay-verify="required" placeholder="银行卡号或支付宝名" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+    var j = 2;
+    var offNo = true,//滚动开关
+        toff = true,//调试
+        isScroll = function (el) {    //判断当前是否有滚动条
+            // 判断的目标
+            var elems = el ? [el] : [document.documentElement, document.getElementsByClassName('layui-anim-upbit')];
+            var scrollX = false, scrollY = false;
+            for (var i = 0; i < elems.length; i++) {
+                var o = elems[i];
+                //判断当前是否有水平滚动条
+                var sl = o.scrollLeft;
+                o.scrollLeft += (sl > 0) ? -1 : 1;
+                o.scrollLeft !== sl && (scrollX = scrollX || true);
+                o.scrollLeft = sl;
+                //判断当前是否有垂直滚动条
+                var st = o.scrollTop;
+                o.scrollTop += (st > 0) ? -1 : 1;
+                o.scrollTop !== st && (scrollY = scrollY || true);
+                o.scrollTop = st;
+            }
+            // ret
+            return {
+                scrollX: scrollX,
+                scrollY: scrollY
+            }
+        },
+        funScrol=function (x,datas,pos,fun){
+
+            if(!x){
+                x = 10//底部fixed导航的高度;$(xxx).height();
+            }
+            if(isScroll().scrollY){ //判断是否存在垂直滚动条
+                $('.layui-anim-upbit').scroll(function () { //滚动开始
+                    var t = $(this).scrollTop(),
+                        th = $(this).height() + t;
+                    if(t > th-$(this).height()-x-10){ //刚滚动至底部距离20PX时
+                        if(offNo){ //判断滚动开关是否开启
+                            offNo=false; //关闭滚动开关
+                            if(toff){ //是否开启调试模式
+                                j++;
+                                $.post(pos,{'page':j},function (e){ //post请求
+                                    //console.log(e);
+                                    if (e) { //判断是否有返回
+                                        var html = ''; //定义文档变量
+                                        var list = e; //存在多个值选取有的那个值
+                                        if(fun){ //执行函数
+                                            fun(html,list); //参数传递
+                                        }
+                                        if (list.length <= 0) { //返回数据为空
+                                            offNo=false  //关闭滚动开关
+                                        }else{  //有返回数据
+                                            offNo=true  //打开滚动开关
+                                        }
+                                    } else {  //请求失败
+                                        offNo=false  //关闭滚动开关
+                                    }
+                                },'json');
+                            }else{
+                                //调试模式
+                                if(fun){   //函数
+                                    fun();
+                                }
+                            }
+                        }
+                    }
+                })
+            }else{  //没有滚动条就隐藏
+                $('.layui-anim-upbit').hide();
+            }
+        };
+
+
+
+
+    $(function () {
+        var num = 10;
+        funScrol(10,{'page':2},'{:url("/admin/withdraw/findAll")}',function (html,list) {
+            var s = 0, b = list.length;
+            for(var i = 0; i < b;i++){
+                $('#wrappessr').append('<option value="'+ list[i].id +'">'+list[i].names+'</option>');
+                $('.layui-anim-upbit').append('<dd lay-value="'+ list[i].id +'" class="">'+list[i].names+'</dd>');
+            }
+            offNo=true;
+        })
+        $('.layui-anim-upbit').on('click','dd',function(){
+            $(this).addClass('layui-this').siblings().removeClass('layui-this');
+           $('.layui-unselect').val($(this).html());
+            $('select[name="user_id"]').val($(this).attr('lay-value'));
+        })
+    })
+</script>
+{/block}

@@ -1,0 +1,1130 @@
+[ 2019-11-10T23:58:44+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000517s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000594s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '13552726041573401520' LIMIT 1 [ RunTime:0.000322s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:46+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000505s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000597s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 65220 LIMIT 1 [ RunTime:0.000212s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000164s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000155s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000176s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:46+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000523s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000617s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64715 LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000139s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000139s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000175s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:46+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000531s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000197s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000163s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.002631s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000141s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000149s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000412s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000167s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:46+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000670s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000563s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64137 LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000168s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000151s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000157s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000176s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:48+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000523s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000630s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '18211229158' LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000183s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000542s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `tel` = '18211229158'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.020759s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000244s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `idcard` = '513723199308239816'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.019527s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000187s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_city` [ RunTime:0.000412s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 51 LIMIT 1 [ RunTime:0.000141s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000169s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 5137 LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000161s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT MAX(id) AS tp_max FROM `sun_user` LIMIT 1 [ RunTime:0.000177s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] INSERT INTO `sun_user` (`names` , `mid` , `idcard` , `mobile` , `status` , `create_time` , `province` , `city` , `pid` , `password` , `banknumber`) VALUES ('吴卫' , 'M00208357' , '513723199308239816' , '18211229158' , 1 , 1573401528 , '四川省' , '巴中地区' , 54106 , 'e10adc3949ba59abbe56e057f20f883e' , '') [ RunTime:0.004632s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:49+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000504s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 198357 LIMIT 1 [ RunTime:0.000311s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000161s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_insurance` [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_insurance` WHERE  `mobile` = '18211229158' LIMIT 1 [ RunTime:0.022485s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000249s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] INSERT INTO `sun_insurance` (`name` , `mobile` , `IdCard` , `json` , `message` , `status` , `createAt`) VALUES ('吴卫' , '18211229158' , '513723199308239816' , '{\"policyCode\":null,\"status\":\"FAILED\",\"message\":\"\\u6295\\u653e\\u65e5\\u9650\\u91cf\\u5df2\\u6ee1!\",\"policyNo\":null,\"resultUrl\":null,\"adCode\":\"b8d386d9\",\"taiPingJiHuoMa\":null,\"productName\":null,\"companyId\":null,\"companyName\":null,\"companyLogo\":null,\"channelStatus\":true,\"detailMessage\":[]}' , '投放日限量已满!' , 0 , 1573401529) [ RunTime:0.004106s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000166s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000138s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000420s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983571573401529' , '20933211301573401529' , 2990 , '1573401529' , 64136 , 198357 , 198357 , 54106 , 1573401529) [ RunTime:0.003739s ]
+[ error ] [8]未定义数组索引: code
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:49+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000491s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 54106 LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_gonggao` [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_gonggao` [ RunTime:0.000130s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000161s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_profit` [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54106  AND `type` = '提现' LIMIT 1 [ RunTime:0.000158s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '个人' ORDER BY id desc LIMIT 1 [ RunTime:0.000138s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:49+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000492s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000549s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000179s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000162s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000142s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000178s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000167s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:50+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000499s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 198357 LIMIT 1 [ RunTime:0.000212s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000179s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_insurance` [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_insurance` WHERE  `mobile` = '18211229158' LIMIT 1 [ RunTime:0.023709s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000166s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000467s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000166s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000161s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000462s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983571573401530' , '10073396521573401530' , 2990 , '1573401530' , 64136 , 198357 , 198357 , 54106 , 1573401530) [ RunTime:0.004255s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:50+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000493s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000567s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000179s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000181s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000164s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000149s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000438s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000172s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:50+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000491s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000206s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000175s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000142s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000170s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000499s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000537s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = 'log' ORDER BY id desc LIMIT 1 [ RunTime:0.000179s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000518s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000632s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000204s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000190s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000168s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000139s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000180s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000176s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:53+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000572s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000558s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000188s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000184s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000182s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000157s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000158s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:53+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000514s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000558s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '10073396521573401530' LIMIT 1 [ RunTime:0.000279s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:54+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000539s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000586s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000197s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000150s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000374s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000140s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000161s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000180s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:55+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000575s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000182s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000157s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000134s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000141s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000151s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:56+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000559s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000631s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000205s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000203s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000155s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000179s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000139s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000169s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000172s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:56+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000516s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000571s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '10073396521573401530' LIMIT 1 [ RunTime:0.000199s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:56+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000681s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000560s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64137 LIMIT 1 [ RunTime:0.000216s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000201s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000168s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000222s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000187s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000176s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:57+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000534s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `sid` = 388141 LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000162s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `id` = 388141 LIMIT 1 [ RunTime:0.000228s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_bairo` [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_bairo` WHERE  `chaxunid` = 85091 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000178s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000535s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '18880803064' LIMIT 1 [ RunTime:0.000294s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000238s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 51252 LIMIT 1 [ RunTime:0.000331s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000170s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_agent` [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_agent` WHERE  `id` = 75 LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000162s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000470s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 56500 LIMIT 1 [ RunTime:0.000210s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:57+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000556s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000679s ]
+[ sql ] [ SQL ] SELECT `c`.*,`b`.`json`,`b`.`top_image` FROM `sun_chaxun` `c` INNER JOIN `sun_bairo` `b` ON `c`.`id`=`b`.`chaxunid` WHERE  ( `c`.`ma_id` = '198356' OR `c`.`uid` = '198356' )  AND `c`.`dates` > 1512921537 ORDER BY c.id desc LIMIT 0,20 [ RunTime:0.033478s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000527s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000584s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000203s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000167s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000156s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000206s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000160s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000427s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000186s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000516s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000589s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000198s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000199s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000163s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000144s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000157s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000423s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000198s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:58:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000506s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '10073396521573401530' LIMIT 1 [ RunTime:0.000180s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000497s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '13787652893' LIMIT 1 [ RunTime:0.000293s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000185s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `tel` = '13787652893'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.020815s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000156s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `idcard` = '431121199408280050'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.020098s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000163s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_city` [ RunTime:0.000428s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 43 LIMIT 1 [ RunTime:0.000124s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000143s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 4311 LIMIT 1 [ RunTime:0.000113s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT MAX(id) AS tp_max FROM `sun_user` LIMIT 1 [ RunTime:0.000198s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000210s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] INSERT INTO `sun_user` (`names` , `mid` , `idcard` , `mobile` , `status` , `create_time` , `province` , `city` , `pid` , `password` , `banknumber`) VALUES ('刘力嘉' , 'M00208358' , '431121199408280050' , '13787652893' , 1 , 1573401540 , '湖南省' , '永州市' , 54466 , 'e10adc3949ba59abbe56e057f20f883e' , '') [ RunTime:0.004763s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000495s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000605s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 198358 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_insurance` [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_insurance` WHERE  `mobile` = '13787652893' LIMIT 1 [ RunTime:0.023406s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000290s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] INSERT INTO `sun_insurance` (`name` , `mobile` , `IdCard` , `json` , `message` , `status` , `createAt`) VALUES ('刘力嘉' , '13787652893' , '431121199408280050' , '{\"policyCode\":null,\"status\":\"FAILED\",\"message\":\"\\u6295\\u653e\\u65e5\\u9650\\u91cf\\u5df2\\u6ee1!\",\"policyNo\":null,\"resultUrl\":null,\"adCode\":\"b8d386d9\",\"taiPingJiHuoMa\":null,\"productName\":null,\"companyId\":null,\"companyName\":null,\"companyLogo\":null,\"channelStatus\":true,\"detailMessage\":[]}' , '投放日限量已满!' , 0 , 1573401540) [ RunTime:0.004762s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000188s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 52606 LIMIT 1 [ RunTime:0.000208s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000151s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000471s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983581573401540' , '20617152851573401540' , 2990 , '1573401540' , 52606 , 198358 , 198358 , 54466 , 1573401540) [ RunTime:0.003282s ]
+[ error ] [8]未定义数组索引: code
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:01+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000520s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000616s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 198358 LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_insurance` [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_insurance` WHERE  `mobile` = '13787652893' LIMIT 1 [ RunTime:0.023584s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000230s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000607s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 52606 LIMIT 1 [ RunTime:0.000194s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000177s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000484s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983581573401541' , '10606660051573401541' , 2990 , '1573401541' , 52606 , 198358 , 198358 , 54466 , 1573401541) [ RunTime:0.004288s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:02+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000519s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000608s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '10073396521573401530' LIMIT 1 [ RunTime:0.000326s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000521s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = 'log' ORDER BY id desc LIMIT 1 [ RunTime:0.000175s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000549s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '10606660051573401541' LIMIT 1 [ RunTime:0.000288s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000552s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000224s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000195s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000156s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000182s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000163s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000174s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000549s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 62671 LIMIT 1 [ RunTime:0.000195s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000217s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000190s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000157s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000180s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000536s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000634s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000167s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000170s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000158s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000147s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000167s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000410s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 52606 LIMIT 1 [ RunTime:0.000177s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000157s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000212s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000429s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000152s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000156s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000491s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000632s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '13285243520' LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000172s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `tel` = '13285243520'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.000199s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `idcard` = '320831199308142616'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.000207s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000138s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] UPDATE `sun_user`  SET `id`=198356,`idcard`='320831199308142616'  WHERE  `id` = 198356 [ RunTime:0.004898s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000521s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000562s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000197s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000169s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000528s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983561573401549' , '15718279361573401549' , 2990 , '1573401549' , 64132 , 198356 , 198356 , 54078 , 1573401549) [ RunTime:0.006362s ]
+[ error ] [8]未定义数组索引: code
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000637s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000640s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mid` = '15065292456' OR `mobile` = '15065292456' LIMIT 1 [ RunTime:0.000430s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000516s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000196s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000177s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983561573401550' , '9571242661573401550' , 2990 , '1573401550' , 64132 , 198356 , 198356 , 54078 , 1573401550) [ RunTime:0.003666s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000556s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 54078 LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000164s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_gonggao` [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_gonggao` [ RunTime:0.000124s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000214s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_profit` [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54078  AND `type` = '提现' LIMIT 1 [ RunTime:0.000907s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000171s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '个人' ORDER BY id desc LIMIT 1 [ RunTime:0.000156s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000505s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000643s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 54078 LIMIT 1 [ RunTime:0.000233s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000145s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000434s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `sun_chaxun` WHERE  `ma_id` = 54078  AND `dates` BETWEEN 1573315200 AND 1573401552 LIMIT 1 [ RunTime:0.007796s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000171s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_profit` [ RunTime:0.000453s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54078  AND `create_time` BETWEEN 1573315200 AND 1573401552  AND ( `type` <> '提现' AND `type` <> '退款' ) LIMIT 1 [ RunTime:0.000928s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000175s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54078  AND `create_time` BETWEEN 1573315200 AND 1573401552  AND `type` = '直推奖励' LIMIT 1 [ RunTime:0.000696s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54078  AND `create_time` BETWEEN 1573315200 AND 1573401552  AND `type` = '直推奖励' LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000144s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54078  AND `create_time` BETWEEN 1573315200 AND 1573401552  AND `type` = '二级奖励' LIMIT 1 [ RunTime:0.000615s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000144s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54078  AND `create_time` BETWEEN 1573315200 AND 1573401552  AND `type` = '二级奖励' LIMIT 1 [ RunTime:0.000150s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54078  AND `create_time` BETWEEN 1573315200 AND 1573401552  AND `type` = '退款' LIMIT 1 [ RunTime:0.000548s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000170s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_profit` WHERE  `profit_id` = 54078  AND `create_time` BETWEEN 1573315200 AND 1573401552  AND `type` = '二级奖励' [ RunTime:0.000971s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000522s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000552s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '9571242661573401550' LIMIT 1 [ RunTime:0.000271s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000501s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_profit` [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`names`,b.mobile mobilesss,`b`.`mid`,CONCAT(LEFT(c.names,1),'**') namess,c.tel mobile FROM `sun_profit` `a` LEFT JOIN `sun_user` `b` ON `a`.`profit_id`=`b`.`id` LEFT JOIN `sun_chaxun` `c` ON `a`.`order_id`=`c`.`ordernumber` LEFT JOIN `sun_user` `d` ON `c`.`uid`=`d`.`id` WHERE  `a`.`create_time` BETWEEN 1573315200 AND 1573401599  AND `a`.`profit_id` = 54078 ORDER BY `a`.`id`  DESC LIMIT 0,20 [ RunTime:0.000571s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000168s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1983001573400802' LIMIT 1 [ RunTime:0.000294s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000180s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = '157833' LIMIT 1 [ RunTime:0.000335s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000144s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1981761573399234' LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000146s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1981441573398932' LIMIT 1 [ RunTime:0.000316s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000138s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1977881573398145' LIMIT 1 [ RunTime:0.000242s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000175s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1977261573397812' LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000229s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1979971573397794' LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000178s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1979601573397724' LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000184s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1979551573397571' LIMIT 1 [ RunTime:0.000312s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000151s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1979081573397204' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000144s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1978441573396730' LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000139s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1978231573396691' LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000139s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1978271573396619' LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000171s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1978231573396551' LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000217s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1977801573396239' LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000140s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1685911573396235' LIMIT 1 [ RunTime:0.000332s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1977751573396199' LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000147s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1976851573395725' LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000141s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1976601573395628' LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000157s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT `a`.* FROM `sun_user` `a` LEFT JOIN `sun_chaxun` `c` ON `a`.`id`=`c`.`uid` WHERE  `c`.`ordernumber` = 'D1976211573395280' LIMIT 1 [ RunTime:0.000272s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000543s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000680s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mid` = '18271823215' OR `mobile` = '18271823215' LIMIT 1 [ RunTime:0.000407s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:15+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000500s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 54071 LIMIT 1 [ RunTime:0.000300s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000199s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_gonggao` [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_gonggao` [ RunTime:0.000141s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000170s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_profit` [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54071  AND `type` = '提现' LIMIT 1 [ RunTime:0.000234s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '个人' ORDER BY id desc LIMIT 1 [ RunTime:0.000130s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:16+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000577s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000653s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000208s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000178s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000212s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000439s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000156s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000168s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000176s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:16+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000512s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT `c`.*,`b`.`json`,`b`.`top_image` FROM `sun_chaxun` `c` INNER JOIN `sun_bairo` `b` ON `c`.`id`=`b`.`chaxunid` WHERE  ( `c`.`ma_id` = 54071 OR `c`.`uid` = 54071 )  AND `c`.`dates` > 1512921556 ORDER BY c.id desc LIMIT 0,20 [ RunTime:0.035335s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000511s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000204s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000163s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000179s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000139s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000168s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000167s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000474s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 54071 LIMIT 1 [ RunTime:0.000213s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000174s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_gonggao` [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_gonggao` [ RunTime:0.000113s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000151s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_profit` [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 54071  AND `type` = '提现' LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000139s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000412s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '个人' ORDER BY id desc LIMIT 1 [ RunTime:0.000138s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000543s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000195s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000192s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000170s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000160s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000155s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000178s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:20+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000716s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000624s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 62671 LIMIT 1 [ RunTime:0.000210s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000196s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000166s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000146s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000155s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000167s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000186s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:21+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000720s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000221s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000179s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000162s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000185s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000172s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000161s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000517s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `uid` = 54071  AND `isdel` = 1  AND `type_status` = 0 ORDER BY id desc [ RunTime:0.000347s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000165s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 54071 LIMIT 1 [ RunTime:0.000216s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000160s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_agent` [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_agent` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000143s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_agentgoods` [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_agentgoods` WHERE  `aid` = 2  AND `gid` = 3 LIMIT 1 [ RunTime:0.000142s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000155s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000427s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '首页' ORDER BY id desc LIMIT 1 [ RunTime:0.000140s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000142s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `state` = 1 [ RunTime:0.000150s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000599s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000616s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '17785492579' LIMIT 1 [ RunTime:0.000374s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000217s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000560s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `tel` = '17785492579'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.020603s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000177s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `idcard` = '522730199604031037'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.020671s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000180s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_city` [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 52 LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000204s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 5227 LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000153s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT MAX(id) AS tp_max FROM `sun_user` LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000166s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] INSERT INTO `sun_user` (`names` , `mid` , `idcard` , `mobile` , `status` , `create_time` , `province` , `city` , `pid` , `password` , `banknumber`) VALUES ('王明义' , 'M00208359' , '522730199604031037' , '17785492579' , 1 , 1573401568 , '' , '' , 54106 , 'e10adc3949ba59abbe56e057f20f883e' , '') [ RunTime:0.004378s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000459s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000557s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 198359 LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000164s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_insurance` [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_insurance` WHERE  `mobile` = '17785492579' LIMIT 1 [ RunTime:0.023773s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000187s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000509s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000182s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000147s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000454s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983591573401568' , '9792723861573401568' , 2990 , '1573401568' , 64136 , 198359 , 198359 , 54106 , 1573401568) [ RunTime:0.004929s ]
+[ error ] [8]未定义数组索引: code
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000491s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 52476 LIMIT 1 [ RunTime:0.000250s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000169s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_bjurl` [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_bjurl` WHERE  `tname` = '高级版' LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000140s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 52476 LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000182s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 54071 LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000208s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_bj_url` [ RunTime:0.000456s ]
+[ sql ] [ SQL ] INSERT INTO `sun_bj_url` (`url`) VALUES ('279591.png') [ RunTime:0.003895s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000196s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_bj_url` WHERE  `id` = 143100 LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000146s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_bj_url` WHERE  `id` <> 143100 [ RunTime:0.000195s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000134s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] DELETE FROM `sun_bj_url`    WHERE  `id` = 143099 [ RunTime:0.007329s ]
+[ error ] [2]unlink() expects parameter 1 to be a valid path, resource given
+[ error ] [8]未定义变量: QRB
+[ error ] [2]unlink(): open_basedir restriction in effect. File() is not within the allowed path(s): (/www/wwwroot/www.xalanfeng.cn/:/tmp/:/proc/)
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000520s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000657s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 198359 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000157s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_insurance` [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_insurance` WHERE  `mobile` = '17785492579' LIMIT 1 [ RunTime:0.000170s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000180s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000213s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000522s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983591573401569' , '11289917201573401569' , 2990 , '1573401569' , 64136 , 198359 , 198359 , 54106 , 1573401569) [ RunTime:0.004217s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000526s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000636s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64135 LIMIT 1 [ RunTime:0.000206s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000172s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000156s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000146s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000145s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000187s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000505s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000552s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '11289917201573401569' LIMIT 1 [ RunTime:0.000284s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:34+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000522s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000612s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64135 LIMIT 1 [ RunTime:0.000206s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000180s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000156s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000155s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000170s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:35+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000517s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000617s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000190s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000182s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000535s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000166s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000155s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000462s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000164s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:36+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000510s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000542s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `id` = 90919 LIMIT 1 [ RunTime:0.000250s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000201s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `id` = 438324 LIMIT 1 [ RunTime:0.000209s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000182s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_bairo` [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_bairo` WHERE  `chaxunid` = 90919 LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000144s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '13719297796' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000148s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 174868 LIMIT 1 [ RunTime:0.000253s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000149s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_agent` [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_agent` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000151s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 65166 LIMIT 1 [ RunTime:0.000156s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:39+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000568s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 52476 LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000186s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000184s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000167s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000174s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000170s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:41+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000520s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = 'log' ORDER BY id desc LIMIT 1 [ RunTime:0.000171s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:46+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000489s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '15819799423' LIMIT 1 [ RunTime:0.000332s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000175s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `tel` = '15819799423'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.019897s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000207s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `idcard` = '440783199711031818'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.021372s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000178s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] UPDATE `sun_user`  SET `id`=198309,`idcard`='440783199711031818'  WHERE  `id` = 198309 [ RunTime:0.004211s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:46+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000508s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '13515000017' LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000189s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `tel` = '13515000017'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.020405s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000172s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `idcard` = '350181199203311576'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.019600s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_city` [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 35 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000153s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 3501 LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000151s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT MAX(id) AS tp_max FROM `sun_user` LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000142s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] INSERT INTO `sun_user` (`names` , `mid` , `idcard` , `mobile` , `status` , `create_time` , `province` , `city` , `pid` , `password` , `banknumber`) VALUES ('郑晓峰' , 'M00208360' , '350181199203311576' , '13515000017' , 1 , 1573401586 , '福建省' , '福州市' , 54078 , 'e10adc3949ba59abbe56e057f20f883e' , '') [ RunTime:0.004129s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:47+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000497s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000554s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 62671 LIMIT 1 [ RunTime:0.000203s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000183s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000461s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983091573401586' , '503642771573401586' , 2990 , '1573401586' , 62671 , 198309 , 198309 , 54466 , 1573401586) [ RunTime:0.003939s ]
+[ error ] [8]未定义数组索引: code
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:47+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000538s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000172s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000474s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983601573401587' , '7338508451573401587' , 2990 , '1573401587' , 64132 , 198360 , 198360 , 54078 , 1573401587) [ RunTime:0.003900s ]
+[ error ] [8]未定义数组索引: code
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:48+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000496s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000589s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 62671 LIMIT 1 [ RunTime:0.000178s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000179s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000527s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983091573401588' , '5331407601573401588' , 2990 , '1573401588' , 62671 , 198309 , 198309 , 54466 , 1573401588) [ RunTime:0.005142s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:49+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000552s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000657s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '13676961484' LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000190s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `tel` = '13676961484'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.019888s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000200s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `idcard` = '342225199908256217'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.020082s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000185s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_city` [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 34 LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000188s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 3422 LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT MAX(id) AS tp_max FROM `sun_user` LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000151s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] INSERT INTO `sun_user` (`names` , `mid` , `idcard` , `mobile` , `status` , `create_time` , `province` , `city` , `pid` , `password` , `banknumber`) VALUES ('徐梦桥' , 'M00208361' , '342225199908256217' , '13676961484' , 1 , 1573401589 , '安徽省' , '宿县地区' , 54106 , 'e10adc3949ba59abbe56e057f20f883e' , '') [ RunTime:0.005905s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:49+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000565s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000586s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000155s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000401s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983611573401589' , '14017864871573401589' , 2990 , '1573401589' , 64136 , 198361 , 198361 , 54106 , 1573401589) [ RunTime:0.003678s ]
+[ error ] [8]未定义数组索引: code
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:50+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000548s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = 'log' ORDER BY id desc LIMIT 1 [ RunTime:0.000177s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:50+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000548s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000589s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64132 LIMIT 1 [ RunTime:0.000195s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000479s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983601573401589' , '9411625771573401589' , 2990 , '1573401589' , 64132 , 198360 , 198360 , 54078 , 1573401589) [ RunTime:0.003902s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:50+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000543s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000193s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000244s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000508s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983611573401590' , '16231972661573401590' , 2990 , '1573401590' , 64136 , 198361 , 198361 , 54106 , 1573401590) [ RunTime:0.004386s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000548s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000636s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 59713 LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000183s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000156s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000221s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000164s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000189s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000470s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '18321283558' LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `tel` = '18321283558'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.021204s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000169s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `idcard` = '420281198909130418'  AND `dates` BETWEEN 1573315200 AND 1573401540 [ RunTime:0.019770s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000169s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_city` [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 42 LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000225s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_city` WHERE  `citynumber` = 4202 LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000175s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT MAX(id) AS tp_max FROM `sun_user` LIMIT 1 [ RunTime:0.000180s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000140s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] INSERT INTO `sun_user` (`names` , `mid` , `idcard` , `mobile` , `status` , `create_time` , `province` , `city` , `pid` , `password` , `banknumber`) VALUES ('王冲' , 'M00208362' , '420281198909130418' , '18321283558' , 1 , 1573401591 , '湖北省' , '黄石市' , 54106 , 'e10adc3949ba59abbe56e057f20f883e' , '') [ RunTime:0.005127s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000506s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '5331407601573401588' LIMIT 1 [ RunTime:0.000280s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000458s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000196s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000193s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000495s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983621573401591' , '9546159351573401591' , 2990 , '1573401591' , 64136 , 198362 , 198362 , 54106 , 1573401591) [ RunTime:0.005946s ]
+[ error ] [8]未定义数组索引: code
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:52+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000520s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000194s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000216s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000540s ]
+[ sql ] [ SQL ] INSERT INTO `sun_sales` (`body` , `out_trade_no` , `total_fee` , `product_id` , `pid` , `uid` , `sessionid` , `sessionfpid` , `createAt`) VALUES ('D1983621573401592' , '14342445601573401592' , 2990 , '1573401592' , 64136 , 198362 , 198362 , 54106 , 1573401592) [ RunTime:0.005856s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:54+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000585s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '16231972661573401590' LIMIT 1 [ RunTime:0.000276s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:54+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000480s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '9411625771573401589' LIMIT 1 [ RunTime:0.000258s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:54+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000698s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64233 LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000204s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000453s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000166s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000172s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000151s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000171s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:54+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000504s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '5331407601573401588' LIMIT 1 [ RunTime:0.000279s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:56+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000542s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '14342445601573401592' LIMIT 1 [ RunTime:0.000309s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:56+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000510s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64136 LIMIT 1 [ RunTime:0.000189s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000145s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000127s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000172s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000459s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000184s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:56+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000469s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 64735 LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000146s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000124s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000137s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000146s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:56+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000457s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '16231972661573401590' LIMIT 1 [ RunTime:0.000157s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:57+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000504s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '9411625771573401589' LIMIT 1 [ RunTime:0.000167s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:57+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000529s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '5331407601573401588' LIMIT 1 [ RunTime:0.000201s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000537s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000570s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = 'log' ORDER BY id desc LIMIT 1 [ RunTime:0.000170s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000531s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000648s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mid` = '13765443244' OR `mobile` = '13765443244' LIMIT 1 [ RunTime:0.000501s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000513s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000622s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 90635 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000188s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_gonggao` [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_gonggao` [ RunTime:0.000116s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000233s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_profit` [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 90635  AND `type` = '提现' LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000162s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '个人' ORDER BY id desc LIMIT 1 [ RunTime:0.000124s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000558s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000602s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '14342445601573401592' LIMIT 1 [ RunTime:0.000195s ]
+
+---------------------------------------------------------------
+[ 2019-11-10T23:59:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.000493s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sun_user` WHERE  `mobile` = '19945666443' LIMIT 1 [ RunTime:0.000231s ]
+
+---------------------------------------------------------------

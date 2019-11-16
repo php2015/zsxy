@@ -1,0 +1,73 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">提现管理</li>
+            <li class=""><a href="{:url('dailishang/withdraw/add')}">添加提现</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+			  <form class="layui-form layui-form-pane" action="{:url('dailishang/withdraw/index')}" method="get">
+				<!--<a class="layui-btn layui-btn-normal layui-btn-radius" target="_blank" href="{:url('admin/user/getAll',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">组织架构图</a>-->
+                    
+					<div class="layui-inline">
+						<label class="layui-form-label">开始时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date1" id="date1" value="{$date1}">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">结束时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date2" id="date2" value="{$date2}">
+						</div>
+					</div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+						
+                    </div>
+                </form>
+                <hr>
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                         
+               
+                            <th>用户</th>
+                            <th>金额</th>
+                            <th>类型</th>
+							<th>提现名</th>
+							<th>手机</th>
+                            <th>卡号</th>
+                            <th>状态</th>
+                            <th>时间</th>
+                           
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="withdraw_list" item="vo"}
+                        <tr>
+                           
+                                                        <td>{$vo.names}</td>
+                            <td>{$vo.money}</td>
+                            <td>{$vo.type}</td>
+                            <td>{$vo.bankname}</td>
+                            <td>{$vo.phone}</td>
+                            <td>{$vo.bankcard}</td>
+                            <td>{php}echo $vo['status']==1 ? '已支付' : '未支付';{/php}</td>
+                            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                           
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+					<div style="float:right; font-size:20px;"> 总金额：{$sum}元</div>
+                    <!--分页-->
+                    {$withdraw_list->render()}
+                </div>
+        </div>
+    </div>
+</div>
+{/block}

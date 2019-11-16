@@ -1,0 +1,111 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">奖励明细</li> 
+        </ul>
+        <div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<form class="layui-form layui-form-pane" id="myform" action="{:url('admin/award/index')}" method="get">
+							<div class="form_customer">
+								<div class="layui-inline">
+									<label class="layui-form-label">字段</label>
+									<div class="layui-input-inline">
+										<select name="fields[]">
+                                          <option value="b.names">提成者姓名</option>
+                                           <option value="c.names">客户姓名</option>
+										</select>
+									</div>
+								</div>
+								<div class="layui-inline">
+									<label class="layui-form-label">关键词</label>
+									<div class="layui-input-inline">
+										<input type="text" name="keyword[]" value="" placeholder="请输入关键词" class="layui-input">
+									</div>
+								</div>
+								
+								<div class="layui-inline">
+									<button onclick="search()" class="layui-btn">搜索</button>
+								</div>
+                              <div class="layui-inline">
+									<button onclick="excel()" class="layui-btn">导出EXCEL</button>
+								</div>
+							</div>
+						</form>
+						<hr>
+					<table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th style="width: 15px;"><input type="checkbox" class="check-all"></th>
+                            <th>版本</th>
+                            <th>客户名</th>
+                            <th>支付金额</th>
+                            <th>提成者</th>
+                            <th>时间</th>
+                            <th>提成金额</th>
+                            <th>类型</th>
+                            <th>分成后余额</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="award_list" item="vo"}
+                        <tr>
+                            <td><input type="checkbox" name="ids[]" value="{$vo.id}"></td>
+                            <td>
+                                {if condition="$vo.aid eq 2"/}
+                                专业版
+                                {elseif condition="$vo.aid eq 3"/}
+                                资信报告
+                                {elseif condition="$vo.aid eq 4"/}
+                                消费评估
+                                {elseif condition="$vo.aid eq 5"/}
+                                用户画像
+                                {elseif condition="$vo.aid eq 6"/}
+                                司法信息检测
+                                {elseif condition="$vo.aid eq 7"/}
+                                信用额度预估
+                                {/if}
+                            </td>
+                            <td>{$vo.cname}</td>
+                            <td>{$vo.ratio}</td>
+                            <td>{$vo.names}</td>
+                            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                            <td>{$vo.money}</td>
+                            <td>{$vo.type}</td>
+                            <td>{$vo.balance}</td>
+							<td>
+							{if condition="$vo.pid == 0"}
+								<a href="{:url('admin/award/tuikuan',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-caozuo">退款</a>
+							{/if}
+							</td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+					<div style="float:right; font-size:20px;"> 今日奖励：{$sumjin}元 </div>
+                    <!--分页-->
+                    {$award_list->render()}
+                </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    function addOne(){
+		$.get("{:url('admin/award/form')}",function(data){
+			$(".form_customer:first").prepend(data);
+			form.render('select');
+		});
+	}
+	function excel(){
+		 $("#myform").attr('action',"{:url('admin/award/excel')}");
+	}
+	function search(){
+		 $("#myform").attr('action',"{:url('admin/award/index')}");
+	}
+</script>
+{/block}

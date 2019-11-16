@@ -1,0 +1,59 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">订单管理</li>
+            <li class=""><a href="{:url('admin/order/add')}">添加订单</a></li>
+        </ul>
+        <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th style="width: 15px;"><input type="checkbox" class="check-all"></th>
+                            <th style="width: 30px;">ID</th>
+                            <th>用户</th>
+                            <th>商品</th>
+                            <th>金额</th>
+                            <th>实付</th>
+                            <th>欠款</th>
+                            <th>操作人</th>
+                            <th>处理人</th>
+                            <th>状态</th>
+                            <th>时间</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="order_list" item="vo"}
+                        <tr>
+                            <td><input type="checkbox" name="ids[]" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.names}</td>
+                            <td>{$vo.product_name}</td>
+                            <td>{$vo.price}</td>
+                            <td>{$vo.reality_price}</td>
+                            <td>{$vo.arrears}</td>
+                            <td>{$vo.master_name}</td>
+                            <td>{$vo.operator_name}</td>
+                            <td>{php}echo $vo['status']==1 ? '1' : '0';{/php}</td>
+                            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+							<td>{$vo.note}</td>
+                            <td>
+                                <a href="{:url('admin/order/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                                <a href="{:url('admin/order/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                    <!--分页-->
+                    {$order_list->render()}
+                </div>
+        </div>
+    </div>
+</div>
+{/block}

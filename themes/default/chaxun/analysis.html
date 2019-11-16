@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>钻石报告</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="/public/index/css/astyle.css?v=789" rel="stylesheet" type="text/css" />
+    <link href="/public/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+  <script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=f50ea5f0-5c14-11e9-8670-5bf8fe2cdd9c&autoShow=false&language=ZHCN' async='async'></script>
+
+</head>
+<style>
+    .panel-footer{
+        padding: 10px 15px;
+        background-color: #fff;
+        border-top: 1px solid #fff;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    .panel-default {
+         border-color: #fff;
+    }
+</style>
+<body style="">
+
+<div class="container" style="background-color:#fff;border-bottom: 10px solid #fff;">
+    <a href="/index/complaint/wenti.html">
+    	<div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+        	<p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+    	</div>
+	</a>
+    <a href="{:url('/index/complaint/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #ff9600;background: #ff9600;border-radius:100%;position: fixed;right: 5px; top:350px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
+    </div>
+	</a>
+	<a href="{:url('/calculator/index/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #12a8ce;background: #12a8ce;border-radius:100%;position: fixed;right: 5px; top:400px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">计算器</p>
+    </div>
+	</a>
+    <a href="javascript:history.back(-1)" class="glyphicon glyphicon-chevron-left" style="color: #fff;float: left;margin-top: 15px;margin-left: 10px;text-decoration: none;"></a>
+    <header class="mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+    </header>
+
+    <div class="outer_layer_centered">
+        <div class="first_block">
+            {if condition="isset($product[3]) && !empty($product[3]['a_g_id']) && $product[3]['a_g_id']  eq 3"/}
+          
+            <a href="{:url('/index/chaxun/query1',array('price'=>$product[3]['price'],'pid'=>$product[3]['id']))}">
+                <div class="detail_report">
+                    <img src="/public/index/img/analysis410.png"   width="100%">
+                </div>
+            </a>
+            {/if}
+            {if condition="isset($product[2]) && !empty($product[2]['a_g_id']) && $product[2]['a_g_id']  eq 2"/}
+            <a href="{:url('/index/chaxun/query2',array('price'=>$product[2]['price'],'pid'=>$product[2]['id']))}">
+                <div class="detail_report">
+                    <img src="/public/index/img/analysis510.png"   width="100%">
+                </div>
+            </a>
+            {/if}
+            <div class="detail_report_small">
+              
+                {if condition="isset($product[7]) && !empty($product[7]['a_g_id']) && $product[7]['a_g_id']  eq 7"/}
+                <a href="{:url('/index/chaxun/query5',array('price'=>$product[7]['price'],'pid'=>$product[7]['id']))}">
+                    <div class="detail_report_li picture" style="width: 100%;">
+                        <img src="/public/index/img/analysis710.png" width="100%">
+                    </div>
+                </a>
+                {/if}
+                {if condition="isset($product[6]) && !empty($product[6]['a_g_id']) && $product[6]['a_g_id']  eq 6"/}
+                <a href="{:url('/index/chaxun/query4',array('price'=>$product[6]['price'],'pid'=>$product[6]['id']))}">
+                    <div class="detail_report_li picture" style="width: 100%;">
+                        <img src="/public/index/img/analysis810.png"   width="100%">
+                    </div>
+                </a>
+                {/if}
+                <div class="clear"></div>
+            </div>
+            <p class="text_p" style="font-size:13px">已有<span class="timer count-titless" id="count-numberss" data-to="{$bairo}">&nbsp{$bairo}&nbsp</span>用户获取查询分析报告服务,好评率<span class="timer count-titless" id="count-numberss" data-to="97">&nbsp97.8&nbsp</span>%</p>
+            <div class="list_h">
+            <ul>
+                <li>
+                    <img src="/public/index/img/analysis12.png" style="width: 30%;"/>
+                    <P class="text_p01">权威数据</P>
+                    <P class="text_p01 text_p02">数据全面真实</P>
+                </li>
+                <li>
+                    <img src="/public/index/img/analysis01.png" style="width: 26%;"/>
+                    <P class="text_p01">隐私保护</P>
+                    <P class="text_p01 text_p02">超级加密处理</P>
+                </li>
+                <li>
+                    <img src="/public/index/img/analysis24.png" style="width: 30%;"/>
+                    <P class="text_p01">综合全面</P>
+                    <P class="text_p01 text_p02">八百多个维度</P>
+                </li>
+                <li>
+                    <img src="/public/index/img/analysis23.png" style="width: 30%;"/>
+                    <P class="text_p01">专业服务</P>
+                    <P class="text_p01 text_p02" >一对一服务</P>
+                </li>
+            </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="outer_layer_centered">
+        <div>
+            <p class="text_p" style=" margin-top: 10px;font-size: 14px;">用户评价</p>
+        </div>
+        <div style="border-top:1px solid #f0f0f0"></div>
+        <div class="panel panel-default">
+        <div class="carousel col-xs-12">
+            <ul class="demo1">
+                {volist name="comment" id="vo"}
+                <li class="news-item">
+                    <div class="text_span" style="">
+                    {if condition="$vo.types eq 1"}
+                        <img src="/public/index/img/analysis14.png" width="25" height="25">
+                        {else/}
+                        <img src="/public/index/img/analysis13.png" width="25" height="25">
+                        {/if}
+                    <span>{$vo.title|mb_substr=0,1,'utf-8'}**</span><span>尾号{$vo.thumb}</span><span>{$vo.jianjie}</span>
+                     <!-- <div class="f_figure">
+                         {if condition="$vo.descc lt 5"/}
+                         <?php $b = 5-$vo['descc']; ?>
+                         {for start="0" end="$b"}
+                                <i class="figure"></i>
+                         {/for}
+                         {/if}
+                         {for start="0" end="$vo.descc"}
+                                <i class="figure01"></i>
+                         {/for}
+                     </div> -->
+                       <!-- <p style="float: right;margin-top: 3px;color: #999999;    font-size: 12px;margin-right:14px">{$vo.lasttime|date='Y-m-d H:i:s',###}</p> -->
+                    <div class="information">
+                        <p>{$vo.content|htmlspecialchars_decode|strip_tags|mb_substr=0,100,'utf-8'}</p>
+                    </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div style="border-top:1px solid #f0f0f0"></div>
+                </li>
+
+                {/volist}
+            </ul>
+        </div>
+            <div class="clear"></div>
+        </div>
+
+        <div style="margin-top: 20px;margin-left: 15px;    margin-right: 15px;">
+            <p style="font-size: 14px;font-weight: bold;">评论内容：</p>
+            <textarea style="border: 1px solid #9d9d9d;outline:none;width: 100%;height: 80px;border-radius: 7px;background: #f3f3f3;text-indent: 15px;" placeholder="请输入您要评论的内容...(字数不少于5字)"></textarea>
+            <button type="submit" id="sub" class="btn btn-warning" style="float: right;width: 37%;font-size: 14px;font-weight: bold;background: #ee823a;">发布</button>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="outer_layer_centered">
+        <div>
+            <p class="text_p" style=" margin-top: 2px;font-size: 14px;"><img src="/public/index/img/analysis11.png" style="width: 20px;height: 40px; margin-right: 10px;">真实案例<img src="/public/index/img/analysis10.png"  style="width: 20px;height: 40px; margin-left: 10px;"></p>
+        </div>
+        <div style="border:1px solid #ebebeb"></div>
+        <div class="panel panel-default">
+            <div class="carousel col-xs-12">
+                <ul class="demo1s">
+                    {volist name="note" id="vo"}
+                    <li class="news-item">
+                        <a href="{:url('/index/chaxun/anaview',array('id'=>$vo['id']))}" style="text-decoration:none;out-line: none;color:#444;">
+                        <div class="news-item_outer_layer_centered">
+                            <h5 style="font-weight: bold;color:#ee823a">&nbsp&nbsp&nbsp{$vo.title}</h5>
+                            <p style="text-indent: 36px;font-size: 12px;color: #888888;margin-left: 8px;margin-right: 8px;">{$vo.content|htmlspecialchars_decode|strip_tags|mb_substr=0,100,'utf-8'}.....</p>
+                            <div style="border-top:1px solid #f0f0f0"></div>
+                            <p style="margin: 10px auto;font-size: 14px;margin-left: 8px;">查看详情 <span style="float: right; margin-right: 18px;" class="glyphicon glyphicon-chevron-right"> </span></p>
+                        </div>
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+<script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+<script src="/public/bootstrap/js/bootstrap.min.js"></script>
+<script src="/public/bootstrap/js/jquery.bootstrap.newsbox.min.js"></script>
+<script src="/public/bootstrap/js/index.js"></script>
+<script src="/public/layer/layer.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $('#sub').on('click',function(){
+            layer.msg('请查询后，在报告内评价');
+        })
+
+        $(".count-title").numberRock({
+            speed:20,
+            count:$('#count-number').attr('data-to')
+        })
+
+        $(".count-titles").numberRock({
+            speed:20,
+            count:$('#count-numbers').attr('data-to')
+        })
+        $(".demo1").bootstrapNews({
+            newsPerPage: 3,
+            autoplay: true,
+            pauseOnHover: true,
+            navigation:false,
+            direction: 'up',
+            newsTickerInterval: 4000,
+            onToDo: function () {
+
+                //console.log(this);
+
+            }
+
+        });
+    })
+    </script>

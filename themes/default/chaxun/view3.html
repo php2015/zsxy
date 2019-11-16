@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>钻石报告</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/mui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/xcss/index3.css?v=123456">
+    <script src="__PUBLIC__/js/xjs/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/xjs/mui.min.js"></script>
+    <script src="__PUBLIC__/js/xjs/index.js?v=789456"></script>
+</head>
+<body>
+<a href="/index/complaint/wenti.html">
+    <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+    </div>
+</a>
+<a href="{:url('/index/complaint/comment')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 350px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">评论</p>
+    </div>
+</a>
+<a href="{:url('/index/complaint/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #ff9600;background: #ff9600;border-radius:100%;position: fixed;right: 5px; top: 400px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
+    </div>
+</a>
+
+<a href="{:url('/calculator/index/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #12a8ce;background: #12a8ce;border-radius:100%;position: fixed;right: 5px; top:450px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">计算器</p>
+    </div>
+</a>
+<div class="container">
+    <div class="score_box">
+        <div class="zsxy_ti">
+            钻石信用
+            <img src="__PUBLIC__/ximg/logo.png" alt="">
+        </div>
+        <div class="score_grade"><span>{if condition="isset($result.grade) and !empty($result.grade)"} {$result.grade} {else/}D{/if}级</span></div>
+        <div class="star_box">
+            <img src="__PUBLIC__/ximg/star_y.png" alt="">
+            <img src="__PUBLIC__/ximg/star_y.png" alt="">
+            <img src="__PUBLIC__/ximg/star_y.png" alt="">
+            <img src="__PUBLIC__/ximg/star_y.png" alt="">
+            <img src="__PUBLIC__/ximg/star_w.png" alt="">
+        </div>
+        <p class="score_user">您的评分指数</p>
+        <div class="score_num">
+            <span>{if condition="isset($result.fraction) and !empty($result.fraction)"} {$result.fraction} {else/}95{/if}</span>
+        </div>
+        <div class="score_press">
+            <div class="press_blue" id="bar" style="width: 0%;">
+                <img src="__PUBLIC__/ximg/huojian.png" alt="">
+            </div>
+        </div>
+        <p class="score_per">您的信用度打败了全国<span id="total"></span>的用户</p>
+    </div>
+    <div class="user_card">
+        <p class="username">{if condition="isset($result.opnames) and !empty($result.opnames)"} {$result.opnames} {/if}&nbsp;&nbsp;{if condition="isset($result.ningling) and !empty($result.ningling)"} {$result.ningling}{else/}0{/if}岁&nbsp;&nbsp;{$result.ren}</p>
+        <div class="user_info">
+            <p>
+                <img src="__PUBLIC__/ximg/shoujihao.png" alt="">{if condition="isset($result.mobile) and !empty($result.mobile)"} {$result.mobile} {/if}
+            </p>
+        </div>
+        <div class="user_info">
+            <p>
+                <img src="__PUBLIC__/ximg/shenfenzheng.png" alt="">{if condition="isset($result.opcard) and !empty($result.opcard)"} {$result.opcard} {/if}
+            </p>
+            <p>
+                <img src="__PUBLIC__/ximg/didian.png" alt="">{if condition="isset($result.province) and !empty($result.province)"} {$result.province} {/if}
+            </p>
+        </div>
+        <p class="init_time">报告生成时间：{if condition="isset($result.createAt) and !empty($result.createAt)"} {$result.createAt} {/if}</p>
+        <p class="init_time">交易单号：
+            {if condition="isset($result.transaction_id) and !empty($result.transaction_id)"}{$result.transaction_id}{/if}
+        </p>
+        <p class="init_time">商户单号：
+            {if condition="isset($result.out_trade_no) and !empty($result.out_trade_no)"}{$result.out_trade_no}{/if}
+        </p>
+    </div>
+
+    <div class="risk_box clearfix">
+        <div class="risk_left">
+            <p class="risk_ti">
+                <span>风险解读</span>
+            </p>
+            <ul>
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <?php
+                        $socreasho01 = ['网络小贷高风险','信贷逾期后还款名单','风险群体名单','多头借贷严重名单','网贷黑名单','羊毛党名单','恶意注册名单'];
+                        foreach($socreasho01 as $key => $value){
+                ?>
+                <li><?php echo  $value ?></li>
+                <?php } ?>
+                {elseif condition="$result.fraction > '40' and $result.fraction < '61'"/}
+                <?php
+                        $socreasho02 = ['网络小贷高风险','信贷逾期后还款名单','风险群体名单','多头借贷严重名单','网贷灰名单','羊毛党名单'];
+                        foreach($socreasho02 as $key => $value){
+                ?>
+                <li><?php echo  $value ?></li>
+                <?php } ?>
+
+                {elseif condition="$result.fraction > '60' and $result.fraction < '73'"/}
+                <?php
+                        $socreasho03 = ['网络小贷高风险','风险群体名单','网贷灰名单'];
+                        foreach($socreasho03 as $key => $value){
+                ?>
+                <li><?php echo  $value ?></li>
+                <?php } ?>
+                {elseif condition="$result.fraction > '72' and $result.fraction < '83'"/}
+                <?php
+                        $socreasho04 = ['机构关注名单'];
+                        foreach($socreasho04 as $key => $value){
+                ?>
+                <li><?php echo  $value ?></li>
+                <?php } ?>
+
+                {elseif condition="$result.fraction > '82'"/}
+                    <li>查询成功，未检测到风险</li>
+                {/if}
+
+                {else/}
+                    <li>查询成功，未检测到风险 </li>
+                {/if}
+            </ul>
+            <div class="vertical_line">
+                <span></span>
+            </div>
+        </div>
+        <div class="risk_right">
+            <img src="__PUBLIC__/ximg/fengxianjiedu.png" alt="">
+        </div>
+    </div>
+    <div class="quota_box">
+        <div class="quota_item">
+            <p>信用卡预测额度</p>
+            <p>
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                5000以下
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                5千—1.5万
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                1万—2万
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                1.5万—3万
+                {elseif condition="$result.fraction > '82'"/}
+                3万以上
+                {else/}
+                无
+                {/if}
+                {else/}
+                无
+                {/if}
+            </p>
+        </div>
+        <div class="quota_item quota_item1">
+            <p>贷款预测额度</p>
+            <p>
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                10000以下
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                8千—2万
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                1.5万—3万
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                3万—5万
+                {elseif condition="$result.fraction > '82'"/}
+                5万以上
+                {else/}
+                无
+                {/if}
+                {else/}
+                无
+                {/if}
+            </p>
+        </div>
+        <p class="quota_tips">小钻说：授信额度由大数据风控模型评测，额度仅供参考，钻石信用仅做获取及展示，不对此额度做任何担保及保证！</p>
+    </div>
+    <div class="plate_title">
+        <span class="circular circular1"></span>
+        <span class="circular circular2"></span>
+        <span class="circular circular3"></span>
+        申请准入分
+        <span class="circular circular3"></span>
+        <span class="circular circular2"></span>
+        <span class="circular circular1"></span>
+    </div>
+    <div class="intention_box">
+        <div class="intention_wrap">
+            <div class="intention_score">
+                <div class="score_bot">{if condition="isset($result.apply_score) and !empty($result.apply_score)"}{$result.apply_score}{else/}0{/if}</div>
+                <p>申请准入分</p>
+            </div>
+            <div class="intention_score">
+                <div class="score_bot">{if condition="isset($result.apply_credibility) and !empty($result.apply_credibility)"}{$result.apply_credibility}{else/}0{/if}</div>
+                <p>置信度</p>
+            </div>
+        </div>
+        <p class="intention_txt">数值越高，借贷几率越高哦！</p>
+    </div>
+    <p class="break_faith">
+        <span>失信情况总览</span>
+    </p>
+    <div class="implement_box">
+        <p class="implement_ti">
+            <span>失信被执行人</span>
+        </p>
+        {if condition="isset($temp_res) and isset($temp_res['ex_bad1_court']) and !empty($temp_res['ex_bad1_court'])"/}
+        <p class="implement_info">
+            <span>{if condition="isset($temp_res['ex_bad1_posttime']) and !empty($temp_res['ex_bad1_posttime'])"}{$temp_res['ex_bad1_posttime']|date="Y-m-d",###}{/if}</span>
+            <span> {if condition="isset($temp_res['ex_bad1_court']) and !empty($temp_res['ex_bad1_court'])"}{$temp_res.ex_bad1_court}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">执行案号：</span>
+            <span class="info_right">{if condition="isset($temp_res['ex_execut2_casenum']) and !empty($temp_res['ex_execut2_casenum'])"}{$temp_res.ex_execut2_casenum}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">执行标的：</span>
+            <span class="info_right">{if condition="isset($temp_res['ex_execut1_money']) and !empty($temp_res['ex_execut1_money'])"}{$temp_res.ex_execut1_money}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">立案时间：</span>
+            <span class="info_right">{if condition="isset($temp_res['ex_bad1_datatime']) and !empty($temp_res['ex_bad1_datatime'])"}{$temp_res.ex_bad1_datatime}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">做出执行依据单位：</span>
+            <span class="info_right">{if condition="isset($temp_res['ex_bad1_basecompany']) and !empty($temp_res['ex_bad1_basecompany'])"}{$temp_res['ex_bad1_basecompany']}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">被执行人的履行情况：</span>
+            <span class="info_right">{if condition="isset($temp_res['ex_bad1_performance']) and !empty($temp_res['ex_bad1_performance'])"}{$temp_res['ex_bad1_performance']}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">生效法律文书确定的义务：</span>
+            <span class="info_right">{if condition="isset($temp_res.ex_bad1_obligation) and !empty($temp_res.ex_bad1_obligation)"}{$temp_res.ex_bad1_obligation}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">失信被执行人行为具体情形：</span>
+            <span class="info_right">{if condition="isset($temp_res.ex_bad1_concretesituation) and !empty($temp_res.ex_bad1_concretesituation)"}{$temp_res.ex_bad1_concretesituation}{/if}</span>
+        </p>
+        {else/}
+        <div class="mui-card-content-inner"style="padding: 30px;padding-bottom: 50px;height: 140px;background-image: url(/public/index/report/sfxx.png);background-size: 60% 155px;margin-left: 24%;background-repeat: no-repeat;"></div>
+        <p style="text-align: center;clear: both;font-size:14px;">查询成功，无失信被执行人检测的相关信息。</p>
+        {/if}
+    </div>
+    <div class="implement_box">
+        <p class="implement_ti">
+            <span>法院被执行人</span>
+        </p>
+        {if condition="isset($fayuan) and !empty($fayuan) and count($fayuan) neq 0"/}
+        {volist name="fayuan" id="vo"}
+        <p class="implement_info">
+            <span>{if condition="$vo.datatime"}{$vo.datatime}{/if}</span>
+            <span>{if condition="$vo.court"}{$vo.court}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">执行案号：</span>
+            <span class="info_right">{if condition="$vo.fy_datatypeid"}{$vo.fy_datatypeid}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">执行标的：</span>
+            <span class="info_right">{if condition="$vo.fy_money"}{$vo.fy_money}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">立案时间：</span>
+            <span class="info_right">{if condition="$vo.datatime"}{$vo.datatime}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">执行法院：</span>
+            <span class="info_right">{if condition="$vo.court"}{$vo.court}{/if}</span>
+        </p>
+        <p class="implement_item">
+            <span class="info_left">案件状态：</span>
+            <span class="info_right">{if condition="$vo.fy_statute"}{$vo.fy_statute}{/if}</span>
+        </p>
+        <div class="horizontal_line"></div>
+        {/volist}
+        {else/}
+        <div class="mui-card-content-inner" style="padding: 30px;padding-bottom: 50px;height: 140px;background-image: url(/public/index/report/sfxx.png);background-size: 60% 155px;margin-left: 24%;background-repeat: no-repeat;"></div>
+        <p style="text-align: center;clear: both;font-size:14px;">查询成功，无法院被执行人检测的相关信息。</p>
+        {/if}
+    </div>
+    <div class="plate_title">
+        <span class="circular circular1"></span>
+        <span class="circular circular2"></span>
+        <span class="circular circular3"></span>
+        联系人风险
+        <span class="circular circular3"></span>
+        <span class="circular circular2"></span>
+        <span class="circular circular1"></span>
+    </div>
+    <div class="search_id contact_box">
+        <p class="contact_txt">直接联系人黑名单人数：<span>{if condition="isset($result.blacklist) and !empty($result.blacklist)"}{$result.blacklist}{else/}0{/if}</span></p>
+        <p class="contact_txt">间接联系人黑名单人数：<span>{if condition="isset($result.zjblacklist) and !empty($result.zjblacklist)"}{$result.zjblacklist}{else/}0{/if}</span></p>
+        <p class="contact_txt">主动联系人人数：<span>{if condition="isset($result.initiative) and !empty($result.initiative)"}{$result.initiative}{else/}0{/if}</span></p>
+        <p class="contact_txt">被动联系人人数：<span>{if condition="isset($result.passive) and !empty($result.passive)"}{$result.passive}{else/}0{/if}</span></p>
+        <p class="contact_tips">小钻说：身边的黑名单朋友过多，也会对大数据造成影响，物以类聚，人以群分。</p>
+    </div>
+    <p class="break_faith">
+        <span>高风险命中查询</span>
+    </p>
+    <div class="search_id risk_hit">
+        <p class="implement_ti">
+            <span>消费及汽车金融类高风险</span>
+        </p>
+        <div class="risk_list">
+            <p>消费金融高风险<span>否</span></p>
+            <p>风险类型：负债偏高</p>
+        </div>
+        <div class="risk_list">
+            <p>融资租赁高风险<span>否</span></p>
+            <p>风险类型：汽车租赁违约</p>
+        </div>
+        <div class="risk_list">
+            <p>汽车金融高风险<span>否</span></p>
+            <p>风险类型：车贷风险名单</p>
+        </div>
+        <div class="risk_list">
+            <p>车辆租赁违约名单<span>否</span></p>
+            <p>风险类型：汽车租赁违约</p>
+        </div>
+    </div>
+    <div class="search_id risk_hit">
+        <p class="implement_ti">
+            <span>银行及法院类高风险</span>
+        </p>
+        <div class="risk_list">
+            <p>银行机构高风险<span>否</span></p>
+            <p>风险类型：负债率高，频繁申贷，职业异常</p>
+        </div>
+        <div class="risk_list">
+            <p>非银行机构高风险<span>否</span></p>
+            <p>风险类型：机构代办，异常审核</p>
+        </div>
+        <div class="risk_list">
+            <p>机构关注名单
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction > '72' and $result.fraction < '83'"/}
+                <span class="risk_yes">是</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+            </p>
+            <p>风险类型：当事人风险指数有增高倾向</p>
+        </div>
+        <div class="risk_list">
+            <p>法院失信名单<span>否</span></p>
+            <p>风险类型：法院失信人</p>
+        </div>
+        <div class="risk_list">
+            <p>法院执行名单<span>否</span></p>
+            <p>风险类型：法院执行人</p>
+        </div>
+        <div class="risk_list">
+            <p>犯罪通缉名单<span>否</span></p>
+            <p>风险类型：刑事犯罪</p>
+        </div>
+    </div>
+    <div class="search_id risk_hit">
+        <p class="implement_ti">
+            <span>风险群体类高风险</span>
+        </p>
+        <div class="risk_list">
+            <p>风险群体名单
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '82'"/}
+                <span>否</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+            </p>
+            <p>风险类型：负债率高，频繁申贷，职业异常</p>
+        </div>
+        <div class="risk_list">
+            <p>欺诈风险名单<span>否</span></p>
+            <p>风险类型：仿冒风险，资料异常</p>
+        </div>
+        <div class="risk_list">
+            <p>高负债名单<span>否</span></p>
+            <p>风险类型：负债过高</p>
+        </div>
+        <div class="risk_list">
+            <p>行业黑名单<span>否</span></p>
+            <p>风险类型：从事行业风险过高</p>
+        </div>
+        <div class="risk_list">
+            <p>羊毛党名单
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '82'"/}
+                <span>否</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+            </p>
+            <p>风险类型：恶意注册，刷单</p>
+        </div>
+        <div class="risk_list">
+            <p>恶意注册名单
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '82'"/}
+                <span>否</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+            </p>
+            <p>风险类型：异常支付，异常注册</p>
+        </div>
+        <div class="risk_list">
+            <p>身份证命中高风险区域<span>否</span></p>
+            <p>风险类型：身份证所属地区逾期风险较集中</p>
+        </div>
+    </div>
+    <div class="search_id risk_hit">
+        <p class="implement_ti">
+            <span>信贷及逾期类高风险</span>
+        </p>
+        <div class="risk_list">
+            <p>网络小贷高风险
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '40' and $result.fraction < '61'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '82'"/}
+                <span>否</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+            </p>
+            <p>风险类型：异常支付，仿冒风险</p>
+        </div>
+        <div class="risk_list">
+            <p>线下小贷高风险<span>否</span></p>
+            <p>风险类型：机构代办，资料异常</p>
+        </div>
+        <div class="risk_list">
+            <p>信贷逾期名单<span>否</span></p>
+            <p>风险类型：逾期欠款</p>
+        </div>
+        <div class="risk_list">
+            <p>信贷逾期后还款名单
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <span class="risk_yes">是</span>
+                <!-- <span style="background:red;border-radius: 18px; padding-left: 10px;padding-right: 10px; font-size:13px;color:#fff;"> 命中</span> -->
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '82'"/}
+                <span>否</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+            </p>
+            <p>风险类型：从事行业风险过高</p>
+        </div>
+        <div class="risk_list">
+            <p>网贷黑名单
+
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '82'"/}
+                <span>否</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+            </p>
+            <p>风险类型：信用异常</p>
+        </div>
+        <div class="risk_list">
+            <p>网贷灰名单
+
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '82'"/}
+                <span>否</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+
+            </p>
+            <p>风险类型：多头借款，有逾期倾向</p>
+        </div>
+        <div class="risk_list">
+            <p>多头借贷严重名单
+                {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                <span class="risk_yes">是</span>
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <span>否</span>
+                {elseif condition="$result.fraction > '82'"/}
+                <span>否</span>
+                {else/}
+                <span>否</span>
+                {/if}
+                {else/}
+                <span>否</span>
+                {/if}
+            </p>
+            <p>风险类型：频繁注册申请贷款</p>
+        </div>
+        <div class="risk_list">
+            <p>存在信用逾期历史记录<span>否</span></p>
+            <p>风险类型：逾期，逾期后还款</p>
+        </div>
+    </div>
+    <div>
+        <p class="break_faith">
+            <span>多平台注册申请</span>
+            <a href="javascript:;">次数</a>
+        </p>
+    </div>
+    <div class="search_id apply_num">
+        <div class="apply_list">
+            <p class="apply_left">近7天内</p>
+            <p class="apply_right">
+                <span class="apply_per1">{if condition="isset($result.one_week) and !empty($result.one_week)"}{$result.one_week}{else/}0{/if}</span>
+            </p>
+        </div>
+        <div class="apply_list">
+            <p class="apply_left">近1个月内</p>
+            <p class="apply_right">
+                <span class="apply_per2">{if condition="isset($result.January) and !empty($result.January)"}{$result.January}{else/}0{/if}</span>
+            </p>
+        </div>
+        <div class="apply_list">
+            <p class="apply_left">近3个月内</p>
+            <p class="apply_right">
+                <span class="apply_per3">{if condition="isset($result.March) and !empty($result.March)"}{$result.March}{else/}0{/if}</span>
+            </p>
+        </div>
+        <div class="apply_list">
+            <p class="apply_left">近6个月内</p>
+            <p class="apply_right">
+                <span class="apply_per4">{if condition="isset($result.June) and !empty($result.June)"}{$result.June}{else/}0{/if}</span>
+            </p>
+        </div>
+        <div class="apply_list">
+            <p class="apply_left">近12个月内</p>
+            <p class="apply_right">
+                <span class="apply_per5">{if condition="isset($result.December) and !empty($result.December)"}{$result.December}{else/}0{/if}</span>
+            </p>
+        </div>
+    </div>
+    <div class="search_id loan_box">
+        <div class="loan_list loan_list1">
+            <p class="loan_list_left">申请总机构数</p>
+            <p class="loan_list_right">
+                <span class="loan_tell">{if condition="!empty($result.query_finance_count) || !empty($result.query_cash_count)"}{$result.query_finance_count + $result.query_cash_count}{else/}0{/if}</span>
+            </p>
+        </div>
+        <div class="loan_list">
+            <p class="loan_list_left">消费金融类机构数</p>
+            <p class="loan_list_right">
+                <span class="loan_tell">{if condition="isset($result.query_finance_count) and !empty($result.query_finance_count)"}{$result.query_finance_count}{else/}0{/if}</span>
+            </p>
+        </div>
+        <div class="loan_list">
+            <p class="loan_list_left">网络贷款类机构数</p>
+            <p class="loan_list_right">
+                <span class="loan_tell">{if condition="isset($result.query_cash_count) and !empty($result.query_cash_count)"}{$result.query_cash_count}{else/}0{/if}</span>
+            </p>
+        </div>
+    </div>
+    <div class="search_id loan_box">
+        <i class="mui-icon mui-icon-arrowleft previous"></i>
+        <i class="mui-icon mui-icon-arrowright next"></i>
+        <div class="loan_tab clearfix">
+            <div class="loan_item">
+                <p class="loan_ti">近7天内（{if condition="isset($result.one_week) and !empty($result.one_week)"}{$result.one_week}{else/}0{/if}次）</p>
+                <div class="loan_list">
+                    <p class="loan_list_left">小额现金贷申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.one_week) and !empty($result.one_week)"}{$result.one_week*0.4|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">现金分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.one_week) and !empty($result.one_week)"}{$result.one_week*0.2|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">信用卡申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.one_week) and !empty($result.one_week)"}{$result.one_week*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">P2P机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.one_week) and !empty($result.one_week)"}{$result.one_week*0.15|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">小贷机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.one_week) and !empty($result.one_week)"}{$result.one_week*0.05|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">消费分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.one_week) and !empty($result.one_week)"}{$result.one_week*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="loan_item">
+                <p class="loan_ti">近1个月内（{if condition="isset($result.January) and !empty($result.January)"}{$result.January}{else/}0{/if}次）</p>
+                <div class="loan_list">
+                    <p class="loan_list_left">小额现金贷申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.4|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">现金分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.2|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">信用卡申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">P2P机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.15|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">小贷机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.05|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">消费分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="loan_item">
+                <p class="loan_ti">近3个月内（{if condition="isset($result.March) and !empty($result.March)"}{$result.March}{else/}0{/if}次）</p>
+                <div class="loan_list">
+                    <p class="loan_list_left">小额现金贷申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.March) and !empty($result.March)"}{$result.March*0.4|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">现金分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.March) and !empty($result.March)"}{$result.March*0.2|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">信用卡申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.March) and !empty($result.March)"}{$result.March*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">P2P机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.March) and !empty($result.March)"}{$result.March*0.15|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">小贷机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.March) and !empty($result.March)"}{$result.March*0.05|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">消费分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.March) and !empty($result.March)"}{$result.March*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="loan_item">
+                <p class="loan_ti">近6个月内（{if condition="isset($result.June) and !empty($result.June)"}{$result.June}{else/}0{/if}次）</p>
+                <div class="loan_list">
+                    <p class="loan_list_left">小额现金贷申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.June) and !empty($result.June)"}{$result.June*0.4|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">现金分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.June) and !empty($result.June)"}{$result.June*0.2|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">信用卡申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.June) and !empty($result.June)"}{$result.June*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">P2P机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.June) and !empty($result.June)"}{$result.June*0.15|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">小贷机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.June) and !empty($result.June)"}{$result.June*0.05|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">消费分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.June) and !empty($result.June)"}{$result.June*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="loan_item">
+                <p class="loan_ti">近12个月内（{if condition="isset($result.December) and !empty($result.December)"}{$result.December}{else/}0{/if}次）</p>
+                <div class="loan_list">
+                    <p class="loan_list_left">小额现金贷申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.December) and !empty($result.December)"}{$result.December*0.4|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">现金分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.December) and !empty($result.December)"}{$result.December*0.2|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">信用卡申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.December) and !empty($result.December)"}{$result.December*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">P2P机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.December) and !empty($result.December)"}{$result.December*0.15|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">小贷机构申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.December) and !empty($result.December)"}{$result.December*0.05|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+                <div class="loan_list">
+                    <p class="loan_list_left">消费分期申请次数</p>
+                    <p class="loan_list_right">
+                        <span class="loan_tell">{if condition="isset($result.December) and !empty($result.December)"}{$result.December*0.1|ceil}{else/}0{/if}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="break_faith">
+        <span>实名信息验证</span>
+    </p>
+    <div class="idinfo_date">
+        <div class="details_item">
+            <p class="details_ti">身份证关联信息</p>
+            <div class="details_bot">
+                <p class="implement_item">
+                    <span class="info_left">关联手机号个数</span>
+                    <span class="info_right">
+                        {if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.2|ceil}{else/}1{/if}</span>
+                </p>
+                <p class="implement_item">
+                    <span class="info_left">关联邮箱个数</span>
+                    <span class="info_right">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.3|ceil}{else/}1{/if}</span>
+                </p>
+                <p class="implement_item">
+                    <span class="info_left">关联姓名个数</span>
+                    <span class="info_right">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.2|ceil}{else/}1{/if}</span>
+                </p>
+                <p class="implement_item">
+                    <span class="info_left">关联家庭地址个数</span>
+                    <span class="info_right">
+                        <?php $b = ceil($result['January']*0.4); echo isset($result['January']) && !empty($result['January']) ? ($b > 2 ? $b : 2) :2 ; ?>
+                    </span>
+                </p>
+                <p class="implement_item">
+                    <span class="info_left">关联公司地址个数</span>
+                    <span class="info_right">{if condition="isset($result.January) and !empty($result.January)"}{$result.January*0.2|ceil}{else/}0{/if}</span>
+                </p>
+                <p class="implement_item">
+                    <span class="info_left">身份证号是否关联异常</span>
+                    <span class="info_right">否</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="conceal_propose">
+        <div class="plate_title">
+            <span class="circular circular1"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular3"></span>
+            提高评分消除风险建议
+            <span class="circular circular3"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular1"></span>
+        </div>
+        <div class="search_id propose_box">
+            <p>1.三个月不要注册申请超过20次贷款，控制申请频率</p>
+            <p>2.如果有逾期或者被执行等不良记录，保持良好的信用1-2年，记录可以滚动覆盖过去</p>
+            <p>3.保持良好的借贷习惯，切勿频繁申请，拒绝不明平台的审核邀请</p>
+            <p>4.信用卡一年申请不超过6次，含同一机构，网贷3个月内申请不超过20次</p>
+            <p>5.减少和网贷黑名单这类人群的联系，使自己的朋友圈都是优良高素质群体</p>
+        </div>
+        <div class="plate_title">
+            <span class="circular circular1"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular3"></span>
+            申贷小技巧
+            <span class="circular circular3"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular1"></span>
+        </div>
+        <div class="search_id propose_box">
+            <p>1.下载借款APP及申请的时候，平台需要获取定位、通讯录等权限，务必选择允许或者同意</p>
+            <p>2.务必使用自己的实名制手机号，且号码使用超过半年</p>
+            <p>3.如果手机号非本人实名，暂时只申请查征信上征信类的贷款，这类贷款不看重手机号是否实名制</p>
+            <p>4.预留的联系人一定不能是银行或网贷有不良记录的，通话记录一定要和本人较多的</p>
+            <p>5.删除手机中关于贷款、中介、赌博、网贷有逾期未还者</p>
+            <p>6.把预留的三个联系人在通讯录中改成真名</p>
+            <p>7.把支付宝收货地址多的删掉，留下一个家庭和一个公司的</p>
+            <p>8.把支付宝的网贷授权取消掉，申请网贷的同时，申请完一家，申请第二家的时候取消上一家的授权</p>
+            <p>9.淘宝的收获地址尽量与支付宝保持一致</p>
+            <p>10.放款机构普遍认为已婚有子女、高学历者，稳定性高，逾期率低，更容易通过</p>
+            <p>11.人脸识别五官露出来，不带眼镜帽子，光线适中</p>
+            <p>12.签字必须要正楷，字迹不可潦草</p>
+            <p>13.接回访电话时，按照所填资料如实回答，表现自己的还款意愿和还款能力，信用卡账单尽量网银导入</p>
+            <p>14。下载及申请的时候，务必使用手机自带的流量，关闭WIFI信号</p>
+        </div>
+        <div class="plate_title">
+            <span class="circular circular1"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular3"></span>
+            贷款最难及容易通过的行业
+            <span class="circular circular3"></span>
+            <span class="circular circular2"></span>
+            <span class="circular circular1"></span>
+        </div>
+        <div class="search_id propose_box">
+            <p>
+                <span>最难通过的行业</span>
+            </p>
+            <p>1.房地产有关的所有行业，包括建筑、装饰、建材、房产中介</p>
+            <p>2.美容美发</p>
+            <p>3.KTV</p>
+            <p>4.洗脚城</p>
+            <p>5.农林渔牧</p>
+            <p>6.金融行业</p>
+        </div>
+        <div class="search_id propose_box">
+            <p>
+                <span>容易通过的行业</span>
+            </p>
+            <p>1.大型国企事业单位</p>
+            <p>2.连锁型商场、超市</p>
+            <p>3.大型工厂</p>
+            <p>4.医药行业</p>
+            <p>5.科技公司</p>
+            <p>6.商贸公司</p>
+            <p>7.汽车用品</p>
+            <p>8.物流公司</p>
+            <p class="industry_tips">小钻说：有实体经营，收入稳定的公司更容易通过贷款申请哦！</p>
+        </div>
+    </div>
+    <button class="see_more_btn">点击查看更多信息</button>
+
+
+    {if condition="$agent['isoem_name'] eq '1'"/}
+    {if condition="!empty($agent['thumb'])"/}
+    <div style="text-align: center;">
+        <img src="/public/{$agent.thumb}" style="width: 140px;margin-top: 20px;"/>
+        <p style="text-align: center;">
+            扫码成为
+            合伙人
+            <br>查信用，赚佣金
+        </p>
+    </div>
+    {/if}
+    {else/}
+    {if condition="$agent['isopen_ewm'] eq '1'"/}
+    <div style="text-align: center;">
+        <img src="__PUBLIC__/img/zsx01.jpg" style="width: 140px;margin-top: 20px;"/>
+        <p style="text-align:center;">
+            长按扫码关注
+            钻石好信
+            <br>查资质，查网黑
+        </p>
+    </div>
+    {/if}
+    {/if}
+
+
+    <div class="bot_box">
+        <p class="data_des">大数据报告说明</p>
+        <p class="data_txt">钻石好信报告由本人授权查询，数据来源包括芝麻信用、各大运营商、各类征信平台、各大贷款平台、京东、淘宝等众多平台，钻石好信只做大数据信息的获取及分析，不对原始数据做任何修改，信用报告仅供参考使用。如你对报告有异议，出于对合作平台数据隐私的保护，钻石好信将不做任何解释。</p>
+        <img class="go_top" src="__PUBLIC__/ximg/fanhuidingbu.png" alt="">
+    </div>
+</div>
+<script>
+    var bu = 1;
+    var nums = $(".score_num span").text();
+    function zhuan() {
+        $(".score_num span").text(bu);
+        bu ++;
+        if(bu > nums) {
+            clearInterval(setin);
+        }
+    }
+    var setin = setInterval(zhuan, 15)
+    function run(){
+        var scorecashon = '{if condition="isset($result.fraction) and !empty($result.fraction)"} {$result.fraction} {else/}95{/if}';
+        var num = parseInt(scorecashon) + 3;
+        var bar = document.getElementById("bar");
+        var total = document.getElementById("total");
+        bar.style.width=parseInt(bar.style.width) + 1 + "%";
+        total.innerHTML = bar.style.width;
+        if(bar.style.width == num + "%"){
+            window.clearTimeout(timeout);
+            return;
+        }
+        var timeout=window.setTimeout("run()",10);
+    }
+    run();
+</script>
+</body>
+</html>

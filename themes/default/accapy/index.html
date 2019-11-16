@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>表单提交</title>
+    <script type="text/javascript" src="/public/index/js/jquery.min.js" ></script>
+</head>
+<body>
+<form id="form" action="{$data['url']}" method="post" target="_blank">
+    <input type="hidden" name="data" value="{$signData}">
+    <input type="hidden" name="version" value="{$data['version']}">
+    <input type="hidden" name="merCode" value="{$data['merCode']}">
+    <input type="hidden" name="ts" value="{$data['ts']}">
+    <input type="hidden" name="nonceStr" value="{$data['nonceStr']}">
+    <input type="hidden" name="format" value="{$data['format']}">
+    <input type="hidden" name="encryptType" value="{$data['encryptType']}">
+    <input type="hidden" name="signType" value="{$data['signType']}">
+    <input type="hidden" name="sign" value="{$signObject}">
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#form").submit();
+    });
+</script>
+</body>
+</html>
+<?php die;?>

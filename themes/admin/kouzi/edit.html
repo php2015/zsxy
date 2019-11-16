@@ -1,0 +1,105 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/kouzi/index')}">口子管理</a></li>
+            <li class=""><a href="{:url('admin/kouzi/add')}">添加口子</a></li>
+            <li class="layui-this">编辑用户</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/kouzi/update')}" method="post">
+				
+				
+				
+				<div class="layui-form-item">
+                        <label class="layui-form-label">口子名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="kname" value="{$kouzi.kname}" required lay-verify="required" placeholder="请输入口子名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">口子图标</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="thumb" value="{$kouzi.thumb}" class="layui-input layui-input-inline" id="thumb">
+                            <input type="file" name="file" class="layui-upload-file">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="ktitle" value="{$kouzi.ktitle}" required lay-verify="required" placeholder="请输入标题" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">详情</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="kmarks" value="{$kouzi.kmarks}" placeholder="请输入详情" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+							<select name="ktype" lay-search>
+								<option value="0">无类型</option>
+								{foreach name="type_list" item="vo"}
+                                <option value="{$vo.id}" {if condition="$kouzi.ktype==$vo.id"} selected="selected"{/if}>{$vo.tname}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">最高额度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="kheight" value="{$kouzi.kheight}" lay-verify="number" placeholder="请输入额度" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">已放款金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="klast" value="{$kouzi.klast}" lay-verify="number" placeholder="请输入已放款金额" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">排序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="descc" value="{$kouzi.descc}" lay-verify="number" placeholder="排序" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">链接</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="hrefs" value="{$kouzi.hrefs}"  placeholder="链接" class="layui-input">
+                        </div>
+                    </div>
+				
+					<div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="state" value="1" title="启用" {if condition="$kouzi.state==1"} checked="checked"{/if}>
+                            <input type="radio" name="state" value="0" title="禁用"{if condition="$kouzi.state==0"} checked="checked"{/if}>
+							
+                        </div>
+                    </div>
+					
+					<div class="layui-form-item">
+                        <label class="layui-form-label">备注</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="remarks" value="{$kouzi.remarks}" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <div class="layui-input-block">
+                             <input type="hidden" name="id" value="{$kouzi.id}">
+							<button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

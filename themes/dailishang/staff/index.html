@@ -1,0 +1,124 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">员工管理</li>
+            <li class=""><a href="{:url('dailishang/staff/add')}">添加员工</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form layui-form-pane" id="myform" action="{:url('dailishang/staff/index')}" method="get">
+                    <!--<a class="layui-btn layui-btn-normal layui-btn-radius" target="_blank" href="{:url('admin/user/getAll',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">组织架构图</a>-->
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">开始时间</label>
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input datetime" name="date1" id="date1" value="{$date1}">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">结束时间</label>
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input datetime" name="date2" id="date2" value="{$date2}">
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+
+                        <div class="layui-inline">
+                            <button onclick="search()" class="layui-btn">搜索</button>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>手机</th>
+                      	<th>累计订单</th>
+                        <th>累计成功订单</th>
+                      	<th>累计失败订单</th>
+                      	<th>今日订单</th>
+                      	<th>今日成功订单</th>
+                      	<th>今日失败订单</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="user_list" item="vo"}
+                    <tr>
+                        <td style="width: 12%;"><a href="{:url('/dailishang/staffs/index',['keyword'=>$vo.names,'date1'=>$date1,'date2'=>$date2,'type'=>1])}" style="color:#4b9ffa" title="查询用户" >{$vo.names}</a></td>
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.sess + $vo.sesssb}</td>
+                        <td>{$vo.sess}</td>
+                        <td>{$vo.sesssb}</td>
+                        <td>{$vo.sessdt + $vo.sessdtsb}</td>
+                      	<td>{$vo.sessdt}</td>
+                      	<td>{$vo.sessdtsb}</td>
+                        <td>
+                            <a href="{:url('dailishang/staff/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                            <a href="{:url('dailishang/staff/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$user_list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="/public/layer/layer.js"></script>
+<script>
+
+    $(document).ready(function(){
+        $('.iswx').on('click',function(){
+            var id = $(this).attr('data-id');
+            var iswx = $(this).attr('data-iswx');
+            wx(id,iswx);
+        })
+
+        $('.iswxs').on('click',function(){
+            var id = $(this).attr('data-id');
+            var iswx = $(this).attr('data-iswx');
+            wx(id,iswx);
+        })
+    });
+
+    function wx(id,iswx){
+        $.ajax({
+            url:'{:url("dailishang/user/iswx")}',
+            type:'post',
+            data:{'id':id,'iswx':iswx},
+            dataType:'json',
+            success : function(json){
+                if(json){
+                    layer.msg('成功',{time:500},function(){
+                        var pageURL = $(location).attr("href");
+                        window.location.href = pageURL;
+                    });
+                }else{
+                    layer.msg('失败');
+                }
+            }
+        })
+    }
+
+    function search(){
+        $("#myform").attr('action',"{:url('dailishang/staff/index')}");
+    }
+</script>
+{/block}

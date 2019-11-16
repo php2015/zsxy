@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+{extend name="bases" /}
+{block name="body"}
+
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/base.css" rel="stylesheet" type="text/css" />
+
+</head>
+<style>
+    .container{
+        padding:0;
+    }
+    .circleChart_canvas{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        transform: rotate(133deg) ! important ;
+        position: absolute;
+        top: -107px;
+        left: 47px;
+    }
+    .circleChart_text {
+        position: absolute;
+        line-height: 100px;
+        top: -114px ! important;
+        left: 43px;
+        width: 104px ! important;
+        margin: 0px;
+        padding: 0px;
+        color: #f77926;
+        text-align: center;
+        font-size: 14.2857px;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+
+    .layui-tab-title li{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+        transition: all .2s;
+        position: inherit ! important;
+        line-height: 40px;
+        min-width: 65px;
+        padding: 0 10px;
+    }
+
+    .layui-body{
+         left: 200px ! important;
+    }
+
+    .layui-tab {
+        margin: 0px 0 ! important;
+        text-align: left!important;
+    }
+
+    #round-box{
+        margin-left: 261px;
+    }
+
+    #round-box2{
+        margin-left: 208px;
+    }
+
+    .main{width:100%;position:relative;margin:auto;}
+    .layer{position:relative;}
+    .layer03-panel{position:relative;float:left;}
+    .layer03-left-chart{position:relative;float:left;}
+</style>
+
+<?php
+    $borrowType = ['0'=>'未知','1'=>'个人信贷','2'=>'个人抵押','3'=>'企业信贷','4'=>'企业抵押'];
+$borrowState = ['0'=>'未知','1'=>'拒贷','2'=>'批贷已放款','3'=>'待放款','4'=>'借款人放弃申请','5'=>'审核中','6'=>'待放款'];
+//还款状态 0.未知 1.正常 2.M1 3.M2 4.M3 5.M4 6.M5 7.M6 8.M6+ 9.已还清;
+//M1(1~30天)、M2(31~60天)、M3(61~90天)、M4(91~120天)、M5(121~150天)、M6(151~180天)、M6+(>180天)。
+$repayState = [ '0'=>'未知','1'=>'正常','2'=>'逾期(1~30天)','3'=>'逾期(31~60天)','4'=>'逾期(61~90天)','5'=>'逾期(91~120天)','6'=>'逾期(121~150天)','7'=>'逾期(151~180天)','8'=>'逾期(≥180天)','9'=>'已还清'];
+$borrowAmount = [ 
+			'-7'=>'0-1000', 
+			'-6'=>'1000-2000',
+			'-5'=>'2000-3000', 
+			'-4'=>'3000-4000', 
+			'-3'=>'4000-6000', 
+			'-2'=>'6000-8000', 
+			'-1'=>'8000-10000', 
+			'0'=>'未知', 
+			'1'=>'10000-20000', 
+			'2'=>'20000-40000', 
+			'3'=>'40000-60000', 
+			'4'=>'60000-80000', 
+			'5'=>'80000-100000', 
+			'6'=>'100000-120000', 
+			'7'=>'120000-140000', 
+			'8'=>'140000-160000', 
+			'9'=>'160000-180000',  
+			'10'=>'180000-200000', 
+			'11'=>'200000-220000',
+			'12'=>'220000-240000',
+			'13'=>'240000-260000',
+			'14'=>'260000-280000',
+			'15'=>'280000-300000',
+			'16'=>'300000-320000',
+			'17'=>'320000-340000',
+			'18'=>'340000-360000',
+			'19'=>'360000-380000',
+            '20'=>'380000-400000',
+		];
+?>
+<div class="layui-body" style="background-color: #fff;">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+<div class="container" style="background-color:#278ffd;">
+
+    <ul class="layui-tab-title">
+        <a href="{:url('admin/chaxun/index')}">
+            <li class="layui-this">返回</li>
+        </a>
+        <li>查询信息</li>
+        <a href="http://www.zsxycx.com/index/login/view.html?dingdanids={$chaxun['id']}">
+            <li class="layui-this"> 前台地址</li>
+        </a>
+    </ul>
+
+    <div style="position: fixed;right: 5px; top: 480px;z-index: 999;opacity:0.5;">
+        <img src="/public/index/img/tousu.png" style="width: 40px; height: 40px;"  onclick="qimoChatClick();"/>
+    </div>
+    <header class="mui-bar-nav" style="-webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0.85);height: 168px;width: 100%;background-image: url(/public/index/img/t1.png);background-size: 100% 168px;background-repeat: no-repeat;">
+
+    </header>
+
+    <div style="border: 1px solid #fff;background-color: #fff;margin-right: 8px; margin-left: 8px;border-radius: 4px;">
+
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: -80px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+            <div style="text-align: center;margin-top: inherit;">
+                {if condition="isset($ren) && $ren eq '男'"}
+                <img src="/public/index/img/male.png" style="width: 13%;border: 8px solid #268efc;border-radius: 97px;">
+                {else/}
+                <img src="/public/index/img/female.png" style="width: 13%;border: 8px solid #268efc;border-radius: 97px;">
+                {/if}
+            </div>
+
+            <p style="text-align: center;font-size: 18px;color: #278ffd;font-weight: bolder;line-height: 36px;">{$opnames}</p>
+            <p style="text-align: center;font-size: 18px;color: #278ffd;line-height: 1px;">{$ningling}岁  <span>{$ren}</span></p>
+            <p style="font-size: 12px;color: #278ffd;line-height: 40px;">
+                <span style="margin-left: 20%;">手机号码：{$op}</span>
+                <span style="float: right;margin-right: 20%;">身份证：{$opcard}</span>
+            </p>
+            <p style="font-size: 12px;color: #278ffd;line-height: 20px;margin-bottom: 26px">
+                <span style="margin-left: 20%;">所属地：{$dizhi.province}{$dizhi.city}</span>
+                <span style="float: right;margin-right: 20%;">报告生成时间：{if condition="isset($chaxun['dates'])"/}
+                                                                                {$chaxun['dates']|date="Y-m-d H:i:s",###}
+                                                                                                {else/}
+                                         	                                                            0
+                                                                                                {/if}</span>
+            </p>
+        </div>
+
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 25px;margin-right: 8px;height: 195px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+            <div style="width:50%;float:left;margin-left: -55px;">
+                <img src="/public/index/img/by1.png" style="margin-top: 30px; margin-left: 291px; width: 130px;position: relative;">
+                <div class="round-box" id="round-box" style=""></div>
+                <!-- <p style="    position: absolute;text-align: center;"><span style="margin-left: 61px;color:#d0d0d0">低</span><span style=" margin-left: 44px;color:#d0d0d0">高</span></p>-->
+                <p style="text-align: center;position: absolute;">
+                    <span style="position: absolute;top: -18px;left: 298px;font-size: 8px;color: #d0d0d0;">0</span>
+                    <span style="position: absolute;top: -40px;left: 284px;font-size: 8px;color:#d0d0d0;">10</span>
+                    <span style="position: absolute;top: -68px;left: 281px;font-size: 8px;color:#d0d0d0;">20</span>
+                    <span style="position: absolute;top: -102px;left: 289px;font-size: 8px;color:#d0d0d0;">30</span>
+                    <span style="position: absolute;top: -125px;left: 314px;font-size: 8px;color:#d0d0d0;">40</span>
+                    <span style="position: absolute;top: -133px;left: 352px;font-size: 8px;color:#d0d0d0;">50</span>
+                    <span style="position: absolute;top: -124px;left: 390px;font-size: 8px;color:#d0d0d0;">60</span>
+                    <span style="position: absolute;top: -102px;left: 411px;font-size: 8px;color:#d0d0d0;">70</span>
+                    <span style="position: absolute;top: -68px;left: 421px;font-size: 8px;color:#d0d0d0;">80</span>
+                    <span style="position: absolute;top: -39px;left: 419px;font-size: 8px;color:#d0d0d0;">90</span>
+                    <span style="position: absolute;top: -18px;left: 404px;font-size: 8px;color:#d0d0d0;">100</span>
+                </p>
+                <input type="hidden" value="90" name="roundValue">
+            </div>
+
+            <div style="width:50%;float:left;">
+                <img src="/public/index/img/by1.png" style="margin-top: 30px;margin-left: 42%; width: 130px;position: relative;">
+                <div class="round-box" id="round-box2" style=""></div>
+                <!-- <p style="    position: absolute;text-align: center;"><span style="margin-left: 61px;color:#d0d0d0">低</span><span style=" margin-left: 44px;color:#d0d0d0">高</span></p>-->
+                <p style="text-align: center;position: absolute;">
+                    <span style="position: absolute;top: -18px;left: 245px;font-size: 8px;color: #d0d0d0;">0</span>
+                    <span style="position: absolute;top: -40px;left: 231px;font-size: 8px;color:#d0d0d0;">10</span>
+                    <span style="position: absolute;top: -68px;left: 228px;font-size: 8px;color:#d0d0d0;">20</span>
+                    <span style="position: absolute;top: -102px;left: 238px;font-size: 8px;color:#d0d0d0;">30</span>
+                    <span style="position: absolute;top: -125px;left: 264px;font-size: 8px;color:#d0d0d0;">40</span>
+                    <span style="position: absolute;top: -133px;left: 299px;font-size: 8px;color:#d0d0d0;">50</span>
+                    <span style="position: absolute;top: -124px;left: 335px;font-size: 8px;color:#d0d0d0;">60</span>
+                    <span style="position: absolute;top: -102px;left: 357px;font-size: 8px;color:#d0d0d0;">70</span>
+                    <span style="position: absolute;top: -68px;left: 370px;font-size: 8px;color:#d0d0d0;">80</span>
+                    <span style="position: absolute;top: -39px;left: 368px;font-size: 8px;color:#d0d0d0;">90</span>
+                    <span style="position: absolute;top: -18px;left: 353px;font-size: 8px;color:#d0d0d0;">100</span>
+                </p>
+                <input type="hidden" value="80" name="roundValues">
+            </div>
+
+        </div>
+
+        <div style="width: 50%; margin: 20px auto;">
+            <span style="display: block;background: #268dfa;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">借贷信息总览</span>
+        </div>
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 25px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+            <div class="main">
+                <div id="layer03_left" style="" class="layer03-panel" style="width:100%;">
+                    <div id="layer03_left_01" class="layer03-left-chart" style=" width: 15%; margin-top: 33px;float: left;margin-left: 40%;">
+                        <canvas style=""></canvas>
+                    </div>
+                    <div id="layer03_left_02" class="layer03-left-chart" style="width: 80%;margin-right: -111%;height: 195px;-webkit-tap-highlight-color: transparent;user-select: none;position: relative;float: right;">
+                    </div>
+                </div>
+
+
+            </div>
+            <div style="border:1px solid #b8d8fd; margin-top: 193px;margin-left: 9px;margin-right: 9px;"></div>
+            <div style="">
+                <p style="font-size: 12px;line-height: 40px;">
+                    <span style="margin-left: 20%;">逾期总金额：{$overdue_total}&nbsp 元</span>
+                    <span style="float: right;margin-right:  20%;">是否有逾期记录：{$top_image['data']['overdue'] == 'true'?'是':'否'}</span>
+                </p>
+                <p style="font-size: 12px;line-height: 40px;">
+                    <span style="margin-left: 20%;">最低放款金额：<?php asort($price); echo !is_null($price) && !empty($price)? $borrowAmount[reset($price)]:0; ?>&nbsp 元</span>
+
+                </p>
+                <p style="font-size: 12px;line-height: 40px;">
+                    <span style="margin-left: 20%;">最高放款金额：<?php arsort($price); echo !is_null($price) && !empty($price) ? $borrowAmount[reset($price)]:0; ?>&nbsp 元</span>
+
+                </p>
+                <p style="font-size: 12px;line-height: 40px;">
+                    <span style="margin-left: 20%;">放款总金额：{$top_image['data']['totalAmount']?$top_image['data']['totalAmount']:0}&nbsp 元</span>
+                    <span style="float: right;margin-right:  20%;">记录总条数：{$top_image['data']['appNumber']?$top_image['data']['appNumber']:0}&nbsp 条</span>
+                </p>
+            </div>
+        </div>
+
+        <div style="width: 50%; margin: 20px auto;">
+            <span style="display: block;background: #268dfa;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">贷款信息详情</span>
+        </div>
+
+        {if condition="isset($top_image) and isset($top_image['data']['loanInfos']) &&
+        is_array($top_image['data']['loanInfos']) && !empty($top_image['data']['loanInfos'])"/}
+        {volist name="$top_image['data']['loanInfos']" id="vo"}
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 25px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+            <div style="margin-top: 17px;">
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;;">批贷期数：</span>
+                    <span style="float:right; margin-right: 20%;">{$vo.loanPeriod}&nbsp</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">放款机构：</span>
+                    <span style="float:right; margin-right:  20%;">{$vo.companyCode}</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">借贷类型：</span>
+                    <span style="float:right; margin-right: 20%;">{$borrowType[$vo.borrowType]}</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">还款状态：</span>
+                    <span style="float:right; margin-right: 20%;">{$repayState[$vo.repayState]}</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">借贷状态：</span>
+                    <span style="float:right; margin-right: 20%;">{$borrowState[$vo.borrowState]}</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">逾期金额（元）：</span>
+                    <span style="float:right; margin-right: 20%;">{$vo.arrearsAmount}&nbsp</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">合同金额（元）：</span>
+                    <span style="float:right; margin-right: 20%;">{if condition = 'isset($borrowAmount[$vo.borrowAmount]) and !empty($borrowAmount[$vo.borrowAmount])'}{$borrowAmount[$vo.borrowAmount]}{else/}0{/if}&nbsp</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">合同日期：</span>
+                    <span style="float:right; margin-right: 20%;">{$vo.contractDate}8&nbsp</span>
+                </p>
+
+            </div>
+        </div>
+        {/volist}
+        {else/}
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 25px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+            <div style="margin-top: 17px;">
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;;">批贷期数：</span>
+                    <span style="float:right; margin-right: 20%;">查询成功,未检测到相关信息</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">放款机构：</span>
+                    <span style="float:right; margin-right:  20%;">无</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">借贷类型：</span>
+                    <span style="float:right; margin-right: 20%;">无</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">还款状态：</span>
+                    <span style="float:right; margin-right: 20%;">无</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">借贷状态：</span>
+                    <span style="float:right; margin-right: 20%;">无</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">逾期金额（元）：</span>
+                    <span style="float:right; margin-right: 20%;">无</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">合同金额（元）：</span>
+                    <span style="float:right; margin-right: 20%;">无</span>
+                </p>
+                <p style="font-size: 16px;line-height: 40px;">
+                    <span style="margin-left: 20%;">合同日期：</span>
+                    <span style="float:right; margin-right: 20%;">无</span>
+                </p>
+
+            </div>
+        </div>
+        {/if}
+
+        <div style="background: #fff;margin-top: 25px;margin-right: 8px;margin-left: 14px;">
+            <div style="">
+                <img src="/public/index/img/uns.png" style="margin-left: 20%;">
+                <span style="display: block;font-size: 22px;font-weight: bolder;margin-right:73%;margin-top: -1px;float: right;color: #6795e9;">解读<span>
+            </div>
+            <ul style="margin-top: 19px;margin-left:21%;line-height: 30px;font-size: 14px;">
+                <li>贷类型包含：个人信贷，个人抵押贷款，企业信贷，企业抵押贷款。</li>
+                <li>借贷状态包含：拒贷，批贷已付款，借款人放弃申请，审核中，待放款。</li>
+                <li>合同日期：未批贷时为借款日期。</li>
+                <li>机构代码：机构编码有三种：</br>
+                    一、 以（P2P）开头的例：P2P12345678不作为具体公司标识仅作为参与反馈公司的标示可以用于识别反馈公司的数量。</br>
+                    二、（人人催）开头的这类数据是经过催收的人员名单。三、（风险名单）的这类数据是由人人催系统提供的风险预警名单表示客户存在风险。</br>
+                    还款状态：正常表示“未逾期”；逾期类型：M1(1~30天)、M2(31~60天)、M3(61~90天)、M4(91~120天)、M5(121~150天)、M6(151~180天)、M6+(>180天)。已还清表示已正常全额度还清。</p>
+                </li>
+                <li>数据来源3000多久信贷机构和网贷平台包括部分714借条类平台，不包括上征信的信贷机构。因合作平台的数量和更新时间差因素，数据可能获取不完全及存在偏差，此数据仅供参考，具体请已实际情况为准。
+                </li>
+            </ul>
+        </div>
+
+
+
+
+        <div style="background: #fff;margin-top: 25px;margin-right: 8px;margin-left: 14px;">
+            <div style="width: 133px;border: 6px solid #eeeeee;margin: 0 auto;">
+                <img src="/public/index/img/erweima123.jpg" style=" width: 120px;text-align: center;" >
+            </div>
+            <p style="text-align: center;font-weight: bolder;">
+                查信用、查更黑、测额度、消风险
+            </p>
+            <p style="text-align: center;font-weight: bolder;">扫码关注钻石好信</p>
+          <input type="hidden" value="{$overdue}" name="ytotal">
+            <input type="hidden" value="{$paid}" name="htotal">
+            <input type="hidden" value="{$notpaid}" name="wtotal">
+            <input type="hidden" value="{$loan}" name="ftotal">
+        </div>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+</div>
+
+</html>
+<script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+<script src="/public/bootstrap/js/circleChart.js"></script>
+<script src="/public/bootstrap/js/echarts_4.1.0.rc2_echarts.min.js"></script>
+<script src="/public/bootstrap/js/monitor.js?v=216516"></script>
+<script>
+    let stripMeet = roundMeet = 130,
+        stripValue = roundValue = $('input[name="roundValue"]:hidden').val();
+
+    //圆形进度条 当前进度值
+    $('#roundCurrent').val(roundValue);
+
+    //初始化圆形抽奖进度
+    $("#round-box").circleChart({
+        size: 100,                  //圆形大小
+        maxval: roundMeet,          //抽奖满足条件值
+        value: roundValue,          //当前进度值
+        color: "#00b2ec",           //进度条颜色
+        backgroundColor: "white",   //进度条背景色
+        background: "red",          // 是否显示进度条之外颜色
+        speed: 2000,                // 出现的时间
+        widthRatio: 0.15,           // 进度条宽度
+        unit: "percent",
+        counterclockwise: false,    // 进度条反方向
+        startAngle: 0,              // 进度条起点
+        animate: true,              // 进度条动画
+        backgroundFix: true,
+        lineCap: "round",
+        animation: "easeInOutCubic",
+        text: true,                 // 显示进度条 进度文字百分比内容
+        textColor: "",         // 进度文字百分比颜色
+        redraw: false,
+        cAngle: 0,
+        textCenter: '测试',
+        textSize: false,
+        textWeight: "normal",
+        textFamily: "sans-serif",
+        relativeTextSize: 1 / 7,   // 进度条中字体占比
+        autoCss: true,
+        onDraw: function (el, circle) {
+            circle.text(Math.round(circle.value)+'<span style="color:#000">&nbsp%</span><p style="    position: absolute;\n' +
+                '    top: 19px;\n' +
+                '    left: 20px;\n' +
+                '    font-size: 8px;color: #000;">信贷数据覆盖率</p>'); // 根据value修改text
+        }
+    });
+
+    let stripMeets = roundMeets = 130,
+        stripValues = roundValues = $('input[name="roundValues"]:hidden').val();
+    //初始化圆形抽奖进度
+    $("#round-box2").circleChart({
+        size: 100,                  //圆形大小
+        maxval: roundMeets,          //抽奖满足条件值
+        value: roundValues,          //当前进度值
+        color: "#ed8a05",           //进度条颜色
+        backgroundColor: "white",   //进度条背景色
+        background: "red",          // 是否显示进度条之外颜色
+        speed: 2000,                // 出现的时间
+        widthRatio: 0.15,           // 进度条宽度
+        unit: "percent",
+        counterclockwise: false,    // 进度条反方向
+        startAngle: 0,              // 进度条起点
+        animate: true,              // 进度条动画
+        backgroundFix: true,
+        lineCap: "round",
+        animation: "easeInOutCubic",
+        text: true,                 // 显示进度条 进度文字百分比内容
+        textColor: "",         // 进度文字百分比颜色
+        redraw: false,
+        cAngle: 0,
+        textCenter: '测试',
+        textSize: false,
+        textWeight: "normal",
+        textFamily: "sans-serif",
+        relativeTextSize: 1 / 7,   // 进度条中字体占比
+        autoCss: true,
+        onDraw: function (el, circle) {
+            circle.text(Math.round(circle.value)+'<span style="color:#000">&nbsp%</span><p style="    position: absolute;\n' +
+                '    top: 19px;\n' +
+                '    left: 8px;\n' +
+                '    font-size: 8px;color: #000;">放贷及逾期查得率</p>'); // 根据value修改text
+        }
+    });
+
+</script>
+
+<script type="text/javascript">
+    $(function(){
+        var ytotal = $('input[name="ytotal"]:hidden').val();
+        var htotal =  $('input[name="htotal"]:hidden').val();
+        var wtotal =  $('input[name="wtotal"]:hidden').val();
+        var ftotal =  $('input[name="ftotal"]:hidden').val();
+        renderLegend(ytotal,htotal,wtotal,ftotal);
+        //饼状图
+        renderChartBar01(ytotal,htotal,wtotal,ftotal);
+    });
+</script>
+
+
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script>
+
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+
+    mui('body').on('tap', 'a', function () {
+        window.top.location.href = this.href;
+    });
+    var istrue = true;
+    $(window).on("scroll",
+        function () {
+            var s = $(window).scrollTop();
+            $(".timer").each(count);
+
+            function count(a) {
+                var b = $(this);
+                a = $.extend({},
+                    a || {},
+                    b.data("countToOptions") || {});
+                b.countTo(a)
+            };
+            istrue = falme;
+            $(".timer").removeClass("timer")
+        })
+    //设置计数
+    $.fn.countTo = function (options) {
+        options = options || {};
+        return $(this).each(function () {
+            //当前元素的选项
+            var settings = $.extend({}, $.fn.countTo.defaults, {
+                from: $(this).data('from'),
+                to: $(this).data('to'),
+                speed: $(this).data('speed'),
+                refreshInterval: $(this).data('refresh-interval'),
+                decimalm: $(this).data('decimalm')
+            }, options);
+            //更新值
+            var loops = Math.ceil(settings.speed / settings.refreshInterval),
+                increment = (settings.to - settings.from) / loops;
+            //更改应用和变量
+            var self = this,
+                $self = $(this),
+                loopCount = 0,
+                value = settings.from,
+                data = $self.data('countTo') || {};
+            $self.data('countTo', data);
+            //如果有间断，找到并清除
+            if (data.interval) {
+                clearInterval(data.interval);
+            }
+            ;
+            data.interval = setInterval(updateTimer, settings.refreshInterval);
+            //初始化起始值
+            render(value);
+
+            function updateTimer() {
+                value += increment;
+                loopCount++;
+                render(value);
+                if (typeof (settings.onUpdate) == 'function') {
+                    settings.onUpdate.call(self, value);
+                }
+                if (loopCount >= loops) {
+                    //移出间隔
+                    $self.removeData('countTo');
+                    clearInterval(data.interval);
+                    value = settings.to;
+                    if (typeof (settings.onComplete) == 'function') {
+                        settings.onComplete.call(self, value);
+                    }
+                }
+            }
+
+            function render(value) {
+                var formattedValue = settings.formatter.call(self, value, settings);
+                $self.html(formattedValue);
+            }
+        });
+    };
+    $.fn.countTo.defaults = {
+        from: 20,               //数字开始的值
+        to: 0,                 //数字结束的值
+        speed: 1000,           //设置步长的时间
+        refreshInterval: 10,  //隔间值
+        decimalm: 0,           //显示小位数
+        formatter: formatter, //渲染之前格式化
+        onUpdate: null,        //每次更新前的回调方法
+        onComplete: null       //完成更新的回调方法
+    };
+
+    function formatter(value, settings) {
+        return value.toFixed(settings.decimalm);
+    }
+
+    //自定义格式
+    $('#count-number').data('countToOptions', {
+        formmatter: function (value, options) {
+            return value.toFixed(options.decimalm).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+    });
+    //定时器
+    $('.timer').each(count);
+
+    function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+    }
+</script>
+{/block}
+{block name="script"}
+<script>
+    function addOne() {
+        $.get("{:url('dailishang/chaxun/form')}", function (data) {
+            $(".form_customer:first").prepend(data);
+            form.render('select');
+        });
+    }
+
+    function excel() {
+        $("#myform").attr('action', "{:url('dailishang/chaxun/excel')}");
+    }
+
+    function search() {
+        $("#myform").attr('action', "{:url('dailishang/chaxun/index')}");
+    }
+</script>
+{/block}

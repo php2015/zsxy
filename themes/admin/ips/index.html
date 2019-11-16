@@ -1,0 +1,84 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">流量统计</li> 
+        </ul>
+        <div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<form class="layui-form layui-form-pane" id="myform" action="{:url('admin/ips/index')}" method="get">
+					<div class="form_customer">
+					<div class="layui-inline">
+						<label class="layui-form-label">开始时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date1" id="date1" value="{$date1}">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">结束时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date2" id="date2" value="{$date2}">
+						</div>
+					</div>
+							
+								
+								
+								<div class="layui-inline">
+									<button onclick="search()" class="layui-btn">搜索</button>
+								</div>
+								<!--
+								<div class="layui-inline" style="float:right">
+									<button onclick="excel()" class="layui-btn">导出EXCEL</button>
+								</div>
+								-->
+							</div>
+						</form>
+						<hr>
+					<table class="layui-table">
+                        <thead>
+                        <tr>
+                            
+                            <th>用户ID</th>
+                            <th>姓名</th>
+                            <th>详情</th>
+                            
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="ips_list" item="vo"}
+                        <tr>
+                            
+                            <td>{$vo.id}</td>
+                            <td>{$vo.names}</td>
+							<td>{$vo.marks}</td>
+                           
+                        </tr>
+						{/foreach}
+                        </tbody>
+                    </table>
+                 
+                </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    function addOne(){
+		$.get("{:url('admin/ips/form')}",function(data){
+			$(".form_customer:first").prepend(data);
+			form.render('select');
+		});
+	}
+	function excel(){
+		 $("#myform").attr('action',"{:url('admin/ips/excel')}");
+	}
+	function search(){
+		 $("#myform").attr('action',"{:url('admin/ips/index')}");
+	}
+
+</script>
+{/block}

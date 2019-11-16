@@ -1,0 +1,75 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">用户管理</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form layui-form-pane" action="{:url('admin/staffs/index')}" method="get">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">开始时间</label>
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input datetime" name="date1" id="date1" value="{$date1}">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">结束时间</label>
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input datetime" name="date2" id="date2" value="{$date2}">
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+
+                    </div>
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                        <th>姓名</th>
+                        <th>手机</th>
+                        <th>身份证</th>
+                        <th>H5渠道</th>
+                        <th>支付状态</th>
+                        <th>下单时间</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="user_list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.anames}</td>
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.idcard}</td>
+                        <td>{$vo.names}</td>
+                        <td>{if condition="$vo.status > 0"} 已支付{else/}未支付{/if}</td>
+                        <td>{$vo.createAt|date="Y-m-d H:i:s",###}</td>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <div style="float:right; font-size:20px;"> 统计订单：{$zfsum + $wzfsum} 成功订单：{$zfsum} 失败订单：{$wzfsum}</div>
+                <!--分页-->
+                {$user_list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

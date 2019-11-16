@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>消费评估</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/estimate.css?v=123456">
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/echarts.min.js"></script>
+    <!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script> -->
+</head>
+<style>
+	.p_index_yonh{
+	    position: absolute;
+    	z-index: 99999;
+    	color: #373a5a;
+    	font-size: 0.7rem;
+    	font-weight: bold;
+    	margin: 0.4rem 0px 0 0.5rem;
+	}
+	
+	.p_index_yonhs{
+		position: absolute;
+    	z-index: 99999;
+    	color: #373a5a;
+    	font-size: 0.43rem;
+    	font-weight: bold;
+    	margin: 1.3rem 0px 0 0.5rem;
+	}
+	
+	.p_index_yonhss{
+		position: absolute;
+    	z-index: 99999;
+    	color: #fff;
+        font-size: 0.5rem;
+    	font-weight: bold;
+    	margin: 0.78rem 0px 0 5.06rem;
+	}
+	.score_item {
+		width: 100%;
+    	float: left;
+	}
+</style>
+<body>
+    <div class="container">
+        <img class="logo" src="__PUBLIC__/img/bank/logo.png" alt="">
+        <p class="estimate_ti">消费评估报告</p>
+        <p class="estimate_ti1">Consumption Assessment Report</p>
+        <p class="estimate_time">检测时间：{if condition="isset($result['dates']) && !empty($result['dates'])"}{$result['dates']}{/if}</p>
+        <p class="estimate_time">商户单号：{if condition="isset($result['out_trade_no']) && !empty($result['out_trade_no'])"}{$result['out_trade_no']}{/if}</p>
+        <p class="estimate_time">交易单号：{if condition="isset($result['transaction_id']) && !empty($result['transaction_id'])"}{$result['transaction_id']}{/if}</p>
+        <img class="estimate_shout" src="__PUBLIC__/img/bank/shout.png" alt="">
+        <div class="info_box">
+            <p>基本资料</p>
+            <p>姓名：{if condition="isset($result['opnames']) && !empty($result['opnames'])"}{$result['opnames']}{/if}</p>
+            <p>年龄：{if condition="isset($result['age']) && !empty($result['age'])"}{$result['age']}{/if}</p>
+            <p>性别：{if condition="isset($result['sex']) && !empty($result['sex'])"}{$result['sex']}{/if}</p>
+            <p>身份证：{if condition="isset($result['opcard']) && !empty($result['opcard'])"}{$result['opcard']}{/if}</p>
+            <p>手机号：{if condition="isset($result['mobile']) && !empty($result['mobile'])"}{$result['mobile']}{/if}</p>
+            <p>银行卡号：{if condition="isset($result['account_no']) && !empty($result['account_no'])"}{$result['account_no']}{/if}</p>
+        </div>
+        <div class="blue_line"></div>
+        <div class="card_box">
+            <p>卡名称：{if condition="isset($result.YLZC005) && !empty($result.YLZC005)"}{$result.YLZC005}{else/}未知{/if}</p>
+            <p>发卡行：{if condition="isset($result['YLZC008']) && !empty($result['YLZC008'])"}{$result['YLZC008']}{else/}未知{/if}</p>
+            <p>卡品牌：{if condition="isset($result['YLZC003']) && !empty($result['YLZC003'])"}{$result['YLZC003']}{else/}未知{/if}</p>
+            <p>卡性质：{if condition="isset($result['YLZC002']) && !empty($result['YLZC002'])"}{$result['YLZC002']}{else/}未知{/if}</p>
+            <p>借贷标记：{if condition="isset($result['YLZC001']) && !empty($result['YLZC001'])"}{$result['YLZC001']}{else/}未知{/if}</p>
+            <img src="__PUBLIC__/img/bank/card.png" alt="">
+        </div>
+        
+        <div style="width: 6.7rem;height: 2.3rem;border-radius: 0.18rem;margin: 0.3rem auto;position: relative;">
+         	<p class="p_index_yonh">是否</p>
+         	<p class="p_index_yonhs">银联高端用户</p>
+         		<p class="p_index_yonhss">{if condition="isset($result['YLZC007']) && !empty($result['YLZC007'])"}{$result['YLZC007']}{else/}否{/if}</p>
+         	<img src="__PUBLIC__/bg/imgs/hhxi1.png" alt="" style="width:100%">
+         </div>
+        
+        <div class="blue_line"></div>
+        <div class="score_box">
+            <div class="score_top">风险分数测评</div>
+            <div class="score_wrap clearfix">
+            	{if condition="isset($result['RMS002']) && !empty($result['RMS002'])"}
+            	<div class="score_item">
+                    <div class="score_bot">{if condition="isset($result['RMS002']) && !empty($result['RMS002'])"}{$result['RMS002']}{else/}0{/if}</div>
+                    <p>逾期风险得分</p>
+                </div>
+                {/if}
+                {if condition="isset($result['RMS003']) && !empty($result['RMS003'])"}
+            	<div class="score_item">
+                    <div class="score_bot">{if condition="isset($result['RMS003']) && !empty($result['RMS003']) "}{$result['RMS003']}{else/}0{/if}</div>
+                    <p>信用得分</p>
+                </div>
+                {/if}
+            </div>
+            <p class="score_tips">注释：0-1000分，分值越大风险越高</p>
+        </div>
+        <div class="blue_line"></div>
+        <div class="score_box">
+            <div class="score_top">POS交易概括</div>
+            <div id="trade_pos"></div>
+        </div>
+        <div class="blue_line"></div>
+        <div class="score_box">
+            <div class="score_top">线上交易概括</div>
+            <div id="trade_online"></div>
+        </div>
+        <div class="blue_line"></div>
+        <div class="score_box">
+            <div class="score_top">消费金额概括</div>
+            <div id="monetary"></div>
+            <table class="table_box">
+                <tr>
+                    <td>月均消费金额</td>
+                    <td>近3个月</td>
+                    <td>近6个月</td>
+                    <td>近12个月</td>
+                </tr>
+                <tr>
+                    <td>单位: 元</td>
+                    <td>{if condition="isset($result['YLZC253']) && !empty($result['YLZC253'])"}{$result['YLZC253']}{else/}0{/if}</td>
+                    <td>{if condition="isset($result['YLZC254']) && !empty($result['YLZC254'])"}{$result['YLZC254']}{else/}0{/if}</td>
+                    <td>{if condition="isset($result['YLZC255']) && !empty($result['YLZC255'])"}{$result['YLZC255']}{else/}0{/if}</td>
+                </tr>
+            </table>
+            <p class="trade_time">历史最早交易日期：{if condition="isset($result['YLZC282']) && !empty($result['YLZC282'])"}{$result['YLZC282']}{else/}0{/if}</p>
+            <p class="trade_time">最近一笔交易时间：{if condition="isset($result['YLZC284']) && !empty($result['YLZC284'])"}{$result['YLZC284']}{else/}0{/if}</p>
+            <p class="chart_tips">温馨提醒：尽量避免大额整额交易，长期刷整额大额会对你的卡有影响！</p>
+        </div>
+        <div class="blue_line"></div>
+        <div class="score_box">
+            <div class="score_top">消费地域</div>
+            <div class="area_box">
+                <img src="__PUBLIC__/img/bank/diyu.png" alt="">
+                <p>{if condition="isset($result['YLZC285']) && !empty($result['YLZC285'])"}{$result['YLZC285']}{else/}0{/if}</p>
+            </div>
+        </div>
+        <div class="blue_line"></div>
+        <div class="score_box">
+            <div class="score_top">消费类别分析</div>
+            <div id="category"></div>
+            <p class="cate_time">时间：近六个月</p>
+            <p class="chart_tips">温馨提醒：住宿服务、就餐场所、餐馆、快餐、酒吧、茶馆、咖啡馆、歌舞厅、KTV、百货商店、珠宝首饰</p>
+        </div>
+        <div class="blue_line"></div>
+        <p class="chart_tips">测评使用说明：</p>
+         <p class="chart_tips">1、本测试均经您授权下进行，未经书面许可，不可复制，转载和发表</p>
+         <p class="chart_tips">2、本测试结果仅供参考，据此作出的决策均基于您独立的判断，如产生不利后果，我方不承担任何责任</p>
+    </div>
+</body>
+<script>
+    function tradePos(){
+    	
+    	
+    	var YLZC183 = '{if condition="isset($result.YLZC183) && !empty($result.YLZC183)"}{$result.YLZC183}{else/}0{/if}';
+    	var YLZC184 = '{if condition="isset($result.YLZC184) && !empty($result.YLZC184)"}{$result.YLZC184}{else/}0{/if}';
+    	var YLZC185 = '{if condition="isset($result.YLZC185) && !empty($result.YLZC185)"}{$result.YLZC185}{else/}0{/if}';
+    	var YLZC187 = '{if condition="isset($result.YLZC187) && !empty($result.YLZC187)"}{$result.YLZC187}{else/}0{/if}';
+    	var YLZC188 = '{if condition="isset($result.YLZC188) && !empty($result.YLZC188)"}{$result.YLZC188}{else/}0{/if}';
+    	var YLZC189 = '{if condition="isset($result.YLZC189) && !empty($result.YLZC189)"}{$result.YLZC189}{else/}0{/if}';
+    	
+    	
+        var dom = document.getElementById("trade_pos");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = {
+            color: ['#ff5656','#569eff'],
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                x:'left',
+                data:['交易金额','交易比数'],
+                textStyle:{
+                    color:'#fff'
+                }
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            textStyle:{
+                color:'#fff'
+            },
+            grid: {
+                left: '1%',
+                right: '5%',
+                bottom: '5%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['近3个月','近6个月','近12个月'],
+                    offset: 10,
+                }
+            ],
+            yAxis : [
+                {
+                    type: 'value',
+                    name: '单位：元',
+                    min: 0,
+                    max: 5000,
+                    interval: 1000,
+                    splitLine: {    // gird 区域中的分割线
+                        show: true,   // 是否显示
+                        lineStyle: {
+                            color: '#332b4a',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                },
+                {
+                    type: 'value',
+                    name: '单位：笔',
+                    min: 0,
+                    max: 50,
+                    interval: 10,
+                    splitLine: {    // gird 区域中的分割线
+                        show: true,   // 是否显示
+                        lineStyle: {
+                            color: '#332b4a',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                }
+            ],
+            series : [
+                {
+                    name:'交易金额',
+                    type:'bar',
+                    itemStyle: {    // 图形的形状
+                        normal: {
+                            barBorderRadius: [16, 16, 0 ,0],
+                            label: {
+                                show: true, //开启显示
+                                position: 'top', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 12
+                                }
+                            }
+                        }
+                    },
+                    barWidth: 10,  // 柱形的宽度
+                    data:[YLZC183, YLZC184, YLZC185]
+                },
+                {
+                    name:'交易比数',
+                    type:'bar',
+                    yAxisIndex: 1,
+                    itemStyle: {    // 图形的形状
+                        normal: {
+                            barBorderRadius: [16, 16, 0 ,0],
+                            label: {
+                                show: true, //开启显示
+                                position: 'top', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 12
+                                }
+                            }
+                        },
+                    },
+                    barWidth: 10,  // 柱形的宽度
+                    data:[YLZC187, YLZC188, YLZC189]
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+    tradePos()
+    function tradeOnline(){
+    	
+    	var YLZC191 = '{if condition="isset($result.YLZC191) && !empty($result.YLZC191)"}{$result.YLZC191}{else/}0{/if}';
+    	var YLZC192 = '{if condition="isset($result.YLZC192) && !empty($result.YLZC192)"}{$result.YLZC192}{else/}0{/if}';
+    	var YLZC193 = '{if condition="isset($result.YLZC193) && !empty($result.YLZC193)"}{$result.YLZC193}{else/}0{/if}';
+    	var YLZC195 = '{if condition="isset($result.YLZC195) && !empty($result.YLZC195)"}{$result.YLZC195}{else/}0{/if}';
+    	var YLZC196 = '{if condition="isset($result.YLZC196) && !empty($result.YLZC196)"}{$result.YLZC196}{else/}0{/if}';
+    	var YLZC197 = '{if condition="isset($result.YLZC197) && !empty($result.YLZC197)"}{$result.YLZC197}{else/}0{/if}';
+    	
+        var dom = document.getElementById("trade_online");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = {
+            color: ['#ff5656','#569eff'],
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                x:'left',
+                data:['交易金额','交易比数'],
+                textStyle:{
+                    color:'#fff'
+                }
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            textStyle:{
+                color:'#fff'
+            },
+            grid: {
+                left: '1%',
+                right: '5%',
+                bottom: '5%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['近3个月','近6个月','近12个月'],
+                    offset: 10,
+                }
+            ],
+            yAxis : [
+                {
+                    type: 'value',
+                    name: '单位：元',
+                    min: 0,
+                    max: 50000,
+                    interval: 10000,
+                    splitLine: {    // gird 区域中的分割线
+                        show: true,   // 是否显示
+                        lineStyle: {
+                            color: '#332b4a',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                },
+                {
+                    type: 'value',
+                    name: '单位：笔',
+                    min: 0,
+                    max: 50,
+                    interval: 10,
+                    splitLine: {    // gird 区域中的分割线
+                        show: true,   // 是否显示
+                        lineStyle: {
+                            color: '#332b4a',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                }
+            ],
+            series : [
+                {
+                    name:'交易金额',
+                    type:'bar',
+                    itemStyle: {    // 图形的形状
+                        normal: {
+                            barBorderRadius: [16, 16, 0 ,0],
+                            label: {
+                                show: true, //开启显示
+                                position: 'top', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 12
+                                }
+                            }
+                        }
+                    },
+                    barWidth: 10,  // 柱形的宽度
+                    data:[YLZC191,YLZC192,YLZC193]
+                },
+                {
+                    name:'交易比数',
+                    type:'bar',
+                    yAxisIndex: 1,
+                    itemStyle: {    // 图形的形状
+                        normal: {
+                            barBorderRadius: [16, 16, 0 ,0],
+                            label: {
+                                show: true, //开启显示
+                                position: 'top', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 12
+                                }
+                            }
+                        },
+                    },
+                    barWidth: 10,  // 柱形的宽度
+                    data:[YLZC195, YLZC196, YLZC197]
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+    tradeOnline()
+    function monetary(){
+    	
+    	var YLZC243 = '{if condition="isset($result.YLZC243) && !empty($result.YLZC243)"}{$result.YLZC243}{else/}0{/if}';
+    	var YLZC244 = '{if condition="isset($result.YLZC244) && !empty($result.YLZC244)"}{$result.YLZC244}{else/}0{/if}';
+    	var YLZC245 = '{if condition="isset($result.YLZC245) && !empty($result.YLZC245)"}{$result.YLZC245}{else/}0{/if}';
+    	var YLZC247 = '{if condition="isset($result.YLZC247) && !empty($result.YLZC247)"}{$result.YLZC247}{else/}0{/if}';
+    	var YLZC248 = '{if condition="isset($result.YLZC248) && !empty($result.YLZC248)"}{$result.YLZC248}{else/}0{/if}';
+    	var YLZC249 = '{if condition="isset($result.YLZC249) && !empty($result.YLZC249)"}{$result.YLZC249}{else/}0{/if}';
+    	
+        var dom = document.getElementById("monetary");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = {
+            color: ['#ff5656','#569eff'],
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                x:'left',
+                data:['交易金额','交易比数'],
+                textStyle:{
+                    color:'#fff'
+                }
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            textStyle:{
+                color:'#fff'
+            },
+            grid: {
+                left: '1%',
+                right: '5%',
+                bottom: '5%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['近3个月','近6个月','近12个月'],
+                    offset: 10,
+                }
+            ],
+            yAxis : [
+                {
+                    type: 'value',
+                    name: '单位：元',
+                    min: 0,
+                    max: 50000,
+                    interval: 10000,
+                    splitLine: {    // gird 区域中的分割线
+                        show: true,   // 是否显示
+                        lineStyle: {
+                            color: '#332b4a',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                },
+                {
+                    type: 'value',
+                    name: '单位：笔',
+                    min: 0,
+                    max: 50,
+                    interval: 10,
+                    splitLine: {    // gird 区域中的分割线
+                        show: true,   // 是否显示
+                        lineStyle: {
+                            color: '#332b4a',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                }
+            ],
+            series : [
+                {
+                    name:'交易金额',
+                    type:'bar',
+                    itemStyle: {    // 图形的形状
+                        normal: {
+                            barBorderRadius: [16, 16, 0 ,0],
+                            label: {
+                                show: true, //开启显示
+                                position: 'top', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 12
+                                }
+                            }
+                        }
+                    },
+                    barWidth: 10,  // 柱形的宽度
+                    data:[YLZC243, YLZC244, YLZC245]
+                },
+                {
+                    name:'交易比数',
+                    type:'bar',
+                    yAxisIndex: 1,
+                    itemStyle: {    // 图形的形状
+                        normal: {
+                            barBorderRadius: [16, 16, 0 ,0],
+                            label: {
+                                show: true, //开启显示
+                                position: 'top', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 12
+                                }
+                            }
+                        },
+                    },
+                    barWidth: 10,  // 柱形的宽度
+                    data:[YLZC247, YLZC248, YLZC249]
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+    monetary()
+    function category(){
+    	
+    	var YLZC449 = '{if condition="isset($result.YLZC449) && !empty($result.YLZC449)"}{$result.YLZC449}{else/}0{/if}';
+    	var YLZC452 = '{if condition="isset($result.YLZC452) && !empty($result.YLZC452)"}{$result.YLZC452}{else/}0{/if}';
+    	var YLZC455 = '{if condition="isset($result.YLZC455) && !empty($result.YLZC455)"}{$result.YLZC455}{else/}0{/if}';
+    	var YLZC458 = '{if condition="isset($result.YLZC458) && !empty($result.YLZC458)"}{$result.YLZC458}{else/}0{/if}';
+    	var YLZC467 = '{if condition="isset($result.YLZC467) && !empty($result.YLZC467)"}{$result.YLZC467}{else/}0{/if}';
+    	var YLZC470 = '{if condition="isset($result.YLZC470) && !empty($result.YLZC470)"}{$result.YLZC470}{else/}0{/if}';
+    	var YLZC479 = '{if condition="isset($result.YLZC479) && !empty($result.YLZC479)"}{$result.YLZC479}{else/}0{/if}';
+    	var YLZC482 = '{if condition="isset($result.YLZC482) && !empty($result.YLZC482)"}{$result.YLZC482}{else/}0{/if}';
+    	var YLZC485 = '{if condition="isset($result.YLZC485) && !empty($result.YLZC485)"}{$result.YLZC485}{else/}0{/if}';
+    	var YLZC488 = '{if condition="isset($result.YLZC488) && !empty($result.YLZC488)"}{$result.YLZC488}{else/}0{/if}';
+    	
+        var dom = document.getElementById("category");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = {
+            color: ['#ff5656','#569eff'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                x:'left',
+                data: ['交易金额', '交易比数'],
+                textStyle:{
+                    color:'#fff'
+                }
+            },
+            textStyle:{
+                color:'#fff'
+            },
+            grid: {
+                left: '2%',
+                right: '14%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'value',
+                    name: '单位：元',
+                    nameLocation: 'start',
+                    min: 0,
+                    max: 12000,
+                    interval: 2000,
+                    boundaryGap: [0, 0.01],
+                    splitLine: {    // gird 区域中的分割线
+                        show: true,   // 是否显示
+                        lineStyle: {
+                            color: '#332b4a',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                    axisLine: {       // 坐标轴 轴线
+                        show: false,  // 是否显示
+                    },
+                },
+                {
+                    type: 'value',
+                    name: '单位：笔',
+                    nameLocation: 'start',
+                    min: 0,
+                    max: 60,
+                    interval: 10,
+                    boundaryGap: [0, 0.01],
+                    splitLine: {    // gird 区域中的分割线
+                        show: true,   // 是否显示
+                        lineStyle: {
+                            color: '#332b4a',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                    axisLine: {       // 坐标轴 轴线
+                        show: false,  // 是否显示
+                    },
+                }
+            ],
+            yAxis: {
+                type: 'category',
+                data: ['非批发类','餐娱类','民生类','一般类','日用百货'],
+            },
+            series: [
+                {
+                    name: '交易金额',
+                    type: 'bar',
+                    barWidth:8,
+                    data: [YLZC449, YLZC455, YLZC467, YLZC479, YLZC485],
+                    itemStyle: {    // 图形的形状
+                        normal: {
+                            barBorderRadius: [0, 16, 16 ,0],
+                            label: {
+                                show: true, //开启显示
+                                position: 'right', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 12
+                                }
+                            }
+                        },
+                    },
+                },
+                {
+                    name: '交易比数',
+                    xAxisIndex: 1,
+                    type: 'bar',
+                    barWidth:8,
+                    data: [YLZC452, YLZC458, YLZC470, YLZC482, YLZC488],
+                    itemStyle: {    // 图形的形状
+                        normal: {
+                            barBorderRadius: [0, 16, 16 ,0],
+                            label: {
+                                show: true, //开启显示
+                                position: 'right', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 12
+                                }
+                            }
+                        },
+                    },
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+    category()
+</script>
+</html>

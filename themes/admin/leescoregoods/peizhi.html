@@ -1,0 +1,48 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/leescoregoods/index')}">商品管理</a></li>
+            <li class="layui-this">发货配置</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/leescoregoods/pei')}" method="post">
+				 	
+				
+					
+					 <div class="layui-form-item">
+                        
+                        <div class="layui-input-block">
+                            <textarea id="container" name="rule" cols="30" rows="15" style="width:100%; margin: 0 auto;">
+								{$leescoregoods.rule}
+    						</textarea>
+                        </div>
+                    </div>
+					     
+    				 <script type="text/javascript" src="__STATIC__/ueditor/ueditor.config.js"></script>
+				    <!-- 编辑器源码文件 -->
+				    <script type="text/javascript" src="__STATIC__/ueditor/ueditor.all.js"></script>
+				    <!-- 实例化编辑器 -->
+				    <script type="text/javascript">
+				        //var ue = UE.getEditor('container');
+				        var ue = UE.getEditor('container', {
+				            autoHeightEnabled:false,
+				            initialFrameHeight:420
+				        });
+				    </script>
+					<div class="layui-form-item">
+                        <div class="layui-input-block">
+                             <input type="hidden" name="id" value="{$leescoregoods.id}">
+							<button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

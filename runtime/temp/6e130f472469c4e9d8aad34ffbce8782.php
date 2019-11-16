@@ -1,0 +1,238 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:35:"./themes/default/chaxun/query2.html";i:1573014960;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>信千金</title>
+	<link rel="stylesheet" href="__PUBLIC__/bg/css/style.css">
+	<link rel="stylesheet" href="__PUBLIC__/bg/css/index2.css">
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+	<script src="__PUBLICS__/layer/layer.js"></script>
+	<style>
+		.report_btn{
+			text-align: center;
+			line-height: 0.63rem;
+			text-decoration: none;
+			border: 1px solid #a2ffea;
+			background-image: linear-gradient(82deg, #4292ff 12%, #4292ff 84%), linear-gradient(#4292ff, #4292ff);
+			color: #fff;
+		}
+		
+		.c-index{
+			font-size: 0.3rem;
+    		line-height: 0.55rem;
+    		margin-left: 0.38rem;
+    		color: #ec841f;
+		}
+		.report_tips{
+			font-size: 0.22rem;
+    		font-weight: bold;
+    		color: #ff7200;
+    		padding: 0.1rem 0 0.1rem 0;
+    		text-align: center;
+		}
+		.agreement a{
+			 color: #ff502c;
+    		text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<img class="top_img" src="<?php echo $x1['thumb']; ?>" alt="">
+	<div class="content_box">
+		<div class="content" style="margin: 1.7rem auto;">
+			<div class="form_box">
+				<p class="report_tips">切勿相信他人以提高信用额度、优化征信等手段诈骗钱财</p>
+				<p class="report_tips">不查央行征信，无任何爬虫数据</p>
+				<div class="input_box clearfix">
+					<img src="__PUBLIC__/bg/imgs/3.png" alt="">
+					<input type="text" name="username" id="username"  placeholder="请输入您的真实姓名">
+					<input id="pid" type="hidden" name="pid" value="<?php echo $pid; ?>" placeholder="请输入本人手机号">
+					<input id="sid" type="hidden" name="sid" value="<?php echo $sid; ?>" placeholder="请输入本人手机号">
+					<input id="price" type="hidden" name="price" value="<?php echo $price; ?>" placeholder="请输入本人手机号">
+					<input id="password" type="hidden" name="password" value="123456" placeholder="请输入本人手机号">
+				</div>
+				<div class="input_box clearfix">
+					<img src="__PUBLIC__/bg/imgs/bank.png" alt="">
+					<input type="text" name="bank" id="bank" placeholder="请输入您的银行卡号">
+				</div>
+				<div class="input_box clearfix">
+					<img src="__PUBLIC__/bg/imgs/3.1.png" alt="">
+					<input type="text" name="idcard" id="idcard" placeholder="请输入您的身份证号">
+				</div>
+				<div class="input_box clearfix">
+					<img src="__PUBLIC__/bg/imgs/3.2.png" alt="">
+					<input type="text" name="mobile" id="mobile" placeholder="请输入您的手机号码">
+				</div>
+				<p class="agreement">
+					<input type="checkbox" name="radio" id="radio">我已阅读并同意<a href="<?php echo url('index/login/protocol'); ?>">《报告授权查询协议》</a>
+				</p>
+				<p class="agreement">
+					<input type="checkbox" name="insurance" id="insurance" value="1">本人自愿免费领取最高100万免费保障,我已阅读<a href="<?php echo url('index/login/protocol1'); ?>">《赠险须知》</a><a href="<?php echo url('index/login/protocol2'); ?>">《用户协议》</a>
+				</p>
+				<button class="pay_btn" style="background-image: linear-gradient(-90deg, #ff9000 0%, #ff3b3b 100%), linear-gradient( #1a459b, #1a459b);">立即打赏检测</button>
+				<p class="report" style="padding: 0 0.2rem 0.2rem 0.2rem;">
+				<a href="<?php echo url('/index/user/chaxunjilu'); ?>" style="text-decoration: none;color: #ff502c; margin-left: -20px;">
+					<img src="__PUBLIC__/img/cxt1.png" alt="">我的查询记录
+				</a>
+				<a href="<?php echo url('/index/chaxun/yangshi2'); ?>" style="text-decoration: none;color: #ff502c;">
+					<img src="__PUBLIC__/img/cxt.png" alt="">示例报告
+				</a>
+				</p>
+				<div class="clear"></div>
+			</div>
+			<p style="font-size: 0.35rem;margin-top: 10px;margin-bottom: 5px;color: #ff4d2f;margin-left: 0.38rem;">查询须知</p>
+			<p class="c-index">1、储蓄卡、信用卡均可评估</p>
+			<p class="c-index">2、两个月内新卡请勿查询，否则无结果</p>
+			<p class="c-index">3、近半年内未交易卡请勿查询，否则无结果</p>
+			<p class="c-index" style="padding-bottom: 20px;">4、请确保输入信息属实，否则无结果</p>
+		</div>
+		<div class="" style="width:7rem; margin: -1.3rem auto;border-radius: 0.18rem;">
+				<img src="<?php echo $x2['thumb']; ?>" alt="" style="width:7rem;"> 
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	pushHistory();
+	window.addEventListener("popstate", function(e) {
+		$(".cover").show();
+	}, false);
+	function pushHistory() {
+		var state = {
+			title: "title",
+			url: "#"
+		};
+		window.history.pushState(state, "title", "#");
+	}
+	$(".cover_bot .give_up").click(function(){
+		$(".cover").hide();
+	})
+
+	$(".cover_bot .continue").click(function(){
+		$(".cover").hide();
+	})
+
+	$(".pay_btn").on('click',function (){
+		var btn = document.getElementById('btn');
+		var username =$("#username").val();
+		var sid = $("#sid").val();
+		var price = $("#price").val();
+		var password = $("#password").val();
+		var mobile = $("#mobile").val();
+		var idcard = $("#idcard").val();
+		var code = $("#code").val();
+		var pid = $("#pid").val();
+		var radio = $('input[name="radio"]:checked').val();
+		var bank = $("#bank").val();
+
+		if($('#insurance').is(':checked')) {
+			var insurance = $('#insurance').val();
+		}else{
+			var insurance = 0;
+		}
+
+		if(username == ''){
+			layer.msg('姓名不能为空');
+			return false;
+		}
+		
+		if(bank == ''){
+			layer.msg('银行卡不能为空');
+			return false;
+		}
+		if(!/^[\u4e00-\u9fa5]*$/.test(username)){
+			layer.msg('姓名请填写正确');
+			return false;
+		}
+		if(idcard == ''){
+			layer.msg('身份证不能为空');
+			return false;
+		}
+		if(idcard.length == 18){
+			if(!/^[0-9A-Z]*$/.test(idcard)){
+				layer.msg('身份证X请大写,不能留有空格');
+				return false;
+			}
+		}else{
+			layer.msg('身份证请填写正确');
+			return false;
+		}
+		if(mobile == ''){
+			layer.msg('手机号码不能为空');
+			return false;
+		}
+		if(mobile.length !== 11){
+			layer.msg("手机号码格式不正确！");
+			return false;
+		}
+		if(!/^[0-9]*$/.test(mobile)){
+			layer.msg("手机号码格式不正确！");
+			return false;
+		}
+		if(radio==null || radio==undefined || radio==""){
+			layer.msg('请确认查询协议');
+			return false;
+		}
+		if(password == ''){
+			layer.msg('密码不能为空');
+			return false;
+		}
+		if(code == ''){
+			layer.msg('验证码不能为空');
+			return false;
+		}
+		var loads = layer.load();
+		$.ajax({
+			url:"<?php echo url('api/curl/idcard'); ?>",
+			type:"post",
+			datatype:'json',
+			data:{'idcard':idcard},
+			success:function(data)
+			{
+			    layer.close(loads);
+				if(data == 1){
+					$.ajax({
+						url:"<?php echo url('api/chaxun/zhucechaxun'); ?>",
+						type:"post",
+						datatype:'json',
+						data:{'username':username,'mobile':mobile,'idcard':idcard,'password':password,'code':code,'pid':pid,'bank':bank},
+						success:function(data){
+							if(data == 0){
+								layer.msg("请确认信息是否正确");
+							}else if(data == 11){
+								layer.msg("手机号已达每日上限，请稍后重试");
+							}else if(data == 12){
+								layer.msg("身份证号已达每日上限，请稍后重试");
+							}else if(data == 100){
+								layer.msg("银行卡号格式错误");
+							}else{
+								window.location.href='<?php echo url("index/pay/pay"); ?>?price='+price+'&pid='+sid+'&uid='+data+'&insurance='+insurance;
+							}
+						}
+					});
+				}else{
+					layer.msg("身份证请填写正确");
+				}
+			}
+		});
+
+	});
+
+	function jilu(jl=1){
+		window.location.href="<?php echo url('index/login/loginss'); ?>?p_id=<?php echo $sid; ?>";
+	}
+
+	$('#sub').on('click',function(){
+		layer.msg('请查询后，在报告内评价');
+	})
+
+</script>
+
+
+</body>
+</html>

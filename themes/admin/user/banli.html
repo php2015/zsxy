@@ -1,0 +1,63 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/user/index')}">用户管理</a></li>
+            <li class=""><a href="{:url('admin/user/add')}">添加用户</a></li>
+            <li class="layui-this">办理用户</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/user/ban')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="names" value="{$user.names}" readonly="readonly" required lay-verify="required" placeholder="请输入姓名" class="layui-input">
+                        </div>
+                    </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">办理主号码</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="tels" required lay-verify="required" placeholder="请输入主号码" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">套餐</label>
+                        <div class="layui-input-block">
+							<select name="taocan" lay-search>
+								<option value="">无套餐</option>
+								{foreach name="taocan_list" item="vo"}
+                                <option value="{$vo.product_name}">{$vo.product_name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">办理人</label>
+                        <div class="layui-input-block">
+							<select name="kid" lay-search>
+								<option value="0">无办理人</option>
+								{foreach name="user_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.names}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					
+					
+                   
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                             <input type="hidden" name="id" value="{$user.id}">
+							<button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

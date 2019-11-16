@@ -1,0 +1,66 @@
+{extend name="base" /}
+{block name="body"}
+<?php $type = ['1'=>'欺诈','2'=>'色情', '3'=>'诱导行为', '4'=>'不实信息', '5'=>'违法犯罪', '6'=>'骚扰', '7'=>'其他', '8'=>'侵权', '9'=>'多级分销', '10'=>'网络借贷', '11'=>'兼职赚钱', '12'=>'高额返利', '13'=>'相亲交友', '14'=>'虚假活动', '15'=>'高收益理财', '16'=>'微盘微交易', '17'=>'不在以上类型中', '18'=>'诱导分享', '19'=>'诱导关注', '20'=>'政治类不实信息', '21'=>'医疗健康类不实信息', '22'=>'社会事件类不实信息', '23'=>'侵权']; ?>
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">投诉管理</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="{:url('admin/complaint/index')}" method="get">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+                    </div>
+                </form>
+                <hr>
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style=" width:30px;">ID</th>
+                        <th>用户名</th>
+                        <th>电话号码</th>
+                        <th>投诉类型</th>
+                        <th>投诉内容</th>
+                        <th>投诉时间</th>
+                        <th>状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="data" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.username}</td>
+                        <td>{$vo.mobile}</td>
+                        <td>{if condition='isset($vo.father) and !empty($vo.father)'}
+                                {$type[$vo.father]} /
+                            {/if}
+                            {if condition='isset($vo.type) and !empty($vo.type)'}{$type[$vo.type]}{/if}</td>
+                        <td>{$vo.content}</td>
+                        <td>{$vo.createdAt|date='Y-m-d H:i',###}</td>
+                        <td>
+                            {if condition='isset($vo.status) and $vo.status eq 1'}
+                                <a href="{:url('admin/complaint/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini" style="background-color: #FF5722">待处理</a>
+                            {else/}
+                                <a href="{:url('admin/complaint/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">查看</a>
+                            {/if}
+                                <a href="{:url('admin/complaint/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$data->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

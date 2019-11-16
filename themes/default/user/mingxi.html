@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>罗马快车</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/mui.picker.min.css">
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/icons-extra.css">
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	 mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+    </script>
+    <style>
+    	table{
+    		border: none;
+    		clear: both;
+        width: 100%;
+    	}
+    	th{
+    		
+    		text-align: center;
+    		color: #000000;
+    		border: none;
+    	}
+    	tr{
+    		
+    	}
+    	th p{
+    		color: #000000;
+    		padding-top: 0px;
+    		line-height: 1;
+    	}
+
+    table.altrowstable {
+      font-family: verdana,arial,sans-serif;
+      font-size:11px;
+      color:#333333;
+      border-width: 1px;
+      border-color: #a9c6c9;
+      border-collapse: collapse;
+    }
+    table.altrowstable th {
+      border-width: 1px;
+      padding: 2px;
+      border-style: solid;
+      border-color: #a9c6c9;
+    }
+    table.altrowstable th {
+      border-width: 1px;
+      padding: 2px;
+      border-style: solid;
+      border-color: #a9c6c9;
+    }
+    .oddrowcolor{
+      background-color:#fdd2c7;
+    }
+    .evenrowcolor{
+      background-color:#fff;
+    }
+
+    </style>
+</head>
+<body  style=" background:#fff;">
+	<header class="mui-bar mui-bar-nav"  style="background-color:#fff;">
+      		<a class="mui-icon mui-icon-left-nav mui-pull-left"   href="{:url('index/user/index')}" style="color: #0062cc !important;"></a>
+            <!--<a href="javascript:excel()" class="mui-btn mui-btn-link mui-pull-left" style="color: #fff;">导出</a>-->
+            <h1 class="mui-title" style="color: #000 !important;">明细</h1>
+            <a href="javascript:dianji()" class="mui-btn mui-btn-link mui-pull-right" style="color: #0062cc !important;">搜索</a>
+        </header>
+	<div class="mui-content">
+		<div class="mui-content-padded" style=" float: left;width:50%;margin: 0px;margin-left: 0%; text-align: center;margin-top: 10px;">
+
+                <button id="demo1" data-options="{}" class="btn mui-btn mui-btn-block" style="padding: 0px 0;width: 30%;float:left;font-size: 14px;height: 30px;line-height: 0.2;">
+                    开始</button>
+                <div id="result" class="ui-alert" style="float:left;width:70% ;height: 30px;border: 1px solid #ccc;font-size: 14px;line-height: 2; border-radius: 3px;">
+                  {if condition="isset($kaishi)"/}
+                  {$kaishi}
+                  {else/}
+                  {/if}
+          </div>
+            </div>
+            <div class="mui-content-padded"  style=" float: left;width:50%;margin: 0px;margin-left: 0%; text-align: center;margin-top: 10px;">
+                <button id="demo1" data-options="{}" class="btn1 mui-btn mui-btn-block" style="padding: 0px 0;width: 30%;float:left;font-size: 14px;height: 30px;line-height: 0.2;">
+                    结束</button>
+                <div id="result1" class="ui-alert" style="float:left;width:70% ;height: 30px;border: 1px solid #ccc;font-size: 14px;line-height: 2; border-radius: 3px;">
+                   {if condition="isset($kaishi)"/}
+                  {$jieshu}
+                  {else/}
+                  {/if}
+              </div>
+            </div>
+<script>
+    
+  function excel(){
+     var res = $('#result').html();
+                var ress = $('#result1').html();
+                //alert(ress);
+                if(res== "undefined" || res == null || res == ""){
+                    alert("开始时间不能为空");
+                }else if(ress== "undefined" || ress == null || ress == ""){
+                    alert("结束时间不能为空");
+                }else{
+                   window.location.href='{:url('index/award/excel')}?kstime='+res+'&jstime='+ress+'&uid='+{$uid};
+                }
+     
+  }
+</script>
+     <script src="__PUBLIC__/js/jquery.min.js "></script>
+        <script src="__PUBLIC__/js/mui.min.js"></script>
+        <!--<script src="js/mui.picker.js"></script>
+        <script src="js/mui.dtpicker.js"></script>-->
+        <script src="__PUBLIC__/js/mui.picker.min.js"></script>
+        <script>
+        function dianji(agent,descc) { 
+                var res = $('#result').html();
+                var ress = $('#result1').html();
+                //alert(ress);
+                if(res== "undefined" || res == null || res == ""){
+                    alert("开始时间不能为空");
+                }else if(ress== "undefined" || ress == null || ress == ""){
+                    alert("结束时间不能为空");
+                }else{
+                    window.location.href='{:url('index/user/mingxi')}?kstime='+res+'&jstime='+ress;
+                }
+
+                
+         
+    }  
+            (function($) {
+
+                $.init();
+                
+                var result = $('#result')[0];
+                var btns = $('.btn');
+                var gr = $('.gr');
+                
+                btns.each(function(i, btn) {
+                    btn.addEventListener('tap', function() {
+                        var _self = this;
+                        if(_self.picker) {
+                            _self.picker.show(function (rs) {
+                                gr.innerText =rs.value;
+                                result.innerText =rs.text;
+                                _self.picker.dispose();
+                                _self.picker = null;
+                            });
+                        } else {
+                            var optionsJson = this.getAttribute('data-options') || '{}';
+                            var options = JSON.parse(optionsJson);
+                            var id = this.getAttribute('id');
+                            /*
+                             * 首次显示时实例化组件
+                             * 示例为了简洁，将 options 放在了按钮的 dom 上
+                             * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                             */
+                            _self.picker = new $.DtPicker(options);
+                            _self.picker.show(function(rs) {
+                                /*
+                                 * rs.value 拼合后的 value
+                                 * rs.text 拼合后的 text
+                                 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                                 * rs.m 月，用法同年
+                                 * rs.d 日，用法同年
+                                 * rs.h 时，用法同年
+                                 * rs.i 分（minutes 的第二个字母），用法同年
+                                 */
+                                result.innerText =rs.text;
+                                gr.innerText =rs.value;
+                                /* 
+                                 * 返回 false 可以阻止选择框的关闭
+                                 * return false;
+                                 */
+                                /*
+                                 * 释放组件资源，释放后将将不能再操作组件
+                                 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                                 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                                 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                                 */
+                                _self.picker.dispose();
+                                _self.picker = null;
+                            });
+                        }
+                        
+                    }, false);
+                });
+                var result1 = $('#result1')[0];
+                var btns1 = $('.btn1');
+                
+                btns1.each(function(i, btn) {
+                    btn.addEventListener('tap', function() {
+                        var _self = this;
+                        if(_self.picker) {
+                            _self.picker.show(function (rs) {
+                                gr.innerText =rs.value;
+                                result1.innerText =rs.text;
+                                _self.picker.dispose();
+                                _self.picker = null;
+                            });
+                        } else {
+                            var optionsJson = this.getAttribute('data-options') || '{}';
+                            var options = JSON.parse(optionsJson);
+                            var id = this.getAttribute('id');
+                            /*
+                             * 首次显示时实例化组件
+                             * 示例为了简洁，将 options 放在了按钮的 dom 上
+                             * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                             */
+                            _self.picker = new $.DtPicker(options);
+                            _self.picker.show(function(rs) {
+                                /*
+                                 * rs.value 拼合后的 value
+                                 * rs.text 拼合后的 text
+                                 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                                 * rs.m 月，用法同年
+                                 * rs.d 日，用法同年
+                                 * rs.h 时，用法同年
+                                 * rs.i 分（minutes 的第二个字母），用法同年
+                                 */
+                                result1.innerText =rs.text;
+                                /* 
+                                 * 返回 false 可以阻止选择框的关闭
+                                 * return false;
+                                 */
+                                /*
+                                 * 释放组件资源，释放后将将不能再操作组件
+                                 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                                 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                                 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                                 */
+                                _self.picker.dispose();
+                                _self.picker = null;
+                            });
+                        }
+                        
+                    }, false);
+                });
+            })(mui);
+        </script>
+		 <script>
+            window.onload = function(){
+                //1.获取表格
+                var tblEle = document.getElementById("tbl");
+                //2.获取表格中tbody里面的行数(长度)
+                var len = tblEle.tBodies[0].rows.length;
+                //alert(len);
+                //3.对tbody里面的行进行遍历
+                for(var i=0;i<len;i++){
+                    if(i%2==0){
+                        //4.对偶数行设置背景颜色
+                        tblEle.tBodies[0].rows[i].style.backgroundColor="#fff";
+                    }else{
+                        //5.对奇数行设置背景颜色
+                        tblEle.tBodies[0].rows[i].style.backgroundColor="#f7572d";
+                    }
+                }
+            }
+        </script>
+        	
+        <table class="altrowstable" id="alternatecolor">
+            <tr  style="height:50px;"> 
+              <th>时间</th> 
+              <th>类型</th> 
+              <th>用户</th> 
+              <th>手机号</th>
+              <th>金额</th>
+            </tr> 
+           {volist name="user" id="vo"}
+        {if condition="$vo['state'] eq '提现'"}
+                     <tr style="border-bottom: 1px solid #000000;"> 
+                        <th  style="color: #FF0000;font-size:11px;"><p  style="color: #FF0000;font-size:11px;">{$vo['create_time']|date="Y-m-d",###}</p><p  style="color: #FF0000;font-size:11px;">{$vo['create_time']|date="H:i:s",###}</p ></th> 
+                        <th  style="color: #FF0000;font-size:11px;">{$vo.state}</th>
+                        <th  style="color: #FF0000;font-size:11px;">{$vo.namess}</th> 
+                        <th  style="color: #FF0000;font-size:11px;">{$vo.mobile}</th> 
+                        <th  style="color: #FF0000;font-size:11px;">-{$vo.money}</th> 
+                    </tr> 
+            {elseif condition="$vo['state'] eq '退款'"/}  
+           <tr style="border-bottom: 1px solid #000000;"> 
+                        <th  style="color: #FF0000;font-size:11px;"><p  style="color: #FF0000;font-size:11px;">{$vo['create_time']|date="Y-m-d",###}</p><p  style="color: #FF0000;font-size:11px;">{$vo['create_time']|date="H:i:s",###}</p ></th> 
+                        <th  style="color: #FF0000;font-size:11px;">{$vo.state}</th>
+                        <th  style="color: #FF0000;font-size:11px;">{$vo.names}</th> 
+                        <th  style="color: #FF0000;font-size:11px;">{$vo.mobilesss}</th> 
+                        <th  style="color: #FF0000;font-size:11px;">-{$vo.money}</th> 
+                    </tr> 
+                {else/}
+                     <tr style="border-bottom: 1px solid #000000;" > 
+                        <th style="font-size:11px;"><p   style="font-size:11px;">{$vo['create_time']|date="Y-m-d",###}</p><p style="font-size:11px;">{$vo['create_time']|date="H:i:s",###}</p></th> 
+                        <th style="font-size:11px;">{$vo.state}</th>
+                        <th style="font-size:11px;">{$vo.namess}</th> 
+                        <th style="font-size:11px;">{$vo.mobile}</th> 
+                        <th style="font-size:11px;">+{$vo.money}</th> 
+                    </tr> 
+                            {/if}
+        {/volist}
+        </table>
+
+
+        <script type="text/javascript">
+          function altRows(id){
+            if(document.getElementsByTagName){  
+              
+              var table = document.getElementById(id);  
+              var rows = table.getElementsByTagName("tr"); 
+               
+              for(i = 0; i < rows.length; i++){          
+                if(i % 2 == 0){
+                  rows[i].className = "evenrowcolor";
+                }else{
+                  rows[i].className = "oddrowcolor";
+                }      
+              }
+            }
+          }
+           
+          window.onload=function(){
+            altRows('alternatecolor');
+          }
+          </script>
+
+		<script>
+			
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			
+		 mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+		</script>
+</body>
+</html>

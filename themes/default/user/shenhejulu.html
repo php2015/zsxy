@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>罗马快车</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/mui.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <header class="mui-bar mui-bar-nav" style="background: #fff;">
+        <a class="mui-icon mui-icon-left-nav mui-pull-left" style="color: #2d4bfc;"   href="{:url('index/user/index')}"></a>
+            <h1 class="mui-title" style="color: #000;">申请记录</h1>
+        </header>
+
+    <div class="gray-panel">
+        <div class="paoduct-title-panel"  style="padding-top: 30px;">
+            <h2 class="checkout-h2"></h2>
+            {volist name="shenhe" id="vo"}
+            <div class="cart-list-panel" style="padding: 0 20px;height: 140px;margin-top:10px; ">
+                <ul class="am-avg-sm-1 cart-panel-ul" style="height: 100px;">
+                    
+
+                    <li style="">
+                        <div class="infopanel" style="width: 100%;">
+                            <h3 style="width: 100%;display: block;    box-sizing: border-box;">
+                             
+                            姓名：{$vo['xinxi']['names']}&nbsp;&nbsp;&nbsp;手机号：{$vo['xinxi']['mobile']}</h3>
+                            <p style="margin-top: 10px;">等级：{$vo['xinxi']['agent_name']}&nbsp;&nbsp;&nbsp;
+                              {if condition="$vo['fen'] eq 0"/}
+                                   {if condition="$vo['state'] eq 1"/}
+                                        <a href="{:url('index/user/sspinjia',array('id'=>$vo['id']))}"><span onclick="" style="float: right;padding:5px 10px; background: #2d4bfc;border-radius: 5px;color: #fff;font-size: 13px;"><b>去评价</b>
+                                        </span>
+                                        </a>
+                                    {else/}
+                                       
+                                    {/if}
+                              {else/}
+                              <span style="float: right;padding:5px 10px; background: #fff;border-radius: 5px;color: #2d4bfc;font-size: 13px;"><b>已评价</b>
+                              </span>
+                              {/if}
+
+                              </p>
+                              <p style="margin-top: 10px;">
+                              {if condition="$vo['state'] eq 0"/}
+                              审核状态：待审核
+                              {else  condition="$vo['state'] eq 1"/}
+                              审核状态：已审核
+                              {/if}
+                                 
+                              </p>
+                              <p style="margin-top: 10px;">
+                                {$vo['oldagent_name']}升级到{$vo['newagent_name']}
+                                <a href="{:url('index/user/xiangqing',array('id'=>$vo['id']))}"><span onclick="" style="float: right;padding:3px 10px; background: #2d4bfc;border-radius: 5px;color: #fff;font-size: 13px;"><b>详情</b>
+                                        </span>
+                                        </a>
+                              </p>
+                        </div>
+
+                    </li>
+                   
+                </ul>
+            </div>
+            {/volist}
+        </div>
+       
+    </div>
+
+      <script>
+        function showFooterNav(){
+            $("#footNav").toggle();
+        }
+   
+      </script>
+    </div>
+</div>
+</body>
+</html>

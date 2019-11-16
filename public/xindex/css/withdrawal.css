@@ -1,0 +1,93 @@
+@charset "UTF-8";
+body{font-family: PingFang-SC-Regular;background: #F1F1F1;}
+.container{
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0.3rem 0.2rem 1rem 0.2rem;
+}
+.withdrawal_top{
+    padding: 0.2rem;
+    background: #fff;
+}
+.money_box{
+    height: 1.1rem;
+    line-height: 1.1rem;
+    border-bottom: 0.02rem solid #e0e0e0;
+    position: relative;
+}
+.money_box span{
+    font-size: 0.6rem;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.money_box input{
+    width: 100%;
+    height: 1.1rem;
+    padding-left: 0.7rem;
+    border: none;
+    float: left;
+    font-size: 0.48rem;
+    color: #333333;
+    background: rgba(0, 0, 0, 0);
+}
+.withdrawal_ti{
+    font-size: 0.26rem;
+    color: #333333;
+    margin-top: 0.2rem;
+}
+.withdrawal_way{
+    background: #fff;
+    margin-top: 0.3rem;
+}
+.withdrawal_way p{
+    line-height: 0.9rem;
+    font-size: 0.26rem;
+    color: #333333;
+    border-bottom: 0.02rem solid #e0e0e0;
+    padding-left: 0.2rem;
+}
+.withdrawal_way p:last-of-type{
+    border-bottom: none;
+}
+.withdrawal_way p .choose{
+    display: inline-block;
+    width: 0.28rem;
+    height: 0.28rem;
+    border: 0.02rem solid #888888;
+    border-radius: 50%;
+    margin-right: 0.26rem;
+    position: relative;
+    top: 0.02rem;
+}
+.withdrawal_way p .choose.active:before{
+    content: "\2714";
+    color: #5293ff;
+    position: absolute;
+    top: -0.02rem;
+    left: -0.02rem;
+    width: 0.26rem;
+    height: 0.26rem;
+    line-height: 0.26rem;
+    border-radius: 50%;
+    font-size: 0.3rem;
+    font-weight: bold;
+}
+.withdrawal_way p .withdrawal_p{
+    margin-left: 0.26rem;
+    color: #5293ff;
+}
+.explain{
+    margin-top: 0.3rem;
+    background: #fff;
+    padding: 0.3rem 0.2rem;
+}
+.explain p{
+    font-size: 0.26rem;
+	line-height: 0.44rem;
+	color: #333333;
+}

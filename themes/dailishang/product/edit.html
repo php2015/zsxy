@@ -1,0 +1,73 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/product/index')}">版本管理</a></li>
+            <li class=""><a href="{:url('admin/product/add')}">添加版本</a></li>
+            <li class="layui-this">编辑版本</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/product/update')}" method="post">
+				
+				
+				
+				<div class="layui-form-item">
+                        <label class="layui-form-label">版本名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="tname" value="{$product.tname}" required lay-verify="required" placeholder="请输入版本名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">版本图标</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="thumb" value="{$product.thumb}" class="layui-input layui-input-inline" id="thumb">
+                            <input type="file" name="file" class="layui-upload-file">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">说明</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="marks" value="{$product.marks}" required lay-verify="required" placeholder="请输入说明" class="layui-input">
+                        </div>
+                    </div>
+                   	<div class="layui-form-item">
+                        <label class="layui-form-label">默认成本价</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="price" value="{$product.price}" placeholder="请输入默认成本价" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">默认查询价</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="prices" value="{$product.prices}" placeholder="请输入查询价" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">排序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="descc" value="{$product.descc}"  lay-verify="number"  placeholder="请输入查询价" class="layui-input">
+                        </div>
+                    </div>
+					 <div class="layui-form-item">
+                        <label class="layui-form-label">公开否</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="state" value="1" title="公开" {if condition="$product.state==1"} checked="checked"{/if}>
+                            <input type="radio" name="state" value="0" title="不公开" {if condition="$product.state==0"} checked="checked"{/if}>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <div class="layui-input-block">
+                             <input type="hidden" name="id" value="{$product.id}">
+							<button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

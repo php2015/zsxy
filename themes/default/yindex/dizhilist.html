@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>罗马快车</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/mui.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<header class="mui-bar mui-bar-nav">
+		{if condition="$gid neq ''"}
+        <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/tijiao',array('gid'=>$gid,'num'=>$num))}" style="color: #2d4bfc;"></a>
+		{else/}
+		 <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/user/index')}" style="color: #2d4bfc;"></a>
+        {/if}
+            <h1 class="mui-title" style="color: #000;">选择地址</h1>
+            <a class="mui-icon-right-nav mui-pull-right" href="{:url('index/index/dizhiadd',array('gid'=>$gid,'num'=>$num))}" style="line-height: 45px;color: #2d4bfc;">添加</a>
+        </header>
+
+	<div class="gray-panel">
+    	<div class="paoduct-title-panel">
+        	<h2 class="checkout-h2"> 确认地址信息</h2>
+            {volist name="leescoreaddress" id="vo"}
+			<div class="cart-list-panel" style="padding: 0 20px;height: 100px;">
+                <ul class="am-avg-sm-1 cart-panel-ul" style="height: 100px;">
+                    
+
+                    <li style="height: 100px;">
+                        <div class="infopanel" style="width: 100%;">
+                            <h3 style="width: 100%;display: block;    box-sizing: border-box;">
+                             {if condition="$vo['status'] eq '1'"}
+                            <span class="am-badge am-round am-badge-warning " style="background: #2d4bfc;">
+                            默认
+                            </span>&nbsp;&nbsp;&nbsp;
+                            {else/}
+                            {/if}
+                            姓名：{$vo.firstname}&nbsp;&nbsp;&nbsp;手机号：{$vo.mobile}
+                            <a href="{:url('index/index/dizhieidt',array('gid'=>$gid,'num'=>$num,'did'=>$vo['id']))}">
+                            <span style="float: right;padding:2px 5px; background: #2d4bfc;border-radius: 5px;color: #fff;">修改</span>
+                            </a>
+                            </h3>
+                            <p style="margin-top: 10px;">地址：{$vo.region}{$vo.city}{$vo.xian}{$vo.address}<span onClick="moren({$vo.id})" style="float: right;padding:2px 5px; background: #2d4bfc;border-radius: 5px;color: #fff;font-size: 13px;"><b>选择</b></span></p>
+                        </div>
+                    </li>
+                   
+                </ul>
+            </div>
+             {/volist}
+        </div>
+       
+    </div>
+
+      <script>
+	  	function showFooterNav(){
+			$("#footNav").toggle();
+		}
+     function moren(dizhiid) { 
+                     $.ajax({
+                        url:'{:url('index/index/dizhimoren')}',
+                        type:"post",
+                        datatype:'json',
+                        data:{'dizhiid':dizhiid},
+                        success:function(data)
+                        {
+                          //alert(data);
+                           window.location.href="{:url('index/index/tijiao')}?gid={$gid}&num={$num}";
+                        }
+                    });
+                  }  
+	  </script>
+    </div>
+</div>
+</body>
+</html>

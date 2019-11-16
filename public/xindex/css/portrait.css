@@ -1,0 +1,214 @@
+@charset "UTF-8";
+body{font-family: PingFang-SC-Regular;background: #F1F1F1;}
+.container{
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+    background: url("../img/bank/banner.png") no-repeat;
+    background-size: 100%;
+    padding-top: 0.36rem;
+}
+.info_box{
+    width: 6.7rem;
+    height: 3.39rem;
+    background: url("../img/bank/geren.png") no-repeat;
+    background-size: 100%;
+    padding-left: 0.56rem;
+    padding-top: 0.24rem;
+    margin: 0 auto;
+}
+.info_box p{
+    font-size: 0.26rem;
+	line-height: 0.36rem;
+	color: #f1f1f1;
+}
+.info_box .info_ti{
+    font-size: 0.3rem;
+    margin-bottom: 0.04rem;
+}
+.card_box{
+    width: 6.7rem;
+	height: 2.8rem;
+	background-image: linear-gradient(82deg, #2d2661 12%, #3a3275 84%), linear-gradient(#1a2959, #1a2959);
+	background-blend-mode: normal, normal;
+	box-shadow: 0rem 0.04rem 0.1rem 0rem rgba(12, 35, 77, 0.69);
+    border-radius: 0.18rem;
+    margin: 0.3rem auto;
+    position: relative;
+    padding: 0.3rem;
+}
+.card_box p{
+    font-size: 0.26rem;
+	line-height: 0.36rem;
+	color: #f1f1f1;
+}
+.card_box img{
+    width: 2.22rem;
+    position: absolute;
+    top: 50%;
+    right: 0.4rem;
+    transform: translateY(-50%);
+}
+.grade_report{
+    width: 7.1rem;
+    background-color: #ffffff;
+	box-shadow: 0rem 0.03rem 0.06rem 0rem #a8a8a8;
+    border-radius: 0.12rem;
+    margin: 0.3rem auto;
+    padding-top: 0.2rem;
+}
+.report_ti{
+    font-size: 0.3rem;
+    font-weight: bold;
+    color: #333333;
+    padding-left: 0.36rem;
+    position: relative;
+}
+.report_ti:before{
+    content: '';
+    width: 0.04rem;
+	height: 0.28rem;
+    background-color: #3a3275;
+    position: absolute;
+    top: 50%;
+    left: 0.2rem;
+    transform: translateY(-50%);
+}
+.grade_box{
+    padding-bottom: 0.14rem;
+    border-bottom: 0.02rem solid #f1f1f1;
+}
+.grade_item{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+.score_box{
+    width: 1.57rem;
+    height: 1.59rem;
+    background: url("../img/bank/quanfen.png");
+    background-size: 100%;
+    font-size: 0.36rem;
+	font-weight: bold;
+	line-height: 1.59rem;
+    color: #3a3275;
+    text-align: center;
+    margin: 0.1rem auto;
+}
+.grade_item p{
+    font-size: 0.26rem;
+	font-weight: bold;
+    color: #333333;
+    text-align: center;
+}
+.grade_com{
+    font-size: 0.24rem;
+    color: #666666;
+    padding: 0.2rem;
+}
+.grade_com span{
+    color: #333;
+}
+.ability_box{
+    padding: 0 0.2rem;
+}
+.ability_left,.ability_right{
+    width: 48%;
+    height: 3.4rem;
+    float: left;
+    background: #ffffff;
+	box-shadow: 0rem 0.03rem 0.06rem 0rem #a8a8a8;
+    border-radius: 0.12rem;
+    margin-bottom: 0.3rem;
+}
+.ability_left3{
+    background: #e37171;
+}
+.ability_right4{
+    background: #719fe3;
+}
+.ability_right{
+    float: right;
+}
+.ability_top1{
+    height: 0.72rem;
+	background: #373a5a;
+    border-radius: 0.12rem 0.12rem 0rem 0rem;
+    font-size: 0.26rem;
+	font-weight: bold;
+	font-stretch: normal;
+	line-height: 0.72rem;
+    color: #ffffff;
+    padding-left: 0.2rem;
+    margin-bottom: 0.22rem;
+}
+.ability_top1 p{
+    color: #ffffff;
+}
+.ability_top1 p span{
+    color: #acacac;
+}
+.ability_p1{
+    font-size: 0.26rem;
+	line-height: 0.36rem;
+    color: #333333;
+    padding: 0 0.2rem;
+}
+.ability_top2{
+    background: #feff9b;
+}
+.ability_top2 p{
+    color: #763214;
+}
+.ability_pic2{
+    width: 2.4rem;
+    display: block;
+    margin: 0.06rem auto;
+}
+.ability_top3,.ability_top4{
+    background: #fff;
+}
+.ability_top3 p{
+    color: #e37171;
+}
+.ability_top4 p{
+    color: #719fe3;
+}
+.ability_pic3{
+    width: 1.94rem;
+    display: block;
+    margin: 0.36rem auto 0;
+}
+.ability_p2{
+    color: #fff;
+}
+.ability_top5{
+    background: #fbb9ff;
+}
+.ability_top5 p{
+    color: #761473;
+}
+.ability_score{
+    width: 0.96rem;
+    height: 0.96rem;
+    background: url("../img/bank/xq.png");
+    background-size: 100%;
+    font-size: 0.26rem;
+	font-weight: bold;
+    line-height: 0.96rem;
+    text-align: center;
+    color: #761473;
+    margin: 0 auto;
+}
+.ability_top6{
+    background: #ec4444;
+}
+.ability_top6 p{
+    color: #fff;
+}
+.ability_pic6{
+    width: 2.58rem;
+    display: block;
+    margin: 0.3rem auto 0;
+}

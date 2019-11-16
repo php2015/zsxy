@@ -1,0 +1,93 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/leescoreorder/index')}">订单管理</a></li>
+            <li class="layui-this">添加订单</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/leescoreorder/save')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">被审核人</label>
+                        <div class="layui-input-block">
+							<select name="uid" lay-search>
+								<option value="0">被审核人</option>
+								{foreach name="user_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.names}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">审核人</label>
+                        <div class="layui-input-block">
+							<select name="sid" lay-search>
+								<option value="0">审核人</option>
+								{foreach name="user_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.names}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="state" value="0" title="未审核" checked="checked">
+                            <input type="radio" name="state" value="1" title="已审核">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">评分</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="fen" value="0" title="未评价" checked="checked">
+                            <input type="radio" name="fen" value="1" title="差评">
+                            <input type="radio" name="fen" value="2" title="中评">
+                            <input type="radio" name="fen" value="3" title="好评">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">从哪个等级</label>
+                        <div class="layui-input-block">
+							<select name="oldagent" lay-search>
+								<option value="0">无等级</option>
+								{foreach name="agent_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.agent_name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">到哪个等级</label>
+                        <div class="layui-input-block">
+							<select name="newagent" lay-search>
+								<option value="0">无等级</option>
+								{foreach name="agent_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.agent_name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    
+					<div class="layui-form-item">
+                        <label class="layui-form-label">备注</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="marks" value="" required  placeholder="请输入备注" class="layui-input">
+                        </div>
+                    </div>
+					
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+					
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

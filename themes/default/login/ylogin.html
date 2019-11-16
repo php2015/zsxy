@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>登录</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+    <script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=f50ea5f0-5c14-11e9-8670-5bf8fe2cdd9c&autoShow=false&language=ZHCN' async='async'></script>
+</head>
+<style>
+    .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        background: #FFFFFF;
+        background-repeat: no-repeat;
+        background-size: 90%;
+        background-position: center;
+        margin: 0 auto;
+    }
+    .logo img {
+        width: 72px;
+        height: 70px;
+        line-height: 80px;
+    }
+
+    .login-banner {
+        height: 200px;
+        align-items: center;
+        text-align: center;
+        line-height: 143px;
+        padding-top: 70px;
+    }
+</style>
+<body style="background-color: #fff;">
+<div class="mui-content" style="background-color: #fff;">
+    <div id="login" class="container" style="background-color: #fff; background: url(__PUBLIC__/img/denglu0001.png);background-repeat: no-repeat;
+            background-size: 100%;">
+        <header class="login-banner">
+            <div class="logo"><div><img src="__PUBLIC__/img/zslog1.png"></div></div>
+        </header>
+        <div class="login-input-area" style="padding-left: 8%;margin-top: 20%;">
+
+            <div class="input-item"  style="clear: both;width:88%;padding-left:15px;margin-left:0;margin-top:0px;padding-bottom:50px;border-bottom: 1px solid #acacac;">
+                <div class="" style="width:15%;padding-top: 6px;font-size: 14px; float: left;">
+                    <img src="__PUBLIC__/img/ren0001.png" style="width: 25px;float: left;margin-top:8px">
+                </div>
+                <div class="" style="width:70%;padding-top: 8px; float: left;height: 38px;">
+                    <input id="usernames" name="username" type="text" placeholder="输入手机号" style="width: 100%;    font-size: 18px; border:none;">
+                    <!-- <input name="username" type="text" placeholder="123123">-->
+                </div>
+            </div>
+            <div class="input-item" style="clear: both;width:90%;padding-left:15px;margin-left:0;margin-top:30px;padding-bottom:50px;border-bottom: 1px solid #acacac;">
+                <div style="padding-top: 0px;width:15%;font-size: 14px; float: left;">
+                    <img src="__PUBLIC__/img/mima0001.png" style="width: 25px;float: left;margin-top:8px">
+                </div>
+                <div class="" style="width:70%;padding-top: 5px; float: left;">
+                    <input id="password" name="password"  type="password" placeholder="输入密码" style="width: 97%;    font-size: 18px;border:none;">
+                </div>
+            </div>
+        </div>
+        <div class="login-footer" style="text-align: center; clear: both;">
+				<div>
+					<button id="btn" style="height: 50px;width: 80%;border-radius: 22px;background: #2b7fe8;color: #ffffff;font-size: 16px;margin-top:30px;">
+						登录
+					</button>
+				</div>
+
+			</div>
+        <div>
+        </div>
+        <div class="login-protocol" style="text-align:center;font-size: 14px;padding: 10px 0;color: #888888;">
+            新用户点击登录即视为同意
+            <span data-v-61f95894="" style="color:#f7572d;">
+						<a href="{:url('index/login/protocol')}" class="" style="color:#2b7fe8;">《注册协议》</a>
+					</span>
+        </div>
+    </div>
+</div>
+<!-- <button onclick="qimoChatClick();">在线咨询</button>-->
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js" ></script>
+<script type="text/javascript">
+
+
+	var jl = "{$jl}";
+
+    //var btn = document.getElementById('btn');
+    $(document).on('click','#register',function(){
+        window.location.href = "{:url('index/login/daili')}";
+    });
+
+
+    $("#btn").click(function (){
+        var username =$("#usernames").val();
+        var password = $("#password").val();
+        if(username == ''){
+            alert('手机号码不能为空');
+            return false;
+        }
+        if(password == ''){
+            alert('密码不能为空');
+            return false;
+        }
+        $.ajax({
+            url:'{:url('api/login/ylogin')}',
+            type:"post",
+            datatype:'json',
+            data:{'mid':username,'password':password},
+        success:function(data){
+             if(data.status=='success'){
+                if(data.isStaff == 1){
+                    window.location.href = "{:url('yindex/yindex')}";
+                }else {
+                    if (jl != 1) {
+                        window.location.href = "{:url('index/yindex')}";
+                    } else {
+                        window.location.href = "{:url('index/chaxun/index')}?p_id={$p_id}&jl={$jl}";
+                    }
+                }
+            }else if(data.status=='error'){
+                        alert(data.msg);
+                        return false;
+            }
+        }
+            });
+    });
+</script>
+</body>
+</html>

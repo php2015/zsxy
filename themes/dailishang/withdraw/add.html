@@ -1,0 +1,60 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('dailishang/withdraw/index')}">提现管理</a></li>
+            <li class="layui-this">添加提现</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('dailishang/withdraw/save')}" method="post" onsubmit="return false;">
+                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">可提现</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="ketixian" value="{$user.money}"  readonly="readonly" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="money" value="" required lay-verify="required" placeholder="当前可提现金额为：{$user.money}" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="type" value="" required lay-verify="required"   placeholder="银行或支付宝" class="layui-input">
+                        </div>
+                    </div>
+					 <div class="layui-form-item">
+                        <label class="layui-form-label">提现姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="namesss" value="" required lay-verify="required"   placeholder="姓名" class="layui-input">
+                        </div>
+                    </div> <div class="layui-form-item">
+                        <label class="layui-form-label">电话</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="telsss" value="" required lay-verify="required|phone"  placeholder="电话" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">卡号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bankcard" value="" required lay-verify="required|number" placeholder="银行卡号或支付宝账号" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

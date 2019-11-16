@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>钻石报告</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/base.css" rel="stylesheet" type="text/css" />
+
+</head>
+<style>
+    .container{
+        padding:0;
+    }
+    .circleChart_canvas{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        transform: rotate(133deg) ! important ;
+        position: absolute;
+        top: -107px;
+        left: 47px;
+    }
+    .circleChart_text{
+        position: absolute;
+        line-height: 100px;
+        top: -114px ! important;
+        left: 43px;
+        width: 104px ! important ;
+        margin: 0px;
+        padding: 0px;
+        color:#f77926;
+        text-align: center;
+        font-size: 14.2857px;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+
+
+    .main{width:100%;position:relative;margin:auto;}
+    .layer{position:relative;}
+    .layer03-panel{position:relative;float:left;}
+    .layer03-left-chart{position:relative;float:left;}
+</style>
+<body style="">
+<div class="container" style="background-color:#f98501;border-bottom: 400px solid #f98501;">
+
+    <a href="javascript:history.back(-1)" class="glyphicon glyphicon-chevron-left" style="color: #fff;margin-top: 15px;margin-left: 10px;text-decoration: none;"></a>
+
+    <div style="border: 1px solid #fff;background-color: #fff;margin-right: 8px; margin-left: 8px;border-radius: 4px;    margin-top: 20px;">
+        <div style="margin-top: 20px;margin-left: 15px;margin-right: 15px;">
+            <textarea name="content" style="border: 1px solid #9d9d9d;outline:none;width: 95%;height: 200px;border-radius: 7px;background: #f3f3f3;text-indent: 15px;" placeholder="请输入您要评论的内容..."></textarea>
+            <button type="submit" id="sub"  class="btn btn-warning" style="width: 67%;margin-top: 20px;margin-bottom: 50px;font-size: 14px;margin-left: 16%;font-weight: bold;background: #ee823a;">发布</button>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+<script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+<script src="/public/bootstrap/js/bootstrap.min.js"></script>
+<script src="/public/layer/layer.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#sub').on('click',function(){
+            var content = $('textarea[name="content"]').val();
+            if(!content){
+                layer.msg('内容不能为空');
+              return ;
+            }
+          	var loading = layer.load(0);
+            $(this).attr("disabled","true");
+            $.ajax({
+                url:'{:url("/api/complaint/comment")}',
+                type:'post',
+                dataType:'json',
+                data:{'content':content,type:1},
+                success:function(json){
+                    layer.close(loading);
+                    $(this).removeAttr('disabled');
+                    if(json == 10){
+                        layer.msg('非法操作');
+                    }else if(json == 0){
+                        layer.msg('提交失败');
+                    }else{
+                        layer.msg('提交成功',{'time':1000},function(){
+                            history.go(-1);
+                        })
+                    }
+                }
+            })
+        })
+    })
+
+</script>

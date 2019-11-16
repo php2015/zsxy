@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>罗马快车</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/mui.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <header class="mui-bar mui-bar-nav" style="background: #fff;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: ##2d4bfc;"></a>
+            <h1 class="mui-title" style="color: #000;">详情</h1>
+        </header>
+
+    <div class="gray-panel">
+        <div class="paoduct-title-panel"  style="padding-top: 30px;">
+            <h2 class="checkout-h2"></h2>
+            <div class="cart-list-panel" style="padding: 0 20px;height: 1000px;margin-top:10px; ">
+                <ul class="am-avg-sm-1 cart-panel-ul" style="height: 100px;">
+                    
+
+                    <li style="height: 100px;">
+                        <div class="infopanel" style="width: 100%;">
+                            <h3 style="width: 100%;display: block;    box-sizing: border-box;">
+                             
+                            姓名：{$shenhe['xinxi']['names']}&nbsp;&nbsp;&nbsp;手机号：{$shenhe['xinxi']['mobile']}</h3>
+                            <p style="margin-top: 10px;">等级：{$shenhe['xinxi']['agent_name']}&nbsp;&nbsp;&nbsp;
+                              
+                              </p>
+                              <p style="margin-top: 10px;">
+                              {if condition="$shenhe['state'] eq 0"/}
+                              审核状态：待审核
+                              {else  condition="$shenhe['state'] eq 1"/}
+                              审核状态：已审核
+                              {/if}</p>
+                              <p style="margin-top: 10px;">审核人：{$shenhe['names']}&nbsp;&nbsp;&nbsp;
+                              
+                              </p>
+                              <p style="margin-top: 10px;">审核人电话：{$shenhe['tel']}&nbsp;&nbsp;&nbsp;
+                                <a href="tel:{$shenhe['mobile']}"><span onclick="" style="float: right;padding:3px 10px; background: #2d4bfc;border-radius: 5px;color: #fff;font-size: 13px;"><b>拨打</b>
+                                        </span>
+                                        </a>
+                              </p>
+                              <p style="margin-top: 10px;text-align: center;">审核人收款二维码：&nbsp;&nbsp;&nbsp;
+                              
+                              </p>
+                              <img src="{$shenhe['thumb']}" style="width: 100%;"/>
+
+                        </div>
+
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+       
+    </div>
+
+      <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js" ></script>
+  <script type="text/javascript">
+      $("#btn").click(function (){
+        var radio = $('input[name="fen"]:checked').val();
+        //alert(radio);
+        $.ajax({
+        url:'{:url('index/user/pinjiass')}',
+        type:"post",
+        datatype:'json',
+        data:{'id':{$shenhe.id},'fen':radio},
+        
+        success:function(data){
+          //json=$.parseJSON(data);
+          //alert(data);
+                      if(data==1){
+                        alert('评价成功');
+                window.location.href="{:url('user/usersj')}";
+            }else{
+                alert('评价失败');
+                return false;
+            }
+          }
+        });
+      });
+    </script>
+    </div>
+</div>
+</body>
+</html>

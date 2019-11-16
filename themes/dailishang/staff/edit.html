@@ -1,0 +1,67 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('dailishang/staff/index')}">员工管理</a></li>
+            <li class=""><a href="{:url('dailishang/staff/add')}">添加员工</a></li>
+            <li class="layui-this">编辑员工</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('dailishang/staff/update')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="names" value="{$user.names}" required lay-verify="required" placeholder="请输入姓名" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="password" placeholder="留空为不改密码" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">电话</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="mobile" value="{$user.mobile}" required lay-verify="required|phone|number" placeholder="请输入手机" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">上级</label>
+                        <div class="layui-input-block">
+                            <select name="pid" lay-search>
+                                <option value="0">请选择</option>
+                                {foreach name="user_list" item="vo"}
+                                <option value="{$vo.id}" {if condition="$user.pid==$vo.id"} selected="selected"{/if}>{$vo.names}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$user.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script type="text/javascript">
+    form.on('select(province)', function(data){
+        $.post("{:url('admin/user/ajax_city')}",{cid:data.value},function(result){
+            $("#city").html("");
+            $("#city").html(result);
+            form.render('select');
+        },"html");
+    });
+</script>
+{/block}

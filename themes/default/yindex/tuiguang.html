@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>钻石报告</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/css/mui.min.css">
+      <script src="__PUBLIC__/js/clipboard.min.js"></script>
+		<style type="text/css">
+			#list {
+				/*避免导航边框和列表背景边框重叠，看起来像两条边框似得；*/
+				margin-top: -1px;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="mui-content">
+			<div class="mui-popup mui-popup-in" style="display: block;"><div class="mui-popup-inner">
+				<div class="mui-popup-title">钻石信用</div>
+				<div class="mui-popup-text">请选择推广方式？</div>
+			</div>
+			<div class="mui-popup-buttons">
+				
+              	<!-- <input style="text-align: center; font-size:0.1px; z-index:-999; position:absolute;left:100px;" value="{$lianjie}" id="web"  style="width:300px;"  type="text">
+				<span class="mui-popup-button" id="webcopy">生成链接</span> -->
+              	<input style="text-align: center; font-size:0.1px; z-index:-999; position:absolute;left:100px;" value="{$lianjie}" id="foo2"  style="width:300px;"  type="text">
+				<span class="mui-popup-button copys" data-clipboard-action="copy" data-clipboard-target="#foo2" id="webcopy">生成链接</span>
+              	{if condition="$typeId eq 8"}
+					<span class="mui-popup-button"><a href="{:url('index/qrc/views',array('imgid'=>$imgid,'type_status'=>$typeId))}">生成二维码</a></span>
+				{else/}
+					<span class="mui-popup-button"><a href="{:url('index/qrc/views',array('imgid'=>$imgid,'a_g_id'=>$a_g_id))}">生成二维码</a></span>
+				{/if}
+			</div>
+			</div>
+			<div class="mui-popup-backdrop mui-active" style="display: block;"></div>
+			<!-- <button id='confirmBtn' type="button" class="mui-btn mui-btn-blue mui-btn-outlined mui-active">确认消息框</button>
+			<div id="info"></div> -->
+		</div>
+		<script src="__PUBLIC__/js/jquery.min.js "></script>
+		<script src="__PUBLIC__/js/mui.min.js"></script>
+		<script>
+          
+          $("#webcopy").on('click',function(){
+			  var clipboard = new Clipboard('.copys');
+			  mui.toast('链接复制成功');
+			  setTimeout(function(){
+				  window.location.href="{:url('index/index/fenxiang')}";
+			  },1000)
+			});
+          
+          /** $("#webcopy").on('click',function(){
+				var e=document.getElementById("web");//对象是content
+				e.select(); //选择对象
+				document.execCommand("Copy"); //执行浏览器复制命令
+				mui.toast('链接复制成功');
+            	setTimeout(function(){
+                	window.location.href="{:url('index/index/fenxiang')}";
+                },1000)
+            	
+			});*/
+		 function copyArticle1() {
+        const range = document.createRange();
+				//var content="content"+id;
+				//alert(content);false;
+				range.selectNode(document.getElementById("content1"));
+				//alert(range);return false;
+				const selection = window.getSelection();
+				if(selection.rangeCount > 0) selection.removeAllRanges();
+				selection.addRange(range);
+				document.execCommand('copy');
+				mui.toast('复制成功');
+				//alert("复制成功！");
+			}
+			function code(){
+				copyArticle1();
+			}
+		</script>
+	</body>
+
+</html>

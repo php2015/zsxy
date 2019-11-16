@@ -1,0 +1,94 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/order/index')}">订单管理</a></li>
+            <li class="layui-this">添加订单</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/order/save')}" method="post">
+                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户</label>
+                        <div class="layui-input-block">
+							<select name="user_id" lay-search>
+								{foreach name="user_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.names}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商品</label>
+                        <div class="layui-input-block">
+                            <select name="product_id" lay-search>
+								{foreach name="product_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.product_name}--{$vo.price}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">操作人</label>
+                        <div class="layui-input-block">
+                           <select name="master_id" lay-verify="required">
+                                {foreach name="admin_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.names}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                   
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">本单金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="price" value="" required  lay-verify="required" placeholder="请输入本单金额" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">实付金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="reality_price" value="" required  lay-verify="required" placeholder="请输入实付金额" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">欠款</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="arrears" value="" required  lay-verify="required" placeholder="请输入欠款" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="status" value="1" title="1" checked="checked">
+                            <input type="radio" name="status" value="0" title="0">
+                        </div>
+                    </div>
+                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="create_time" value="{:date('Y-m-d H:i:s')}" class="layui-input datetime">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">备注</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="note" value="" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

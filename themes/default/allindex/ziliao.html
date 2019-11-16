@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css"/>
+		<style>
+			.btnclass{
+				pointer-events: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		<a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/index')}"></a>
+		    <h1 class="mui-title">信息完善</h1>
+		</header>
+		<div class="mui-content">
+		<form action="" method="post">
+		   <div class="dl-a">
+		   		
+		   		<div class="dl-b">
+		   			
+			   		
+			   		
+			   		
+			   		
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				芝麻分
+			   			</div>
+			   			<div class="dl-a-b-r">
+			   				<input name="zhimafen" type="text" value="{$user.zhimafen}" placeholder="请输入您的芝麻信用分">
+			   			</div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				信用卡
+			   			</div>
+			   			<div class="dl-a-b-r">
+			   				<input name="xinyongka" value="{$user.xinyongka}" type="text" placeholder="请输入您的信用卡最高额度">
+			   			</div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				婚姻
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;"><span style="margin-left:15.5%;">已婚</span><input  type="radio"   value="已婚"  {if condition="$user['hunyin'] eq '已婚'"}checked="checked"{else/}{/if}  name="hunyin" style="margin-left:5%;"/>
+			   				<span style="margin-left:15%;">未婚</span><input  type="radio" value="未婚"    name="hunyin" {if condition="$user['hunyin'] eq '未婚'"} checked="checked"{else/}
+                                        {/if} style="margin-left:5%;"/></div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				学历
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;">
+			   				<select style="margin-left:10%;" name="xueli">
+									  <option value ="初中" 
+									  {if condition="$user['xueli'] eq '初中'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}
+									  >初中</option>
+									  <option value ="高中" {if condition="$user['xueli'] eq '高中'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>高中</option>
+									  <option value="大专" {if condition="$user['xueli'] eq '大专'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>大专</option>
+									  <option value="本科" {if condition="$user['xueli'] eq '本科'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>本科</option>
+									  <option value="本科以上" {if condition="$user['xueli'] eq '本科'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>本科以上</option>
+							</select>
+							</div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				薪资
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;">
+			   				<select style="margin-left:10%;" name="yueshouru">
+									  <option value ="3000以下"{if condition="$user['yueshouru'] eq '3000以下'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>3000以下</option>
+									  <option value ="3000-5000" {if condition="$user['yueshouru'] eq '3000-5000'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>3000-5000</option>
+									  <option value="5000-8000" {if condition="$user['yueshouru'] eq '5000-8000'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>5000-8000</option>
+									  <option value="8000-12000" {if condition="$user['yueshouru'] eq '8000-12000'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>8000-12000</option>
+									  <option value="12000以上" {if condition="$user['yueshouru'] eq '12000以上'"}
+									  selected="selected"
+									  {else/}
+                                        {/if}>12000以上</option>
+							</select>
+							</div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				社保
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;"><span style="margin-left:20%;">有</span><input {if condition="$user['shebao'] eq '有'"} checked="checked"{else/}
+                                        {/if}   type="radio"   value="有"    name="shebao" style="margin-left:5%;"/>
+			   				<span style="margin-left:20%;">无</span><input   type="radio" {if condition="$user['shebao'] eq '无'"} checked="checked"{else/}
+                                        {/if} value="无"    name="shebao" style="margin-left:5%;"/></div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				公积金
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;"><span style="margin-left:20%;">有</span><input {if condition="$user['gongjijin'] eq '有'"} checked="checked"{else/}
+                                        {/if}  type="radio"   value="有"    name="gongjijin"    style="margin-left:5%;"/>
+			   				<span style="margin-left:20%;">无</span><input   type="radio" {if condition="$user['gongjijin'] eq '无'"} checked="checked"{else/}
+                                        {/if}   value="无"    name="gongjijin" style="margin-left:5%;"/></div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				车辆
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;"><span style="margin-left:20%;" >有</span><input   type="radio"   value="有" {if condition="$user['cheliang'] eq '有'"} checked="checked"{else/}
+                                        {/if}   name="cheliang"    style="margin-left:5%;"/>
+			   				<span style="margin-left:20%;">无</span><input   type="radio" {if condition="$user['cheliang'] eq '无'"} checked="checked"{else/}
+                                        {/if} value="无"    name="cheliang" style="margin-left:5%;"/></div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				房产
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;"><span style="margin-left:20%;" >有</span><input  {if condition="$user['fangchan'] eq '有'"} checked="checked"{else/}
+                                        {/if} type="radio"   value="有"    name="fangchan"    style="margin-left:5%;"/>
+			   				<span style="margin-left:20%;">无</span><input   type="radio" {if condition="$user['fangchan'] eq '无'"} checked="checked"{else/}
+                                        {/if} value="无"    name="fangchan" style="margin-left:5%;"/></div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				保单
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;"><span style="margin-left:20%;" >有</span><input   type="radio"   value="有"    name="baodan"  {if condition="$user['baodan'] eq '有'"} checked="checked"{else/}
+                                        {/if}  style="margin-left:5%;"/>
+			   				<span style="margin-left:20%;">无</span><input   type="radio" {if condition="$user['baodan'] eq '无'"} checked="checked"{else/}
+                                        {/if}   value="无"    name="baodan" style="margin-left:5%;"/></div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				微粒贷
+			   			</div>
+			   				<div  style="width: 80%;float: left;line-height:45px;font-size:14px;border-left: 1px solid #f0f0f0;"><span style="margin-left:20%;" >有</span><input  {if condition="$user['weilidai'] eq '有'"} checked="checked"{else/}
+                                        {/if} type="radio"   value="有"    name="weilidai"    style="margin-left:5%;"/>
+			   				<span style="margin-left:20%;">无</span><input   type="radio"  {if condition="$user['weilidai'] eq '无'"} checked="checked"{else/}
+                                        {/if}  value="无"    name="weilidai" style="margin-left:5%;"/></div>
+			   		</div>
+			   		
+		   		</div>
+		   		<div class="btn">
+		   			<button id="btn" style="background-color:#3366FF; color:#fff">提交</button>
+		   			
+		   		</div>
+		   </div>
+		   </form>
+		</div>
+		<script type="text/javascript">
+					var btn = document.getElementById("btn");
+					
+							btn.onclick=function(){
+				var username = document.getElementById("username");
+				//var username = input[0].value;
+				var phone = input[1].value;
+				var idcard = input[2].value;
+				var password = input[3].value;
+				
+				//很多判断
+				if(username == ''){
+					alert('手机号码不能为空');
+					return;
+				}
+				if(phone.length != 11){
+					ca.prompt('手机号码位数不正确');
+					return;
+				}
+				
+				//验证码
+				if(input_code == ''){
+					ca.prompt('验证码不能为空');
+					return;
+				}
+				if(input_code != code){
+					ca.prompt('验证码不正确');
+					return;
+				}
+				
+				//密码的判断
+				if(password == ''){
+					ca.prompt('密码不能为空');
+					return;
+				}
+				if(repassword == ''){
+					ca.prompt('确认密码不能为空');
+					return;
+				}
+				if(password != repassword){
+					ca.prompt('两次密码输入不一致');
+					return;
+				}
+				
+				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

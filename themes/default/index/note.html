@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>罗马快车</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+        <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+    
+<style>
+
+          
+
+   .mui-card .mui-control-content {
+                padding: 10px;
+            }
+            
+            .mui-control-content {
+                height: 100%;
+            }
+     .loan_list123 {
+        padding: .2rem .25rem .15rem;
+        clear: both;
+        margin-top: 10px;
+        
+    }
+    .loan_list123 .external123 {
+      
+        width: 96%;
+        margin: 0 2%;
+        
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        background-color: #fff;
+    }
+    .loan_list123 .external123 .logo123 {
+        width: 5rem;
+        height: 5rem;
+        float: left;
+    }
+    .logo123_img{
+      
+        width: 5rem;
+        height: 5rem;
+        position: relative;
+    }
+    .logo123_imgx{
+        margin-top: -0.5rem;
+        margin-right: -0.5rem;
+        width: 3rem;
+        height: 3rem;
+        float: right;
+        position: relative;
+        top:0rem;
+        right: 0;
+    }
+    .logo_xx {
+        width: 2.4rem;
+    }
+    .ulli{
+        width: 25%;
+        float: left;
+    }
+    .loan_list123 .external123 .info123 {
+        display: inline-block;
+    }
+    
+    .name123 {
+        font-size:1rem;
+        line-height: 2;
+        padding-left:20px;
+        color: #000;
+    }
+    
+    .assessment{}
+    .assessment .left{
+        width: 50%;
+        float: left;
+    }
+    .assessment .right{
+        width: 50%;
+        float: left;
+    }
+     #marquee p{height:30px;line-height: 30px;margin:0}
+   
+</style>
+    </head>
+    <body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/index')}"></a>
+            <h1 class="mui-title">文章类</h1>
+        </header>
+
+        <div class="mui-content">
+        
+        
+        <div >
+                <div id="segmentedControl" class="mui-segmented-control" style="border:none;width:100%;">
+                {volist name="kouzitype" id="vo"}
+                    <a id="href{$vo.descc}" class="mui-control-item"
+                  
+                        href="#item{$vo.id}"
+                   
+                    style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; ">
+                        <img src="{$vo.thumb}" style="width: 40px;height:40px;">
+                        <p>{$vo.tname}</p>
+                    </a>
+                        
+                {/volist}
+                 <!--  <a id="href5" class="mui-control-item"  href="#item5" style="width:0;"> </a> -->
+                </div>
+               <div id="segmentedControl" class="mui-segmented-control" style="border:none;width:100%;">
+                    <a class="mui-control-item" href="{:url('index/index/xinyongka')}" 
+                    style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; ">
+                        <img src="__PUBLIC__/img/xyk.png" style="width: 40px;height:40px;">
+                        <p>信用卡办理</p>
+                    </a>
+                    <a class="mui-control-item" href="{:url('index/index/note')}" 
+                    style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; ">
+                        <img src="__PUBLIC__/img/zixun.png" style="width: 40px;height:40px;">
+                        <p>最新资讯</p>
+                    </a>
+                    <a class="mui-control-item" href="{:url('index/allindex/onenote','id=4')}" 
+                    style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; ">
+                        <img src="__PUBLIC__/img/zz.png" style="width: 40px;height:40px;">
+                        <p>操作说明</p>
+                    </a>
+                    <a class="mui-control-item" href="{:url('index/allindex/gerenxingxin')}" 
+                    style="line-height: 20px;border:none;background-color: #fff;padding-top:10px; ">
+                        <img src="__PUBLIC__/img/gr.png" style="width: 40px;height:40px;">
+                        <p>个人中心</p>
+                    </a>
+                 <!--  <a id="href5" class="mui-control-item"  href="#item5" style="width:0;"> </a> -->
+                </div>
+            </div>
+
+            <script>
+                     function dianji(agent,descc) { 
+                if(agent == 1){
+                   
+            }else{
+                $("#href"+descc+"").attr("href","#item"+descc+"");
+            }
+    }  
+                </script>
+          
+                <div id="item1" class="mui-control-content" style="background: #f2f2f2;">
+                    <ul class="mui-table-view">
+                                    {volist name="kouzione" id="vo"}
+                                             <li class="mui-table-view-cell mui-media"">
+                                                <a href="javascript:adds({$vo.id});">
+                                                    <img class="mui-media-object mui-pull-left" src="{$vo.thumb}" style="width:70px;max-width: 70px; height: 70px;border-radius: 10px;">
+                                                    <div class="mui-media-body">
+                                                        {$vo.title}
+                                                        <p class="" style="height: 40px;white-space: pre-wrap;overflow: hidden;text-overflow:ellipsis;">{$vo.jianjie}</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        {/volist}  
+                    </ul>
+                            
+                        
+                    
+                </div>
+                <div id="item2" class="mui-control-content" style="background: #f2f2f2;">
+                    <ul class="mui-table-view">
+                                            {volist name="kouzitow" id="vo"}
+                                                  <li class="mui-table-view-cell mui-media"">
+                                                        <a href="javascript:adds({$vo.id});">
+                                                            <img class="mui-media-object mui-pull-left" src="{$vo.thumb}" style="width:70px;max-width: 70px; height: 70px;border-radius: 10px;">
+                                                            <div class="mui-media-body">
+                                                                {$vo.title}
+                                                                <p class="" style="height: 40px;white-space: pre-wrap;overflow: hidden;text-overflow:ellipsis;">{$vo.jianjie}</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                        {/volist}
+                    </ul>
+                </div>
+                <div id="item3" class="mui-control-content" style="background: #f2f2f2;">
+                    <ul class="mui-table-view">
+                                            {volist name="kouzithree" id="vo"}
+                                                   <li class="mui-table-view-cell mui-media"">
+                                                        <a href="javascript:adds({$vo.id});">
+                                                            <img class="mui-media-object mui-pull-left" src="{$vo.thumb}" style="width:70px;max-width: 70px; height: 70px;border-radius: 10px;">
+                                                            <div class="mui-media-body">
+                                                                {$vo.title}
+                                                                <p class="" style="height: 40px;white-space: pre-wrap;overflow: hidden;text-overflow:ellipsis;">{$vo.jianjie}</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                        {/volist}
+                     </ul>
+                </div>
+                <div id="item4" class="mui-control-content" style="background: #f2f2f2;" >
+                    <ul class="mui-table-view">
+
+                                           {volist name="kouzifrive" id="vo"}
+                                              <li class="mui-table-view-cell mui-media"">
+                                                <a href="javascript:adds({$vo.id});">
+                                                    <img class="mui-media-object mui-pull-left" src="{$vo.thumb}" style="width:70px;max-width: 70px; height: 70px;border-radius: 10px;">
+                                                    <div class="mui-media-body">
+                                                        {$vo.title}
+                                                        <p class="" style="height: 40px;white-space: pre-wrap;overflow: hidden;text-overflow:ellipsis;">{$vo.jianjie}</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        {/volist}
+                    </ul>
+                </div>
+                <div id="item5" class="mui-control-content  mui-active" style="background: #f2f2f2;">
+                    <ul class="mui-table-view">
+                    {volist name="kouzifive" id="vo"}
+                        <li class="mui-table-view-cell mui-media"">
+                            <a href="javascript:adds({$vo.id});">
+                                <img class="mui-media-object mui-pull-left" src="{$vo.thumb}" style="width:70px;max-width: 70px; height: 70px; border-radius: 10px;">
+                                <div class="mui-media-body">
+                                    {$vo.title}
+                                    {if condition="$vo['jianjie'] neq null"}
+                                        <p class="" style=" height: 40px;white-space: pre-wrap;overflow: hidden;text-overflow:ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;clear: both;">{$vo.jianjie}
+                                        </p>
+                                    {else/}
+                                        <p class="" style="height: 40px;">
+                                            本文章没有简介
+                                        </p>
+                                    {/if}
+                                </div>
+                            </a>
+                        </li>
+                    {/volist}
+                    </ul>
+                   <!--  <div class="loan_list123">
+
+                                            {volist name="kouzifive" id="vo"}
+                                               <div class="external123" id="adda" onclick=" adds({$vo.id})">
+                                            <p class="name123">{$vo.title}<span style="float: right;">{$vo.lasttime|date="Y-m-d",###}</span></p>
+                                        </div>
+                                        {/volist}
+                                           <div class="external123" style="width:50%;height:100px;opacity: 0;"></div>      
+                                            
+                                </div>
+                </div> -->
+            </div>
+
+
+        
+    
+    <script src="__PUBLIC__/js/mui.min.js "></script>
+    <script src="__PUBLIC__/js/jquery.min.js "></script>
+        <script>
+            mui.init({
+                swipeBack:true//启用右滑关闭功能
+            });
+            mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+            
+            (function($) {
+                $('#scroll').scroll({
+                    indicators: true //是否显示滚动条
+                });
+                
+                 var slider = mui("#slider");
+                    slider.slider({
+                        interval: 1000//自动轮播周期，若为0则不自动播放，默认为0；
+                    });
+                var segmentedControl = document.getElementById('segmentedControl');
+                $('.mui-input-group').on('change', 'input', function() {
+                    if (this.checked) {
+                        var styleEl = document.querySelector('input[name="style"]:checked');
+                        var colorEl = document.querySelector('input[name="color"]:checked');
+                        if (styleEl && colorEl) {
+                            var style = styleEl.value;
+                            var color = colorEl.value;
+                            segmentedControl.className = 'mui-segmented-control' + (style ? (' mui-segmented-control-' + style) : '') + ' mui-segmented-control-' + color;
+                        }
+                    }
+                });
+                var marquee = document.getElementById('marquee');
+                var offset=0;
+                var scrollheight =marquee.offsetWidth;
+                var firstNode = marquee.children[0].cloneNode(true);
+                marquee.appendChild(firstNode);//还有这里
+                setInterval(function(){
+                    if(offset > scrollheight*2){
+                        offset = 0;
+                    }
+                    marquee.style.marginLeft = "-"+offset+"px";
+                    offset += 3;
+                },50);
+            })(mui);
+
+            function adds(kid) { 
+                window.location.href="{:url('index/allindex/onenote')}?id="+kid;
+            }  
+
+   
+        </script>
+        
+    <body>
+        
+    </body>
+
+</html>

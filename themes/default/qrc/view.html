@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>罗马快车</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/tupianguodong/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/tupianguodong/css/htmleaf-demo.css">
+		<link rel="stylesheet" href="__PUBLIC__/tupianguodong/dist/css/swiper.min.css">
+		<style type="text/css">
+			#list {
+				/*避免导航边框和列表背景边框重叠，看起来像两条边框似得；*/
+				margin-top: -1px;
+			}
+			 .links{
+	    	padding: 8px;
+	    	background-color: #52b529;
+	    	margin: 5px;
+	    	-webkit-transition: all 1s;
+	    	-o-transition: all 1s;
+	    	transition: all 1s;
+	    }
+	    .links a{
+	    	color: #fff;
+	    	display: inline-block;
+	    	width: 100%;
+	    	height: 100%;
+	    	text-decoration: none;
+	    }
+	    .links:hover{
+		background-color: #1e824c;
+	    }
+	    .current{
+	    	background-color: #22a7f0;
+	    }
+	    .swiper-container {
+	       width: 100%;
+	        margin: 20px auto;
+	        background: #eee;
+	    }
+	    .swiper-slide {
+	        text-align: center;
+	        font-size: 18px;
+	        background: #fff;
+	        width: 60%;
+
+	        /* Center slide text vertically */
+	        display: -webkit-box;
+	        display: -ms-flexbox;
+	        display: -webkit-flex;
+	        display: flex;
+	        -webkit-box-pack: center;
+	        -ms-flex-pack: center;
+	        -webkit-justify-content: center;
+	        justify-content: center;
+	        -webkit-box-align: center;
+	        -ms-flex-align: center;
+	        -webkit-align-items: center;
+	        align-items: center;
+	    }
+	    .swiper-slide:nth-child(2n) {
+	        width: 40%;
+	    }
+	    .swiper-slide:nth-child(3n) {
+	        width: 20%;
+	    }
+		
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="mui-content">
+			<div class="mui-popup mui-popup-in" style="display: block; width:70%;border-radius: 5px;background: #fff;">
+				<div class="mui-popup-inner" style=" border-radius: 0px;">
+				<div class="mui-popup-text" style="font-size:14px;">长按保存图片到相册</div>
+				<img id="img" src="/img/{$logo_name}" style=" width:100%; " />
+				<!--<div class="mui-popup-title">钻石报告</div>
+				<div class="mui-popup-text">请选择推广方式？</div>-->
+				<div style="width:100%; padding-top:0px;background: #fff;">
+					 <div class="swiper-container" style="background: #fff;    margin: 10px auto;">
+				        <div class="swiper-wrapper" style="">
+							{volist name="bjurl" id="vo"}
+				            <div class="swiper-slide"><img onClick="dianji({$vo.id})" src="{$vo.thumb}" style=" width:100%;" /></div>
+							{/volist}
+				        </div>
+				        <!-- Add Pagination -->
+				        <!--<div class="swiper-pagination"></div>-->
+				    </div>
+				</div>
+				
+			</div>
+			<div class="mui-popup-buttons">
+				<!--<span class="mui-popup-button" onClick="code()">生成链接</span> -->
+				<span class="mui-popup-button"><a href="{:url('index/user/index')}">返回主页面</a></span>
+			</div>
+			</div>
+			<div class="mui-popup-backdrop mui-active" style="display: block;"></div>
+			<!-- <button id='confirmBtn' type="button" class="mui-btn mui-btn-blue mui-btn-outlined mui-active">确认消息框</button>
+			<div id="info"></div> -->
+		</div>
+		<script src="__PUBLIC__/js/jquery.min.js "></script>
+		<script src="__PUBLIC__/js/mui.min.js"></script>
+		<script src="__PUBLIC__/tupianguodong/dist/js/swiper.min.js"></script>
+		<script>
+		 function dianji(url) { 
+		 	$.ajax({
+						url:'{:url('index/qrc/viewjson')}',
+						type:"post",
+						datatype:'json',
+
+						data:{'p_id':url},
+						
+						success:function(data){
+							var imgObj=document.getElementById("img");
+            				imgObj.src="/img/"+data;
+							
+							 }
+						});
+		 	// var imgObj=document.getElementById("img");
+            //imgObj.src=url;
+		 	//alert(url);
+		 }
+		var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        slidesPerView: 4,
+	        centeredSlides: true,
+	        paginationClickable: true,
+	        spaceBetween: 30
+	    });
+		 function copyArticle1() {
+        const range = document.createRange();
+				//var content="content"+id;
+				//alert(content);false;
+				range.selectNode(document.getElementById("content1"));
+				//alert(range);
+				const selection = window.getSelection();
+				if(selection.rangeCount > 0) selection.removeAllRanges();
+				selection.addRange(range);
+				document.execCommand('copy');
+				mui.toast('复制成功');
+				//alert("复制成功！");
+			}
+			function code(){
+				copyArticle1();
+			}
+		</script>
+	</body>
+
+</html>

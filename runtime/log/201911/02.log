@@ -1,0 +1,803 @@
+[ 2019-11-02T23:59:53+08:00 ] 172.19.64.51 120.27.173.54 POST /index/pay/order_query
+[ log ] www.xalanfeng.cn/index/pay/order_query [运行时间：0.021167s][吞吐率：47.24req/s] [内存消耗：2,981.53kb] [文件加载：47]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'pay',
+    2 => 'order_query',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; G8342 Build/47.2.A.10.80; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045008 Mobile Safari/537.36 MMWEBID/3962 MicroMessenger/7.0.5.1440(0x27000534) Process/tools NetType/WIFI Language/zh_CN',
+  'x-true-ip' => '120.27.74.151',
+  'x-real-ip' => '120.27.74.151',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '120.27.74.151',
+  'x-forwarded-for' => '111.41.138.251, 125.39.46.45, 120.27.74.151',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => '77a7aa1a15727103935783747e',
+  'content-length' => '29',
+  'via' => 'cn1866.l1, kunlun6.cn1866, l2cm9-5.l2, cache3.l2cm9-5',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '125.39.46.45',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'cookie' => 'acw_tc=74759e1d15727103314802883e40df81defcc8d6ca51311a9b9012d0d7; PHPSESSID=htoi61n8g3h8e0i51g25qh1kq4',
+  'origin' => 'http://www.xalanfeng.cn',
+  'referer' => 'http://www.xalanfeng.cn/index/pay/pay.html?price=39.90&pid=59513&uid=151024&insurance=0&code=011I7DJm0upxIl1fLKJm0cQPJm0I7DJ9&state=STATE',
+  'x-forwarded-for-pound' => '111.41.138.251',
+  'x-requested-with' => 'XMLHttpRequest',
+  'eagleeye-rpcid' => '0.1',
+)
+[ info ] [ PARAM ] array (
+  'order_no' => '18773240221572710386',
+)
+[ info ] [ RUN ] app\index\controller\Pay->order_query[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Pay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000293s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '18773240221572710386' LIMIT 1 [ RunTime:0.000193s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:53+08:00 ] 172.19.64.51 120.27.173.37 GET /index/chaxun/query/price/38.80/pid/59837
+[ log ] www.xalanfeng.cn/index/chaxun/query/price/38.80/pid/59837 [运行时间：0.026564s][吞吐率：37.65req/s] [内存消耗：3,446.98kb] [文件加载：48]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'chaxun',
+    2 => 'query',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.8(0x17000820) NetType/4G Language/zh_CN',
+  'x-true-ip' => '61.147.73.171',
+  'x-real-ip' => '61.147.73.171',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '61.147.73.171',
+  'x-forwarded-for' => '117.136.116.157, 61.147.73.171',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => '701ea2a415727103936543172e',
+  'via' => 'cn1497.l1, kunlun7.cn1497, l2cn1807.l2, cache23.l2cn1807',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '117.136.116.157',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=s2edaueij6btif7811gi193nu1; acw_tc=701ea2a515727103804246796e14bb163e37e251c988d7bb3af161d4a6',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'eagleeye-rpcid' => '0.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'price' => '38.80',
+  'pid' => '59837',
+)
+[ info ] [ RUN ] app\index\controller\Chaxun->query[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Chaxun.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./themes/default/chaxun/query.html [ array (
+  0 => 'gj',
+  1 => 'comment',
+  2 => 'product',
+  3 => 'goods',
+  4 => 'price',
+  5 => 'sid',
+  6 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000202s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000535s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 59837 LIMIT 1 [ RunTime:0.000178s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000182s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000194s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000434s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000170s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000406s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000176s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:54+08:00 ] 172.19.64.51 118.178.15.112 GET /index/index/index.html
+[ log ] www.xalanfeng.cn/index/index/index.html [运行时间：0.025965s][吞吐率：38.51req/s] [内存消耗：3,323.19kb] [文件加载：48]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045008 Mobile Safari/537.36 MMWEBID/9252 MicroMessenger/7.0.8.1540(0x27000833) Process/tools NetType/4G Language/zh_CN ABI/arm64',
+  'x-true-ip' => '61.147.73.157',
+  'x-real-ip' => '61.147.73.157',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '61.147.73.157',
+  'x-forwarded-for' => '112.32.32.93, 61.129.8.250, 61.147.73.157',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => '7250bb1d15727103947534981e',
+  'via' => 'cn2364.l1, kunlun3.cn2364, l2cn1807.l2, cache9.l2cn1807',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '61.129.8.250',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,image/wxpic,image/sharpp,image/apng,image/tpg,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'acw_tc=7250bb1d15725873740337073e1baf135cb0dfb36250db7d5ec3cc8926; PHPSESSID=nenj1hgcvb8bltnqnqcl7s4db6',
+  'referer' => 'http://www.xalanfeng.cn/index/index/mingxi.html',
+  'upgrade-insecure-requests' => '1',
+  'x-forwarded-for-pound' => '112.32.32.93',
+  'eagleeye-rpcid' => '0.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./themes/default/index/index.html [ array (
+  0 => 'str_msg',
+  1 => 'user',
+  2 => 'profit_id',
+  3 => 'gr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000266s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000661s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 64268 LIMIT 1 [ RunTime:0.000228s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000163s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_gonggao` [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_gonggao` [ RunTime:0.000126s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_profit` [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `sun_profit` WHERE  `profit_id` = 64268  AND `type` = '提现' LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000140s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000379s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '个人' ORDER BY id desc LIMIT 1 [ RunTime:0.000146s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:55+08:00 ] 172.19.64.51 118.178.15.71 GET /index/chaxun/query/price/19.90/pid/59502
+[ log ] www.xalanfeng.cn/index/chaxun/query/price/19.90/pid/59502 [运行时间：0.026335s][吞吐率：37.97req/s] [内存消耗：3,447.59kb] [文件加载：48]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'chaxun',
+    2 => 'query',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; V1838A Build/PKQ1.190302.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045008 Mobile Safari/537.36 MMWEBID/8329 MicroMessenger/7.0.7.1521(0x27000781) Process/tools NetType/4G Language/zh_CN',
+  'x-true-ip' => '116.211.216.181',
+  'x-real-ip' => '116.211.216.181',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '116.211.216.181',
+  'x-forwarded-for' => '117.136.3.146, 220.194.106.92, 116.211.216.181',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => '7ca5d59b15727103953615048e',
+  'via' => 'cn1554.l1, kunlun7.cn1554, l2cn1837.l2, cache33.l2cn1837',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '220.194.106.92',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,image/wxpic,image/sharpp,image/apng,image/tpg,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'acw_tc=7ca5d59a15727103834386390ef9880634bf52613342d527cb64e11e39; PHPSESSID=908ecbo1ovdu98pq3ihmt4avk3',
+  'upgrade-insecure-requests' => '1',
+  'x-forwarded-for-pound' => '117.136.3.146',
+  'eagleeye-rpcid' => '0.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'price' => '19.90',
+  'pid' => '59502',
+)
+[ info ] [ RUN ] app\index\controller\Chaxun->query[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Chaxun.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./themes/default/chaxun/query.html [ array (
+  0 => 'gj',
+  1 => 'comment',
+  2 => 'product',
+  3 => 'goods',
+  4 => 'price',
+  5 => 'sid',
+  6 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000257s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 59502 LIMIT 1 [ RunTime:0.000214s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000205s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000159s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000154s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000151s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:55+08:00 ] 172.19.64.51 120.27.173.54 GET /index/chaxun/query/price/39.90/pid/59513
+[ log ] www.xalanfeng.cn/index/chaxun/query/price/39.90/pid/59513 [运行时间：0.025199s][吞吐率：39.68req/s] [内存消耗：3,448.09kb] [文件加载：48]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'chaxun',
+    2 => 'query',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; G8342 Build/47.2.A.10.80; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045008 Mobile Safari/537.36 MMWEBID/3962 MicroMessenger/7.0.5.1440(0x27000534) Process/tools NetType/WIFI Language/zh_CN',
+  'x-true-ip' => '120.27.74.151',
+  'x-real-ip' => '120.27.74.151',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '120.27.74.151',
+  'x-forwarded-for' => '111.41.138.251, 123.151.76.248, 120.27.74.151',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => '8cf93d2015727103955843125e',
+  'via' => 'cn1596.l1, kunlun6.cn1596, l2cm9-5.l2, cache3.l2cm9-5',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '123.151.76.248',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,image/wxpic,image/sharpp,image/apng,image/tpg,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'acw_tc=74759e1d15727103314802883e40df81defcc8d6ca51311a9b9012d0d7; PHPSESSID=htoi61n8g3h8e0i51g25qh1kq4',
+  'upgrade-insecure-requests' => '1',
+  'x-forwarded-for-pound' => '111.41.138.251',
+  'eagleeye-rpcid' => '0.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'price' => '39.90',
+  'pid' => '59513',
+)
+[ info ] [ RUN ] app\index\controller\Chaxun->query[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Chaxun.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./themes/default/chaxun/query.html [ array (
+  0 => 'gj',
+  1 => 'comment',
+  2 => 'product',
+  3 => 'goods',
+  4 => 'price',
+  5 => 'sid',
+  6 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000227s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 59513 LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000166s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000170s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000162s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000170s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000136s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000178s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:55+08:00 ] 172.19.64.51 118.178.15.99 GET /index/chaxun/query/price/38.80/pid/59837
+[ log ] www.xalanfeng.cn/index/chaxun/query/price/38.80/pid/59837 [运行时间：0.024774s][吞吐率：40.36req/s] [内存消耗：3,447.45kb] [文件加载：48]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'chaxun',
+    2 => 'query',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.4(0x17000428) NetType/WIFI Language/zh_CN',
+  'x-true-ip' => '14.17.67.57',
+  'x-real-ip' => '14.17.67.57',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '14.17.67.57',
+  'x-forwarded-for' => '219.134.216.103, 14.17.67.57',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => 'b739529a15727103955786409e',
+  'via' => 'cn462.l1, kunlun4.cn462, l2cn1851.l2, cache37.l2cn1851',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '219.134.216.103',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ddqm6mehbqk1ms8lr9sv4efja7; acw_tc=b739529d15727103318615859eda56e4be3162de92eb52968bb283db2a',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'eagleeye-rpcid' => '0.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'price' => '38.80',
+  'pid' => '59837',
+)
+[ info ] [ RUN ] app\index\controller\Chaxun->query[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Chaxun.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./themes/default/chaxun/query.html [ array (
+  0 => 'gj',
+  1 => 'comment',
+  2 => 'product',
+  3 => 'goods',
+  4 => 'price',
+  5 => 'sid',
+  6 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000205s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 59837 LIMIT 1 [ RunTime:0.000168s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000156s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000153s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000423s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000136s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000138s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000151s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:55+08:00 ] 172.19.64.51 120.27.173.35 GET /favicon.ico
+[ log ] www.xalanfeng.cn/favicon.ico [运行时间：0.012535s][吞吐率：79.78req/s] [内存消耗：1,603.47kb] [文件加载：34]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'favicon.ico',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; V1838A Build/PKQ1.190302.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045008 Mobile Safari/537.36 MMWEBID/8329 MicroMessenger/7.0.7.1521(0x27000781) Process/tools NetType/4G Language/zh_CN',
+  'x-true-ip' => '116.211.216.205',
+  'x-real-ip' => '116.211.216.205',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '116.211.216.205',
+  'x-forwarded-for' => '117.136.3.146, 116.211.216.205',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => 'd38ec4a515727103956513341e',
+  'via' => 'cn256.l1, kunlun3.cn256, l2cn1837.l2, cache57.l2cn1837',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '117.136.3.146',
+  'accept' => 'image/webp,image/wxpic,image/sharpp,image/apng,image/tpg,image/*,*/*;q=0.8',
+  'referer' => 'http://www.xalanfeng.cn/index/chaxun/query/price/19.90/pid/59502',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'acw_tc=7ca5d59a15727103834386390ef9880634bf52613342d527cb64e11e39; PHPSESSID=908ecbo1ovdu98pq3ihmt4avk3',
+  'eagleeye-rpcid' => '0.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:55+08:00 ] 172.19.64.51 118.178.15.69 GET /index/login/view.html?dingdanids=76499&from=singlemessage&isappinstalled=0
+[ log ] www.xalanfeng.cn/index/login/view.html?dingdanids=76499&from=singlemessage&isappinstalled=0 [运行时间：0.030104s][吞吐率：33.22req/s] [内存消耗：3,462.36kb] [文件加载：48]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'view',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.8(0x17000820) NetType/WIFI Language/zh_CN',
+  'x-true-ip' => '116.211.216.196',
+  'x-real-ip' => '116.211.216.196',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '116.211.216.196',
+  'x-forwarded-for' => '117.152.90.48, 116.211.216.196',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => '249ed99515727103958868979e',
+  'via' => 'cn1569.l1, kunlun2.cn1569, l2cn1837.l2, cache48.l2cn1837',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '117.152.90.48',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=lc6sn4tkdbpcm9uslh6pivdv51; acw_tc=249ed99e15725922751694194eabd7f49e76c3bd05da1c15b2c61ed7a1',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'eagleeye-rpcid' => '0.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'dingdanids' => '76499',
+  'from' => 'singlemessage',
+  'isappinstalled' => '0',
+)
+[ info ] [ RUN ] app\index\controller\Login->view[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./themes/default/login/view.html [ array (
+  0 => 'session_uid',
+  1 => 'dingdanid',
+  2 => 'agent',
+  3 => 'result',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000243s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_chaxun` [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_chaxun` WHERE  `id` = 76499 LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000174s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000556s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `id` = 317630 LIMIT 1 [ RunTime:0.000244s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000158s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_bairo` [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_bairo` WHERE  `chaxunid` = 76499 LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000146s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mobile` = '16609101710' LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000135s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `id` = 127109 LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000130s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_agent` [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_agent` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000161s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 59975 LIMIT 1 [ RunTime:0.000172s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:56+08:00 ] 172.19.64.51 120.27.173.11 POST /index/pay/order_query
+[ log ] www.xalanfeng.cn/index/pay/order_query [运行时间：0.020450s][吞吐率：48.90req/s] [内存消耗：2,981.48kb] [文件加载：47]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'pay',
+    2 => 'order_query',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PBEM00 Build/OPM1.171019.026; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044904 Mobile Safari/537.36 MMWEBID/3782 MicroMessenger/7.0.7.1521(0x2700073A) Process/tools NetType/4G Language/zh_CN',
+  'x-true-ip' => '14.17.67.42',
+  'x-real-ip' => '14.17.67.42',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '14.17.67.42',
+  'x-forwarded-for' => '118.212.213.125, 58.250.137.193, 14.17.67.42',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => 'a3b1149d15727103960386752e',
+  'content-length' => '28',
+  'via' => 'cn317.l1, kunlun9.cn317, l2cn1851.l2, cache22.l2cn1851',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '58.250.137.193',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'cookie' => 'acw_tc=7d4d8e1f15727087715354395e98c5e9bb750cc0dc256d73001be39b79; PHPSESSID=tb6mmhh3datd6rs6ho6u9eph50',
+  'origin' => 'http://www.xalanfeng.cn',
+  'referer' => 'http://www.xalanfeng.cn/index/pay/pay.html?price=38.80&pid=59347&uid=150902&insurance=0&code=071Y0zk00OqOGI1BRkk001MNk00Y0zkg&state=STATE',
+  'x-forwarded-for-pound' => '118.212.213.125',
+  'x-requested-with' => 'XMLHttpRequest',
+  'eagleeye-rpcid' => '0.1',
+)
+[ info ] [ PARAM ] array (
+  'order_no' => '9108619791572708798',
+)
+[ info ] [ RUN ] app\index\controller\Pay->order_query[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Pay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000225s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '9108619791572708798' LIMIT 1 [ RunTime:0.000184s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:57+08:00 ] 172.19.64.51 118.178.15.72 GET /index/chaxun/query/price/68.80/pid/51951?from=singlemessage
+[ log ] www.xalanfeng.cn/index/chaxun/query/price/68.80/pid/51951?from=singlemessage [运行时间：0.025554s][吞吐率：39.13req/s] [内存消耗：3,447.85kb] [文件加载：48]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'chaxun',
+    2 => 'query',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; vivo X21A Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045008 Mobile Safari/537.36 MMWEBID/6330 MicroMessenger/7.0.7.1521(0x2700073A) Process/tools NetType/WIFI Language/zh_CN',
+  'x-true-ip' => '120.27.74.172',
+  'x-real-ip' => '120.27.74.172',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '120.27.74.172',
+  'x-forwarded-for' => '111.163.158.105, 123.151.77.49, 120.27.74.172',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => '8cf93c2515727103970414999e',
+  'via' => 'cn1597.l1, kunlun9.cn1597, l2cm9-5.l2, cache24.l2cm9-5',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '123.151.77.49',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,image/wxpic,image/sharpp,image/apng,image/tpg,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'acw_tc=8cf93c2615727103906583844e3b696cba4ecaea625193d4e90c5c4ca5; PHPSESSID=dqrmicsvg3af9mdrg96jvsjlv1',
+  'upgrade-insecure-requests' => '1',
+  'x-forwarded-for-pound' => '111.163.158.105',
+  'eagleeye-rpcid' => '0.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'from' => 'singlemessage',
+  'price' => '68.80',
+  'pid' => '51951',
+)
+[ info ] [ RUN ] app\index\controller\Chaxun->query[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Chaxun.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./themes/default/chaxun/query.html [ array (
+  0 => 'gj',
+  1 => 'comment',
+  2 => 'product',
+  3 => 'goods',
+  4 => 'price',
+  5 => 'sid',
+  6 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000247s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_product` [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_product` WHERE  `id` = 51951 LIMIT 1 [ RunTime:0.000179s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000167s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_goods` [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_goods` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000142s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_banner` [ RunTime:0.000401s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_banner` WHERE  `names` = '高级版' ORDER BY id desc LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000180s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_note` [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_note` WHERE  `tid` = 8 ORDER BY id desc [ RunTime:0.000188s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:59+08:00 ] 172.19.64.51 118.178.15.105 POST /index/pay/order_query
+[ log ] www.xalanfeng.cn/index/pay/order_query [运行时间：0.020890s][吞吐率：47.87req/s] [内存消耗：2,981.48kb] [文件加载：47]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'pay',
+    2 => 'order_query',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PBEM00 Build/OPM1.171019.026; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044904 Mobile Safari/537.36 MMWEBID/3782 MicroMessenger/7.0.7.1521(0x2700073A) Process/tools NetType/4G Language/zh_CN',
+  'x-true-ip' => '14.17.67.69',
+  'x-real-ip' => '14.17.67.69',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '14.17.67.69',
+  'x-forwarded-for' => '118.212.213.125, 58.250.137.193, 14.17.67.69',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => 'a3b1149615727103990387583e',
+  'content-length' => '28',
+  'via' => 'cn317.l1, kunlun2.cn317, l2cn1851.l2, cache49.l2cn1851',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '58.250.137.193',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'cookie' => 'acw_tc=7d4d8e1f15727087715354395e98c5e9bb750cc0dc256d73001be39b79; PHPSESSID=tb6mmhh3datd6rs6ho6u9eph50',
+  'origin' => 'http://www.xalanfeng.cn',
+  'referer' => 'http://www.xalanfeng.cn/index/pay/pay.html?price=38.80&pid=59347&uid=150902&insurance=0&code=071Y0zk00OqOGI1BRkk001MNk00Y0zkg&state=STATE',
+  'x-forwarded-for-pound' => '118.212.213.125',
+  'x-requested-with' => 'XMLHttpRequest',
+  'eagleeye-rpcid' => '0.1',
+)
+[ info ] [ PARAM ] array (
+  'order_no' => '9108619791572708798',
+)
+[ info ] [ RUN ] app\index\controller\Pay->order_query[ /www/wwwroot/www.xalanfeng.cn/application/index/controller/Pay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000257s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_sales` [ RunTime:0.000583s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_sales` WHERE  `out_trade_no` = '9108619791572708798' LIMIT 1 [ RunTime:0.000191s ]
+
+---------------------------------------------------------------
+[ 2019-11-02T23:59:59+08:00 ] 172.19.64.51 118.178.15.99 POST /api/login/login.html
+[ log ] www.xalanfeng.cn/api/login/login.html [运行时间：0.020877s][吞吐率：47.90req/s] [内存消耗：2,947.77kb] [文件加载：47]
+[ info ] [ LANG ] /www/wwwroot/www.xalanfeng.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xalanfeng.cn',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; Redmi 7 Build/PKQ1.181021.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045008 Mobile Safari/537.36 MMWEBID/9636 MicroMessenger/7.0.7.1521(0x2700073A) Process/tools NetType/WIFI Language/zh_CN',
+  'x-true-ip' => '61.147.73.156',
+  'x-real-ip' => '61.147.73.156',
+  'web-server-type' => 'nginx',
+  'wl-proxy-client-ip' => '61.147.73.156',
+  'x-forwarded-for' => '112.32.232.63, 61.151.180.39, 61.147.73.156',
+  'x-forwarded-proto' => 'http',
+  'x-forwarded-cluster' => 'waf,',
+  'eagleeye-traceid' => '7250bb1915727103998334872e',
+  'content-length' => '37',
+  'via' => 'cn2364.l1, kunlun5.cn2364, l2cn1807.l2, cache8.l2cn1807',
+  'ali-swift-log-host' => 'www.xalanfeng.cn',
+  'ali-swift-stat-host' => 'www.xalanfeng.cn',
+  'x-client-scheme' => 'http',
+  'ali-cdn-real-ip' => '61.151.180.39',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'cookie' => 'acw_tc=7cc8711e15725890602371065e687dd66181c5afd0b56a602049ac34b3; PHPSESSID=qiptegh4qrcigr0bhs2557toc7',
+  'origin' => 'http://www.xalanfeng.cn',
+  'referer' => 'http://www.xalanfeng.cn/index/login/login.html',
+  'x-forwarded-for-pound' => '112.32.232.63',
+  'x-requested-with' => 'XMLHttpRequest',
+  'eagleeye-rpcid' => '0.1',
+)
+[ info ] [ PARAM ] array (
+  'mid' => '18255396949',
+  'password' => 'cherry131421',
+)
+[ info ] [ RUN ] app\api\controller\Login->login[ /www/wwwroot/www.xalanfeng.cn/application/api/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000249s ] mysql:dbname=zsxycx;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sun_user` [ RunTime:0.000623s ]
+[ sql ] [ SQL ] SELECT * FROM `sun_user` WHERE  `mid` = '18255396949' OR `mobile` = '18255396949' LIMIT 1 [ RunTime:0.000381s ]
+
+---------------------------------------------------------------

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+.cover{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.28);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: none;
+}
+.cover_box{
+    width: 80%;
+    background: #fff;
+    border-radius: 9px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 25px 20px;
+}
+.cover_ti{
+    font-size: 14px;
+    color: #333333;
+    text-align: center;
+}
+.jiance_item{
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+.jiance_item img{
+    width: 50%;
+    display: block;
+    margin: 0.24rem auto 0.12rem;
+}
+.jiance_item p{
+    font-size: 14px;
+    color: #333333;
+}
+.cover_tips{
+    font-size: 16px;
+    line-height: 26px;
+    color: #fe8a1e;
+    text-align: center;
+    float: left;
+}
+.cover_bot{
+    margin-top: 0.2rem;
+}
+.cover_bot button{
+    width: 116px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.cover_bot button.give_up{
+    border: solid 2px #dadada;
+    float: left;
+    color: #999;
+}
+.cover_bot button.continue{
+    background: #7785eb;
+    float: right;
+    color: #fff;
+    border: solid 2px #7785eb;
+}

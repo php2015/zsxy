@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>钻石报告</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/icons-extra.css">
+   <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+    <style>
+        body{margin: 0;padding: 0;}
+         ul,li{list-style:none;display:block;}
+            #scrollBox{height:70px;width:100%;color:#f47725;overflow:hidden;font-size:12px; text-align: center;}
+            #scrollBox #con1,#con2{width:100%;float:left;}
+            #scrollBox li{height:12px;line-height:15px;text-align:center;}
+    </style>
+</head>
+<body>
+     <div class="mui-content" style="margin: 0;padding: ;">
+        <img src="__PUBLIC__/img/sahngmian22.png"  style="width: 100%;margin-top:0px;margin-left:0%;"/>
+        <div style="">
+            
+            
+          
+        
+           <div style="background: #fff;margin-top:-16px;padding-top: 0px;">
+        {if condition="isset($product)"}
+            {volist name="product" id="vo"}
+                 <a href="javascript:buy({$vo.id},{$vo.price})" style="">
+                               <div style="background:url(__PUBLIC__/img/btnss.png);background-size: 70%;margin-top: 10px;
+                            background-position: center;background-repeat: no-repeat;height: 60px;">
+                                <p style="text-align: center;line-height: 60px;color:#fff;font-size: 16px;"><b>立即获取分析报告</b></p>
+                            </div>
+                    </a>
+             {/volist}
+        {else/}
+            {volist name="goods" id="vo"}
+                 <a href="javascript:buy({$vo.id},{$vo.price})" style="">
+                 {if condition="$vo['id'] eq '1'"}
+           
+                <div style="background:url(__PUBLIC__/img/btnss.png);background-size: 70%;background-position: center;background-repeat: no-repeat;height: 60px;margin-top: 30px;">
+                    <p style="text-align: center;line-height: 60px;color:#f47725;font-size: 16px;">立即获取分析报告</p>
+                </div>
+                 {else/}
+                               <div style="background:url(__PUBLIC__/img/btnss.png);background-size: 70%;margin-top: 10px;
+                            background-position: center;background-repeat: no-repeat;height: 60px;">
+                                <p style="text-align: center;line-height: 60px;color:#fff;font-size: 16px;"><b>立即获取分析报告</b></p>
+                            </div>
+               {/if}
+                    </a>
+             {/volist}
+        {/if}
+        <div style="width: 100%;display: block;clear: both;padding-top: 15px;padding-bottom: 20px;">
+          <div style="font-size: 14px;padding-top: 0px;float: left;width: 50%;text-align: center;">
+               {if condition="isset($product)"}
+                  {if condition="$product[0]['a_g_id'] eq 2"}
+                  <a href="{:url('index/chaxun/yangshi1')}" style=""> <div style="background:url(__PUBLIC__/img/shili.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+                  {else/}
+                  <a href="{:url('index/chaxun/yangshi2')}" style=""> <div style="background:url(__PUBLIC__/img/shili.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+                  {/if}
+              {else/}
+              <a href="{:url('index/chaxun/yangshi2')}" style=""> <div style="background:url(__PUBLIC__/img/shili.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+              {/if}
+            </div>
+              <div style="font-size: 14px;padding-top: 0px;float: left;width: 50%;text-align: center;">
+              {if condition="$price eq ''"}
+                {if condition="!isset($uid)"/}
+                <a  href="javascript:jilu()" id="sb" style=""><div style="background:url(__PUBLIC__/img/jilu.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+                {else/}
+                 <a href="{:url('index/user/chaxunjiluss',array('p_id'=>$p_id))}" style=""><div style="background:url(__PUBLIC__/img/jilu.png);background-size: 60%;margin-top: 0px;
+                            background-position: center;background-repeat: no-repeat;height: 30px;">
+                            </div></a>
+                {/if}
+              {else/}
+              {/if}
+            </div>
+          </div>
+
+      <div style="text-align: center;padding-top:20px; padding-bottom: 10px;"><span style="font-size: 14px;">已有</span> <span style="color: #ff7b00;font-size: 18px;">{$shulaing}</span>                      <span style="font-size: 14px;">通过分析提高了下款率</span>
+          </div>
+      </div>
+          <img src="__PUBLIC__/img/weibu.png"  style="width: 100%;margin-top:0px;margin-left:0%;background: #fff;"/> 
+<script  type="text/javascript">
+                         function jilu(jl=1){ 
+                           
+                           // if(jl == 1){
+                           //       {if condition="isset($uid)"/}
+                           //             //alert("如你已付费查询!请用手机号做为账号登陆!初始密码123456");
+                           //               window.location.href="{:url('index/allindex/chaxunjilu')}";
+                           //          {else/}
+                           //          {if condition="isset($price)"/}
+                           //              alert("如你已付费查询!请用手机号做为账号登陆!初始密码123456");
+                           //               window.location.href="{:url('index/login/login')}?jl="+jl+"&price="+{$price}+"&pid="+{$pid};
+                           //           {else/}
+                           //           {/if}
+                           //          {/if}
+                                        
+                           //      }else{
+                           //        {if condition="isset($listtype)"/}
+                           //         alert("如你已付费查询!请用手机号做为账号登陆!初始密码123456");
+                           //        window.location.href="{:url('index/login/login')}?listtype=1";
+                           //      {else/}
+                                       alert("如你已付费查询!请用手机号做为账号登陆!初始密码123456");
+                                         window.location.href="{:url('index/login/loginss')}?p_id={$p_id}";
+                                //  {/if}
+                                // }
+                            }  
+    
+ </script>
+            
+    <script type="text/javascript">            
+                var area =document.getElementById('scrollBox');
+                var con1 = document.getElementById('con1');
+                var con2 = document.getElementById('con2');
+                con2.innerHTML=con1.innerHTML;
+                function scrollUp(){
+                if(area.scrollTop>=con1.offsetHeight){
+                    area.scrollTop=0;
+                }else{
+                    area.scrollTop++
+                }
+                }                
+                var time = 50;
+                var mytimer=setInterval(scrollUp,time);
+                area.onmouseover=function(){
+                    clearInterval(mytimer);
+                }
+                area.onmouseout=function(){
+                    mytimer=setInterval(scrollUp,time);
+                }
+        </script>
+
+
+
+
+
+
+        </div>
+  
+   <script>
+                         function buy(id,price) { 
+                           
+                              $.ajax({
+                                        url:'{:url('api/buy/buy')}',
+                                        type:"post",
+                                        datatype:'json',
+                                        data:{'pid':id,'price':price},
+                                        
+                                        success:function(data){
+                                            //json=$.parseJSON(data);
+                                            //alert(data);
+                                    if(data==1){
+                                                            //alert(data.msg);
+                                       // window.location.href="{:url('index/credit/credit')}";
+                                         window.location.href='{:url('index/chaxun/query')}?price='+price+'&pid='+id;
+                                    }else if(data==0){
+                                        alert("查询失败");
+                                       // window.location.href="{:url('index/login/editpd')}";
+                                    }else if(data==11){
+                                        //alert("请登录");
+                                        window.location.href='{:url('index/chaxun/query')}?price='+price+'&pid='+id;
+                                    }
+                                            }
+                                });
+                            }  
+                        </script>
+     </div>
+        <script src="__PUBLIC__/js/jquery.min.js"></script>
+         <script>
+            
+            mui.init({
+                swipeBack: true //启用右滑关闭功能
+            });
+            
+         mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+        </script>
+
+
+
+</body>
+</html>

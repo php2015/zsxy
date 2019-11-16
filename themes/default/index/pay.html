@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+    <title>微信支付</title>
+	<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+    <script type="text/javascript">
+     
+	function query(){
+		var order_no="{$sales_id}";
+      //alert(order_no);
+		$.post("/index/index/order_query", { order_no: order_no }, function(data) {
+		  if (data!='0'){
+			alert("支付成功");
+            //window.location.href="{:url('index/ceshi2/index')}?zf="+1+"&chaxunid="+data;
+			//跳转至结果页
+		  }
+		});
+	}
+$(document).ready(function(){
+    setInterval(query, 3000);
+});
+	</script>
+</head>
+<body>
+   <!-- <br/>
+    <font color="#9ACD32"><b>该笔订单支付金额为<span style="color:#f00;font-size:50px">{$price}</span>钱</b></font><br/><br/>
+	<div align="center">
+		<button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="callpay()" >立即支付</button>
+	</div>
+ -->
+</body>
+</html>

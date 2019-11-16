@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>罗马快车</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!--标准mui.css-->
+        <script src="__PUBLIC__/js/mui.min.js"></script>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+        <!--App自定义的css-->
+        <!--<link rel="stylesheet" type="text/css" href="../css/app.css"/>-->
+    </head>
+
+    <body>
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-icon mui-icon-left-nav mui-pull-left"  href="{:url('index/user/index')}"></a>
+            <h1 class="mui-title">申请升级</h1>
+            <a class="mui-icon-right-nav mui-pull-right" href="{:url('index/user/shenhejulu')}" style="line-height: 45px;color: #2d4bfc;font-size: 16px;">记录</a>
+        </header>
+        <div class="mui-content" style="">
+            <img  src="__PUBLIC__/img/shnegji123.png" style="width: 100%;"/>
+            <div  style="position: absolute;top:0px;width: 100%;padding-top: 240px;">
+                <div style="width: 100%;padding: 15px;">
+                    <div style="width: 100%; background: #fff;height: 200px;border-radius: 10px;">
+                        <div style="text-align: center;padding-top: 15px;">
+                            <span style="padding: 5px 20px; background: #8437ec;color: #fff;font-size: 14px;border-radius: 20px;">达成任务，即可升级</span>
+                        </div>
+                        <div style="padding-top: 15px;padding-left: 10%;color: #8437ec;margin-top: 10px;">
+                            1.您当前的等级：{$user.agent_name}
+                        </div>
+                        <div style="padding-top: 15px;padding-left: 10%;color: #8437ec;">
+                            2.您可申请升级的等级：{$shnegji}
+                        </div>
+                        <div style="padding-top: 15px;padding-left: 10%;color: #8437ec;">
+                            3.是否提交申请？
+                        </div>
+                    </div>
+                </div>
+                <div class="btn">
+                        <a href="{:url('index/shenhe/shenqing',array('uid'=>$user['id']))}"><button id="" style="font-size:25px;height:50px;border-radius:25px;background-color:#fff; color:#8437ec;width: 80%;margin-top:30px;margin-left: 10%;">
+                            提交申请
+                        </button></a>
+                    
+                    </div>
+            </div>
+        </div>
+    </body>
+     <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js" ></script>
+  <script type="text/javascript">
+      $("#btn").click(function (){
+        $.ajax({
+        url:'{:url('index/shenhe/shenqing')}',
+        type:"post",
+        datatype:'json',
+        data:{'uid':{$user.id}},
+        
+        success:function(data){
+          //json=$.parseJSON(data);
+          alert(data);
+                      if(data==1){
+                        alert('申请成功');
+                window.location.href="{:url('user/usersj')}";
+           
+            }else if(data==2){
+                alert('团队人数不够');
+            }else if(data==3){
+                alert('您还有待审核的');
+                return false;
+            }else if(data==0){
+                alert('可用申请次数不够');
+                return false;
+            }
+          }
+        });
+      });
+    </script>
+</html>

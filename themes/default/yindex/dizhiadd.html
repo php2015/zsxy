@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>罗马快车</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<link href="__PUBLIC__/css/mui.picker.css" rel="stylesheet" />
+<link href="__PUBLIC__/css/mui.poppicker.css" rel="stylesheet" />
+<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <header class="mui-bar mui-bar-nav" style="background: #fff;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #2d4bfc;"></a>
+            <h1 class="mui-title" style="color: #000;">添加地址</h1>
+           
+        </header>
+ <div class="mui-content">
+    <div class="gray-panel">
+        <div class="paoduct-title-panel">
+        <div class="my-search-title-panel am-text-sm am-margin-bottom-sm"><i class="am-icon-lightbulb-o am-text-danger"></i> 提示：请正确填写你的收货地址，地址填写错误会导致你无法收到货物</div>
+        <div class="paoduct-title-panel">
+           
+            <div class="mui-content-padded" style="padding: 0px;">
+              
+             
+             
+                <button id='showCityPicker3' class="mui-btn mui-btn-block" type='button' style="height: 30px;line-height: 30px;padding:0px;"> <p style="padding:0;margin: 0;"><i class="am-icon-location-arrow"></i> 收货地址
+            </p></button>
+                <div id='cityResult3' class="ui-alert" style="font-size:14px;color:#8f8f94;">
+                    省份 :<span style="font-size:14px;color:#8f8f94;margin-left:10px; " id="region"></span> 城市：<span style="font-size:14px;color:#8f8f94;margin-left:10px;" id="city"></span>区 ：<span style="font-size:14px;color:#8f8f94;margin-left:10px;" id="xian"></span>
+                </div>
+            </div>
+            <p>
+                <p style="width: 100%;padding-left: 15px;margin-top: 20px;"><p style="width: 30%;float: left;">具体地址：</p><textarea id="address" id="other" style="width: 70%;margin-left: 0%;height: 80px;float: left;"></textarea></p>
+                
+                <p style="width: 100%;padding-left: 15px;margin-top: 20px;"><p style="width: 30%;float: left;">收货人姓名：</p><input id="firstname" type="text" name="" value="" style="width: 70%;margin-left: 0%;float: left;height: 35px;"></p>
+                <p style="width: 100%;padding-left: 15px;margin-top:10px; "><p style="width: 30%;float: left;">收货人手机号：</p><input id="mobile" type="text" name=""  value="" style="width: 70%;margin-left: 0%;float: left;height: 35px;"></p>
+               
+        </div>
+            <div style="clear: both;">
+                <ul class="am-avg-sm-2 am-text-center">
+                    <li class="am-text-center am-padding-sm" style="margin-left: 25%;"><button  onclick="dizhi()" class="am-btn am-btn-danger am-btn-block am-radius" style="background: #2d4bfc;">添加地址</button></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <script type="text/javascript">
+            function dizhi() { 
+                            var did =  $("#did").val();
+                            var mobile =  $("#mobile").val();
+                            var firstname =  $("#firstname").val();
+                            var address =  $("#address").val();
+                            var region =  $("#region").html();
+                            var city =  $("#city").html();
+                            var xian =  $("#xian").html();
+                            if(mobile == ''){
+                              alert('手机号必须填写');
+                              return false;
+                            }
+                            if(firstname == ''){
+                              alert('姓名必须填写');
+                              return false;
+                            }
+                            if(address == ''){
+                              alert('具体地址必须填写');
+                              return false;
+                            }
+                            if(region == ''){
+                              alert('省份必须必须填写');
+                              return false;
+                            }
+                            if(city == ''){
+                              alert('城市必须必须填写');
+                              return false;
+                            }
+                            //if(xian == ''){
+                           //   alert('县区必须必须填写');
+                            //  return false;
+                           // }
+                            
+                             //alert(did);
+                            $.ajax({
+                                    url:'{:url('index/index/adddizhi')}',
+                                    type:"post",
+                                    datatype:'json',
+                                    data:{'did':did,'mobile':mobile,'address':address,'region':region,'city':city,'firstname':firstname,'xian':xian},
+                                    
+                                    success:function(data){
+                                      //json=$.parseJSON(data);
+                                      //alert(data);
+                                                  if(data==1){
+                                            window.location.href="{:url('index/index/dizhilist')}?gid={$gid}&num={$num}";
+                                       
+                                        }else{
+                                            alert('添加地址失败');
+                                            return false;
+                                        }
+                                      }
+                            });
+                      }  
+            </script>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <script src="__PUBLIC__/js/mui.picker.js"></script>
+    <script src="__PUBLIC__/js/mui.poppicker.js"></script>
+    <script src="__PUBLIC__/js/city.data.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+      <script>
+            (function($, doc) {
+                $.init();
+                $.ready(function() {
+                   var _getParam = function(obj, param) {
+                        return obj[param] || '';
+                    };
+                    //-----------------------------------------
+                    //                  //级联示例
+                    var cityPicker3 = new $.PopPicker({
+                        layer: 3
+                    });
+                    cityPicker3.setData(cityData3);
+                    var showCityPickerButton = doc.getElementById('showCityPicker3');
+                    var cityResult3 = doc.getElementById('cityResult3');
+                    showCityPickerButton.addEventListener('tap', function(event) {
+                        cityPicker3.show(function(items) {
+                            cityResult3.innerHTML = '省份 :<span style="font-size:14px;color:#8f8f94;margin-left:10px;" id="region">' + _getParam(items[0], 'text') + '</span> 城市：<span style="font-size:14px;color:#8f8f94;margin-left:10px;" id="city">' + _getParam(items[1], 'text') + '</span>区 ： <span style="font-size:14px;color:#8f8f94;margin-left:10px;" id="xian">' + _getParam(items[2], 'text')+'</span>';
+                            //返回 false 可以阻止选择框的关闭
+                            //return false;
+                        });
+                    }, false);
+                });
+            })(mui, document);
+        </script>
+        </script>
+    </div>
+</div>
+</body>
+</html>

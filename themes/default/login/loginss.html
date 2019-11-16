@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>钻石报告</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css?v=123456" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style1.css"/>
+</head>
+
+<style>
+    input::-webkit-input-placeholder {
+        color: #b6b6b6;
+    }
+
+    .btn button{
+        width: 90%;
+        display: block;
+        border: 0px;
+        background: #DCD9CF;
+        font-size: 18px;
+        padding: 10px 0px;
+        margin-left: 3px;
+    }
+
+
+    .dl-a-b{
+        overflow: hidden;
+        height: 45px;
+        border-bottom: 1px solid #f0f0f0;
+        width: 90%;
+    }
+    .dl-a-b-r{
+        width: 80%;
+        float: left;
+        border-left: 0px solid #f0f0f0;
+        position: relative;
+    }
+
+    .dl-a-b-r input{
+        border: 0px;
+        border-radius: 0px;
+        height: 33px;
+        font-size: 16px;
+    }
+</style>
+<body style="background-color: #fff;">
+<div class="mui-content" style="background-color: #fff;">
+    <div id="login" class="container" style="background-color: #fff;background-repeat: no-repeat;
+            background-size: 100%;">
+        <header class="login-banner">
+            <div class="logo"></div>
+        </header>
+        <div class="login-input-area" style="height: 120px;padding-left: 8%;padding-top:80px;">
+            <div class="dl-b">
+                <div class="dl-a-b">
+                    <div class="dl-a-b-l">
+                        <img src="/public/index/img/shouj.png" width="24px" height="34px">
+                    </div>
+                    <div class="dl-a-b-r">
+                        <input id='mobile' name="mobile" type="text" placeholder="请输入查询时手机号">
+                    </div>
+                </div>
+            </div>
+            <div class="dl-b" style="margin-top: 41px;">
+                <div class="dl-a-b">
+                    <div class="dl-a-b-l">
+                        <img src="/public/index/img/suo.png" width="24px" height="34px">
+                    </div>
+                    <div class="dl-a-b-r">
+                        <input id='yanzhengma' name="yanzhengma" type="text" placeholder="请输入验证码" style="width:60%;border-right: 2px solid #f0f0f0;">
+                        <div id="btnsms" style="text-align: center; line-height:30px;float:right;width:30%;height:30px;color: #ff872d;font-size:16px;margin-top: 3px;margin-right: 5%;">发&nbsp送</div>
+                    </div>
+                </div>
+            </div>
+             <p class="forget"><a href="{:url('index/login/weixin')}">忘记密码？</a></p>
+            <div class="btn" style="margin-top: 60px;">
+                <button id="btn"  style="background-color:#ff872d; color:#fff;border-radius: 22px;">登&nbsp&nbsp录</button>
+
+            </div>
+        </div>
+        <div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js" ></script>
+<script>
+    $("#btnsms").click(function (){
+        var mobile=$('#mobile').val();
+        var yanzhengma = $("#yanzhengma").val();
+        if($("#mobile").val().length!=11){
+            alert("手机格不正确！");
+            return false;
+        }
+        $.ajax({
+            type: "post",
+            url: "{:url('api/sms/send')}",
+            data: {"mobile":mobile},
+            success: function(data){
+                //alert(data);
+                // return false;
+                if(data == 1){
+                    alert("发送成功");
+                    time()
+                }
+                else if(data == 2){
+                    alert("该手机号未查询过！");
+                }
+                else{
+                    alert("请重新发送！");
+                }
+            },
+            error:function(){
+                alert('失败');
+            }
+
+        });
+        // 		 }
+        // 	}
+        // });
+        var wait=120;
+        function time() {
+            if (wait == 0) {
+                $("#btnsms").removeClass("btnclass");
+                $("#btnsms").html("发送");
+                wait = 120;
+            } else {
+                $("#btnsms").addClass("btnclass");
+                $("#btnsms").html(wait+"s");
+                wait--;
+                setTimeout(function() {
+                        time()
+                    },
+                    1000)
+            }
+        }
+    });
+    $('#btn').click(function(){
+        var mobile=$('#mobile').val();
+        var yanzhengma=$('#yanzhengma').val();
+
+        if(yanzhengma == ''){
+            alert('验证码不能为空');
+            return false;
+        }
+
+        if(mobile.length !== 11){
+
+            alert("手机号码格式不正确！");
+            return false;
+        }
+        // if(tradeNo == ''){
+        // 			//alert('111');
+        // 			return false;
+        // 		}
+        //window.location.href="{:url('index/chaxun/view')}?dingdanid="+dingdanid;
+        $.ajax({
+            url:"{:url('api/login/loginss')}",
+            type:"post",
+            datatype:'json',
+
+            data:{'mobile':mobile,'code':yanzhengma},
+            success:function(data)
+            {
+                //alert(data);
+                if(data == 1){
+                    window.location.href="{:url('index/user/chaxunjilu')}?p_id={$p_id}";
+                }else if(data == 3){
+                    alert('验证码错误');
+                    //window.location.href="{:url('index/index/index')}";
+                }else if(data == 4){
+                    alert('手机号错误');
+                    //window.location.href="{:url('index/index/index')}";
+                }else if(data == 5){
+                    alert('验证超时');
+                    //window.location.href="{:url('index/index/index')}";
+                }else{
+                    alert('验证失败');
+                    return false;
+                }
+
+            },
+            error:function(){
+                alert('失败');
+            }
+        });
+    });
+</script>
+</body>
+</html>

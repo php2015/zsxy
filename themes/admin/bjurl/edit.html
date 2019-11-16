@@ -1,0 +1,50 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/bjurl/index')}">分享背景管理</a></li>
+            <li class=""><a href="{:url('admin/bjurl/add')}">添加分享背景</a></li>
+            <li class="layui-this">编辑用户</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/bjurl/update')}" method="post">
+				
+				
+				
+				<div class="layui-form-item">
+                        <label class="layui-form-label">分享背景名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="tname" value="{$bjurl.tname}" required lay-verify="required" placeholder="请输入分享背景名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">类型图标</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="thumb" value="{$bjurl.thumb}" class="layui-input layui-input-inline" id="thumb">
+                            <input type="file" name="file" class="layui-upload-file">
+                        </div>
+                    </div>
+					
+					<div class="layui-form-item">
+                        <label class="layui-form-label">排序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="descc" value="{$bjurl.descc}" lay-verify="number" placeholder="排序" class="layui-input">
+                        </div>
+                    </div>
+					
+					<div class="layui-form-item">
+                        <div class="layui-input-block">
+                             <input type="hidden" name="id" value="{$bjurl.id}">
+							<button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

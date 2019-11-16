@@ -1,0 +1,2171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>钻石报告</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+</head>
+<body>
+      <header class="mui-bar mui-bar-nav">
+            <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/index')}" style="color: #f47725;"></a>
+            <h1 class="mui-title">查询</h1>
+      </header>
+    
+            <header style="font-size: 14px;color: #f47725;position: relative;height: 330px;background-color: #f47725;"><!---->
+        <div style="height: 100px;padding: 10px 24px;">
+            <p style="font-size: 15px;color: #fff;margin-top:100px;float: left;">
+              {if condition="isset($temp_res['scorecashon'])"/}
+                信用指数<span  class="p1 timer" data-to="{$temp_res.scorecashon/10+5}" data-speed="1500" style="color: #fff;font-size: 40px;margin-left:15px;"></span><span style="color: #fff;font-size: 32px;">分</span>
+                {else/}
+               信用指数<span  class="p1 timer" data-to="0" data-speed="1500" style="color: #fff;font-size: 40px;margin-left:15px;"></span><span style="color: #fff;font-size: 32px;">分</span>
+              {/if}
+            </p> <!----> <!----> 
+          <img src="__PUBLIC__/img/erweima.jpg" style="width: 100px;margin-top:50px;float: right;margin-right:25px;"/>
+            <p style="font-size: 15px;color: #fff;clear: both;">您的信用指数
+                <span style="color: #fff;font-size: 18px;">
+                 {if condition="isset($temp_res['scorecashon'])"/}
+                   {if condition="($temp_res['scorecashon']/10+5) < '51'"}
+                             较差
+                  {elseif condition="($temp_res['scorecashon']/10+5) > '50' and ($temp_res['scorecashon']/10+5) < '61'"/}
+                             偏低
+                  {elseif condition="($temp_res['scorecashon']/10+5) > '60' and ($temp_res['scorecashon']/10+5) < '81'"/}
+                             良好
+                   {elseif condition="($temp_res['scorecashon']/10+5) > '80' and ($temp_res['scorecashon']/10+5) < '100'"/}
+                             优秀
+                              {else/}
+                              正常
+                              {/if}
+             	 {else/}
+                   未获取
+                   {/if}
+              </span>
+                <br>指数越高，信用越好。
+                  <span style="float:right;text-align: center;padding-right:0px;">长按扫码关注钻石报告<br>查信用，查网黑</span>
+            </p>
+        </div>
+    </header>
+           <div class="mui-content">
+            <div class="mui-card" style="margin-top:-130px;">
+                <div class="mui-card-content">
+                    <div class="mui-card-content-inner" style="padding-bottom:50px;">
+                        <div style="align-items: center;font-size: 20px;padding-bottom: 0px;color: #333333;">
+                            <img src="__PUBLIC__/img/logo.png" style="width: 30px; height: 30px;float:left;"> 
+                                <p style="font-size: 20px;color: #333333; line-height: 30px; margin-left:40px;">钻石报告</p>
+                        </div>
+                        <div style="padding-top: 15px;clear: both;padding-left: 15px;">
+                            <div style="height:80px;clear: both;border-bottom: 1px solid rgba(207,207,207,0.6);padding: 16px 8px 16px 16px;">
+                                <div style=" float: left;width: 70%;">
+                                    <p style="font-size: 14px;color: #666666;">信用卡申请通过率</p>
+                                    <p style="font-size: 14px;color: #666666;width: 100%;">
+                    {if condition="isset($temp_res['scorecashon'])"}
+                                        <span style="color: #ea790f;font-size: 24px;"><span  class="p1 timer" data-to="{$temp_res.scorecashon/10+5 + 1}" data-speed="1500" style="color: #007AFF;font-size: 24px;"></span><span style="color: #007AFF;font-size: 24px;">%</span></span>
+                    {else}  
+                    <span style="color: #ea790f;font-size: 24px;"><span  class="p1 timer" data-to="0" data-speed="1500" style="color: #007AFF;font-size: 24px;"></span><span style="color: #007AFF;font-size: 24px;">%</span></span>
+                             {/if}  
+                    <span style="float:right;">
+                    {if condition="isset($temp_res['scorecashon'])"}
+                     {if condition="($temp_res['scorecashon']/10+5) < '50'"}
+                             资质略差，有待提高
+                  {elseif condition="($temp_res['scorecashon']/10+5) > '50' and ($temp_res['scorecashon']/10+5) < '71'"/}
+                             信用中等，多多维护
+                  {elseif condition="($temp_res['scorecashon']/10+5) > '70' and ($temp_res['scorecashon']/10+5) < '81'"/}
+                             信用良好，快去尝试
+                   {elseif condition="($temp_res['scorecashon']/10+5) > '80' and ($temp_res['scorecashon']/10+5) < '100'"/}
+                             银行宠儿，快去办卡
+                              {else/}
+                              正常
+                              {/if}
+                  {else/}
+                                  未获取
+                                    {/if}
+                    </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="height:80px;clear: both;border-bottom: 1px solid rgba(207,207,207,0.6);padding: 16px 8px 16px 16px;">
+                                <div style=" float: left;width: 70%;">
+                                    <p style="font-size: 14px;color: #666666;">贷款申请通过率</p>
+                                    <p style="font-size: 14px;color: #666666;width: 100%;">
+                              {if condition="isset($temp_res['scorecashon'])"}
+                                        <span style="color: #ea790f;font-size: 24px;"><span  class="p1 timer" data-to="{$temp_res.scorecashon/10+5 + 3}" data-speed="1500" style="color: #007AFF;font-size: 24px;"></span><span style="color: #007AFF;font-size: 24px;">%</span></span>
+                              {else/}   
+                              <span style="color: #ea790f;font-size: 24px;"><span  class="p1 timer" data-to="0" data-speed="1500" style="color: #007AFF;font-size: 24px;"></span><span style="color: #007AFF;font-size: 24px;">%</span></span>
+                              {/if}   
+                              <span style="float:right;">
+                               {if condition="isset($temp_res['scorecashon'])"}
+                  {if condition="($temp_res['scorecashon']/10+5)< '48'"}
+                             贷款重患，闻风丧胆
+                  {elseif condition="(($temp_res['scorecashon']/10+5)) > '47' and ($temp_res['scorecashon']/10+5) < '68'"/}
+                             贷款常客，谨慎申请
+                  {elseif condition="($temp_res['scorecashon']/10+5) > '67' and ($temp_res['scorecashon']/10+5) < '77'"/}
+                             资质优良，多多走动
+                   {elseif condition="($temp_res['scorecashon']/10+5)  > '76' and ($temp_res['scorecashon']/10+5) < '100'"/}
+                             贷款贵宾，倍受欢迎
+                              {else/}
+                              正常
+                              {/if}
+                                 {else/}
+                                   未获取
+                                   {/if}
+                    </span>
+                                    </p> 
+                                </div>
+                            </div>
+            <div style="width:100%;border-bottom: 1px solid rgba(207,207,207,0.6);padding: 16px 8px 16px 16px;font-size: 14px;color: #666666;">
+                                <div style="width:100%;color: #666666;display: block;text-align: center;">个人信息</div> 
+                                <div style="display: block; clear: both;">
+                                    <p style="color: #666666;font-size: 14px;">姓名：<span>{$opnames}</span></p>
+                                    <p style="color: #666666;font-size: 14px;">身份证：<span>{$opcard}</span></p>
+                                    <p style="color: #666666;font-size: 14px;">手机号：<span>{$op}</span></p>
+                                   
+              <p style="color: #666666;font-size: 14px;">是否实名制：<span>{$all_user_mobile.description}</span></p>
+                                    <p style="color: #666666;font-size: 14px;">在网时长：<span>
+                                    
+                   {if condition="$all_user_phone['res'] eq '1'"/}
+                 1-3个月
+                  {elseif condition="$all_user_phone['res'] eq '2'"/}
+                 3-6个月
+                  {elseif condition="$all_user_phone['res'] eq '3'"/}
+                 6-12个月
+                  {elseif condition="$all_user_phone['res'] eq '4'"/}
+                12-24个月
+                 {elseif condition="$all_user_phone['res'] eq '5'"/}
+                24个月以上
+                 {else}
+                未查到
+                  {/if}
+                                      </span></p>
+                                    <p style="color: #666666;font-size: 14px;">报告生成时间：<span>{$time|date="Y-m-d H:i:s",###}</span></p>
+                                </div>
+                            </div>
+                          
+                        
+                        
+                        </div>
+                     
+                    </div>
+                    
+                </div>
+            </div>
+            <div style="background-color: #fff;padding-top: 20px;padding-bottom: 20px;">
+                <div style="">
+                    <div>
+                        <p style="float: left;background-color:#007AFF;height:40px;width: 5px;"></p>
+                        <span style="margin-left: 5px;line-height: 40px;font-size: 18px; color:#000000;">高风险命中查询</span>
+                        
+                    </div>
+                    <div style="padding-top: 5px;clear: both;">
+                      <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              手机查询银行高风险 <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+                 {if condition="!isset($temp_res['sl_lm_cell_bank_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_bank_lost'] eq '0'"/}
+                        命中
+                        {elseif condition="$temp_res['sl_lm_cell_bank_lost'] eq '1'"/}
+                        一度关系命中
+                        {elseif condition="$temp_res['sl_lm_cell_bank_lost'] eq '2'"/}
+                        二度关系命中
+                         {else}
+                      未命中
+                         {/if}
+                  {/if}
+               
+              </span>
+            </li>
+            
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              手机号查询非银高风险  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['sl_lm_cell_nbank_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_lost'] eq '0'"/}
+                        命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_lost'] eq '1'"/}
+                        一度关系命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_lost'] eq '2'"/}
+                        二度关系命中
+                         {else}
+                      未命中
+                         {/if}
+                  {/if}
+               
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             持牌网络小贷高风险 <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['sl_lm_cell_nbank_nsloan_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_nsloan_lost'] eq '0'"/}
+                        命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_nsloan_lost'] eq '1'"/}
+                        一度关系命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_nsloan_lost'] eq '2'"/}
+                        二度关系命中
+                         {else}
+                      未命中
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+            持牌小贷高风险  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['sl_lm_cell_nbank_sloan_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_sloan_lost'] eq '0'"/}
+                        命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_sloan_lost'] eq '1'"/}
+                        一度关系命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_sloan_lost'] eq '2'"/}
+                        二度关系命中
+                         {else}
+                      未命中
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+            持牌消费金融高风险   <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+             {if condition="!isset($temp_res['sl_lm_cell_nbank_cons_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_cons_lost'] eq '0'"/}
+                        命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_cons_lost'] eq '1'"/}
+                        一度关系命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_cons_lost'] eq '2'"/}
+                        二度关系命中
+                         {else}
+                      未命中
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             持牌融资租赁高风险  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['sl_lm_cell_nbank_finlea_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_finlea_lost'] eq '0'"/}
+                        命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_finlea_lost'] eq '1'"/}
+                        一度关系命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_finlea_lost'] eq '2'"/}
+                        二度关系命中
+                         {else}
+                      未命中
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             持牌汽车金融高风险  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['sl_lm_cell_nbank_autofin_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_autofin_lost'] eq '0'"/}
+                        命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_autofin_lost'] eq '1'"/}
+                        一度关系命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_autofin_lost'] eq '2'"/}
+                        二度关系命中
+                         {else}
+                      未命中
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              非银其他高风险  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['sl_lm_cell_nbank_other_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_other_lost'] eq '0'"/}
+                        命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_other_lost'] eq '1'"/}
+                        一度关系命中
+                        {elseif condition="$temp_res['sl_lm_cell_nbank_other_lost'] eq '2'"/}
+                        二度关系命中
+                         {else}
+                      未命中
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            
+                    </div>
+                   
+                  
+                </div>
+              {if condition="$priceid eq '3'"/}
+            <div style="background-color: #fff;padding-top: 20px;padding-bottom: 20px;">
+                <div style="">
+                    <div>
+                        <p style="float: left;background-color:#007AFF;height:40px;width: 5px;"></p>
+                        <span style="margin-left: 5px;line-height: 40px;font-size: 18px; color:#000000;">个人不良信息</span>
+                        
+                    </div>
+                    <div style="padding-top: 5px;clear: both;">
+                      <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              案件流程信息数量 <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+                 {if condition="$all_user_geren['caseNum'] eq ''"/}
+                0
+                
+                 {else}
+               {$all_user_geren.caseNum}
+                  {/if}
+               
+              </span>
+            </li>
+            
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              执行公告信息数量  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="$all_user_geren['executeNum'] eq ''"/}
+                0
+                
+                 {else}
+               {$all_user_geren.executeNum}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              裁判文书信息数量 <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="$all_user_geren['judgeNum'] eq ''"/}
+                0
+                
+                 {else}
+               {$all_user_geren.judgeNum}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              法院公告信息数量  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="$all_user_geren['courtNum'] eq ''"/}
+                0
+                
+                 {else}
+               {$all_user_geren.courtNum}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              开庭公告信息数量   <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="$all_user_geren['sessionNum'] eq ''"/}
+                0
+                
+                 {else}
+               {$all_user_geren.sessionNum}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              曝光台信息数量  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="$all_user_geren['exposureNum'] eq ''"/}
+                0
+                
+                 {else}
+               {$all_user_geren.exposureNum}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              失信公告信息数量  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="$all_user_geren['discreditNum'] eq ''"/}
+                0
+                
+                 {else}
+               {$all_user_geren.discreditNum}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              所有信息数量  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="$all_user_geren['totalNum'] eq ''"/}
+                0
+                
+                 {else}
+               {$all_user_geren.totalNum}
+                  {/if}
+              </span>
+            </li>
+            
+                    </div>
+                    <div style="clear: both; padding-left: 10px;padding-top: 20px;padding-bottom: 10px;">
+                        <H style="color:#007AFF;">不良信息</H>
+                    </div>
+                     <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;">
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">审结时间</td>
+                  
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">标题 </td>
+                </tr> 
+                      {if condition="count($all_user_geren_alllist) neq 0"/}
+               {volist name="all_user_geren_alllist" id="vo"}
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.reviewTime}</td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.content}</td>
+                
+                </tr> 
+                {/volist}
+                
+                 {else}
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0</td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0</td>
+                
+                </tr> 
+                  {/if}  
+              </table> 
+                </div>
+              {else}
+                {/if}
+              
+                <div style="background-color: #fff;padding-top: 20px;padding-bottom: 20px;">
+                <div style="">
+                    <div>
+                        <p style="float: left;background-color:#007AFF;height:40px;width: 5px;"></p>
+                        <span style="margin-left: 5px;line-height: 40px;font-size: 18px; color:#000000;">多平台借款</span>
+                        
+                    </div>
+                  
+              <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">多平台身份证申请详情</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                            <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_id_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_d7_id_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_d7_id_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_d7_id_nbank_allnum'])"/}
+                                      {$temp_res.als_d7_id_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_d7_id_bank_allnum+$temp_res.als_d7_id_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_id_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_d7_id_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_d7_id_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_d7_id_nbank_orgnum'])"/}
+                                      {$temp_res.als_d7_id_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_d7_id_bank_orgnum+$temp_res.als_d7_id_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+               
+              
+              
+              
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_id_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_m1_id_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m1_id_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m1_id_nbank_allnum'])"/}
+                                      {$temp_res.als_m1_id_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_m1_id_bank_allnum+$temp_res.als_m1_id_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_id_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_m1_id_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m1_id_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m1_id_nbank_orgnum'])"/}
+                                      {$temp_res.als_m1_id_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_m1_id_bank_orgnum+$temp_res.als_m1_id_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+              
+             
+              
+              
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_id_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_m3_id_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m3_id_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m3_id_nbank_allnum'])"/}
+                                      {$temp_res.als_m3_id_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_m3_id_bank_allnum+$temp_res.als_m3_id_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_id_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_m3_id_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m3_id_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m3_id_nbank_orgnum'])"/}
+                                      {$temp_res.als_m3_id_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_m3_id_bank_orgnum+$temp_res.als_m3_id_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_id_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_m6_id_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m6_id_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m6_id_nbank_allnum'])"/}
+                                      {$temp_res.als_m6_id_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_m6_id_bank_allnum+$temp_res.als_m6_id_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_id_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_m6_id_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m6_id_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m6_id_nbank_orgnum'])"/}
+                                      {$temp_res.als_m6_id_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_m6_id_bank_orgnum+$temp_res.als_m6_id_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_id_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_m12_id_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m12_id_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m12_id_nbank_allnum'])"/}
+                                      {$temp_res.als_m12_id_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_m12_id_bank_allnum+$temp_res.als_m12_id_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_id_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_m12_id_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m12_id_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m12_id_nbank_orgnum'])"/}
+                                      {$temp_res.als_m12_id_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_m12_id_bank_orgnum+$temp_res.als_m12_id_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                  <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">多平台手机号申请详情</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                            <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_cell_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_d7_cell_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_d7_cell_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_d7_cell_nbank_allnum'])"/}
+                                      {$temp_res.als_d7_cell_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_d7_cell_bank_allnum+$temp_res.als_d7_cell_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_cell_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_d7_cell_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_d7_cell_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_d7_cell_nbank_orgnum'])"/}
+                                      {$temp_res.als_d7_cell_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_d7_cell_bank_orgnum+$temp_res.als_d7_cell_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+               
+              
+              
+              
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_cell_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_m1_cell_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m1_cell_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m1_cell_nbank_allnum'])"/}
+                                      {$temp_res.als_m1_cell_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_m1_cell_bank_allnum+$temp_res.als_m1_cell_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_cell_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_m1_cell_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m1_cell_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m1_cell_nbank_orgnum'])"/}
+                                      {$temp_res.als_m1_cell_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_m1_cell_bank_orgnum+$temp_res.als_m1_cell_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+              
+             
+              
+              
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_cell_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_m3_cell_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m3_cell_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m3_cell_nbank_allnum'])"/}
+                                      {$temp_res.als_m3_cell_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_m3_cell_bank_allnum+$temp_res.als_m3_cell_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_cell_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_m3_cell_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m3_cell_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m3_cell_nbank_orgnum'])"/}
+                                      {$temp_res.als_m3_cell_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_m3_cell_bank_orgnum+$temp_res.als_m3_cell_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_cell_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_m6_cell_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m6_cell_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m6_cell_nbank_allnum'])"/}
+                                      {$temp_res.als_m6_cell_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_m6_cell_bank_allnum+$temp_res.als_m6_cell_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_cell_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_m6_cell_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m6_cell_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m6_cell_nbank_orgnum'])"/}
+                                      {$temp_res.als_m6_cell_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_m6_cell_bank_orgnum+$temp_res.als_m6_cell_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_cell_bank_allnum'])"/}
+                                           {if condition="!isset($temp_res['als_m12_cell_nbank_allnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m12_cell_nbank_allnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m12_cell_nbank_allnum'])"/}
+                                      {$temp_res.als_m12_cell_bank_allnum}
+                                          {else}
+                                              {$temp_res.als_m12_cell_bank_allnum+$temp_res.als_m12_cell_nbank_allnum}
+                                           {/if}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_cell_bank_orgnum'])"/}
+                                           {if condition="!isset($temp_res['als_m12_cell_nbank_orgnum'])"/}
+                                 0
+                                      {else}
+                                         {$temp_res.als_m12_cell_nbank_orgnum}
+                                       {/if}
+                        {else}
+                              {if condition="!isset($temp_res['als_m12_cell_nbank_orgnum'])"/}
+                                      {$temp_res.als_m12_cell_bank_orgnum}
+                                          {else}
+                                              {$temp_res.als_m12_cell_bank_orgnum+$temp_res.als_m12_cell_nbank_orgnum}
+                                           {/if}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                  
+                  
+                  
+                   <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">申请线上小额现金贷</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                 <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_id_pdl_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_pdl_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_id_pdl_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_pdl_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_id_pdl_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_pdl_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_id_pdl_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_pdl_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_id_pdl_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_pdl_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_id_pdl_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_pdl_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_id_pdl_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_pdl_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_id_pdl_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_pdl_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_id_pdl_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_pdl_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_id_pdl_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_pdl_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                  
+                  
+                  <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">申请线上现金分期</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_id_caon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_caon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_id_caon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_caon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_id_caon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_caon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_id_caon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_caon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_id_caon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_caon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_id_caon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_caon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_id_caon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_caon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_id_caon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_caon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_id_caon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_caon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_id_caon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_caon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                   <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">申请线上消费分期</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_id_coon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_coon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_id_coon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_coon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_id_coon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_coon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_id_coon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_coon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_id_coon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_coon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_id_coon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_coon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_id_coon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_coon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_id_coon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_coon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_id_coon_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_coon_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_id_coon_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_coon_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                  
+                  
+                   <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">申请信用卡</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                 <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_id_rel_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_rel_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_id_rel_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_rel_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_id_rel_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_rel_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_id_rel_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_rel_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_id_rel_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_rel_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_id_rel_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_rel_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_id_rel_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_rel_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_id_rel_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_rel_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_id_rel_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_rel_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_id_rel_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_rel_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                  
+                  
+                  <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">申请线下现金分期</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                 <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_id_caoff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_caoff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_id_caoff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_caoff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_id_caoff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_caoff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_id_caoff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_caoff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_id_caoff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_caoff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_id_caoff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_caoff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_id_caoff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_caoff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_id_caoff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_caoff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_id_caoff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_caoff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_id_caoff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_caoff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                  
+                  <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">申请线下消费分期</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_id_cooff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_cooff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_id_cooff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_cooff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_id_cooff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_cooff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_id_cooff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_cooff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_id_cooff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_cooff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_id_cooff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_cooff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_id_cooff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_cooff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_id_cooff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_cooff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_id_cooff_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_cooff_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_id_cooff_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_cooff_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                  
+                   <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">申请汽车金融</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 30%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请次数 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">申请机构数 </td>
+                </tr> 
+                 <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">7天内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_d7_id_af_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_af_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_d7_id_af_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_d7_id_af_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">1个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m1_id_af_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_af_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m1_id_af_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m1_id_af_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">3个月内</td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m3_id_af_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_af_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m3_id_af_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m3_id_af_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">6个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m6_id_af_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_af_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m6_id_af_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m6_id_af_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">12个月内</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="!isset($temp_res['als_m12_id_af_allnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_af_allnum}
+                  {/if}
+                  </td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                    {if condition="!isset($temp_res['als_m12_id_af_orgnum'])"/}
+                                 0
+                        {else}
+                                      {$temp_res.als_m12_id_af_orgnum}
+                  {/if}
+                  </td>
+                </tr> 
+                </table>
+                  
+                  <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:20px;">
+                
+                <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 90%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">法院执行人</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">时间 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">类型 </td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">执行法院 </td>
+                </tr> 
+                  {if condition="count($fayuan) neq 0"/}
+               {volist name="fayuan" id="vo"}
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.datatime}</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.datatype}</td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.court}</td>
+                
+                </tr> 
+                {/volist}
+                
+                 {else}
+                   <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                      <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                
+                </tr> 
+                  {/if}
+                </tbody>
+              </table>  
+                 
+                  
+                  
+                  
+                  
+              
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+      {if condition="$priceid eq '2' or $priceid eq '3'"/}            
+               
+                     <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                          <tbody>
+                          <tr style="height: 40px;">
+                  <td colspan="2" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">信贷平台注册详情</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 50%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">机构类型</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">注册时间 </td>
+                </tr> 
+                   {if condition="count($all_user_duotou_zhuce) neq 0"/}
+               {volist name="all_user_duotou_zhuce" id="vo"}
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 50%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="$vo['ptype'] eq 1"}
+                    银行
+                     {else/}
+                     非银行
+                    {/if}
+                  </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.registerTime}</td>
+                
+                </tr> 
+                {/volist}
+                
+                 {else}
+                <td rowspan="1" style="height: 40px;width: 50%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                
+                </tr> 
+                  {/if}
+                </table>
+               
+                <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:10px;">
+                <tr style="height: 40px;">
+                  <td colspan="3" style="background-color:#007AFF;width: 0%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">贷款放款详情</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">机构类型</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">注册时间 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">金额 </td>
+                </tr> 
+                 {if condition="count($all_user_duotou_fangkuan) neq 0"/}
+               {volist name="all_user_duotou_fangkuan" id="vo"}
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                     {if condition="$vo['ptype'] eq 1"}
+                    银行
+                     {else/}
+                     非银行
+                    {/if}
+                  </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.loanLendersTime}</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.loanLendersAmount}</td>
+                  
+                
+                </tr> 
+                {/volist}
+                
+                 {else}
+                  <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0</td>
+                
+                </tr> 
+                  {/if}
+                </table>
+                <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:20px;">
+                
+                
+                <tr style="height: 40px;">
+                  <td colspan="2" style="background-color:#007AFF;width: 90%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">贷款驳回详情</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">注册时间 </td>
+                </tr> 
+                 {if condition="count($all_user_duotou_bohui) neq 0"/}
+               {volist name="all_user_duotou_bohui" id="vo"}
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.loanLendersTime}</td>
+                
+                </tr> 
+                {/volist}
+                
+                 {else}
+                   <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                
+                </tr> 
+                  {/if}
+                 </table>
+                <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:20px;">
+                
+                
+                
+                <tr style="height: 40px;">
+                  <td colspan="4" style="background-color:#007AFF;width: 90%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">逾期平台详情查询</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">逾期数量 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">逾期金额 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">逾期时间 </td>
+                </tr> 
+                {if condition="count($all_user_duotou_yuqi) neq 0"/}
+               {volist name="all_user_duotou_yuqi" id="vo"}
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td rowspan="1" style="width: 20%;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.counts}</td> 
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.money}</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.dtime}</td>
+                
+                </tr> 
+                {/volist}
+                
+                 {else}
+                  <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                   <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                
+                </tr> 
+                  {/if}
+                
+                
+                 </table>
+                  
+                  
+                 
+                  
+                  
+                  
+                <table style="width: 90%; margin:  0 auto;border: 1px solid #000000;margin-top:20px;">
+                
+                <tr style="height: 40px;">
+                  <td colspan="2" style="background-color:#007AFF;width: 90%;font-size: 18px;color: #fff; border: 1px solid #000000;text-align: center;">欠款查询</td>
+                  
+                </tr> 
+                <tr style="height: 40px;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">平台代码 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">欠款金额 </td>
+                </tr> 
+                  {if condition="count($all_user_duotou_qiankaun) neq 0"/}
+               {volist name="all_user_duotou_qiankaun" id="vo"}
+                <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.platform}</td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">{$vo.money}</td>
+                
+                </tr> 
+                {/volist}
+                
+                 {else/}
+                   <tr style="height: 40px;font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                  <td style="font-size: 14px;color: #666666; border: 1px solid #000000;text-align: center;">0 </td>
+                
+                </tr> 
+                  {/if}
+                </tbody>
+              </table> 
+              {else}
+              {/if}
+              <script>
+            window.onload = function(){
+                //1.获取表格
+                var tblEle = document.getElementById("tb");
+                //2.获取表格中tbody里面的行数(长度)
+                var len = tblEle.tBodies[0].rows.length;
+                //alert(len);
+                //3.对tbody里面的行进行遍历
+                for(var i=0;i<len;i++){
+                    if(i%2==0){
+                        //4.对偶数行设置背景颜色
+                        tblEle.tBodies[0].rows[i].style.backgroundColor="#E8E8E8";
+                    }else{
+                        //5.对奇数行设置背景颜色
+                        tblEle.tBodies[0].rows[i].style.backgroundColor="#fff";
+                    }
+                }
+            }
+        </script>
+                    <div style="clear: both; padding-left: 10px;padding-top: 20px;">
+                        <H style="color:#007AFF;">建议:</H>
+                        <p style="padding-top: 20px;">借贷数量和次数过高，可能会影响你的贷款通过率.</p>
+                    </div>
+                </div>
+          {if condition="$priceid eq '3'"}
+                 <div style="background-color: #fff;padding-top: 20px;padding-bottom: 20px;">
+                <div style="">
+                    <div>
+                        <p style="float: left;background-color:#007AFF;height:40px;width: 5px;"></p>
+                        <span style="margin-left: 5px;line-height: 40px;font-size: 18px; color:#000000;">黑名单信息</span>
+                        
+                    </div>
+               <div style="padding-top: 5px;clear: both;">
+                         <p style="margin-left: 20px;margin-top: 20px;">
+                                金融黑名单：
+                                <span data-v-14c77924="" style="float:right;padding-right:25px;">
+                           {if condition="$all_user_jinro['description'] neq ''"}
+                              {$all_user_jinro.description}
+                              {else/}
+                               未命中
+                              {/if}
+                           </span>
+                            </p> 
+                       <p style="margin-left: 20px;margin-top: 20px;">
+                                欺诈黑名单：
+                                <span data-v-14c77924="" style="float:right;padding-right:25px;">未获取</span>
+                            </p> 
+                        <p style="margin-left: 20px;margin-top: 20px;">
+                                诚信黑名单：
+                                <span data-v-14c77924="" style="float:right;padding-right:25px;"> 未获取</span>
+                            </p> 
+                       <p style="margin-left: 20px;margin-top: 20px;;">
+                                信贷黑名单：
+                                <span data-v-14c77924="" style="float:right;padding-right:25px;"> 未获取</span>
+                            </p> 
+                       
+                          
+                        
+                            <p d style="margin-left: 20px;margin-top: 20px;">手机号诈骗骚扰库：
+                                <span data-v-14c77924="" style="float:right;padding-right:25px;">未获取</span>
+                            </p> 
+                            <p  style="margin-left: 20px;margin-top: 20px;">
+                                身份证风险群体网络：
+                                <span style="float:right;padding-right:25px;">未获取</span>
+                            </p> 
+                            <p  style="margin-left: 20px;margin-top: 20px;">身份证信贷逾期后还款名单：
+                                <span data-v-14c77924="" style="float:right;padding-right:25px;">未获取</span>
+                            </p> 
+                            <p  style="margin-left: 20px;margin-top: 20px;">身份证车辆租赁违约名单：
+                                <span data-v-14c77924="" style="float:right;padding-right:25px;">未获取</span>
+                            </p> 
+                            <p  style="margin-left: 20px;margin-top: 20px;">身份证对应人是否存在助学贷款欠费历史：
+                                <span data-v-14c77924="" style="float:right;padding-right:25px;">未获取</span>
+                            </p>
+                    </div>
+                  
+                        <div style="clear: both; padding-left:10px; padding-top: 20px;">
+                        <H style="color:#007AFF;">建议:</H>
+                        <p style=" padding-top: 20px;">被平台加入黑名单，大多数平台在绘制你的申请记录时，会直接拒绝你的贷款申请</p>
+                    </div>
+                </div>
+                 
+                </div>
+                {else}
+                  {/if}
+              
+              
+              
+               <div style="background-color: #fff;padding-top: 20px;padding-bottom: 20px;">
+                <div style="">
+                    <div>
+                        <p style="float: left;background-color:#007AFF;height:40px;width: 5px;"></p>
+                        <span style="margin-left: 5px;line-height: 40px;font-size: 18px; color:#000000;">关联信息查询</span>
+                        
+                    </div>
+                    <div style="padding-top: 5px;clear: both;">
+                      <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             近1月身份证关联家庭地址个数 <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+                 {if condition="!isset($temp_res['ir_m1_id_x_home_addr_cnt'])"/}
+              0
+                        {else}
+                       {if condition="$temp_res['ir_m1_id_x_home_addr_cnt'] neq ''"/}
+                         {$temp_res.ir_m1_id_x_home_addr_cnt}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+               
+              </span>
+            </li>
+            
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              近1月身份证关联公司地址个数<span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['ir_m1_id_x_biz_addr_cnt'])"/}
+              0
+                        {else}
+                       {if condition="$temp_res['ir_m1_id_x_biz_addr_cnt'] neq ''"/}
+                         {$temp_res.ir_m1_id_x_biz_addr_cnt}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              近3月身份证关联家庭地址个数<span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['ir_m3_id_x_home_addr_cnt'])"/}
+              0
+                        {else}
+                       {if condition="$temp_res['ir_m3_id_x_home_addr_cnt'] neq ''"/}
+                         {$temp_res.ir_m3_id_x_home_addr_cnt}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             近3月身份证关联公司地址个数 <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['ir_m3_id_x_biz_addr_cnt'])"/}
+               0
+                        {else}
+                       {if condition="$temp_res['ir_m3_id_x_biz_addr_cnt'] neq ''"/}
+                         {$temp_res.ir_m3_id_x_biz_addr_cnt}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             近6月身份证关联家庭地址个数<span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['ir_m6_id_x_home_addr_cnt'])"/}
+              0
+                        {else}
+                       {if condition="$temp_res['ir_m6_id_x_home_addr_cnt'] neq ''"/}
+                         {$temp_res.ir_m6_id_x_home_addr_cnt}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             近6月手机号关联家庭地址个数<span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['ir_m6_cell_x_home_addr_cnt'])"/}
+               0
+                        {else}
+                       {if condition="$temp_res['ir_m6_cell_x_home_addr_cnt'] neq ''"/}
+                         {$temp_res.ir_m6_cell_x_home_addr_cnt}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              近12月身份证关联家庭地址个数<span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['ir_m12_id_x_home_addr_cnt'])"/}
+               0
+                        {else}
+                       {if condition="$temp_res['ir_m12_id_x_home_addr_cnt'] neq ''"/}
+                         {$temp_res.ir_m12_id_x_home_addr_cnt}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             近12月身份证关联公司地址个数<span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['ir_m12_id_x_biz_addr_cnt'])"/}
+              0
+                        {else}
+                       {if condition="$temp_res['ir_m12_id_x_biz_addr_cnt'] neq ''"/}
+                         {$temp_res.ir_m12_id_x_biz_addr_cnt}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            
+                    </div>
+                   
+                    <div style="clear: both; padding-left: 10px;padding-top: 20px;">
+                        <H style="color:#007AFF;">建议:</H>
+                        <p style="padding-top: 20px;">关联地址数量过高，可能会影响你的贷款通过率.</p>
+                    </div>
+                </div>
+              
+                 
+                 
+                 
+                  <div style="background-color: #fff;padding-top: 20px;padding-bottom: 20px;">
+                <div style="">
+                    <div>
+                        <p style="float: left;background-color:#007AFF;height:40px;width: 5px;"></p>
+                        <span style="margin-left: 5px;line-height: 40px;font-size: 18px; color:#000000;">反欺诈信息</span>
+                        
+                    </div>
+                    <div style="padding-top: 5px;clear: both;">
+                      <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             借贷意向异常 <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+                 {if condition="!isset($temp_res['Rule_name_CAD005'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['Rule_name_CAD005'] neq ''"/}
+                         {$temp_res.Rule_name_CAD005}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+               
+              </span>
+            </li>
+            
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              法院被执行人  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['Rule_name_QJE010'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['Rule_name_QJE010'] neq ''"/}
+                         {$temp_res.Rule_name_QJE010}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             特殊名单 <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['Rule_name_QJT001'])"/}
+                未命中
+                        {else}
+                       {if condition="$temp_res['Rule_name_QJT001'] neq ''"/}
+                         {$temp_res.Rule_name_QJT001}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+            身份证关联信息异常  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['Rule_name_CBD001'])"/}
+              未命中
+                        {else}
+                       {if condition="$temp_res['Rule_name_CBD001'] neq ''"/}
+                         {$temp_res.Rule_name_CBD001}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+            地址信息异常   <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['Rule_name_CAM001'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['Rule_name_CAM001'] neq ''"/}
+                         {$temp_res.Rule_name_CAM001}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             个人不良信息  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+               {if condition="!isset($temp_res['Rule_name_FBB005'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['Rule_name_FBB005'] neq ''"/}
+                         {$temp_res.Rule_name_FBB005}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+             持牌汽车金融高风险  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['sl_lm_cell_nbank_autofin_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_autofin_lost'] neq ''"/}
+                         {$temp_res.sl_lm_cell_nbank_autofin_lost}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            <li style="list-style: disc;padding-left: 10px;color: #333333;padding-top: 6px;padding-bottom: 6px;font-size: 16px;">
+              非银其他高风险  <span data-v-ec4080ba="" style="float: right; padding-right: 24px;">
+              {if condition="!isset($temp_res['sl_lm_cell_nbank_other_lost'])"/}
+               未命中
+                        {else}
+                       {if condition="$temp_res['sl_lm_cell_nbank_other_lost'] neq ''"/}
+                         {$temp_res.sl_lm_cell_nbank_other_lost}
+                         {else}
+                       0
+                         {/if}
+                  {/if}
+              </span>
+            </li>
+            
+                    </div>
+                </div>
+              
+              
+              
+              
+              
+                 <div style="background-color: #fff;clear: both;padding-bottom:30px;padding-top:30px;margin-top:15px;">
+              <div style="text-align: center;font-size: 14px;color: #555;">信用报告数据说明</div>
+              <div style="padding:0 10px; text-align: left;   font-size: 12px;    margin-top: 10px;line-height: 18px;color: #666;">　　钻石报告报告由本人授权查询，数据来源包括芝麻信用、各大运营商、各类征信平台、各大贷款平台、京东、淘宝等众多平台，钻石报告只做大数据信息的获取及分析，不对原始数据做任何修改，信用报告仅供参考使用。如你对报告有异议，出于对合作平台数据隐私的保护，钻石报告将不做任何解释。
+                </div>
+                <div style="padding:0 10px;text-align: left; font-size: 12px;margin-top: 10px;    line-height: 18px;color: #666;">
+                         由于报表的生成需要处理大量数据，受网络波动等因素的影响，可能会造成部分数据获取不完整的情况，对此我们深表歉意，同时感谢你的理解与支持！
+              </div>
+            </div>
+            </div>
+              <script src="__PUBLIC__/js/jquery.min.js"></script>
+        <script>
+            
+            mui.init({
+                swipeBack: true //启用右滑关闭功能
+            });
+            
+         mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+var istrue = true;
+$(window).on("scroll",
+  function() {
+    var s = $(window).scrollTop();
+    $(".timer").each(count);
+    function count(a) {
+        var b = $(this);
+        a = $.extend({},
+        a || {},
+        b.data("countToOptions") || {});
+        b.countTo(a)
+    };
+    istrue = false;
+    $(".timer").removeClass("timer")
+})
+//设置计数
+$.fn.countTo = function (options) {
+    options = options || {};
+    return $(this).each(function () {
+        //当前元素的选项
+        var settings = $.extend({}, $.fn.countTo.defaults, {
+            from:            $(this).data('from'),
+            to:              $(this).data('to'),
+            speed:           $(this).data('speed'),
+            refreshInterval: $(this).data('refresh-interval'),
+            decimals:        $(this).data('decimals')
+        }, options);
+        //更新值
+        var loops = Math.ceil(settings.speed / settings.refreshInterval),
+            increment = (settings.to - settings.from) / loops;
+        //更改应用和变量
+        var self = this,
+        $self = $(this),
+        loopCount = 0,
+        value = settings.from,
+        data = $self.data('countTo') || {};
+        $self.data('countTo', data);
+        //如果有间断，找到并清除
+        if (data.interval) {
+            clearInterval(data.interval);
+        };
+        data.interval = setInterval(updateTimer, settings.refreshInterval);
+        //初始化起始值
+        render(value);
+        function updateTimer() {
+            value += increment;
+            loopCount++;
+            render(value);
+            if (typeof(settings.onUpdate) == 'function') {
+                settings.onUpdate.call(self, value);
+            }
+            if (loopCount >= loops) {
+                //移出间隔
+                $self.removeData('countTo');
+                clearInterval(data.interval);
+                value = settings.to;
+                if (typeof(settings.onComplete) == 'function') {
+                    settings.onComplete.call(self, value);
+                }
+            }
+        }
+        function render(value) {
+            var formattedValue = settings.formatter.call(self, value, settings);
+            $self.html(formattedValue);
+        }
+        });
+    };
+    $.fn.countTo.defaults={
+        from:50,               //数字开始的值
+        to:0,                 //数字结束的值
+        speed:1000,           //设置步长的时间
+        refreshInterval:10,  //隔间值
+        decimals:0,           //显示小位数
+        formatter: formatter, //渲染之前格式化
+        onUpdate:null,        //每次更新前的回调方法
+        onComplete:null       //完成更新的回调方法
+    };
+    function formatter(value, settings){
+        return value.toFixed(settings.decimals);
+    }
+    //自定义格式
+    $('#count-number').data('countToOptions',{
+        formmatter:function(value, options){
+            return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+    });
+    //定时器
+    $('.timer').each(count);
+    function count(options){
+        var $this=$(this);
+        options=$.extend({}, options||{}, $this.data('countToOptions')||{});
+        $this.countTo(options);
+    }
+        </script>
+</body>
+
+</html>

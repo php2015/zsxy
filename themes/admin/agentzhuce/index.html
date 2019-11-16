@@ -1,0 +1,59 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">二级代理商注册规则管理</li>
+            <li class=""><a href="{:url('admin/agentzhuce/add')}">添加二级代理商注册规则</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form layui-form-pane" action="{:url('admin/agentzhuce/index')}" method="get">
+				
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                  
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                        <th>如果这个代理下面注册代理</th>
+						<th>那么会注册成什么等级</th>
+						<th>是否有权限查看总业绩</th>
+                      	<th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="agentzhuce_list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.agentname1}</td>
+                        <td>{$vo.agentname2}</td>
+                         <td>{php}echo $vo['tag']==1 ? '有' : '没有';{/php}</td>
+						
+						
+                        <td>
+						 	 
+                            <a href="{:url('admin/agentzhuce/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                            <a href="{:url('admin/agentzhuce/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$agentzhuce_list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

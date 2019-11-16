@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>团购</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+  <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <script src="__PUBLIC__/js/amazeui.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+     <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">我的订单</h1>
+        </header>
+    <div class="mui-content" >
+            <!--头部导航-->
+            <!-- <div class="am-cf uchome-nav">
+                <ul class="am-avg-sm-5">
+                    <li><a href="#">未付款</a></li>
+                    <li><a href="#">已收货</a></li>
+                    <li><a href="#">待收货</a></li>
+                    <li><a href="#">待评价</a></li>
+                    <li><a href="#">已评价</a></li>
+                </ul>
+            </div> -->
+            <div  id="pullrefresh" >
+                <div class="mui-card" style="padding:0;margin:0;background-color: #efeff4;">
+                        <div class="mui-content-padded" style="background-color: #efeff4;">
+                        <div class="mui-input-row mui-search input-search" style="width: 100%;background-color: #efeff4;">
+                       <!--<div><span style=" margin-left:5%;">时间</span><span style="float:right; margin-right:10%;">金额</span></div>-->
+                        </div>
+                    </div>
+                    <ul  id="lis" style="font-size: 14px; background: #fff;padding:10px 15px;">
+                   
+                    </ul>
+                </div>
+            </div>
+        </div>
+   
+    
+    
+</div>
+ <script>
+            
+         mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+mui.init({
+
+                    pullRefresh: {
+                        container: '#pullrefresh',
+                        
+                        up: {
+                            auto:true,
+                            contentrefresh: '...正在加载...',
+                            callback: pullupRefresh
+                        }
+                    }
+                });
+            
+            var lis=document.getElementById("lis");
+            var counter = 0;
+            var length = 10;
+            var Flag ='';
+                function pullupRefresh() {
+                    setTimeout(function() {
+                        //参数为true代表没有更多数据了。
+                        
+                $.ajax({
+                    url:'{:url('index/dingdan/weifukuan')}',
+                    type:'get',
+                   data:{
+                            'page':counter
+                        },
+                    success:function(data){
+                        //alert(data);
+                    if(data.length!==length){
+                        Flag == true;
+                    }else{
+                        Flag == false;
+                    }
+                      if(Flag == false){
+                        //alert(counter);
+                                  counter++;
+                                  //console.log(counter);
+                              }   
+                              mui('#pullrefresh').pullRefresh().endPullupToRefresh((data.length!==length)); 
+                             
+                        for(var a in data){
+                            var tmp1='<div style="width:100%;border:1px solid #ccc;border-radius:5px;margin-top:10px;padding:10px 15px;clear:both;height:200px;><div><p style="padding:0px 15px;padding-top:10px;"><span style="color:#000;font-size:14px;padding-top:10px;">2015-06-07 18:27</span><span style="color:#000;font-size:14px;margin-left:20px;">订单号：'+data[a]['order_id']+'</span></p><hr style="border-top: 1px solid #ddd;"/><div style="width: 100%;margin-top: 12px;clear:both;><a href="#"><div style="background: url(__PUBLIC__/img/img2.jpg);background-repeat: no-repeat;background-size: 100%;width: 38%;height: 124px;border: 1px solid #ccc;float:left;"></div></a><div style="margin-top: 0px;padding-left:10px;float:left;"><h3><a href="#" style="color:#000;font-size:16px;">'+data[a]['goods_name']+'</a></h3><p style="margin-bottom: 0px;">总额：<span>'+data[a]['trade_money']+'</span> 元 </p><p  style="margin-bottom: 0px;">   数量：'+data[a]['buy_num']+'</p><p  style="margin-bottom: 0px;">状态：<span>'+data[a]['zhuangtai']+'</span></p><p  style="margin-bottom: 0px;"><a href="{:url("index/user/chaxunjilu")}" style="padding:3px 10px;background:#5eb95e;border-radius:3px;"><span style="color:#fff;">取消订单</span></a></p></div></div></div></div>';
+                            lis.innerHTML += tmp1;
+                        }
+                        
+                    }
+                    
+                });
+                        
+                    }, 1500);
+                }
+                
+                function xiaoqu(id) { 
+                           alert(id);
+                              // $.ajax({
+                              //           url:'{:url('index/dingdan/quxiao')}',
+                              //           type:"post",
+                              //           datatype:'json',
+                              //           data:{'did':id},
+                                        
+                              //           success:function(data){
+                              //               //json=$.parseJSON(data);
+                              //               alert(data);
+                              //       // if(data==1){
+                              //       // }else if(data==0){
+                              //       //     alert("查询失败");
+                              //       // }else if(data==11){
+                              //       // }
+                              //               }
+                              //   });
+                            }  
+                
+                window.addEventListener('toggle', function(event) {
+                if (event.target.id === 'M_Toggle') {
+                    var isActive = event.detail.isActive;
+                    var table = document.querySelector('.mui-table-view');
+                    var card = document.querySelector('.mui-card');
+                    if (isActive) {
+                        card.appendChild(table);
+                        card.style.display = '';
+                    } else {
+                        var content = document.querySelector('.mui-content');
+                        content.insertBefore(table, card);
+                        card.style.display = 'none';
+                    }
+                }
+                
+
+                
+            
+            });
+                
+        </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>钻石信用</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/ystyle.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js" ></script>
+    <script src="__PUBLIC__/js/common.js"></script>
+    <script src="/public/layer/layer.js"></script>
+</head>
+
+<body>
+<header class="header" id="header">
+    <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+    <h1>员工：{$names}</h1>
+</header>
+<!--header-end-->
+
+<div class="container" id="container">
+    <div class="my-face">
+        <div class="my-face-con">
+            <div class="my-face-pic">累计成功订单：{$user}人</div>
+        </div>
+    </div>
+    <div class="shuxing">
+        <table class="xu-zhanshi">
+            <tbody class="xu-zhengti">
+            <tr>
+                <td>{$userDtyx}</td>
+                <td>{$userDt}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;font-size:0.6rem;">今日成功订单</td>
+                <td style="font-weight:bold;font-size:0.6rem;">今日累计订单</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="personal-list">
+        <ul>
+            <li><a class="my-icon-wddd" href="{:url('/index/yindex/mingxi')}">成功支付订单明细</a></li>
+        </ul>
+        <ul>
+            <li><a class="my-icon-grzl" href="{:url('/index/yindex/registeredmx')}">全部用户明细</a></li>
+            <li><a class="my-icon-yhq" href="{:url('/index/yindex/fenxiang')}">推广赚钱</a></li>
+        </ul>
+    </div>
+    <div class="my-bejing"><a class="my-tixian" href="{:url('/index/login/ytuichu')}">退出</a></div>
+</div>
+</body>
+</html>
+<script src="__PUBLIC__/js/clipboard.min.js"></script>
+<script>
+    $("#webcopy").on('click',function(){
+        var clipboard = new Clipboard('.copys');
+        layer.msg('复制成功',{time:500});
+    });
+</script>

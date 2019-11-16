@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>玖石亿</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">个人团队</h1>
+		</header>
+		
+		<div class="mui-content">
+			<div class="mui-card" style="">
+				
+        	</div>
+			<div class="mui-card" style="">
+				
+			<ul class="mui-table-view mui-table-view-chevron">
+					{volist name="user" id="vo"}
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">{$vo.agent_name}：{$vo.names}({$vo.mobile})</a>
+					</li>
+					
+				{/volist}
+				</ul></div>
+				 <nav class="mui-bar mui-bar-tab">
+            <a class="mui-tab-item" href="{:url('index/index/index')}">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            <!-- <a class="mui-tab-item" href="{:url('index/xiaji')}">
+                <span class="mui-icon mui-icon-pengyouquan"></span>
+                <span class="mui-tab-label">我的团队</span>
+            </a> -->
+            <a class="mui-tab-item" href="{:url('index/qrc/view')}">
+                <span class="mui-icon mui-icon-pengyouquan"></span>
+                <span class="mui-tab-label">推广二维码</span>
+            </a>
+            {if condition="$xiaji['type'] eq '1'"}
+            <a class="mui-tab-item mui-active" href="{:url('allindex/xiaji')}">
+                <span class="mui-icon mui-icon-contact mui-icon-flag"></span>
+                <span class="mui-tab-label">我的团队</span>
+            </a>
+             {else/}
+                        {/if}
+            <a class="mui-tab-item" href="{:url('allindex/gerenxingxin')}">
+                <span class="mui-icon mui-icon-contact mui-icon-icon-contact-filled"></span>
+                <span class="mui-tab-label">个人信息</span>
+            </a>
+            
+        </nav>
+		</div>
+	
+	<script src="__PUBLIC__/js/mui.min.js"></script>
+	 <script>
+            mui.init({
+                swipeBack:true//启用右滑关闭功能
+            });
+            mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+            </script>
+</body>
+		
+	</body>
+
+</html>

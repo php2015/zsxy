@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>钻石报告</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/base.css" rel="stylesheet" type="text/css" />
+ 
+
+</head>
+<style>
+    .container{
+        padding:0;
+    }
+    .circleChart_canvas{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        transform: rotate(133deg) ! important ;
+        position: absolute;
+        top: -107px;
+        left: 47px;
+    }
+    .circleChart_text{
+        position: absolute;
+        line-height: 100px;
+        top: -114px ! important;
+        left: 43px;
+        width: 104px ! important ;
+        margin: 0px;
+        padding: 0px;
+        color:#f77926;
+        text-align: center;
+        font-size: 14.2857px;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+
+
+    .main{width:100%;position:relative;margin:auto;}
+    .layer{position:relative;}
+    .layer03-panel{position:relative;float:left;}
+    .layer03-left-chart{position:relative;float:left;}
+</style>
+<body style="">
+
+<div class="container" style="background-color:#f98501;border-bottom: 10px solid #f98501;">
+  <a href="/index/complaint/wenti.html">
+    	<div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+        	<p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+    	</div>
+	</a>
+    <header class="mui-bar-nav" style="-webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0.85);height: 168px;width: 100%;background-image: url(/public/index/img/yangshis.png);background-size: 100% 168px;background-repeat: no-repeat;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+    </header>
+<a href="{:url('/index/complaint/comment')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 350px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">评论</p>
+    </div>
+    </a>
+<a href="{:url('/index/complaint/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #ff9600;background: #ff9600;border-radius:100%;position: fixed;right: 5px; top: 400px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
+    </div>
+</a>
+ <a href="{:url('/calculator/index/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #12a8ce;background: #12a8ce;border-radius:100%;position: fixed;right: 5px; top:450px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">计算器</p>
+    </div>
+	</a>
+    <div style="border: 1px solid #fff;background-color: #fff;margin-right: 8px; margin-left: 8px;border-radius: 4px;">
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: -80px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+            <div style="text-align: center;margin-top: inherit;">
+                {if condition="isset($result.ren) && $result.ren eq '男'"}
+                <img src="/public/index/img/male.png" style="width: 35%;border: 8px solid #f98501;border-radius: 100%;">
+                {else/}
+                <img src="/public/index/img/female.png" style="width: 35%;border: 8px solid #f98501;border-radius: 100%;">
+                {/if}
+            </div>
+
+            <p style="text-align: center;font-size: 18px;color: #f98501;font-weight: bolder;line-height: 36px;">{if condition="isset($result.opnames) and !empty($result.opnames)"} {$result.opnames} {/if}</p>
+            <p style="text-align: center;font-size: 18px;color: #f98501;line-height: 1px;">{if condition="isset($result.ningling) and !empty($result.ningling)"} {$result.ningling}{else/}0{/if}岁  <span>{$result.ren}</span></p>
+            <p style="font-size:14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">手机号码：</span>
+                <span style="float:right; margin-right: 30px;">{if condition="isset($result.mobile) and !empty($result.mobile)"} {$result.mobile} {/if}&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">身份证：</span>
+                <span style="float:right; margin-right: 30px;">{if condition="isset($result.opcard) and !empty($result.opcard)"} {$result.opcard} {/if}&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">所属地：</span>
+                <span style="float:right; margin-right: 30px;">{if condition="isset($result.province) and !empty($result.province)"} {$result.province} {/if}&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">报告生成时间：</span>
+                <span style="float:right; margin-right: 30px;">{if condition="isset($result.createAt) and !empty($result.createAt)"} {$result.createAt} {/if}&nbsp;</span>
+            </p>
+        </div>
+
+
+        <div style="width: 50%; margin: 20px auto;">
+            <span style="display: block;background: #f98501;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">失信被执行人</span>
+        </div>
+      {if condition="isset($result.dishonesty) and !empty($result.dishonesty)"}
+        {volist name="$result.dishonesty" id="vo"}
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 10px;line-height: 23px;">
+            	<p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">风险类型：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.fraud_type_display_name) and !empty($vo.fraud_type_display_name)"}{$vo.fraud_type_display_name}{/if}&nbsp;</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">姓名：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.executed_name) and !empty($vo.executed_name)"}{$vo.executed_name}{/if}&nbsp;</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行案号：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.case_code) and !empty($vo.case_code)"}{$vo.case_code}{/if}</span>
+                </p>
+                
+                 <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">性别：</span>
+                    <span style="float:right; margin-right: 30px;"> {if condition="isset($vo.gender) and !empty($vo.gender)"}{$vo.gender}{/if}</span>
+                </p>
+                
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行法院：</span>
+                    <span style="float:right; margin-right: 30px;"> {if condition="isset($vo.execute_court) and !empty($vo.execute_court)"}{$vo.execute_court}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">立案时间：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['case_date']) and !empty($vo['case_date']) and is_numeric($vo['case_date'])){echo date('Y-m-d',strtotime($vo['case_date']));}else if(isset($vo['case_date']) and !empty($vo['case_date']) and !is_numeric($vo['case_date'])){echo $vo['case_date']; } ?></span>
+                </p>
+                
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">做出执行依据单位：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.evidence_court) and !empty($vo.evidence_court)"}{$vo.evidence_court}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">生效法律文书确定的义务：</span>
+                     <p><span style="font-size: 0.26rem;color: #333333; text-align: right; line-height: 30px;"> {if condition="isset($vo.term_duty) and !empty($vo.term_duty)"}{$vo.term_duty}{/if}</span></p>
+                </p>
+                
+                 <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行依据文号：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.execute_code) and !empty($vo.execute_code)"}{$vo.execute_code}{/if}</span>
+                </p>
+                 <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">案件状态：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.carry_out) and !empty($vo.carry_out)"}{$vo.carry_out}{/if}</span>
+                </p>
+                
+            </div>
+            
+           </div>
+			{/volist}
+        {else/}
+		<div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+    		<div style="margin-top: 10px;line-height: 23px;">
+        <p style="font-size: 14px;font-weight: normal;">
+            <span style="margin-left: 30px;">姓名：</span>
+            <span style="float:right;">查询成功，无失信被执行人的相关信息。&nbsp;</span>
+        </p>
+        <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">风险类型：</span>
+                    <span style="float:right; margin-right: 30px;">无&nbsp;</span>
+                </p>
+
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行案号：</span>
+                    <span style="float:right; margin-right: 30px;">无</span>
+                </p>
+                
+                 <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">性别：</span>
+                    <span style="float:right; margin-right: 30px;">无</span>
+                </p>
+                
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行法院：</span>
+                    <span style="float:right; margin-right: 30px;">无</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">立案时间：</span>
+                    <span style="float:right; margin-right: 30px;">无</span>
+                </p>
+                
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">做出执行依据单位：</span>
+                    <span style="float:right; margin-right: 30px;">无</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">生效法律文书确定的义务：</span>
+                     <span style="float:right; margin-right: 30px;">无</span>
+                </p>
+                
+                 <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行依据文号：</span>
+                    <span style="float:right; margin-right: 30px;">无</span>
+                </p>
+                 <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">案件状态：</span>
+                    <span style="float:right; margin-right: 30px;">无</span>
+                </p>
+    	</div>
+	</div>
+   {/if}
+
+        <div style="width: 50%; margin: 20px auto;">
+            <span style="display: block;background: #f98501;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">法院被执行人</span>
+        </div>
+{if condition="isset($result.carried) and !empty($result.carried)"}
+	<?php foreach($result['carried'] as $vo){ if(isset($vo['term_duty']) && !empty($vo['term_duty'])){ continue; } 
+       
+        ?>
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 10px;">
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">姓名：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['executed_name']) and !empty($vo['executed_name'])){echo $vo['executed_name'];} ?>&nbsp;</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行案号：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['case_code']) and !empty($vo['case_code'])){echo $vo['case_code'];} ?></span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行法院：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['evidence_court']) and !empty($vo['evidence_court'])){echo $vo['evidence_court'];}?></span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">立案时间：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['execute_status']) and !empty($vo['execute_status'])){echo $vo['execute_status'];} ?></span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行标的：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['execute_subject']) and !empty($vo['execute_subject'])){echo $vo['execute_subject'];} ?></span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">案件状态：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['execute_status']) and !empty($vo['execute_status'])){echo $vo['execute_status'];} ?></span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">身份证号：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['value']) and !empty($vo['value'])){echo $vo['value'];} ?></span>
+                </p>
+            </div>
+        </div>
+	<?php } ?>
+	
+	
+	<?php foreach($result['carried'] as $vo){ if(!isset($vo['term_duty']) && empty($vo['term_duty'])){ continue; } 
+       
+        ?>
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 10px;">
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">法律文书确定的义务：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['term_duty']) and !empty($vo['term_duty'])){echo $vo['term_duty'];} ?>&nbsp;</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行依据文号：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['execute_code']) and !empty($vo['execute_code'])){echo $vo['execute_code'];} ?></span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">被执行人行为具体情形：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['specific_circumstances']) and !empty($vo['specific_circumstances'])){echo $vo['specific_circumstances'];}?></span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">省份：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['province']) and !empty($vo['province'])){echo $vo['province'];}?></span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">案件状态：</span>
+                    <span style="float:right; margin-right: 30px;"><?php if(isset($vo['fraud_type_display_name']) and !empty($vo['fraud_type_display_name'])){echo $vo['fraud_type_display_name'];} ?></span>
+                </p>
+     
+            </div>
+        </div>
+	<?php } ?>
+
+{else/}
+<div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+    <div style="margin-top: 10px;">
+        <p style="font-size: 14px;font-weight: normal;">
+            <span style="margin-left: 30px;">姓名：</span>
+            <span style="float:right;">查询成功，无法院被执行人的相关信息。&nbsp;</span>
+        </p>
+        <p style="font-size: 14px;font-weight: normal;">
+            <span style="margin-left: 30px;">执行案号：</span>
+            <span style="float:right; margin-right: 30px;">无</span>
+        </p>
+        <p style="font-size: 14px;font-weight: normal;">
+            <span style="margin-left: 30px;">执行法院：</span>
+            <span style="float:right; margin-right: 30px;">无</span>
+        </p>
+        <p style="font-size: 14px;font-weight: normal;">
+            <span style="margin-left: 30px;">立案时间：</span>
+            <span style="float:right; margin-right: 30px;">无</span>
+        </p>
+        <p style="font-size: 14px;font-weight: normal;">
+            <span style="margin-left: 30px;">执行标的：</span>
+            <span style="float:right; margin-right: 30px;">无</span>
+        </p>
+        <p style="font-size: 14px;font-weight: normal;">
+            <span style="margin-left: 30px;">案件状态：</span>
+            <span style="float:right; margin-right: 30px;">无</span>
+        </p>
+        <p style="font-size: 14px;font-weight: normal;">
+            <span style="margin-left: 30px;">身份证号：</span>
+            <span style="float:right; margin-right: 30px;">无</span>
+        </p>
+    </div>
+</div>
+{/if}
+        <div style="background: #fff;margin-top: 25px;margin-right: 8px;margin-left: 14px;">
+              {if condition="$agent['isoem_name'] eq '1'"/}
+                	{if condition="!empty($agent['thumb'])"/}
+                		<img src="/public/{$agent.thumb}" style="width: 140px;margin-top: 50px;margin-left: 27%;"/>
+                	{/if}
+                {else/}
+                	{if condition="$agent['isopen_ewm'] eq '1'"/}
+                		<img src="__PUBLIC__/img/zsx01.jpg" style="width: 140px;margin-top: 50px;margin-left: 27%;"/>
+                	{/if}
+            	{/if}
+            <p style="text-align: center;font-weight: bolder;">
+                查信用、查更黑、测额度、消风险
+            </p>
+            <p style="text-align: center;font-weight: bolder;">扫码关注钻石报告</p>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+<script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+<script src="/public/bootstrap/js/bootstrap.min.js"></script>

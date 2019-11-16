@@ -1,0 +1,84 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">版本管理</li>
+           <!-- <li class=""><a href="{:url('admin/product/add')}">添加版本</a></li>-->
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form layui-form-pane" action="{:url('dailishang/product/add')}" method="get">
+                   <div class="layui-inline">
+				{foreach name="goods_list" item="vo"}您当前{$vo.tname}成本价为：{$vo.price}元</br>{/foreach}
+                  </div>
+                   {if condition="$isok eq '1'"}
+                    <div class="layui-inline">
+                        
+                        <button class="layui-btn">添加版本</button>
+					</div>
+					{/if}
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                       
+						<th>版本</th>
+                        <th>自定义价格</th>
+                        <th>背景图片</th>
+                        <th>时间</th>
+                        <th>推广链接</th>
+                      	<th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="product_list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                       
+                        <td>{$vo.product_name}</td>
+                        <td>{$vo.price}</td>
+                       <td><center><img style="height:80px; width:50px;" src="{$vo.thumbs}"/></center></td>
+						<td>{$vo.createtime|date="Y-m-d H:i:s",###}</td>
+						<td>
+                      		{switch name="$vo.a_g_id" }
+                            	{case value="7"}http://www.xalanfeng.cn/index.php/index/chaxun/query5/price/{$vo.price}/pid/{$vo.id}{/case}
+                            	{case value="4"}http://www.xalanfeng.cn/index.php/index/chaxun/query1/price/{$vo.price}/pid/{$vo.id}{/case}
+                            	{case value="5"}http://www.xalanfeng.cn/index.php/index/chaxun/query2/price/{$vo.price}/pid/{$vo.id}{/case}
+                            	{default /}
+                            		http://www.xalanfeng.cn/index/chaxun/query/price/{$vo.price}/pid/{$vo.id}
+                            {/switch}
+                      </td>
+						
+						
+                        <td style="width:100px">
+                            <a href="
+                            {switch name='$vo.a_g_id'}
+                                {case value='7'}/index.php/index/chaxun/query5/price/{$vo.price}/pid/{$vo.id}{/case}
+                                {case value='4'}/index.php/index/chaxun/query1/price/{$vo.price}/pid/{$vo.id}{/case}
+                                {case value='5'}/index.php/index/chaxun/query2/price/{$vo.price}/pid/{$vo.id}{/case}
+                                {default /}
+                                    	/index/chaxun/query/price/{$vo.price}/pid/{$vo.id}
+                            {/switch}
+                                     " target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">查看</a>
+                            <a href="{:url('/dailishang/product/delete',['id'=>$vo.id])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+				
+                <!--分页-->
+                {$product_list->render()}
+              
+            
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

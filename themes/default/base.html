@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>鑫礼品商城</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="__JS__/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/font-awesome.min.css">
+	<link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!--CSS引用-->
+    {block name="css"}{/block}
+    <!--[if lt IE 9]>
+    <script src="__CSS__/html5shiv.min.js"></script>
+    <script src="__CSS__/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+   
+    <!--主体-->
+    {block name="body"}{/block}
+<script>
+    // 定义全局JS变量
+    var GV = {
+        current_controller: "index/{$controller|default=''}/",
+        base_url: "__STATIC__"
+    };
+</script>
+<!--JS引用-->
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/layui/lay/dest/layui.all.js"></script>
+<script src="__JS__/admin.js"></script>
+
+{block name="js"}{/block}
+<!--页面JS脚本-->
+{block name="script"}{/block}
+</body>
+</html>

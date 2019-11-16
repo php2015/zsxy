@@ -1,0 +1,49 @@
+@charset "UTF-8";
+body{font-family: PingFang-SC-Regular;background: #F1F1F1;}
+.container2{
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0.3rem 0.2rem 1rem 0.2rem;
+}
+.edition_list{
+    background-color: #ffffff;
+	box-shadow: 0.001rem 0.04rem 0.08rem 0rem rgba(184, 184, 184, 0.47);
+    border-radius: 0.18rem;
+    padding: 0.12rem 0.2rem;
+    margin-bottom: 0.3rem;
+    position: relative;
+}
+.edition_list p{
+    font-size: 0.26rem;
+	line-height: 0.44rem;
+	color: #333333;
+}
+.edition_list p span{
+    font-size: 0.24rem;
+}
+.edition_list p span.edi_money{
+    color: #6c25c8;
+}
+.btn_box{
+    width: 1.92rem;
+    position: absolute;
+    right: 0.2rem;
+    top: 0.32rem;
+}
+.btn_box .spread_ma,.btn_box .spread_link,.btn_box .delete{
+    width: 1.92rem;
+	height: 0.38rem;
+	background-image: linear-gradient(87deg, #a051f2 0%, #7536d4 100%), linear-gradient(#8948d2, #8948d2);
+	background-blend-mode: normal, normal;
+    border-radius: 0.19rem;
+    border: none;
+    font-size: 0.26rem;
+    color: #ffffff;
+    float: left;
+    margin-bottom: 0.12rem;
+}
+.btn_box .delete{
+    background-image: linear-gradient(87deg, #ea8133 0%, #eb4328 100%), linear-gradient(#8948d2, #8948d2);
+}

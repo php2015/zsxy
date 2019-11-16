@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>钻石报告</title>
+<link href="__PUBLIC__/css/bang.css" rel="stylesheet"/>
+</head>
+<body>
+<div style="position: absolute;margin-top: 4%;margin-left: 3%;">
+  	<a href="{:url('/index/index/index')}"><img style="width: 10px;height: 18px;" src="/public/index/img/back.png" /></a>
+</div>
+ <div style="position: absolute;margin-top: 3%;margin-left: 54%;font-size: 18px;color: #fafafa;">
+   <span>钻石报告</span>
+</div>
+<div style="position: absolute;margin-top: 24%;">
+		<p class="syy">累计发放奖励：￥23541916.15</p>
+		<p class="syy">累计代理商：21374 人</p>
+</div>
+<div id="banner">
+	<img src="/public/index/img/banner.png" />
+	
+</div>
+<section id="ranking"> 
+  <section id="ranking_list">
+  	<section class="box">
+      <section class="col_11">排名</section>
+      <section class="col_11">用户</section>
+      <section class="col_11">金额</section>
+    </section>
+    <section class="box">
+      <section class="col_1" title="1"></section>
+      <section class="col_2">张***</section>
+      <section class="col_3">尾号5475</section>
+      <section class="col_4">￥3971657.14</section>
+    </section>
+    <section class="box">
+      <section class="col_1" title="2"></section>
+      <section class="col_2">吴***</section>
+      <section class="col_3">尾号1321</section>
+      <section class="col_4">￥3462718.16</section>
+    </section>
+    <section class="box">
+      <section class="col_1" title="3"></section>
+      <section class="col_2">马***</section>
+      <section class="col_3">尾号8624</section>
+      <section class="col_4">￥3191572.11</section>
+    </section>
+    <section class="box">
+      <section class="col_1">4</section>
+      <section class="col_2">朱***</section>
+      <section class="col_3">尾号3121</section>
+      <section class="col_4">￥2871681.15</section>
+    </section>
+    <section class="box">
+      <section class="col_1">5</section>
+      <section class="col_2">何***</section>
+      <section class="col_3">尾号4453</section>
+      <section class="col_4">￥2675186.12</section>
+    </section>
+    {volist name="allAchieve" id="vo" key="k"}
+    <section class="box">
+      <section class="col_1">{$k+5}</section>
+      <section class="col_2">{$vo.names}</section>
+      <section class="col_3">{$vo.mobile}</section>
+      <section class="col_4">￥{$vo.total_achievement}</section>
+    </section>
+    {/volist}
+  </section>
+</body>
+</html>

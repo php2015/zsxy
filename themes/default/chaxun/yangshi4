@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>钻石报告分析优化</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=f50ea5f0-5c14-11e9-8670-5bf8fe2cdd9c&autoShow=false&language=ZHCN' async='async'></script>
+
+</head>
+<style>
+    input::-webkit-input-placeholder {
+        color: #c0c0c0;
+    }
+    .protocol {
+        display: flex;
+        padding: 0px;
+        align-items: center;
+    }
+
+    .pay-btn {
+        height: 44px;
+        width: 90%;
+        border-radius: 22px;
+        background: #f7a150;
+        color: #ffffff;
+        font-size: 16px;
+    }
+</style>
+<body style="background-color: #278ffd;">
+<header class="mui-bar mui-bar-nav">
+</header>
+<div style="position: fixed;right: 5px; top: 480px;z-index: 999;opacity:0.5;">
+    <img src="__PUBLIC__/img/tousu.png" style="width: 40px; height: 40px;"  onclick="qimoChatClick();"/>
+</div>
+<div class="mui-content" style="background-color: #278ffd;">
+
+    <a  href="javascript:-1"  class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;    margin-top: 15px;
+    margin-left: 10px;"></a>
+    <div data-v-22c62a4e="">
+
+
+        <p style="text-align: center;    margin-bottom: 0px;"><img src="__PUBLIC__/img/xy2.png" style="width: 100%;margin-top:0px;"/></p>
+
+        <div data-v-22c62a4e="" class="table" style="border: 15px solid #fff;width: 90%;margin: 12px auto;border-radius: 14px;">
+            <div data-v-22c62a4e="" class="table-item" style="    width: 90%;margin: 23px auto;background-color: #eaeef9;border: 1px solid #eaeef9;border-radius: 27px;">
+                <div data-v-22c62a4e="" class="table-item-left name" style="text-overflow: ellipsis;font-size: 14px;">
+                    真实姓名
+                </div>
+                <div data-v-22c62a4e="" class="table-item-right name">
+                    <input id="username" type="text" name="username" style=" font-size: 14px;background-color: #eaeef9;margin-left: 1%;" placeholder="请输入您的真实姓名" style="text-overflow: ellipsis;    font-family:     font-family: verdana,arial,sans-serif;font-size: 16px;">
+                    <input id="pid" type="hidden" name="pid" value="{$pid}" placeholder="请输入本人手机号">
+                    <input id="sid" type="hidden" name="sid" value="{$sid}" placeholder="请输入本人手机号">
+                    <input id="price" type="hidden" name="price" value="{$price}" placeholder="请输入本人手机号">
+                    <input id="password" type="hidden" name="password" value="123456" placeholder="请输入本人手机号">
+                </div>
+            </div>
+            <div data-v-22c62a4e="" class="table-item" style="    width: 90%;margin: 23px auto;background-color: #eaeef9;border: 1px solid #eaeef9;border-radius: 27px;">
+                <div data-v-22c62a4e="" class="table-item-left name" style="text-overflow: ellipsis;font-size: 14px;">
+                    身份证号
+                </div>
+                <div data-v-22c62a4e="" class="table-item-right name">
+                    <input id="idcard" type="text" style=" font-size: 14px;background-color: #eaeef9;margin-left: -11px;" name="idcard" placeholder="请输入18位的身份证号" style=" text-overflow: ellipsis;    font-family:     font-family: verdana,arial,sans-serif;font-size: 16px;">
+                </div>
+            </div>
+            <div data-v-22c62a4e="" class="table-item"  style="    width: 90%;margin: 23px auto;background-color: #eaeef9;border: 1px solid #eaeef9;border-radius: 27px;">
+                <div data-v-22c62a4e="" class="table-item-left name" style="text-overflow: ellipsis;font-size: 14px;">
+                    手机号码
+                </div>
+                <div data-v-22c62a4e="" class="table-item-right name">
+                    <input id="mobile" type="number" name="mobile"  style=" font-size: 14px;background-color: #eaeef9;margin-left: -11px;" placeholder="请输入本人手机号" style=" text-overflow: ellipsis;    font-family:     font-family: verdana,arial,sans-serif;font-size: 16px;">
+
+                </div>
+            </div>
+
+            <div data-v-22c62a4e="" class="btn-area" style="text-align: center;">
+                <button id="btn" class="pay-btn" style="background-color: #278ffd;">立即打赏检测</button>
+            </div>
+
+            <label data-v-22c62a4e="" class="protocol" style="font-size: 14px; width: 90%; margin-left: 29px;">
+                <input id="radio" name="radio" type="checkbox" class="radio">
+                <span data-v-22c62a4e="" class="checkbox radioInput"></span>
+                我已阅读并同意
+                <p data-v-22c62a4e="" class="blue"><a href="{:url('index/login/protocol')}" style="">《钻石报告分析服务协议》</a></p>
+            </label>
+
+        </div>
+
+        <div style="width: 90%;margin: 12px auto;">
+            <img src="__PUBLIC__/img/xy1.png" width="100%">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#btn").click(function (){
+        //alert('系统升级预计10：00开通');
+        //return false;
+        var btn = document.getElementById('btn');
+        var username =$("#username").val();
+        var sid = $("#sid").val();
+        var price = $("#price").val();
+        var password = $("#password").val();
+        var mobile = $("#mobile").val();
+        var idcard = $("#idcard").val();
+        var code = $("#code").val();
+        var pid = $("#pid").val();
+        //if(username != '张三'){
+        //  alert('系统升级中');
+        //	return false;
+        //  }
+        var radio = $('input[name="radio"]:checked').val();
+        if(username == ''){
+            alert('姓名不能为空');
+            return false;
+        }
+        if(!/^[\u4e00-\u9fa5]*$/.test(username)){
+            alert('姓名请填写正确');
+            return false;
+        }
+        if(idcard == ''){
+            alert('身份证不能为空');
+            return false;
+        }
+        if(idcard.length == 18){
+            if(!/^[0-9A-Z]*$/.test(idcard)){
+                alert('身份证X请大写,不能留有空格');
+                return false;
+            }
+        }else{
+            alert('身份证请填写正确');
+            return false;
+        }
+        if(mobile == ''){
+            //alert(nameuser);
+            alert('手机号码不能为空');
+            return false;
+        }
+        if(mobile.length !== 11){
+            alert("手机号码格式不正确！");
+            return false;
+        }
+        if(!/^[0-9]*$/.test(mobile)){
+            alert("手机号码格式不正确！");
+            return false;
+        }
+        if(radio==null || radio==undefined || radio==""){
+            alert('请确认查询协议');
+            return false;
+        }
+        if(password == ''){
+            alert('密码不能为空');
+            return false;
+        }
+        if(code == ''){
+            alert('验证码不能为空');
+            return false;
+        }
+        $.ajax({
+            url:'{:url('api/curl/idcard')}',
+            type:"post",
+            datatype:'json',
+            data:{'idcard':idcard},
+
+        success:function(data)
+        {
+            //mui.toast("data");
+            if(data == 1){
+
+                $.ajax({
+                    url:'{:url('api/chaxun/zhucechaxun')}',
+                    type:"post",
+                    datatype:'json',
+                    data:{'username':username,'mobile':mobile,'idcard':idcard,'password':password,'code':code,'pid':pid},
+
+                success:function(data){
+                    //window.location.href='{:url('index/chaxun/yangshi2')}';
+                    // window.location.href='{:url('index/chaxun/pay')}?price='+price+'&pid='+sid+'&uid='+data;
+                    //if(){
+                    if(data == 0){
+                        alert("请确认信息是否正确");
+                    }else if(data == 11){
+                        alert("手机号已达每日上限，请稍后重试");
+                    }else if(data == 12){
+                        alert("省份证已达每日上限，请稍后重试");
+                    }else{
+                        window.location.href='{:url('index/pay/pay')}?price='+price+'&pid='+sid+'&uid='+data;
+                        //window.location.href='{:url('index/zfbpay/notifytest')}';
+                    }
+
+                    //}
+                    // if(data==1){
+                    // 	            	alert("确认查询？");
+                    //              window.location.href='{:url('index/chaxun/pay')}?price='+price+'&pid='+{$sid};
+                    //           }else if(data==2){
+                    //               alert("验证码不正确!");
+                    //               return false;
+                    //           }else if(data==3){
+                    //               alert("你已经注册过，请登陆后查询，默认密码123456!");
+                    //               return false;
+                    //           }else if(data==4){
+                    //               alert("手机号已经注册过!");
+                    //               return false;
+                    //           }else if(data==0){
+                    //               alert("注册失败");
+                    //               return false;
+                    //           }
+                }
+            });
+            }else{
+                alert("身份证请填写正确");
+            }
+        }
+    });
+
+    });
+</script>
+
+</body>
+</html>

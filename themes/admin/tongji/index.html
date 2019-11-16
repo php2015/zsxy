@@ -1,0 +1,94 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">点击统计</li> 
+        </ul>
+        <div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<form class="layui-form layui-form-pane" id="myform" action="{:url('admin/tongji/index')}" method="get">
+					<div class="form_customer">
+				
+					<div class="layui-inline">
+						<label class="layui-form-label">开始时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date1" id="date1" value="{$date1}">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">结束时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date2" id="date2" value="{$date2}">
+						</div>
+					</div>
+							
+								
+								
+								<div class="layui-inline">
+									<button onclick="search()" class="layui-btn">全部搜索</button>
+								</div>
+								<div class="layui-inline">
+									<button onclick="tuijianren()" class="layui-btn">按推荐人搜索</button>
+								</div>
+								<div class="layui-inline">
+									<button onclick="kouzi()" class="layui-btn">按口子搜索</button>
+								</div>
+								<!--
+								<div class="layui-inline" style="float:right">
+									<button onclick="excel()" class="layui-btn">导出EXCEL</button>
+								</div>
+								-->
+							</div>
+						</form>
+						<hr>
+					<table class="layui-table">
+                        <thead>
+                        <tr>
+                            
+                            <th>序号</th>
+                           	{if $list[0]['kname']}<td>口子</td>{/if}
+                            {if $list[0]['pnames']}<td>推荐人</td>{/if}
+                            <th>点击量（PV）</th>
+                            <th>有效点击量（UV）</th>
+                            
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="list" item="vo"}
+                        <tr>
+                            
+                            <td>{$vo.id}</td>
+                            {if $list[0]['kname']}<td>{$vo.kname}</td>{/if}
+                            {if $list[0]['pnames']}<td>{$vo.pnames}</td>{/if}
+                            <td>{$vo.PV}</td>
+                            <td>{$vo.UV}</td>
+                        </tr>
+						{/foreach}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+   
+	function excel(){
+		 $("#myform").attr('action',"{:url('admin/tongji/excel')}");
+	}
+	function search(){
+		 $("#myform").attr('action',"{:url('admin/tongji/index')}");
+	}
+	function tuijianren(){
+		 $("#myform").attr('action',"{:url('admin/tongji/tuijianren')}");
+	}
+	function kouzi(){
+		 $("#myform").attr('action',"{:url('admin/tongji/kouzi')}");
+	}
+
+</script>
+{/block}

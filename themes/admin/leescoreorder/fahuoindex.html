@@ -1,0 +1,67 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">发货</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/leescoreorder/fahuos')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户</label>
+                        <div class="layui-input-block">
+							<select name="uid" lay-search>
+								{foreach name="user_list" item="vo"}
+                                <option value="{$vo.id}" {if condition="$leescoreorder.uid==$vo.id"} selected="selected"{/if}>{$vo.names}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                 
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">快递号/券编号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="virtual_sn" value="{$leescoreorder.virtual_sn}"  placeholder="虚拟券序列号/快递单号" class="layui-input">
+                        </div>
+                    </div>
+                   
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">券名称/物流公司</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="virtual_name" value="{$leescoreorder.virtual_name}"  placeholder="虚拟券序列号/快递单号" class="layui-input">
+                        </div>
+                    </div>
+					 <div class="layui-form-item">
+                        
+                        <div class="layui-input-block">
+                            <textarea id="container" name="content" cols="30" rows="15" style="width:100%; margin: 0 auto;"></textarea>
+                        </div>
+                    </div>
+                    
+                    
+    				 <script type="text/javascript" src="__STATIC__/ueditor/ueditor.config.js"></script>
+				    <!-- 编辑器源码文件 -->
+				    <script type="text/javascript" src="__STATIC__/ueditor/ueditor.all.js"></script>
+				    <!-- 实例化编辑器 -->
+				    <script type="text/javascript">
+				        //var ue = UE.getEditor('container');
+				        var ue = UE.getEditor('container', {
+				            autoHeightEnabled:false,
+				            initialFrameHeight:420
+				        });
+				    </script>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$leescoreorder.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">发货</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

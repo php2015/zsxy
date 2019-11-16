@@ -1,0 +1,111 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">查询管理</li>
+        </ul>
+        <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+				  <form class="layui-form layui-form-pane" id="myform" action="{:url('dailishang/chaxun/index')}" method="get">
+				<!--<a class="layui-btn layui-btn-normal layui-btn-radius" target="_blank" href="{:url('admin/user/getAll',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">组织架构图</a>-->
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-inline">
+						<label class="layui-form-label">开始时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date1" id="date1" value="{$date1}">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">结束时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date2" id="date2" value="{$date2}">
+						</div>
+					</div>
+				
+                    <div class="layui-inline">
+									<button onclick="search()" class="layui-btn">搜索</button>
+					</div>
+                    	<div class="layui-inline">
+									<button onclick="excel()" class="layui-btn">导出EXCEL</button>
+								</div>
+                </form>
+                <hr>
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th style="width: 30px;">ID</th>
+                          	<th>付款场景</th>
+                           	<th>订单编号</th>
+                            <th>查询时间</th>
+                            <th>查询类型</th>
+                            <th>价格</th>
+                            <th>查询姓名</th>
+                            <th>查询身份证</th>
+                            <th>查询电话</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="chaxun_list" item="vo"}
+                        <tr>
+                           	<td>{$vo.id}</td>
+                          	<td>{php}echo $vo['source']==2 ? '<span style="color:green;">支付宝</span>' : '<span style="color:red;">微信</span>';{/php}</td>
+                            <td>{$vo.ordernumber}</td>
+                            <td>{$vo.dates|date="Y-m-d H:i:s",###}</td>
+                            <td>{$vo.product_name}</td>
+                            <td>{$vo.price}</td>
+                            <td>{$vo.namess}</td>
+                            <td>{$vo.idcard}</td>
+							<td>{$vo.tel}</td>
+                            <td>
+                                <span data-id="{$vo.id}" class="detail layui-btn layui-btn-normal layui-btn-mini">详情</span>
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+					<div style="float:right; font-size:20px;"> 用户人数：{$count}</div>
+                    <!--分页-->
+                    {$chaxun_list->render()}
+                </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+  	$(function(){
+		$('.detail').click(function(){
+			var THIS = $(this);
+			var id = THIS.data('id');
+			$.post("{:url('dailishang/chaxun/checkid')}",{'id':id},function(res){
+				if(res == 1){
+					alert('报告超过7天，数据已清理');return false;
+				}
+				else{
+					window.location.href="{:url('dailishang/chaxun/xiangqing')}?id="+id;
+				}
+			})
+		})
+	})
+    function addOne(){
+		$.get("{:url('dailishang/chaxun/form')}",function(data){
+			$(".form_customer:first").prepend(data);
+			form.render('select');
+		});
+	}
+	function excel(){
+		 $("#myform").attr('action',"{:url('dailishang/chaxun/excel')}");
+	}
+	function search(){
+		 $("#myform").attr('action',"{:url('dailishang/chaxun/index')}");
+	}
+</script>
+{/block}

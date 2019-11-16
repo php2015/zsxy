@@ -1,0 +1,90 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">业绩管理</li>
+        </ul>
+        <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+				  <form class="layui-form layui-form-pane" id="myform" action="{:url('dailishang/user/indexyeji',['agentyeji'=>$agentyeji])}" method="get">
+				<!--<a class="layui-btn layui-btn-normal layui-btn-radius" target="_blank" href="{:url('admin/user/getAll',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">组织架构图</a>-->
+                    <input name="agentyeji" id="agentyeji" type="hidden" value="{$agentyeji}" />
+					<div class="layui-inline">
+						<label class="layui-form-label">开始时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date1" id="date1" value="{$date1}">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">结束时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date2" id="date2" value="{$date2}">
+						</div>
+					</div>
+					<!--
+					<div class="layui-inline">
+									<button onclick="excel()" class="layui-btn">导出EXCEL</button>
+					</div>
+					-->
+                    <div class="layui-inline">
+									<button onclick="search()" class="layui-btn">搜索</button>
+					</div>
+                </form>
+                <hr>
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th style="width: 30px;">ID</th>
+                           <th>订单编号</th>
+                            <th>查询时间</th>
+                            <th>查询类型</th>
+                            <th>价格</th>
+                            <th>查询姓名</th>
+                            <th>查询身份证</th>
+                            <th>查询电话</th>
+                            <th>渠道</th>
+                            <th>省</th>
+                            <th>市</th>
+                          
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="chaxun_list" item="vo"}
+                        <tr>
+                           <td>{$vo.id}</td>
+                            <td>{$vo.ordernumber}</td>
+                            <td>{$vo.dates|date="Y-m-d H:i:s",###}</td>
+                            <td>{$vo.product_name}</td>
+                            <td>{$vo.price}</td>
+                            <td>{$vo.namess}</td>
+                            <td>{$vo.idcard}</td>
+							<td>{$vo.tel}</td>
+							<td>{$vo.manames}</td>
+							<td>{$vo.sheng}</td>
+							<td>{$vo.shi}</td>
+                            
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+					<div style="float:right; font-size:20px;"> 查询次数：{$chaxun_count}</div>
+                    <!--分页-->
+                    {$chaxun_list->render()}
+                </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+
+	function excel(){
+		 $("#myform").attr('action',"{:url('dailishang/chaxun/excel')}");
+	}
+	function search(){
+		 $("#myform").attr('action',"{:url('dailishang/user/indexyeji')}");
+	}
+</script>
+{/block}

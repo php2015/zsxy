@@ -1,0 +1,134 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:34:"./themes/default/login/logins.html";i:1571917401;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/login.css">
+</head>
+<body>
+<style>
+    .login{
+        width: 1.4rem;
+        width: 1.3rem;
+        height: 1.3rem;
+        margin: 0.2rem 0.25rem 0.3rem;
+    }
+</style>
+<div class="container">
+    <div class="logo_box">
+        <img class="login" src="<?php echo $login['thumb']; ?>" alt="">
+    </div>
+    <div class="login_box">
+        <p class="login_p">登录</p>
+        <div class="ipt_box">
+            <img src="__PUBLIC__/img/phone.png" alt="">
+            <input id="mobile" name="mobile" type="text" placeholder="输入手机号">
+        </div>
+        <div class="ipt_box">
+        	<img src="__PUBLIC__/img/password.png" alt="">
+            <input id='yanzhengma' name="yanzhengma" type="text" placeholder="请输入验证码" style="width:65%;border-right: 2px solid #f0f0f0;">
+            <div id="btnsms" style="text-align: center; line-height:30px;float:right;width:30%;height:30px;color: #ff872d;font-size:16px;margin-top: 3px;margin-right: 5%;">发&nbsp送</div>
+        </div>
+        <button class="login_btn" id="btn">立即登录</button>
+        <div class="clearfix"></div>
+    </div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js" ></script>
+<script type="text/javascript" src="__PUBLICS__/layer/layer.js" ></script>
+<script type="text/javascript">
+     $("#btnsms").click(function (){
+        var mobile=$('#mobile').val();
+        var yanzhengma = $("#yanzhengma").val();
+        if($("#mobile").val().length!=11){
+            layer.msg("手机格不正确！");
+            return false;
+        }
+        $.ajax({
+            type: "post",
+            url: "<?php echo url('api/sms/send'); ?>",
+            data: {"mobile":mobile},
+            success: function(data){
+                if(data == 1){
+                    layer.msg("发送成功");
+                    time()
+                }
+                else if(data == 2){
+                    layer.msg("该手机号未查询过！");
+                }
+                else{
+                    layer.msg("请重新发送！");
+                }
+            },
+            error:function(){
+                alert('失败');
+            }
+
+        });
+        var wait=120;
+        function time() {
+            if (wait == 0) {
+                $("#btnsms").removeClass("btnclass");
+                $("#btnsms").html("发送");
+                wait = 120;
+            } else {
+                $("#btnsms").addClass("btnclass");
+                $("#btnsms").html(wait+"s");
+                wait--;
+                setTimeout(function() {
+                        time()
+                    },
+                    1000)
+            }
+        }
+    });
+    $('#btn').click(function(){
+        var mobile=$('#mobile').val();
+        var yanzhengma=$('#yanzhengma').val();
+
+        if(yanzhengma == ''){
+            layer.msg('验证码不能为空');
+            return false;
+        }
+
+        if(mobile.length !== 11){
+
+            layer.msg("手机号码格式不正确！");
+            return false;
+        }
+        $.ajax({
+            url:"<?php echo url('api/login/loginss'); ?>",
+            type:"post",
+            datatype:'json',
+
+            data:{'mobile':mobile,'code':yanzhengma},
+            success:function(data)
+            {
+                if(data == 1){
+                    window.location.href="<?php echo url('index/user/chaxunjilu'); ?>?p_id=<?php echo $p_id; ?>";
+                }else if(data == 3){
+                    layer.msg('验证码错误');
+                }else if(data == 4){
+                    layer.msg('手机号错误');
+                }else if(data == 5){
+                    layer.msg('验证超时');
+                }else{
+                    layer.msg('验证失败');
+                    return false;
+                }
+
+            },
+            error:function(){
+                layer.msg('失败');
+            }
+        });
+    });
+</script>
+</body>
+</html>

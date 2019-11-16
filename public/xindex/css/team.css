@@ -1,0 +1,142 @@
+@charset "UTF-8";
+body{font-family: PingFang-SC-Regular;background: #F1F1F1;}
+.container{
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+}
+.colour_bg{
+    width: 7.5rem;
+	height: 3.37rem;
+	background-image: linear-gradient(131deg, #ff8259 0%, #b65282 50%, #6c21ab 100%), linear-gradient(#6eafff, #6eafff);
+	background-blend-mode: normal, normal;
+}
+.team_top{
+    width: 7.1rem;
+	height: 3.75rem;
+	background-color: #ffffff;
+	box-shadow: 0rem 0.04rem 0.08rem 0rem #888;
+    border-radius: 0.18rem;
+    position: absolute;
+    top: 0.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.top_head{
+    height: 1rem;
+    border-bottom: 0.02rem solid #bfbfbf;
+}
+.head_item{
+    width: 33.33%;
+    float: left;
+}
+.head_item p:first-of-type{
+    font-size: 0.28rem;
+    color: #6c25c8;
+    text-align: center;
+    margin-top: 0.14rem;
+}
+.head_item p:nth-child(2){
+    font-size: 0.28rem;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+}
+.invite{
+    font-size: 0.28rem;
+    font-weight: bold;
+    color: #333333;
+    padding-left: 0.4rem;
+    position: relative;
+    margin-top: 0.38rem;
+}
+.invite:before{
+    content: '';
+    width: 0.04rem;
+	height: 0.32rem;
+	background-color: #6c25c8;
+    border-radius: 0.01rem;
+    position: absolute;
+    top: 50%;
+    left: 0.2rem;
+    transform: translateY(-50%);
+}
+.invite_box{
+    padding: 0 0.2rem;
+    margin-top: 0.3rem;
+}
+.invite_left{
+    width: 0.76rem;
+    height: 0.76rem;
+    border-radius: 50%;
+    background: #71b6ec;
+    float: left;
+}
+.invite_left img{
+    width: 0.76rem;
+    height: 0.76rem;
+    object-fit: cover;
+    float: left;
+}
+.invite_right{
+    float: left;
+    margin-left: 0.2rem;
+}
+.user_num{
+    font-size: 0.28rem;
+    color: #333333;
+}
+.user_num span{
+    float: right;
+    color: #6c25c8;
+}
+.user_num span.no_profit{
+    color: #ff5050;
+}
+.user_id{
+    font-size: 0.26rem;
+    color: #888888;
+    margin-top: 0.04rem;
+}
+.user_profit{
+    font-size: 0.26rem;
+    color: #666666;
+    margin-top: 0.1rem;
+}
+.user_profit span{
+    color: #6c25c8;
+}
+.active_time{
+    font-size: 0.24rem;
+    color: #888888;
+    margin-top: 0.22rem;
+}
+.list_box{
+    padding: 0.2rem;
+    margin-top: 0.9rem;
+}
+.invite1{
+    margin-top: 0;
+}
+.search_ipt{
+    width: 100%;
+    height: 0.5rem;
+	background-color: #ffffff;
+    border-radius: 0.18rem;
+    text-align: center;
+    font-size: 0.28rem;
+    border: none;
+    float: left;
+    margin-top: 0.34rem;
+}
+.invite_box1{
+    background: #fff;
+    padding: 0.2rem;
+    box-shadow: 0rem 0.04rem 0.08rem 0rem #888;
+    border-radius: 0.18rem;
+    margin-bottom: 0.3rem;
+}
+.invite_box1 .active_time{
+    margin-top: 0.08rem;
+}

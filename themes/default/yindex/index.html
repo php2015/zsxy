@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+</script>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/icons-extra.css">
+    <style>
+    .advert{
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    margin: 0 auto;
+    line-height: 40px;
+
+}
+.ad-title{
+    width: 50px;
+    height: 100%;
+    float: left;
+    padding-left: 10px;
+    padding-top: 3px;
+}
+#ad-main{
+    width: 83%;
+    float: left;
+}
+.u-set{    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 10px;
+    top: 10px;z-index:9999;}
+      .bang{
+		float: right;
+		margin: 10px 10px;
+		border: 1px #ffffff solid;
+		border-radius: 5%;
+		padding: 1px 6px;
+		font-style: normal;
+	}
+   </style>
+</head>
+<body style="">
+	 <header class="mui-bar mui-bar-transparent">
+            <h1 class="mui-title" style="color: #fff;">代理中心</h1>
+			<span class="bang"><a style="color: #f8eeee;cursor: pointer;position: relative;" href="{:url('index/index/bang')}">排行榜</a></span>
+        </header>
+	<div class="mui-content" style="margin: 0;padding: 0;">
+		<div id="slider" class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="{$bannerone.thumb}">
+                    </a>
+                </div>
+                <!-- 第一张 -->
+                {volist name="banner" id="vo"}
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="{$vo.thumb}">
+                    </a>
+                </div>
+                {/volist}
+                <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="{$bannerone.thumb}">
+                    </a>
+                </div>
+            </div>
+            </div>
+        
+        <div >
+		<!-- <div id="login" class="container" style="background-color: #fff; background: url(__PUBLIC__/img/gerenzhongxin.png);background-repeat: no-repeat;
+            background-size: 100%;height: 200px;margin: 0;padding: 0;">
+			<div style="padding-top: 40px;padding-left: 5%;">
+				<div style="float:left;">
+					<img src="__PUBLIC__/img/logo.jpg" style="width: 60px; height: 60px;border-radius: 50%;" />
+				</div>
+				<div style="float: left;padding-left: 20px;padding-top: 15px;">
+					<div style="color: #fff;font-size: 20px;">
+						<b>王升</b><br>
+						<span style="font-size: 12px;">身份：普通会员</span>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div class="mui-card" style="width:90%;margin-left:5%;margin-top:-20px;clear: both;z-index: 999;">
+               
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<div style="border-radius: 6px;margin: 0 auto;background: #f5f5f5;">
+							<div>
+								<div style="float: left; width: 25%; text-align: center;">
+									<p style="color: #5e5e5e;font-size: 16px;">推荐人</p>
+                                    {if condition="$user['pid'] neq 76"}
+									<p style="color: #5e5e5e;font-size: 14px;">{$user.pname}</p>
+                                    {else/}
+                                     <p style="color: #5e5e5e;font-size: 14px;">无</p>
+                                      {/if}
+								</div>
+								<div style="float: left; width: 25%; text-align: center;">
+									<p style="color: #5e5e5e;font-size: 16px;">身份</p>
+									<p style="color: #5e5e5e;font-size: 14px;">{$user.agent}</p>
+								</div>
+								<div style="float: left; width: 25%; text-align: center;">
+									<p style="color: #5e5e5e;font-size: 16px;">累计收益</p>
+									<p style="color: #5e5e5e;font-size: 14px;">{$user.total_achievement}</p>
+								</div>
+								<a href="{:url('index/user/usertx')}">
+                                    <div style="float: left; width: 25%; text-align: center;">
+    									<p style="color: #5e5e5e;font-size: 16px;">余额</p>
+    									<p style="color: #5e5e5e;font-size: 14px;">{$user.money}</p>
+    								</div>
+                                </a>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+			<div style="width:96%;background-color: #fff; border:none;margin-left: 2%;padding-bottom:50px;">
+             <!-- 公告 -->
+                <div class="advert" style="">
+                    <div class="ad-title">
+                        <img src="__PUBLIC__/img/gonggao.png" alt="" style="width: 45px; height:35px;">
+                    </div>
+                    <marquee scrollamount="5" id="ad-main" style="font-size: 14px;"> 
+                    {volist name="news_list" id="vo"}            
+                    <span style="color: rgb(160, 0, 49);font-size: 14px;">
+                        {$vo.title} 
+                    </span>&nbsp;{$vo.marks}<br>
+                    {/volist}
+                    </marquee>
+                </div>
+				<p style="font-size: 16px;color: #ff1940;padding-top: 15px; padding-left: 15px;"><b><span style="float: left;">功能应用</span></b></p>
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style="width:100%;background-color: #fff; border:none; clear: both;">
+			            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" style="    border-left: 1px solid #eee;"><a href="{:url('user/bianji')}">
+			                   <img src="__PUBLIC__/img/rens.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">个人信息</div></a></li>
+			            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="{:url('user/tuandui')}">
+			                    <img src="__PUBLIC__/img/xings.png" style="width: 24px; height: 24px; border-radius: 50%;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">我的团队</div></a></li>
+			            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="{:url('user/chaxunjilu')}">
+			                    <img src="__PUBLIC__/img/ziliao.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">我的客户</div></a></li>
+			           <!--  <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" style="    border-left: 1px solid #eee;"><a href="{:url('index/index/huiyuan')}">
+			                   <img src="__PUBLIC__/img/yue.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;">课程购买</div></a></li> -->
+			            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="{:url('index/index/onenote','id=4')}">
+			                    <img src="__PUBLIC__/img/shezhi.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">操作说明</div></a></li>
+			            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" style="    border-left: 1px solid #eee;"><a href="{:url('index/img/imglist')}">
+			                    <img src="__PUBLIC__/img/erweima.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">邀请代理</div></a></li>
+			            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="{:url('user/usertx')}">
+			                    <img src="__PUBLIC__/img/zhu.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">余额提现</div></a></li>
+			           <!--  <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" style="float: left;"><a href="{:url('index/userskfs')}">
+			                    <img src="__PUBLIC__/img/bangding.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;">收款绑定</div></a></li> -->
+			                    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" style="float: left;"><a href="{:url('login/editpd')}">
+			                    <img src="__PUBLIC__/img/yinhangka.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">修改密码</div></a></li>
+			             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" style="float: left;"><a href="{:url('index/weixin')}">
+			                    <img src="__PUBLIC__/img/aixin.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">联系我们</div></a></li>
+			            
+			           
+			           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" style="float: left;"><a href="{:url('index/login/tuichu')}">
+			                    <img src="__PUBLIC__/img/tuichu.png" style="width: 24px; height: 24px;" />
+			                    <div class="mui-media-body" style="font-size:12px;color: #9b9b9b;">退出</div></a></li>
+			        </ul> 
+			</div>
+
+	</div>
+	 <nav class="mui-bar mui-bar-tab" style="background-color: #fff;">
+            <!-- <a class="mui-tab-item mui-active" href="{:url('index/index/index')}">
+                <span class="mui-icon mui-icon-home" style="color: #ff1940;"></span>
+                <span class="mui-tab-label"  style="color: #ff1940;">首页</span>
+            </a> -->
+            <a class="mui-tab-item" href="{:url('index/index/mingxi')}">
+                <span class="mui-icon mui-icon-extra mui-icon-extra-alipay"  style="color: #f7572d;"></span>
+                <span class="mui-tab-label"  style="color: #f7572d;">收入明细</span>
+            </a>
+            <a class="mui-tab-item" href="{:url('index/index/fenxiang')}">
+                <span class="mui-icon mui-icon-chat"  style="color: #f7572d;"></span>
+                <span class="mui-tab-label"  style="color: #f7572d;">推广赚钱</span>
+            </a>
+            <a class="mui-tab-item" href="{:url('index/index/index')}">
+                <span class="mui-icon mui-icon-contact"  style="color: #f7572d;"></span>
+                <span class="mui-tab-label"  style="color: #f7572d;">个人中心</span>
+            </a>
+    </nav>
+	<script src="__PUBLIC__/js/jquery.min.js "></script>
+        <script>
+            mui.init({
+                swipeBack:true//启用右滑关闭功能
+            });
+            mui('body').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+            (function($) {
+                $('#scroll').scroll({
+                    indicators: true //是否显示滚动条
+                });
+                
+                 var slider = mui("#slider");
+                    slider.slider({
+                        interval: 1000//自动轮播周期，若为0则不自动播放，默认为0；
+                    });
+                var segmentedControl = document.getElementById('segmentedControl');
+                $('.mui-input-group').on('change', 'input', function() {
+                    if (this.checked) {
+                        var styleEl = document.querySelector('input[name="style"]:checked');
+                        var colorEl = document.querySelector('input[name="color"]:checked');
+                        if (styleEl && colorEl) {
+                            var style = styleEl.value;
+                            var color = colorEl.value;
+                            segmentedControl.className = 'mui-segmented-control' + (style ? (' mui-segmented-control-' + style) : '') + ' mui-segmented-control-' + color;
+                        }
+                    }
+                });
+                var marquee = document.getElementById('marquee');
+                var offset=0;
+                var scrollheight =marquee.offsetWidth;
+                var firstNode = marquee.children[0].cloneNode(true);
+                marquee.appendChild(firstNode);//还有这里
+                setInterval(function(){
+                    if(offset > scrollheight*2){
+                        offset = 0;
+                    }
+                    marquee.style.marginLeft = "-"+offset+"px";
+                    offset += 3;
+                },50);
+            })(mui);
+        </script>
+      
+</body>
+</html>

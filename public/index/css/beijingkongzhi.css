@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* CSS Document */@charset=utf-8;/*css reset*/
+
+* { margin: 0; padding: 0; }
+body { margin: 0; padding: 0; text-decoration: none; font-size: 14px; font-family: 'Microsoft YaHei','Lantinghei SC','Open Sans',Arial,'Hiragino Sans GB','STHeiti','WenQuanYi Micro Hei','SimSun',sans-serif; }
+li { list-style: none; }
+.menu { width: 1000px; height: 600px; margin: 30px auto; background-color: #ececec; }
+.menu .menuTop { background-color: #F10215; color: #fff; width: 140px; height: 40px; padding-left: 20px; line-height: 40px; cursor: pointer; }
+.menu ul { width: 160px; background-color: #fff; border: 2px solid #F10215; box-sizing: border-box; position: relative; }
+.menu ul li { height: 30px; padding-left: 8px; text-align: left; line-height: 30px; font-size: 13px; background: url(image/1.png) no-repeat right; z-index: 2;}
+.menu ul li a { color: #707077; }
+.menu ul li a:hover { color: red; text-decoration: underline; cursor: pointer; }
+.menu ul li:hover { border: 1px solid #DDD; border-right: 0; background-image: none; }
+.menu ul li:hover .submenu { display: block; }
+.menu ul li:hover span { width: 30px; height: 30px; display: inline-block; background-color: #FFF; z-index: 100; position: relative; }
+.menu ul li .submenu { position: absolute; left:0; top: 30px; width: 720px; height: 300px; border: 1px solid #DDD; box-shadow: 0 0 8px #DDD; -moz-box-shadow: 0 0 8px #DDD; -webkit-box-shadow: 0 0 8px #DDD; background-color: #FFF; z-index: 3; display: none; }
+.menu ul li .submenu .subleft { margin-left: 0px; width: 400px; height: 300px; padding: 5px; }
+.menu ul li .submenu .subleft dl { overflow: hidden; border-bottom: 1px solid #D1D1D1; padding: 10px 0; }
+.menu ul li .submenu .subleft dl dt {height: 22px; line-height: 22px; margin-right: 10px; font-weight: bold; color: #707070; font-size: 12px; cursor: pointer; }
+.menu ul li .submenu .subleft dl dd { }
+.menu ul li .submenu .subleft dl dd a { display: block; border-left: 1px solid #707070; padding: 0 5px; color: #707070; height: 14px; line-height: 14px; margin: 3px 0; font-size: 11px; }
+.menu ul li .submenu .subright { width: 310px; height: 300px; background-color: blue; }

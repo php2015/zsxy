@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>钻石报告</title>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/icons-extra.css">
+</head>
+<body style="background-color: #edf2f3;">
+  <header class="mui-bar mui-bar-nav" style="background-color:#f7572d;">
+          <h1 class="mui-title" style="color: #fff;">分享</h1>
+    </header>
+  <div class="mui-content" style="background-color: #edf2f3;padding-left: 15px;padding-right: 15px;">
+    <img src="__PUBLIC__/img/fenxiang1.png" style="width:100%;margin-top:15px;"/>
+      <div style="margin-top:-150px;width:100%; height: 160px;">
+          <div style="color:#fff;padding-top:30px;font-size: 18px;margin-left:20px;font-weight:800;">
+              你当前的累计收益
+          </div>
+          <div style="color: #fff;padding-top: 20px;font-size: 30px;margin-left:20px;">
+              {$sum-$tuikuangsun|round=2} 元   </div>
+      </div>
+      <div style="width: 100%;background-color: #fff;padding-top: 43px;padding-left: 15px;padding-bottom: 100px;border-radius:10px;">
+        <div style="padding-right: 15px;height: 25px;width: 100%;">
+            <div style="font-size: 16px;color: #333333;background-color: #fff;margin-top: -5px;line-height: 36px;text-align:center;margin-bottom:20px;">
+                <b style="color:#f56b0e;">选择版本编辑推广价格</b>
+
+            </div>
+            <a href="{:url('index/price/pricelist')}" style="color: #fff;">
+            <div style="border-radius:10px;padding: 6px 10px 6px 10px;background-color: #f56b0e;font-size: 14px;text-align: center;color: #fff;/* margin-top: 36px; */width: 70%;line-height: 28px;margin: 0 auto;">
+
+                    去设置
+
+            </div>
+            </a>
+        </div>
+      <!--<div style="font-size: 13px;color: #b4b4b4;line-height: 20px;padding-left: 16px;margin-top: 10px; clear: both;">
+        钻石报告招募合伙人，躺赚二级分佣，佣金秒结
+      </div>-->
+      <!--<li style="font-size: 13px;color: #b4b4b4;line-height: 20px;margin-top: 10px; clear: both;">
+        初级版：每次查询6.8元/单<br>
+        <span style="padding-left: 12px;">直推查询奖励0元/单，下级查询奖励0元/单</span>
+      </li>
+      <li style="font-size: 13px;color: #b4b4b4;margin-top: 10px;">
+        初级版：每次查询6.8元/单<br>
+        <span style="padding-left: 12px;">直推查询奖励0元/单，下级查询奖励0元/单</span>
+      </li>
+      <li style="font-size: 13px;color: #b4b4b4;margin-top: 10px;">
+        初级版：每次查询6.8元/单<br>
+        <span style="padding-left: 12px;">直推查询奖励0元/单，下级查询奖励0元/单</span>
+      </li>-->
+
+      </div><div style="width: 100%; clear: both;background-color: #fff;margin-top:10px;padding-top: 10px;padding-left: 15px;padding-bottom: 65px;border-radius:10px;">
+      <div style="width: 100%;clear: both;">
+          <div style="padding-top: 5px;">
+
+              <div style="font-size: 16px;color: #333333;background-color: #fff;margin-top: 10px;text-align:center;">
+                  <b style="color:#f56b0e;">我的版本</b>
+              </div>
+          </div>
+
+          {volist name="product" id="vo"}
+          <div style="width: 96%; clear: both;border:1px solid #d18f90;height:136px;border-radius: 10px;margin-top: 15px;background:#FFFFFF;">
+              <div style="width:70%;float:left;font-size: 14px;color: #575757;line-height: 20px;margin-top: 10px;padding-left: 15px;">
+                  <div style="float:left;line-height:25px;">版本名称：
+                      <br>佣金：
+                      <br>成本价格：
+                      <br>自定义价格：
+                      <br>描述：
+                  </div>
+                  <div style="float:left;line-height:25px;font-weight:800;">{$vo.rename}
+                      <br>{$vo.yongjin}元
+                      <br>{$vo.chengben}元
+                      <br>{$vo.price}元
+                      <br>{$vo.marks}
+                  </div>
+
+              </div>
+
+              <div style="width: 30%; float: left;text-align: center;padding-top: 10px;">
+                  <a href="{:url('index/index/tuiguang',array('imgid'=>$vo['id'],'a_g_id'=>$vo['a_g_id']))}" style="color: #fff;font-size:10px;"> </a>
+                  <div style="width: 80%;border-radius:36px;padding:2px 5px 2px 5px;margin-left: 10%;background-color: #f56b0e;font-size: 14px;text-align: center;color: #fff;">
+                      <a href="{:url('index/qrc/views',array('imgid'=>$vo['id'],'a_g_id'=>$vo['a_g_id']))}" style="color: #fff;font-size:10px;">
+                         二维码推广
+                      </a>
+                    </div>
+                  <div style="width: 80%;margin-top: 10px;border-radius:36px;padding:2px 5px 2px 5px;margin-left: 10%;background-color: #f56b0e;font-size: 14px;text-align: center;color: #fff;">
+                      <a href="{:url('index/index/tuiguang',array('imgid'=>$vo['id'],'a_g_id'=>$vo['a_g_id']))}" style="color: #fff;font-size:10px;">
+                          链接推广
+                      </a>
+                  </div>
+
+                  <div style="width: 80%;margin-top: 10px;border-radius:36px;padding:2px 5px 2px 5px;margin-left: 10%;background-color: #f56b0e;font-size: 14px;text-align: center;color: #fff;">
+                      <a href="javascript:shanchu({$vo.id},0)" style="color: #fff; font-size:10px;">
+                          删除
+                      </a>
+                  </div>
+
+              </div>
+          </div>
+          {/volist}
+
+          {if condition="isset($comp) && !empty($comp) && count($comp) > 0"/}
+          {volist name="comp" id="vo"}
+          <div style="width: 96%; clear: both;margin-top: 15px;background:#FFFFFF;">
+                  <img src="__PUBLIC__/img/zongh001.png" style="width: 100%;border-radius: 8px;float: left;height: 158px;" >
+              <div style="width: 30%;float: right;text-align: center;margin-top: -124px;">
+                  <a href="{:url('index/index/tuiguang',array('imgid'=>$vo.id,'type_status'=>8))}" style="color: #fff;font-size:10px;"> </a>
+                  <div style="width: 80%;border-radius:36px;padding:2px 5px 2px 5px;margin-left: 10%;background-color: #fff;font-size: 14px;text-align: center;color: #fff;">
+                      <a href="{:url('index/qrc/views',array('imgid'=>$vo.id,'type_status'=>8))}" style="color: #ff6511;font-size: 10px;font-weight: bold;">
+                          二维码推广
+                      </a>
+                  </div>
+                  <div style="width: 80%;margin-top: 10px;border-radius:36px;padding:2px 5px 2px 5px;margin-left: 10%;background-color: #fff;font-size: 14px;text-align: center;color: #fff;">
+                      <a href="{:url('index/index/tuiguang',array('imgid'=>$vo.id,'type_status'=>8))}" style="color: #ff6511;font-size: 10px;font-weight: bold;">
+                          链接推广
+                      </a>
+                  </div>
+
+                  <div style="width: 80%;margin-top: 10px;border-radius:36px;padding:2px 5px 2px 5px;margin-left: 10%;background-color: #fff;font-size: 14px;text-align: center;color: #fff;">
+                      <a href="javascript:shanchu({$vo.id},8)" style="color: #ff6511;font-size: 10px;font-weight: bold;">
+                          删除
+                      </a>
+                  </div>
+
+              </div>
+          </div>
+          <div style="clear:both"></div>
+          {/volist}
+          {/if}
+
+    </div>
+  </div>
+      <script  type="text/javascript">
+                         function shanchu(pid,tid){
+                              $.ajax({
+                                  url:'{:url('index/index/shanchu')}',
+                                  type:"post",
+                                  datatype:'json',
+
+                                  data:{'pid':pid,'tid':tid},
+                                  
+                                  success:function(data){
+                                      if(data == 1){
+									  mui.toast('删除成功');
+                                      // alert("删除成功");
+                                        window.location.href="{:url('index/index/fenxiang')}";
+                                    }else{
+                                        window.location.href="{:url('index/index/fenxiang')}";
+                                    }
+                                  }
+                              });
+                            }
+
+ </script>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+  {if condition="isset($isStaff) and $isStaff neq 1"}
+  <nav class="mui-bar mui-bar-tab" style="background-color: #fff;">
+            <!-- <a class="mui-tab-item mui-active" href="{:url('index/index/index')}">
+                <span class="mui-icon mui-icon-home" style="color: #ff1940;"></span>
+                <span class="mui-tab-label"  style="color: #ff1940;">首页</span>
+            </a> -->
+            <a class="mui-tab-item" href="{:url('index/index/mingxi')}">
+                <span class="mui-icon mui-icon-extra mui-icon-extra-alipay"  style="color: #f7572d;"></span>
+                <span class="mui-tab-label"  style="color: #f7572d;">收入明细</span>
+            </a>
+            <a class="mui-tab-item" href="{:url('index/index/fenxiang')}">
+                <span class="mui-icon mui-icon-chat"  style="color: #f7572d;"></span>
+                <span class="mui-tab-label"  style="color: #f7572d;">推广赚钱</span>
+            </a>
+            <a class="mui-tab-item" href="{:url('index/index/index')}">
+                <span class="mui-icon mui-icon-contact"  style="color: #f7572d;"></span>
+                <span class="mui-tab-label"  style="color: #f7572d;">个人中心</span>
+            </a>
+    </nav>
+   {/if}
+    <script src="__PUBLIC__/js/jquery.min.js "></script>
+        <script>
+            mui.init({
+                swipeBack:true//启用右滑关闭功能
+            });
+            mui('body').on('tap','a',function(){
+                window.top.location.href=this.href;
+         });
+
+
+   function copyArticle1(id) {
+        const range = document.createRange();
+		var content="content"+id;
+		//alert(content);false;
+        range.selectNode(document.getElementById(content));
+        //alert(range);
+        const selection = window.getSelection();
+        if(selection.rangeCount > 0) selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+		mui.toast('复制成功');
+        //alert("复制成功！");
+    }
+	function code(id){
+		copyArticle1(id);
+	}
+    /*if(copy1!==''){
+    document.getElementById('copyBT1').addEventListener('click', copyArticle1, false);
+}*/
+        </script>
+</body>
+</html>

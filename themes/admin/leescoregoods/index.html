@@ -1,0 +1,117 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">商品管理</li>
+            <li class=""><a href="{:url('admin/leescoregoods/add')}">添加商品</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form layui-form-pane" action="{:url('admin/leescoregoods/index')}" method="get">
+				
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+						
+                    </div>
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                        <th>商品名称</th>
+						<th>商品图标</th>
+                        <th>库存</th>
+                        <th>原价</th>
+                        <th>分类</th>
+                        <th>类型</th>
+                        <th>价格</th>
+                        <th>热</th>
+                        <th>新</th>
+                        <th>时间</th>
+                        <th>排序</th>
+                      
+                        <th>状态</th>
+                       <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="leescoregoods_list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                       <td><b><a style="color:#ff5500" href="javascript:title({$vo.id})">{$vo.name}</a></b></td>
+						<td><center><img style="height:50px; width:50px;" src="{$vo.thumb}"/></center></td>
+                        <td>{$vo.stock}</td>
+                        <td>{$vo.yuanjia}</td>
+                        <td>{$vo.tname}</td>
+                        <td>{php}echo $vo['type']==0 ? '实物商品' : '虚拟商品';{/php}</td>
+                        <td>{$vo.money}</td>
+                        <td>{php}echo $vo['hott']==1 ? '是' : '否';{/php}</td>
+                        <td>{php}echo $vo['news']==1 ? '是' : '否';{/php}</td>
+						<td>{$vo.createtime|date="Y-m-d H:i:s",###}</td>
+                      	<td>{$vo.weigh}</td>
+                      	
+						<td>{php}echo $vo['status']==1 ? '启用' : '禁用';{/php}</td>
+						
+                        <td style="width:130px">
+						 	 
+                            <a href="{:url('admin/leescoregoods/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+							{if condition="$vo['type'] eq 1"}
+								 <a href="{:url('admin/leescoregoods/peizhi',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">配置</a>
+							{/if}
+                           
+                            <a href="{:url('admin/leescoregoods/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+				<div style="float:right; font-size:20px;"> 商品数：{$count}</div>
+				<div style="width: 820px;height: 100%;padding: 10px;display: inline-block;position: relative;background: #fff;overflow-y: scroll;">
+                    <div id="lis" style="width:100px;text-align:center;padding-top:15px;font-size:30px;"></div>
+                    <div id="marks">
+                       
+                    </div>
+                </div>
+                <!--分页-->
+                {$leescoregoods_list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+            var lis=document.getElementById("lis");
+            var marks=document.getElementById("marks");
+                            function title(id) { 
+                              
+                              $.ajax({
+                                        url:'{:url('admin/leescoregoods/title')}',
+                                        type:"post",
+                                        datatype:'json',
+                                        data:{'id':id},
+                                        
+                                        success:function(data){
+                                          layer.open({
+                                                  type: 1,
+                                                  title: false,
+                                                  area: ['820px','1000px'], //宽高
+                                                  closeBtn: 0,
+                                                  shadeClose: true,
+                                                  skin: 'yourclass',
+                                                  content: '<div style="padding:50px;"><h2 class="detail-title" style="box-sizing: border-box; font-size: 24px; text-align: center; font-weight: 400; padding-right: 40px; white-space: normal;padding-bottom:20px;"></br>'+data.name+'</h2><div>'+data.content+'</div></div>'
+                                                });
+                                            }
+                                });
+                            }  
+</script>
+{/block}

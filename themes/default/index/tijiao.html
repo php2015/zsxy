@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>罗马快车</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/style2.css"/>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/mui.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/product',array('gid'=>$gid))}" style="color: #2d4bfc;"></a>
+            <h1 class="mui-title" style="color: #000;">提交订单</h1>
+           
+        </header>
+	<div class="gray-panel" style="margin-top:44px;">
+    	<div class="paoduct-title-panel">
+        	<h2 class="checkout-h2"><span class="am-badge am-round am-badge-warning ">1</span> 确认订单信息</h2>
+			<div class="cart-list-panel">
+                <ul class="am-avg-sm-1 cart-panel-ul">
+                    <li>
+                        <div class="imgpanel"><a href="#"><img src="{$leescoregoods.thumb}" class="am-img-responsive" /></a></div>
+                        <div class="infopanel">
+                            <h3><a href="#">{$leescoregoods.name}</a></h3>
+                            <p>价格：<span class="red2 bold">{$leescoregoods.money}</span>    &nbsp;&nbsp;&nbsp; </p>
+                            <p>数量：<span class="red2 bold">{$num}</span> 件</p>
+                            <p>运费：<span class="red2 bold">{$yunfu}</span> 元</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="cart_foot">共<span class="red2 bold" id="total_good">{$num}</span>件商品；价格：<span class="red2 bold" id="total_amount">{$leescoregoods.money *$num+$yunfu}</span>；</div>
+            
+        </div>
+      
+        <div class="my-search-title-panel am-text-sm am-margin-bottom-sm"><i class="am-icon-lightbulb-o am-text-danger"></i> 提示：
+		{if condition="$leescoregoods['type'] eq '0'"/}
+		实际的运费可能因为收货地址的不同而有差异，具体以提交之后系统计算或卖家协商为准
+		{else/}
+		虚拟商品可以不填收获地址
+		{/if}
+		</div>
+		{if condition="$leescoregoods['type'] eq '0'"/}
+        <div class="paoduct-title-panel">
+        	<h2 class="checkout-h2"><span class="am-badge am-round am-badge-warning ">!</span> 确认收货地址</h2>
+            <p><i class="am-icon-location-arrow"></i> 收货地址
+                <a href="{:url('index/index/dizhilist',array('gid'=>$gid,'num'=>$num))}">
+                    <span style="float: right;padding:5px 10px; background: #2d4bfc;border-radius: 5px;color: #fff;">修改</span>
+                </a>
+            </p>
+            <p>
+                <!-- <p style="width: 25%;text-align:center;float: left;">省：{$leescoreaddress.region}</p>
+                <p style="width: 25%;text-align:center;float: left;">市：{$leescoreaddress.city}</p>
+                <p style="width: 25%;text-align:center;float: left;">区：{$leescoreaddress.xian}</p>
+                <p style="width: 25%;text-align:center;float: left;">县：{$leescoreaddress.address}</p> -->
+                <p style="width: 50%;padding-left: 15px;float: left;">姓名:{$leescoreaddress.firstname}</p>
+                <p style="width: 50%;padding-left: 15px;float: left;">手机号：{$leescoreaddress.mobile}</p>
+                <p style="width: 100%;padding-left: 15px;margin-top: 20px;">具体地址：{$leescoreaddress.region}{$leescoreaddress.city}{$leescoreaddress.xian}{$leescoreaddress.address}</p>
+                <p style="width: 100%;padding-left: 15px;margin-top: 20px;">备注：</p>
+                <textarea id="other" style="width: 100%;margin-left: 0%;height: 100px;"></textarea>
+                
+        </div>
+      {else/}
+		{/if}
+            <div style="clear: both;background: #fff;">
+            	<ul class="am-avg-sm-2 am-text-center" style="background: #fff;">
+                	<li class="am-text-center am-padding-sm"  style="margin-left:25%;"><button   onclick="buy()" class="am-btn am-btn-danger am-btn-block am-radius" style="background: #2d4bfc;border: none;">提交订单</button></li>
+          <script src="__PUBLIC__/js/jquery.min.js"></script>
+          <script type="text/javascript">
+            function buy() { 
+                            var uid = '{$uid}';
+                            var gid = '{$gid}';
+                            var num = '{$num}';
+                            var address_id = '{$leescoreaddress['id']}';
+                            var other =  $("#other").val();
+                            var trade_money =  '{$leescoregoods.money *$num+$yunfu}';
+                            var mobile = '{$leescoreaddress['mobile']}';
+                            var firstname = '{$leescoreaddress['firstname']}';
+                            //alert(firstname);
+                            if(uid == ''){
+                              alert('请登陆后购买');
+                              //alert(nameuser);
+                              window.location.href='{:url('index/login/login')}';
+                              return false;
+                            }
+							{if condition="$leescoregoods['type'] eq '0'"/}
+								if(address_id == ''){
+								  alert('请选择收货地址');
+								  //window.location.href='{:url('index/index/index')}';
+								  return false;
+								}
+								 if(mobile == ''){
+                              //alert(nameuser);
+                              window.location.href='{:url('index/index/index')}';
+                              return false;
+                            }
+                            if(firstname == ''){
+                              //alert(nameuser);
+                              window.location.href='{:url('index/index/index')}';
+                              return false;
+                            }
+							 {else/}
+                             {/if}
+                            if(trade_money == ''){
+                              //alert(nameuser);
+                              window.location.href='{:url('index/index/index')}';
+                              return false;
+                            }
+                           
+                            // alert(other);
+                            $.ajax({
+                                    url:'{:url('index/index/dingdan')}',
+                                    type:"post",
+                                    datatype:'json',
+                                    data:{'gid':gid,'num':num,'uid':uid,'address_id':address_id,'other':other,'trade_money':trade_money,'mobile':mobile,'firstname':firstname},
+                                    
+                                    success:function(data){
+                                      //json=$.parseJSON(data);
+                                      //alert(data);
+                                                  if(data!=0){
+                                            window.location.href="{:url('index/pay/pay')}?last_id="+data;
+                                       
+                                        }else{
+                                            alert('生成订单失败');
+                                            return false;
+                                        }
+                                      }
+                            });
+                             //   window.location.href='{:url('index/index/tijiao')}?gid={$leescoregoods.id}&num='+num;
+                      }  
+            </script>
+                       <!--  <li class="am-text-center am-padding-sm"><button type="button" class="am-btn am-btn-success am-btn-block am-radius">继续购物</button></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+          <script>
+	  	function showFooterNav(){
+			$("#footNav").toggle();
+		}
+	  </script>
+    </div>
+</div>
+</body>
+</html>

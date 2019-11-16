@@ -1,0 +1,90 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">点击明细</li> 
+        </ul>
+        <div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<form class="layui-form layui-form-pane" id="myform" action="{:url('admin/mingxi/index')}" method="get">
+					<div class="form_customer">
+					<div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-inline">
+						<label class="layui-form-label">开始时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date1" id="date1" value="{$date1}">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">结束时间</label>
+						<div class="layui-input-inline">
+						<input type="text" class="layui-input datetime" name="date2" id="date2" value="{$date2}">
+						</div>
+					</div>
+							
+								
+								
+								<div class="layui-inline">
+									<button onclick="search()" class="layui-btn">搜索</button>
+								</div>
+								<!--<div class="layui-inline" style="float:right">
+									<button onclick="excel()" class="layui-btn">导出EXCEL</button>
+								</div>
+								-->
+							</div>
+						</form>
+						<hr>
+					<table class="layui-table">
+                        <thead>
+                        <tr>
+                            
+                            <th>记录ID</th>
+                            <th>口子</th>
+                            <th>用户姓名</th>
+                            <th>推荐人</th>
+                            <th>IP地址</th>
+                            <th>访问时间</th>
+                            
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="ips_list" item="vo"}
+                        <tr>
+                            
+                            <td>{$vo.id}</td>
+                            <td>{$vo.kname}</td>
+                            <td>{$vo.names}</td>
+                            <td>{$vo.pnames}</td>
+							<td>{$vo.ip}</td>
+                            <td>{$vo.dates|date="Y-m-d H:i:s",###}</td>
+                        </tr>
+						{/foreach}
+                        </tbody>
+                    </table>
+                  <!--分页-->
+                {$ips_list->render()}
+                </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+  
+	function excel(){
+		 $("#myform").attr('action',"{:url('admin/mingxi/excel')}");
+	}
+	function search(){
+		 $("#myform").attr('action',"{:url('admin/mingxi/index')}");
+	}
+
+</script>
+{/block}

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+{extend name="bases" /}
+{block name="body"}
+
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>砖石信用</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/base.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<style>
+
+
+    .container{
+        padding:0;
+    }
+    .circleChart_canvas{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        transform: rotate(133deg) ! important ;
+        position: absolute;
+        top: -107px;
+        left: 47px;
+    }
+    .circleChart_text {
+        position: absolute;
+        line-height: 100px;
+        top: -114px ! important;
+        left: 43px;
+        width: 104px ! important;
+        margin: 0px;
+        padding: 0px;
+        color: #f77926;
+        text-align: center;
+        font-size: 14.2857px;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+
+    .layui-tab-title li{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+        transition: all .2s;
+        position: inherit ! important;
+        line-height: 40px;
+        min-width: 65px;
+        padding: 0 10px;
+    }
+
+    .layui-body{
+        left: 200px ! important;
+    }
+
+    .layui-tab {
+        margin: 0px 0 ! important;
+        text-align: left!important;
+    }
+
+    #round-box{
+        margin-left: 261px;
+    }
+
+    #round-box2{
+        margin-left: 208px;
+    }
+
+    .main{width:100%;position:relative;margin:auto;}
+    .layer{position:relative;}
+    .layer03-panel{position:relative;float:left;}
+    .layer03-left-chart{position:relative;float:left;}
+
+    .container{
+        padding:0;
+    }
+    .circleChart_canvas{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        transform: rotate(133deg) ! important ;
+        position: absolute;
+        top: -107px;
+        left: 47px;
+    }
+    .circleChart_text{
+        position: absolute;
+        line-height: 100px;
+        top: -114px ! important;
+        left: 43px;
+        width: 104px ! important ;
+        margin: 0px;
+        padding: 0px;
+        color:#f77926;
+        text-align: center;
+        font-size: 14.2857px;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+
+    .layui-tab-title li{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+        transition: all .2s;
+        position: inherit ! important;
+        line-height: 40px;
+        min-width: 65px;
+        padding: 0 10px;
+    }
+
+    .layui-tab {
+        margin: 0px 0 ! important;
+        text-align: left!important;
+    }
+
+</style>
+
+<?php
+    $borrowType = ['0'=>'未知','1'=>'个人信贷','2'=>'个人抵押','3'=>'企业信贷','4'=>'企业抵押'];
+$borrowState = ['0'=>'未知','1'=>'拒贷','2'=>'批贷已放款','3'=>'待放款','4'=>'借款人放弃申请','5'=>'审核中','6'=>'待放款'];
+//还款状态 0.未知 1.正常 2.M1 3.M2 4.M3 5.M4 6.M5 7.M6 8.M6+ 9.已还清;
+//M1(1~30天)、M2(31~60天)、M3(61~90天)、M4(91~120天)、M5(121~150天)、M6(151~180天)、M6+(>180天)。
+$repayState = [ '0'=>'未知','1'=>'正常','2'=>'逾期(1~30天)','3'=>'逾期(31~60天)','4'=>'逾期(61~90天)','5'=>'逾期(91~120天)','6'=>'逾期(121~150天)','7'=>'逾期(151~180天)','8'=>'逾期(≥180天)','9'=>'已还清'];
+$borrowAmount = [ '-7'=>'0-1000', '-6'=>'1000-2000', '-5'=>'2000-3000', '-4'=>'3000-4000', '-3'=>'4000-6000', '-2'=>'6000-8000', '-1'=>'8000-10000', '0'=>'未知', '1'=>'10000-20000', '2'=>'20000-40000', '3'=>'40000-60000', '4'=>'60000-80000', '5'=>'80000-100000', '6'=>'100000-120000', '7'=>'120000-140000', '8'=>'140000-160000', '9'=>'160000-180000',  '10'=>'180000-200000', '11'=>'200000-220000',   ];
+?>
+<div class="layui-body" style="background-color: #fff;">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+
+
+        <div class="container" style="background-color:#f98501;border-bottom: 10px solid #f98501;">
+            <ul class="layui-tab-title">
+                <a href="{:url('admin/chaxun/index')}">
+                    <li class="layui-this">返回</li>
+                </a>
+                <li>查询信息</li>
+                <a href="http://www.zsxycx.com/index/login/view.html?dingdanids={$chaxun['id']}">
+                    <li class="layui-this"> 前台地址</li>
+                </a>
+            </ul>
+
+            <header class="mui-bar-nav" style="-webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0.85);height: 168px;width: 100%;background-image: url(/public/index/img/yangshis.png);background-size: 100% 168px;background-repeat: no-repeat;">
+
+            </header>
+
+            <div style="border: 1px solid #fff;background-color: #fff;margin-right: 8px; margin-left: 8px;border-radius: 4px;">
+                <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: -80px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+                    <div style="text-align: center;margin-top: inherit;">
+                        {if condition="isset($ren) && $ren eq '男'"}
+                        <img src="/public/index/img/male.png" style="width: 15%;border: 8px solid #f98501;border-radius: 100%;">
+                        {else/}
+                        <img src="/public/index/img/female.png" style="width: 15%;border: 8px solid #f98501;border-radius: 100%;">
+                        {/if}
+                    </div>
+
+                    <p style="text-align: center;font-size: 18px;color: #f98501;font-weight: bolder;line-height: 36px;">{$opnames}</p>
+                    <p style="text-align: center;font-size: 18px;color: #f98501;line-height: 1px;">{$ningling}岁  <span>{$ren}</span></p>
+                    <p style="font-size:14px;font-weight: normal;color: #f98501;">
+                        <span style="margin-left: 30px;">手机号码：</span>
+                        <span style="float:right; margin-right: 30px;">{$op}&nbsp;</span>
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                        <span style="margin-left: 30px;">身份证：</span>
+                        <span style="float:right; margin-right: 30px;">{$opcard}&nbsp;</span>
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                        <span style="margin-left: 30px;">所属地：</span>
+                        <span style="float:right; margin-right: 30px;">{$dizhi.province}{$dizhi.city}&nbsp;</span>
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                        <span style="margin-left: 30px;">报告生成时间：</span>
+                        <span style="float:right; margin-right: 30px;">{if condition="isset($chaxun['dates'])"/}
+                                                                                {$chaxun['dates']|date="Y-m-d H:i:s",###}
+                                                                                                {else/}
+                                         	                                                            0
+                                                                                                {/if}&nbsp;</span>
+                    </p>
+                </div>
+
+
+                <div style="width: 50%; margin: 20px auto;">
+                    <span style="display: block;background: #f98501;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">失信被执行人</span>
+                </div>
+                {if condition="count($zhixing) neq 0"/}
+        {volist name="zhixing" id="vo"}
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 10px;line-height: 23px;">
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">姓名：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.zhixing_name) and !empty($vo.zhixing_name)"}{$vo.zhixing_name}{/if}&nbsp;</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行案号：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.zhixing_casenum) and !empty($vo.zhixing_casenum)"}{$vo.zhixing_casenum}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行法院：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.zhixing_court) and !empty($vo.zhixing_court)"}{$vo.zhixing_court}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">立案时间：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.zhixing_time) and !empty($vo.zhixing_time)"}{$vo.zhixing_time|date="Y年m月d日",###}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">执行标的：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.zhixing_money) and !empty($vo.zhixing_money)"}{$vo.zhixing_money}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">发布时间：</span>
+                    <span style="float:right; margin-right: 30px;">{if condition="isset($vo.zhixing_posttime) and !empty($vo.zhixing_posttime)"}{$vo.zhixing_posttime|date="Y年m月d日",###}{/if}</span>
+                </p>
+            </div>
+
+            <div style="border-bottom: 1px solid #cdcccc;margin: 0 2% 0px 2%;"></div>
+
+            <div style="margin-top: 10px;margin-left: 30px;line-height: 23px;">
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span>执行依据文号：</span>
+                    <span>{if condition="isset($vo.zhixing_base) and !empty($vo.zhixing_base)"}{$vo.zhixing_base}{/if}&nbsp;</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span>做出执行依据单位：</span>
+                    <span>{if condition="isset($vo.zhixing_basecompany) and !empty($vo.zhixing_basecompany)"}{$vo.zhixing_basecompany}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span>被执行人的履行情况：</span>
+                    <span>{if condition="isset($vo.zhixing_performance) and !empty($vo.zhixing_performance)"}{$vo.zhixing_performance}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span>生效法律文书确定的义务：</span>
+                    <span>{if condition="isset($vo.zhixing_obligation) and !empty($vo.zhixing_obligation)"}{$vo.zhixing_obligation}{/if}</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span>失信被执行人行为具体情形：</span>
+                    <span>{if condition="isset($vo.zhixing_concretesituation) and !empty($vo.zhixing_concretesituation)"}{$vo.zhixing_concretesituation}{/if}</span>
+                </p>
+            </div>
+        </div>
+        {/volist}
+    {else/}
+                <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+                    <div style="margin-top: 10px;line-height: 23px;">
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">姓名：</span>
+                            <span style="float:right;">查询成功，无失信被执行人的相关信息。&nbsp;</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行案号：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行法院：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">立案时间：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行标的：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">发布时间：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                    </div>
+
+                    <div style="border: 1px solid #cdcccc;margin: 0 7% 0px 7%;"></div>
+
+                    <div style="margin-top: 10px;margin-left: 30px;line-height: 23px;">
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span>执行依据文号：</span>
+                            <span>无&nbsp;</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span>做出执行依据单位：</span>
+                            <span>无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span>被执行人的履行情况：</span>
+                            <span>无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span>生效法律文书确定的义务：</span>
+                            <span>无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span>失信被执行人行为具体情形：</span>
+                            <span>无</span>
+                        </p>
+                    </div>
+                </div>
+                {/if}
+
+
+                <div style="width: 50%; margin: 20px auto;">
+                    <span style="display: block;background: #f98501;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">法院被执行人</span>
+                </div>
+                {if condition="count($fayuan) neq 0"/}
+                {volist name="fayuan" id="vo"}
+                <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">姓名：</span>
+                            <span style="float:right; margin-right: 30px;">{$vo.fy_name}&nbsp;</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行案号：</span>
+                            <span style="float:right; margin-right: 30px;">{$vo.fy_datatypeid}</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行法院：</span>
+                            <span style="float:right; margin-right: 30px;">{$vo.court}</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">立案时间：</span>
+                            <span style="float:right; margin-right: 30px;">{if condition="$vo.datatime"}{$vo.datatime}{/if}</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行标的：</span>
+                            <span style="float:right; margin-right: 30px;">{if condition="$vo.fy_money"}{$vo.fy_money}{/if}</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">案件状态：</span>
+                            <span style="float:right; margin-right: 30px;">{if condition="$vo.fy_statute"}{$vo.fy_statute}{/if}</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">身份证号：</span>
+                            <span style="float:right; margin-right: 30px;">{$vo.fy_cid}</span>
+                        </p>
+                    </div>
+                </div>
+                {/volist}
+                {else/}
+                <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">姓名：</span>
+                            <span style="float:right;">查询成功，无法院被执行人的相关信息。&nbsp;</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行案号：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行法院：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">立案时间：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">执行标的：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">案件状态：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                        <p style="font-size: 14px;font-weight: normal;">
+                            <span style="margin-left: 30px;">身份证号：</span>
+                            <span style="float:right; margin-right: 30px;">无</span>
+                        </p>
+                    </div>
+                </div>
+                {/if}
+                <div style="background: #fff;margin-top: 25px;margin-right: 8px;margin-left: 14px;">
+                    <div style="width: 133px;border: 6px solid #eeeeee;margin: 0 auto;">
+                        <img src="/public/index/img/erweima123.jpg" style=" width: 120px;text-align: center;" >
+                    </div>
+                    <p style="text-align: center;font-weight: bolder;">
+                        查信用、查更黑、测额度、消风险
+                    </p>
+                    <p style="text-align: center;font-weight: bolder;">扫码关注钻石好信</p>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+</html>
+<script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+<script src="/public/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script>
+
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+
+    mui('body').on('tap', 'a', function () {
+        window.top.location.href = this.href;
+    });
+    var istrue = true;
+    $(window).on("scroll",
+        function () {
+            var s = $(window).scrollTop();
+            $(".timer").each(count);
+
+            function count(a) {
+                var b = $(this);
+                a = $.extend({},
+                    a || {},
+                    b.data("countToOptions") || {});
+                b.countTo(a)
+            };
+            istrue = falme;
+            $(".timer").removeClass("timer")
+        })
+    //设置计数
+    $.fn.countTo = function (options) {
+        options = options || {};
+        return $(this).each(function () {
+            //当前元素的选项
+            var settings = $.extend({}, $.fn.countTo.defaults, {
+                from: $(this).data('from'),
+                to: $(this).data('to'),
+                speed: $(this).data('speed'),
+                refreshInterval: $(this).data('refresh-interval'),
+                decimalm: $(this).data('decimalm')
+            }, options);
+            //更新值
+            var loops = Math.ceil(settings.speed / settings.refreshInterval),
+                increment = (settings.to - settings.from) / loops;
+            //更改应用和变量
+            var self = this,
+                $self = $(this),
+                loopCount = 0,
+                value = settings.from,
+                data = $self.data('countTo') || {};
+            $self.data('countTo', data);
+            //如果有间断，找到并清除
+            if (data.interval) {
+                clearInterval(data.interval);
+            }
+            ;
+            data.interval = setInterval(updateTimer, settings.refreshInterval);
+            //初始化起始值
+            render(value);
+
+            function updateTimer() {
+                value += increment;
+                loopCount++;
+                render(value);
+                if (typeof (settings.onUpdate) == 'function') {
+                    settings.onUpdate.call(self, value);
+                }
+                if (loopCount >= loops) {
+                    //移出间隔
+                    $self.removeData('countTo');
+                    clearInterval(data.interval);
+                    value = settings.to;
+                    if (typeof (settings.onComplete) == 'function') {
+                        settings.onComplete.call(self, value);
+                    }
+                }
+            }
+
+            function render(value) {
+                var formattedValue = settings.formatter.call(self, value, settings);
+                $self.html(formattedValue);
+            }
+        });
+    };
+    $.fn.countTo.defaults = {
+        from: 20,               //数字开始的值
+        to: 0,                 //数字结束的值
+        speed: 1000,           //设置步长的时间
+        refreshInterval: 10,  //隔间值
+        decimalm: 0,           //显示小位数
+        formatter: formatter, //渲染之前格式化
+        onUpdate: null,        //每次更新前的回调方法
+        onComplete: null       //完成更新的回调方法
+    };
+
+    function formatter(value, settings) {
+        return value.toFixed(settings.decimalm);
+    }
+
+    //自定义格式
+    $('#count-number').data('countToOptions', {
+        formmatter: function (value, options) {
+            return value.toFixed(options.decimalm).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+    });
+    //定时器
+    $('.timer').each(count);
+
+    function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+    }
+</script>
+{/block}
+{block name="script"}
+<script>
+    function addOne() {
+        $.get("{:url('dailishang/chaxun/form')}", function (data) {
+            $(".form_customer:first").prepend(data);
+            form.render('select');
+        });
+    }
+
+    function excel() {
+        $("#myform").attr('action', "{:url('dailishang/chaxun/excel')}");
+    }
+
+    function search() {
+        $("#myform").attr('action', "{:url('dailishang/chaxun/index')}");
+    }
+</script>
+{/block}

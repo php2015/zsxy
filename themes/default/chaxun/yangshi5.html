@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>钻石报告</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/base.css" rel="stylesheet" type="text/css" />
+
+</head>
+<style>
+    .container{
+        padding:0;
+    }
+    .circleChart_canvas{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        transform: rotate(133deg) ! important ;
+        position: absolute;
+        top: -107px;
+        left: 47px;
+    }
+    .circleChart_text{
+        position: absolute;
+        line-height: 100px;
+        top: -114px ! important;
+        left: 43px;
+        width: 104px ! important ;
+        margin: 0px;
+        padding: 0px;
+        color:#f77926;
+        text-align: center;
+        font-size: 14.2857px;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+
+
+    .main{width:100%;position:relative;margin:auto;}
+    .layer{position:relative;}
+    .layer03-panel{position:relative;float:left;}
+    .layer03-left-chart{position:relative;float:left;}
+</style>
+<body style="">
+
+<div class="container" style="background-color:#fcb74c;    border-bottom: 10px solid #fcb74c;">
+    <a href="/index/complaint/wenti.html">
+    	<div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+        	<p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+    	</div>
+	</a>
+  <a href="/index/complaint/index.html">
+    <div style="width: 40px;height: 40px;border: 1px solid #ff9600;background: #ff9600;border-radius:100%;position: fixed;right: 5px; top: 350px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
+    </div>
+</a>
+    <a href="javascript:history.back(-1)" class="glyphicon glyphicon-chevron-left" style="color: #fff;float: left;margin-top: 15px;margin-left: 10px;text-decoration: none;"></a>
+    <header class="mui-bar-nav" style="-webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0.85);height: 168px;width: 100%;background-image: url(/public/index/img/fxjd04.png);background-size: 100% 168px;background-repeat: no-repeat;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+    </header>
+
+    <div style="border: 1px solid #fff;background-color: #fff;margin-right: 8px; margin-left: 8px;border-radius: 4px;">
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: -80px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+            <div style="text-align: center;margin-top: inherit;">
+                <img src="/public/index/img/male.png" style="width: 35%; margin-top: 25px;border: 8px solid #f98501;border-radius: 100%;">
+            </div>
+
+            <p style="text-align: center;font-size: 18px;color: #f98501;font-weight: bolder;line-height: 36px;">张三</p>
+            <p style="text-align: center;font-size: 18px;color: #f98501;line-height: 1px;">37岁  <span>男</span></p>
+            <p style="font-size:14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">手机号码：</span>
+                <span style="float:right; margin-right: 30px;">181111111111&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">身份证：</span>
+                <span style="float:right; margin-right: 30px;">421111111111111111&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">所属地：</span>
+                <span style="float:right; margin-right: 30px;">武汉市洪山区&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">报告生成时间：</span>
+                <span style="float:right; margin-right: 30px;">2019-20-10&nbsp;</span>
+            </p>
+        </div>
+
+
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 5%;margin-bottom: 5%;text-align: center;">
+               <img src="/public/index/img/fxjd03.png" style="width: 90%;">
+                <p style="margin-top: -80px;margin-left: 23px;font-size: 50px;font-weight: bold; color: #fe9b00;">58<span style="font-size: 16px;color: #fe9b00;">%</span></p>
+                <p style="    font-size: 16px;margin-top: -23px;font-weight: bold;margin-left: 19px;"><span>C</span></p>
+                <p style="margin-left: 13px;margin-top: -8px;"><span>更新时间：2019.06.13</span></p>
+                <p style="margin-left: 2px;font-size:12px;color: #f98501;"><img src="/public/index/img/pf01.png" style="width: 91%;"></p>
+            </div>
+        </div>
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 10px;line-height: 23px;">
+                <img src="/public/index/img/fxjd01.png" style="width: 45%;margin-left: 4%;">
+                <img src="/public/index/img/fxjd01.png" style="width: 45%;margin-left: 1%;">
+                <div style="font-size:13px; margin-top: -69px;width: 52%;text-align: center;font-weight: bold;">
+                    <p>￥<span style="font-size:20px;margin-left: -1px;">5千以下</span> </p>
+                    <p style="margin-top: 50px;font-size: 16px;margin-left: 5px;">预测信用卡额度</p>
+                </div>
+                <div style=" font-size: 13px; margin-top: -107px; margin-left: 47%;text-align: center;font-weight: bold;">
+                    <p>￥<span style="font-size:20px;margin-left: -1px;">2万以下</span> </p>
+                    <p style="margin-top: 50px;font-size: 16px;margin-left: 5px;">预测贷款额度</p>
+                </div>
+               <p style="margin-left: 30px;margin-right: 30px;font-size:12px;color: #acb3c7;">授信额度由钻石报告风控模型评测，额度仅供参考，钻石报告仅做获取及展示，不对此额度做任何担保及保证</p>
+            </div>
+        </div>
+        <div style="width: 50%; margin: 20px auto;">
+            <span style="display: block;background: #f98501;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">风险解读</span>
+        </div>
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 10px;">
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">风险群体名单</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">网贷灰名单</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">机构关注名单</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">高负债名单</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">网贷黑名单</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">身份证命中高风险区域</span>
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    <span style="margin-left: 30px;">车辆租赁违约名单</span>
+                </p>
+            </div>
+        </div>
+
+
+
+        <div style="width: 50%; margin: 20px auto;">
+            <span style="display: block;background: #f98501;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">申贷小技巧</span>
+        </div>
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style=" margin-top: 20px;line-height: 23px;margin-left: 30px;margin-right: 30px;">
+                <p style="font-size: 14px;font-weight: normal;">
+                    1、下载借款APP及申请的时候，平台需要获取定位，通讯录等权限，务必选择允许或者好和同意。
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    2、？？？？？？？？？？？？？？？？
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    3、？？？？？？？？？？？？？？？？
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    4、？？？？？？？？？？？？？？？？
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    5、？？？？？？？？？？？？？？？？
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    6、？？？？？？？？？？？？？？？？
+                </p>
+
+                <div id="stof" style="display: none;">
+                    <p style="font-size: 14px;font-weight: normal;">
+                        7、？？？？？？？？？？？？？？？？
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        8、？？？？？？？？？？？？？？？？
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        9、？？？？？？？？？？？？？？？？
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        10、？？？？？？？？？？？？？？？？
+                    <p style="font-size: 14px;font-weight: normal;">
+                        11、？？？？？？？？？？？？？？？？
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        12、？？？？？？？？？？？？？？？？
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        13、？？？？？？？？？？？？？？？？
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        14、？？？？？？？？？？？？？？？？
+                    </p>
+
+                </div>
+                <div style="text-align: center;color: #666;padding-top:10px;" id="caozuo">
+                                    <span id="wenzi" style="font-size: 14px;color: #ffffff;text-align: center;border: 1px solid #fc8e2c;width: 27%;border-radius: 36px;padding-left: 8px;padding-right: 8px;background-color: #fc8e2c;margin-left: 0%;">
+                                      阅读全部
+
+                                    </span>
+                    <p><img id="iiimmg" src="/public/index/report/down.png"/></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+<script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+<script src="/public/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $('#caozuo').click(function(){
+        if($('#stof').attr('style') == 'display: none;'){
+            $('#stof').slideDown();
+            $('#wenzi').html('收起部分');
+            $('#iiimmg').attr('src','/public/index/report/up.png');
+        }
+        else{
+            $('#stof').slideUp();
+            $('#wenzi').html('阅读全部');
+            $('#stof').attr('style','display: none;')
+            $('#iiimmg').attr('src','/public/index/report/down.png');
+        }
+
+
+    })
+</script>

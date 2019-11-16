@@ -1,0 +1,102 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/Kouzi/index')}">口子管理</a></li>
+            <li class="layui-this">添加口子</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/kouzi/save')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">口子名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="kname" value="" required lay-verify="required" placeholder="请输入口子名称" class="layui-input">
+                        </div>
+                    </div>
+                     <div class="layui-form-item">
+                        <label class="layui-form-label">头像</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="thumb" value="" class="layui-input layui-input-inline" id="thumb">
+                            <input type="file" name="file" class="layui-upload-file">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="ktitle" value="" required lay-verify="required" placeholder="请输入标题" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">详情</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="kmarks" value="" placeholder="请输入详情" class="layui-input">
+                        </div>
+                    </div>
+					
+					<div class="layui-form-item">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+							<select name="ktype" lay-search>
+								<option value="0">无类型</option>
+								{foreach name="type_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.tname}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">最高额度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="kheight" value="0" lay-verify="number" placeholder="请输入额度" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">已放款金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="klast" value="0" lay-verify="number" placeholder="请输入已放款金额" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">排序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="descc" value="0" lay-verify="number" placeholder="排序" class="layui-input">
+                        </div>
+                    </div>
+					<div class="layui-form-item">
+                        <label class="layui-form-label">链接</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="hrefs" value="#"  placeholder="链接" class="layui-input">
+                        </div>
+                    </div>
+				
+					<div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="state" value="1" title="启用" checked="checked">
+                            <input type="radio" name="state" value="0" title="禁用">
+                        </div>
+                    </div>
+					
+					<div class="layui-form-item">
+                        <label class="layui-form-label">备注</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="remarks" value="" class="layui-input">
+                        </div>
+                    </div>
+					
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+					
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

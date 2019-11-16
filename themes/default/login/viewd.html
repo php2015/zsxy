@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>钻石报告</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/base.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<style>
+    .container{
+        padding:0;
+    }
+    .circleChart_canvas{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        transform: rotate(133deg) ! important ;
+        position: absolute;
+        top: -107px;
+        left: 47px;
+    }
+    .circleChart_text{
+        position: absolute;
+        line-height: 100px;
+        top: -114px ! important;
+        left: 43px;
+        width: 104px ! important ;
+        margin: 0px;
+        padding: 0px;
+        color:#f77926;
+        text-align: center;
+        font-size: 14.2857px;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+
+
+    .main{width:100%;position:relative;margin:auto;}
+    .layer{position:relative;}
+    .layer03-panel{position:relative;float:left;}
+    .layer03-left-chart{position:relative;float:left;}
+</style>
+<body style="">
+<div class="container" style="background-color:#fcb74c;    border-bottom: 10px solid #fcb74c;">
+  <a href="/index/complaint/wenti.html">
+    	<div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+        	<p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+    	</div>
+	</a>
+    <a href="javascript:history.back(-1)" class="glyphicon glyphicon-chevron-left" style="color: #fff;float: left;margin-top: 15px;margin-left: 10px;text-decoration: none;"></a>
+    <header class="mui-bar-nav" style="-webkit-box-shadow: 0 0 0px rgba(255, 255, 255, 0.85);height: 168px;width: 100%;background-image: url(/public/index/img/fxjd04.png);background-size: 100% 168px;background-repeat: no-repeat;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+    </header>
+<a href="{:url('/index/complaint/comment')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 350px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">评论</p>
+    </div>
+    </a>
+<a href="{:url('/index/complaint/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #ff9600;background: #ff9600;border-radius:100%;position: fixed;right: 5px; top: 400px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
+    </div>
+</a>
+ <a href="{:url('/calculator/index/index')}">
+    <div style="width: 40px;height: 40px;border: 1px solid #12a8ce;background: #12a8ce;border-radius:100%;position: fixed;right: 5px; top:450px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">计算器</p>
+    </div>
+	</a>
+    <div style="border: 1px solid #fff;background-color: #fff;margin-right: 8px; margin-left: 8px;border-radius: 4px;">
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: -80px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0 2px 7px 1px #d7d7d7;">
+            <div style="text-align: center;margin-top: inherit;">
+                {if condition="isset($result.ren) && $result.ren eq '男'"}
+                <img src="/public/index/img/male.png" style="width: 35%;border: 8px solid #fcb74c;border-radius: 100%;">
+                {else/}
+                <img src="/public/index/img/female.png" style="width: 35%;border: 8px solid #fcb74c;border-radius: 100%;">
+                {/if}
+            </div>
+
+            <p style="text-align: center;font-size: 18px;color: #f98501;font-weight: bolder;line-height: 36px;">{if condition="isset($result.opnames) and !empty($result.opnames)"} {$result.opnames} {/if}</p>
+            <p style="text-align: center;font-size: 18px;color: #f98501;line-height: 1px;">{if condition="isset($result.ningling) and !empty($result.ningling)"} {$result.ningling}{else/}0{/if}岁  <span>{$result.ren}</span></p>
+            <p style="font-size:14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">手机号码：</span>
+                <span style="float:right; margin-right: 30px;">{if condition="isset($result.mobile) and !empty($result.mobile)"} {$result.mobile} {/if}&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">身份证：</span>
+                <span style="float:right; margin-right: 30px;">{if condition="isset($result.opcard) and !empty($result.opcard)"} {$result.opcard} {/if}&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">所属地：</span>
+                <span style="float:right; margin-right: 30px;">{if condition="isset($result.province) and !empty($result.province)"} {$result.province} {/if}&nbsp;</span>
+            </p>
+            <p style="font-size: 14px;font-weight: normal;color: #f98501;">
+                <span style="margin-left: 30px;">报告生成时间：</span>
+                <span style="float:right; margin-right: 30px;">{if condition="isset($result.createAt) and !empty($result.createAt)"} {$result.createAt} {/if}&nbsp;</span>
+            </p>
+        </div>
+
+
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 5%;margin-bottom: 5%;text-align: center;">
+                <img src="/public/index/img/fxjd03.png" style="width: 90%;">
+                <p style="margin-top: -80px;margin-left: 23px;font-size: 50px;font-weight: bold; color: #fe9b00;">{if condition="isset($result.fraction) and !empty($result.fraction)"} {$result.fraction} {else/}95{/if}<span style="font-size: 16px;color: #fe9b00;">分</span></p>
+                <p style="    font-size: 16px;margin-top: -23px;font-weight: bold;margin-left: 19px;">评价等级：<span>
+                    {if condition="isset($result.grade) and !empty($result.grade)"} {$result.grade} {else/}D{/if}</span></p>
+                <p style="margin-left: 13px;margin-top: -8px;"><span>更新时间：{if condition="isset($result.createAt) and !empty($result.createAt)"} {$result.createAt} {/if}</span></p>
+                <p style="margin-left: 2px;font-size:12px;color: #f98501;"><img src="/public/index/img/pf01.png" style="width: 91%;"></p>
+            </div>
+        </div>
+
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 10px;line-height: 23px;">
+                <img src="/public/index/img/fxjd01.png" style="width: 45%;margin-left: 4%;">
+                <img src="/public/index/img/fxjd01.png" style="width: 45%;margin-left: 1%;">
+                <div style="font-size:13px; margin-top: -69px;width: 52%;text-align: center;font-weight: bold;">
+                    <p>￥<span style="font-size:20px;margin-left: -6px;">
+                        {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                5000以下
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                5千—1.5万
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                1万—2万
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                1.5万—3万
+                {elseif condition="$result.fraction > '82'"/}
+                3万以上
+                {else/}
+                无
+                {/if}
+                {else/}
+                无
+                {/if}
+                        </span> </p>
+                    <p style="margin-top: 50px;font-size: 16px;margin-left: 5px;">预测信用卡额度</p>
+                </div>
+                <div style=" font-size: 13px; margin-top: -107px; margin-left: 47%;text-align: center;font-weight: bold;">
+                    <p>￥<span style="font-size:20px;margin-left: -6px;">
+                        {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                10000以下
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                8千—2万
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                1.5万—3万
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                3万—5万
+                {elseif condition="$result.fraction > '82'"/}
+                5万以上
+                {else/}
+                无
+                {/if}
+                {else/}
+                无
+                {/if}</span> </p>
+                    <p style="margin-top: 50px;font-size: 16px;margin-left: 5px;">预测贷款额度</p>
+                      
+                </div>
+                    <p style="margin-left: 30px;margin-right: 30px;font-size:12px;color: #acb3c7;">授信额度由钻石报告风控模型评测，额度仅供参考，钻石报告仅做获取及展示，不对此额度做任何担保及保证</p>
+            </div>
+        </div>
+
+
+        <div style="width: 50%; margin: 20px auto;">
+            <span style="display: block;background: #f98501;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">风险解读</span>
+        </div>
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style="margin-top: 10px;">
+
+               {if condition="isset($result.fraction) and !empty($result.fraction)"}
+                {if condition="$result.fraction <= '40'"/}
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">网络小贷高风险</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">信贷逾期后还款名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">风险群体名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">多头借贷严重名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">网贷黑名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">羊毛党名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">恶意注册名单</span></p>
+           
+
+
+                {elseif condition="$result.fraction > '40' and $result.fraction< '61'"/}
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">网络小贷高风险</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">信贷逾期后还款名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">风险群体名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">多头借贷严重名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">羊毛党名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">网贷灰名单</span></p>
+           
+
+                {elseif condition="$result.fraction > '60' and $result.fraction< '73'"/}
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">网络小贷高风险</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">风险群体名单</span></p>
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">网贷灰名单</span></p>
+           
+
+                {elseif condition="$result.fraction > '72' and $result.fraction< '83'"/}
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">机构关注名单</span></p>
+            
+                {elseif condition="$result.fraction > '82'"/}
+					<p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">查询成功，未检测到风险点</span></p>
+				{/if}
+				{else/}
+                <p style="font-size: 14px;font-weight: normal;"><span style="margin-left: 30px;">查询成功，未检测到风险点</span></p>
+                {/if}
+                
+                
+              
+            </div>
+        </div>
+
+
+
+        <div style="width: 50%; margin: 20px auto;">
+            <span style="display: block;background: #f98501;color: #fff;border-radius: 50px;text-align: center;    font-size: 16px;line-height: 30px;">申贷小技巧</span>
+        </div>
+        <div style="border: 1px solid #d8d8d8;background: #fff;margin-top: 15px;margin-right: 8px;margin-left: 8px;border-radius: 4px;box-shadow: 0px -2px 10px 2px #d7d7d7;">
+            <div style=" margin-top: 20px;line-height: 23px;margin-left: 30px;margin-right: 30px;">
+                <p style="font-size: 14px;font-weight: normal;">
+                    1、下载借款APP及申请的时候，平台需要获取定位，通讯录等权限，务必选择允许或者好和同意。
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    2、务必使用自己的实名制手机号，且号码使用超过半年。
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    3、如果手机号非本人实名，暂时只申请查征信上征信类的贷款，这类贷款不看重手机是否实名制。
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    4、预留的联系人一定不能是银行或者网贷有不良记录的的，通话记录一定要和本人较多的。
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    5、删除手机中关于贷款，中介，赌博，网贷有逾期未还者，以及通讯录中带有标点符号，数字，英文字母以及一个字的联系人，修改为人名，名字只能是2-5个字的纯汉字。
+                </p>
+                <p style="font-size: 14px;font-weight: normal;">
+                    6、把预留的三个联系人在通讯录中改成真名
+                </p>
+
+                <div id="stof" style="display: none;">
+                    <p style="font-size: 14px;font-weight: normal;">
+                        7、把支付宝的收货地址多的删掉，留下一个家庭的和一个公司的
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        8、支付宝点开芝麻信用，信用管理，授权管理，把网贷的授权给取消，自己申请网贷的同时，申请完一家，申请第二家的时候取消上一家的授权！
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        9、需要验证淘宝的时候，同理删掉淘宝中多余的收货地址，留下两个常用的为家庭和单位地址，尽量和支付宝一致
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        10、放款机构普遍认为已婚有子女、学历高者，稳定性高，逾期率低，更容易通过
+                    <p style="font-size: 14px;font-weight: normal;">
+                        11、人脸识别五官露出来，不带眼睛帽子，光线适中
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        12、签字必须要正楷，一笔一划的写
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        13、接回访电话时，按照所填资料如实回答，表现自己的还款意愿和还款能力。
+                        信用卡账单尽量网银导入，导入账单时，有逾期的不导入，尽量选择有临额或者额度大
+                    </p>
+                    <p style="font-size: 14px;font-weight: normal;">
+                        14、下载及申请的时候，务必使用手机自带流量，关闭WiFi信号
+                    </p>
+
+                </div>
+                <div style="text-align: center;color: #666;padding-top:10px;" id="caozuo">
+                                    <span id="wenzi" style="font-size: 14px;color: #ffffff;text-align: center;border: 1px solid #fc8e2c;width: 27%;border-radius: 36px;padding-left: 8px;padding-right: 8px;background-color: #fc8e2c;margin-left: 0%;">
+                                      阅读全部
+
+                                    </span>
+                    <p><img id="iiimmg" src="/public/index/report/down.png"/></p>
+                </div>
+            </div>
+        </div>
+        <div style="background: #fff;margin-top: 25px;margin-right: 8px;margin-left: 14px;">
+          		
+             {if condition="$agent['isoem_name'] eq '1'"/}
+                	{if condition="!empty($agent['thumb'])"/}
+                		<img src="/public/{$agent.thumb}" style="width: 140px;margin-top: 50px;margin-left: 27%;"/>
+                	{/if}
+                {else/}
+                	{if condition="$agent['isopen_ewm'] eq '1'"/}
+                		<img src="__PUBLIC__/img/zsx01.jpg" style="width: 140px;margin-top: 50px;margin-left: 27%;"/>
+                	{/if}
+            {/if}
+            <p style="text-align: center;font-weight: bolder;">
+                查信用、查更黑、测额度、消风险
+            </p>
+            <p style="text-align: center;font-weight: bolder;">扫码关注钻石报告</p>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+<script src="/public/bootstrap/js/jquery-2.2.3.min.js"></script>
+<script src="/public/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $('#caozuo').click(function(){
+        if($('#stof').attr('style') == 'display: none;'){
+            $('#stof').slideDown();
+            $('#wenzi').html('收起部分');
+            $('#iiimmg').attr('src','/public/index/report/up.png');
+        }
+        else{
+            $('#stof').slideUp();
+            $('#wenzi').html('阅读全部');
+            $('#stof').attr('style','display: none;')
+            $('#iiimmg').attr('src','/public/index/report/down.png');
+        }
+
+
+    })
+</script>

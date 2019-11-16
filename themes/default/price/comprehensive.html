@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>钻石报告</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style1.css"/>
+    <script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=f50ea5f0-5c14-11e9-8670-5bf8fe2cdd9c&autoShow=false&language=ZHCN' async='async'></script>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav" style="background-color:#f7572d;">
+    <a class="mui-action-back  mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+    <h1 class="mui-title" style="color: #fff;">自定义版本</h1>
+</header>
+
+
+
+<style>
+    .dl-b {
+        background-color:transparent;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .dl-a-b {
+        overflow: hidden;
+        height: 45px;
+    }
+
+    .dl-a-b-r {
+        width: 80%;
+        float: left;
+        position: relative;
+    }
+
+    .dl-a-b-l {
+        float: left;
+        line-height: 45px;
+        font-size: 14px;
+    }
+</style>
+<div style="position: fixed;right: 5px; top: 480px;z-index: 999;opacity:0.5;">
+    <img src="__PUBLIC__/img/tousu.png" style="width: 40px; height: 40px;"  onclick="qimoChatClick();"/>
+</div>
+
+<div class="mui-content">
+    <div style="margin-left:15px;padding-right:15px;margin-top:15px;"><img src="__PUBLIC__/img/tupian1.png" style="width:100%;height:100%;display:block;"></div>
+    <div class="dl-a">
+        <div class="dl-b" style="padding-bottom:50px;">
+
+            <form  id="formId" >
+            {volist name="goods" id="vo"}
+            <div style="padding-right:15px;margin-top:10px;background: #fff;border-radius:10px;">
+                <div class="dl-a-b">
+                    <div class="dl-a-b-r" style="width:100%;text-align:center;margin-top:20px;color:#f7572d;font-weight:800;">
+                        {if condition="$vo.tname"}{$vo.tname}自定义{else/}自定义版本名称{/if}
+                    </div>
+                </div>
+                <div class="dl-a-b">
+                    <div class="dl-a-b-l">
+                        名称
+                    </div>
+                    <div class="dl-a-b-r" style="border:none;line-height:45px;text-align: right;">
+                        <input name="productname[]"  value="{$vo.tname}" id="productname" type="text" placeholder="自定义版本名称" style="border:none;text-align: right;">
+                    </div>
+                </div>
+                <div class="dl-a-b">
+                    <div class="dl-a-b-l">
+                        成本价格
+                    </div>
+                    <div class="dl-a-b-r" style="border:none;line-height:45px;text-align: right;">
+                        <input id="" name="price[]" data-id="{$vo['id']}" disabled="disabled" value="{$vo.price}" type="text" style="border:none;text-align: right;">
+                    </div>
+                </div>
+                <div style="border-top: 1px solid #f0f0f0;"></div>
+                <div class="dl-a-b">
+                    <div class="dl-a-b-l">
+                        推广价格
+                    </div>
+                    <div class="dl-a-b-r" style="border:none;line-height:45px;text-align: right;">
+                        {if condition = "$vo['id'] eq 2"/}
+                        <input id="price" name="price[]" value="" placeholder="建议售价:6.8~50 元" type="text" style="border:none;text-align: right;" >
+                        {elseif condition = "$vo['id'] eq 3"/}
+                        <input id="price" name="price[]" value="" placeholder="建议售价:8.8~70 元" type="text" style="border:none;text-align: right;" >
+						{elseif condition = "$vo['id'] eq 6"/}
+                        <input id="price" name="price[]" value="" placeholder="建议售价:3.99~25 元" type="text" style="border:none;text-align: right;" >
+                        {elseif condition = "$vo['id'] eq 7"/}
+                        <input id="price" name="price[]" value="" placeholder="建议售价:3.88~25 元" type="text" style="border:none;text-align: right;" >
+                        {else/}
+                        {/if}
+                    </div>
+                </div>
+            </div>
+            <input id="goodid" name="goodid[]" value="{$vo.id}" type="hidden">
+            {/volist}
+            <input id="type_status" name="type_status" value="8" type="hidden">
+
+            </form>
+
+
+            </a>
+            <div class="dl-a-b" style="height:52px;border:none;line-height:30px">
+                <div class="dl-a-b-l" style="width:100%;text-align: center;padding-right:15px;margin-top:10px;background: #fff;border-radius:10px 10px 0 0;">
+                    推广背景图
+                </div>
+            </div>
+            <div class="mui-slider" style="width: 100%;background:#FFFFFF;border-radius:0 0 10px 10px;padding-bottom:15px;">
+                <div class="">
+                    <div class="mui-slider-item">
+                        <img src="{$bjurlone.thumb}" style="width: 40%;margin-left: 30%;">
+                        <a href="javascript:baocun({$bjurlone.id})">
+                            <div class="btn" style="clear: both;padding-top:20px;">
+                                <button id="btn" style="background-color:#f7572d; color:#fff;border-radius:36px;margin-left:15%;width:70%;line-height:26px;">保存</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+</div>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/mui.min.js"></script>
+<script type="text/javascript">
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+    function baocun(bid){
+        $.ajax({
+            url:'/index/price/adds.html',
+            type:"post",
+            datatype:'json',
+            data:$('#formId').serialize(),
+            success:function(data){
+                if(data == 1){
+                    alert("自定义版本成功！");
+                    window.location.href="/index/index/fenxiang.html";
+                }else if(data== 0){
+                    alert("自定义版本错误！");
+                    return false;
+                }else if(data== 2){
+                    alert("价格不能低于成本价格！");
+                    return false;
+                }else if(data== 5){
+                    alert("你没有权限自定义版本！");
+                    return false;
+                }else if(data== 25){
+                    alert("负债查询:价格不能超过25元！");
+                    return false;
+                } else if(data== 26){
+                    alert("司法信息检测:价格不能超过25元！");
+                    return false;
+                } else if(data== 27){
+                    alert("信用额度预估:价格不能超过25元！");
+                    return false;
+                }else if(data== 50){
+                    alert("专业版:价格不能超过50元！");
+                    return false;
+                }else if(data== 99){
+                    alert("高级版:价格不能超过70元！");
+                    return false;
+                }else if(data== 18){
+                    alert("价格不能低于18.8元！");
+                    return false;
+                }else if(data== 28){
+                    alert("价格不能低于28.8元！");
+                    return false;
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

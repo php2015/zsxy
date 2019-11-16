@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>全部用户明细</title>
+    <link href="__PUBLIC__/css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/ystyle.css">
+    <link rel="stylesheet" type="text/css" href="/public/layui/layui/css/layui.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/mui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/layui/layui/layui.js">
+    <script src="__PUBLIC__/js/common.js"></script>
+</head>
+<style>
+    .lai li {
+        line-height: 28px;
+        font-size: 14px;
+    }
+
+    .lai li span {
+        display: block;
+        float: left;
+        text-align: center;
+    }
+    .del-pl{
+        margin-top: 10px;
+        line-height: 40px;
+    }
+    .del-title span{
+        display: block;
+        float: left;
+        text-align: center;
+        background-color: #e6e6e6;
+    }
+    .container {
+        padding: 37px 0 0 0 !important;
+    }
+    .mui-scroll-wrapper{
+        height: 677px;
+        margin-top: 87px;
+    }
+</style>
+<body>
+<header class="header" id="header">
+    <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
+    <h1>注册用户明细</h1>
+</header>
+<!--header-end-->
+<div class="layui-container container" id="container">
+
+    <div class="del-pl">
+        <div class="del-title">
+            <span class="del-t" style="width: 20%;">用户</span>
+            <span class="del-t" style="width: 35%;">手机</span>
+            <span class="del-t" style="width: 45%;">注册时间</span>
+        </div>
+        <div id="refreshContainer" class="mui-scroll-wrapper reply">
+            <div class="mui-scroll">
+                <!--数据列表-->
+                <ul class="mui-table-view mui-table-view-chevron lai">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    page = 0;
+    limit = 50;
+    pullupRefresh();
+    mui.init({
+        pullRefresh: {
+            container: "#refreshContainer",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+            up: {
+                contentrefresh: "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+                contentnomore: '没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+                callback: pullupRefresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+            }
+        }
+    });
+
+    function pullupRefresh() {
+        setTimeout(function () {
+            page++;
+            data();
+        }, 500);
+    }
+
+    function data() {
+        $.ajax({
+            url: '{:url("/index/index/relist")}',
+            type: 'post',
+            data: {"page": page, "limit": limit},
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+                if (json.data.length < limit) {
+                    mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+                } else {
+                    mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+                }
+                $.each(json.data, function (index, obj) {
+                    var html = '<li>\n' +
+                        '						<span style="width: 20%;">' + obj.names + '</span>\n' +
+                        '                        <span style="width: 35%;">' + obj.mobile.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2') + '</span>\n' +
+                        '                        <span style="width:45%;">' + new Date(parseInt(obj.create_time) * 1000).toLocaleString().replace(/:\\d{1,2}$/,'') + '</span>\n' +
+                        '</li>';
+                    $('.lai').append(html);
+                });
+            }
+        })
+    }
+</script>

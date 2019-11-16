@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../haizeiwang/.idea/haizeiwang.iml" filepath="$PROJECT_DIR$/../haizeiwang/.idea/haizeiwang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/zsxycx.iml" filepath="$PROJECT_DIR$/.idea/zsxycx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../zsxycxs/.idea/zsxycxs.iml" filepath="$PROJECT_DIR$/../zsxycxs/.idea/zsxycxs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../zsxycxx/.idea/zsxycxx.iml" filepath="$PROJECT_DIR$/../zsxycxx/.idea/zsxycxx.iml" />
+    </modules>
+  </component>
+</project>

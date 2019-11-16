@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>钻石报告</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="__PUBLIC__/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style1.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color:#f7572d;">
+		<a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('index/index/index')}" style="color: #fff;"></a>
+		    <h1 class="mui-title" style="color: #fff;">修改信息</h1>
+		</header>
+		<div class="mui-content">
+		   <div class="dl-a">
+		   		
+		   		<div class="dl-b" style="padding-bottom:50px;">
+		   			<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				姓名
+			   			</div>
+			   			<div class="dl-a-b-r">
+			   				<input name="username" value="{$user.names}" id="username" readonly="true"  type="text" placeholder="请输入您的真姓名">
+			   			</div>
+			   		</div>
+			   		<div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				手机号
+			   			</div>
+			   			<div class="dl-a-b-r">
+			   				<input id="phone" name="phone" value="{$user.mobile}" readonly="true"  type="text" placeholder="请输入您的手机号">
+			   			</div>
+			   		</div>
+			   		<!-- <div class="dl-a-b">
+			   			<div class="dl-a-b-l">
+			   				身份证
+			   			</div>
+			   			<div class="dl-a-b-r">
+			   				<input id="idcard" name="idcard" value="{$user.idcard}" type="text" placeholder="请输入您的身份证号">
+			   			</div>
+			   		</div> -->
+			   		
+			   		<!-- <a href="{:url('index/user/touxiang')}">
+			   			<div class="dl-a-b" style="text-align: center;line-height:40px; width:90%; background-color: #f7572d;border-radius: 3px; color: #fff;height:40px;margin:0 auto;margin-top:20px;">
+			   				修改头像
+			   		</div> -->
+                  </a>
+		   		
+		   		<!-- <div class="btn">
+		   			<button id="btn" style="background-color:#f7572d; color:#fff;border-radius: 3px;">保存</button>
+		   			
+		   		</div>  -->
+		   		</div>
+		   </div>
+		</div>
+		<script src="__PUBLIC__/js/jquery.min.js"></script>
+		<script type="text/javascript">
+					$('#btn').click(function(){
+				var username = $('#username').val();
+				//var username = input[0].value;
+				var phone = $('#phone').val();
+				//var idcard =$('#idcard').val();
+				
+				//很多判断
+				if(username == ''){
+					alert('手机号码不能为空');
+					return;
+				}
+				if(phone.length != 11){
+					alert('手机格式不正确');
+					return;
+				}
+				
+			
+				$.ajax({
+						url:'{:url('api/user/bianji')}',
+						type:"post",
+						datatype:'json',
+
+						data:{'username':username,'phone':phone},
+						
+						success:function(data){
+							// json=$.parseJSON(data);
+							
+							            if(data == 1){
+							            	alert("修改资料成功！");
+		                window.location.href="{:url('index/index/index')}";
+		            }else if(data== 0){
+		                alert("修改资料错误！");
+		                return false;
+		            }
+							 }
+						});
+			});
+		
+			
+		</script>
+	</body>
+</html>
