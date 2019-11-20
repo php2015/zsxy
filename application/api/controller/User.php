@@ -83,7 +83,7 @@ class User extends Controller
         if (isset($params['name']) && !empty($params['name'])) {
             $map['c.names|c.tel'] = ['like', "%{$params['name']}%"];
         }
-        $shijian = $times - 100*604800;
+        $shijian = '';//$times - 100*604800;
         if($id != 759){
         	$ma_id['c.ma_id|c.uid'] = $id;
         }else{
@@ -97,7 +97,7 @@ class User extends Controller
             ->field('c.*,b.json,b.top_image')
             ->where($map)
             ->where($ma_id)
-            ->where('c.dates', '>', $shijian)
+            //->where('c.dates', '>', $shijian)
             ->order("c.id desc")->page($params['page'], $params['limit'])->select();
         $num = count($chaxun);
         $bname = ['2' => '专业版', '3' => '资信报告', '4' => '消费评估', '5' => '用户画像'];

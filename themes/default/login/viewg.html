@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable" />
-    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-    <meta content="telephone=no" name="format-detection" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
     <title>报告内容</title>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/base.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/beijingkongzhi.css">
@@ -22,22 +23,26 @@
 $borrowState = ['0'=>'未知','1'=>'拒贷','2'=>'批贷已放款','3'=>'待放款','4'=>'借款人放弃申请','5'=>'审核中','6'=>'待放款'];
 //还款状态 0.未知 1.正常 2.M1 3.M2 4.M3 5.M4 6.M5 7.M6 8.M6+ 9.已还清;
 //M1(1~30天)、M2(31~60天)、M3(61~90天)、M4(91~120天)、M5(121~150天)、M6(151~180天)、M6+(>180天)。
-$repayState = [ '0'=>'未知','1'=>'正常','2'=>'逾期(1~30天)','3'=>'逾期(31~60天)','4'=>'逾期(61~90天)','5'=>'逾期(91~120天)','6'=>'逾期(121~150天)','7'=>'逾期(151~180天)','8'=>'逾期(≥180天)','9'=>'已还清'];
-$borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-4000','-3'=>'4000-6000','-2'=>'6000-8000','-1'=>'8000-10000',
-'0'=>'未知',  '1'=>'10000-20000', '2'=>'20000-40000', '3'=>'40000-60000', '4'=>'60000-80000', '5'=>'80000-100000','6'=>'100000-120000',
+$repayState = [
+'0'=>'未知','1'=>'正常','2'=>'逾期(1~30天)','3'=>'逾期(31~60天)','4'=>'逾期(61~90天)','5'=>'逾期(91~120天)','6'=>'逾期(121~150天)','7'=>'逾期(151~180天)','8'=>'逾期(≥180天)','9'=>'已还清'];
+$borrowAmount =
+['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-4000','-3'=>'4000-6000','-2'=>'6000-8000','-1'=>'8000-10000',
+'0'=>'未知', '1'=>'10000-20000', '2'=>'20000-40000', '3'=>'40000-60000', '4'=>'60000-80000',
+'5'=>'80000-100000','6'=>'100000-120000',
 '7'=>'120000-140000','8'=>'140000-160000','9'=>'160000-180000','10'=>'180000-200000','11'=>'200000-220000','12'=>'220000-240000','13'=>'240000-260000',
 '14'=>'260000-280000','15'=>'280000-300000','16'=>'300000-320000','17'=>'320000-340000','18'=>'340000-360000','19'=>'360000-380000','20'=>'380000-400000',
 ];
 ?>
 <header class="header" id="header">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;margin-top: 10px;margin-left: 10px;"></a>
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"
+       style="color: #fff;margin-top: 10px;margin-left: 10px;"></a>
     <img style="float: right;margin-top: 4%;width: 90px;height: 24px;" src="/public/index/report/logo.png">
 </header>
-  <a href="/index/complaint/wenti.html">
-    	<div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
-        	<p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
-    	</div>
-	</a>
+<a href="/index/complaint/wenti.html">
+    <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 300px;z-index: 999;opacity:0.5;">
+        <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">帮助</p>
+    </div>
+</a>
 <a href="{:url('/index/complaint/comment')}">
     <div style="width: 40px;height: 40px;border: 1px solid #ee823a;background: #ee823a;border-radius:100%;position: fixed;right: 5px; top: 350px;z-index: 999;opacity:0.5;">
         <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">评论</p>
@@ -48,11 +53,11 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">投诉</p>
     </div>
 </a>
- <a href="{:url('/calculator/index/index')}">
+<a href="{:url('/calculator/index/index')}">
     <div style="width: 40px;height: 40px;border: 1px solid #12a8ce;background: #12a8ce;border-radius:100%;position: fixed;right: 5px; top:450px;z-index: 999;opacity:0.5;">
         <p style="text-align: center;line-height: 39px;margin-left: 3px;color: #fff;font-weight: bold;">计算器</p>
     </div>
-	</a>
+</a>
 <div class="scend_item" style="margin-top: 2rem;background: #ebe.titlescea;">
     <div class="titles">
     </div>
@@ -63,7 +68,7 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
             <div class="cont_box">
                 <ul class="normal_sty">
                     <li>
-                        <div>{$opnames|mb_substr=0,1,'utf-8'}**  ：</div>
+                        <div>{$opnames|mb_substr=0,1,'utf-8'}** ：</div>
                         <div><span>{$op}</span></div>
                     </li>
                     <li>
@@ -78,7 +83,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     </li>
                     <li>
                         <div style="line-height:1.2rem;padding-top:0.4rem;">预测通过率：</div>
-                        <div><span style="font-size:1.2rem;font-weight:bold;">{if condition="isset($temp_res['scorecashon'])"/}{$temp_res.scorecashon}%{/if}</span></div>
+                        <div><span style="font-size:1.2rem;font-weight:bold;">{if condition="isset($temp_res['scorecashon'])"/}{$temp_res.scorecashon}%{/if}</span>
+                        </div>
                     </li>
                     <li>
                         <div>您的资质评级：</div>
@@ -140,13 +146,13 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     <?php } ?>
                     {if condition="isset($temp_res['ex_execut2_casenum'])" }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院失信名单  </td>
+                        <td class="xu_l">法院失信名单</td>
                     </tr>
                     {/if}
 
                     {if condition="count($fayuan) neq 0 " }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院执行名单  </td>
+                        <td class="xu_l">法院执行名单</td>
                     </tr>
                     {/if}
 
@@ -161,13 +167,13 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     <?php } ?>
                     {if condition="isset($temp_res['ex_execut2_casenum'])" }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院失信名单  </td>
+                        <td class="xu_l">法院失信名单</td>
                     </tr>
                     {/if}
 
                     {if condition="count($fayuan) neq 0 " }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院执行名单  </td>
+                        <td class="xu_l">法院执行名单</td>
                     </tr>
                     {/if}
 
@@ -182,13 +188,13 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     <?php } ?>
                     {if condition="isset($temp_res['ex_execut2_casenum'])" }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院失信名单  </td>
+                        <td class="xu_l">法院失信名单</td>
                     </tr>
                     {/if}
 
                     {if condition="count($fayuan) neq 0 " }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院执行名单  </td>
+                        <td class="xu_l">法院执行名单</td>
                     </tr>
                     {/if}
 
@@ -203,13 +209,13 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     <?php } ?>
                     {if condition="isset($temp_res['ex_execut2_casenum'])" }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院失信名单  </td>
+                        <td class="xu_l">法院失信名单</td>
                     </tr>
                     {/if}
 
                     {if condition="count($fayuan) neq 0 " }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院执行名单  </td>
+                        <td class="xu_l">法院执行名单</td>
                     </tr>
                     {/if}
 
@@ -218,19 +224,19 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
 
                     {if condition="isset($temp_res['ex_execut2_casenum'])" }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院失信名单  </td>
+                        <td class="xu_l">法院失信名单</td>
                     </tr>
                     {/if}
 
                     {if condition="count($fayuan) neq 0 " }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院执行名单  </td>
+                        <td class="xu_l">法院执行名单</td>
                     </tr>
                     {/if}
 
                     {else/}
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">查询成功，未检测到风险点  </td>
+                        <td class="xu_l">查询成功，未检测到风险点</td>
                     </tr>
                     {/if}
 
@@ -239,17 +245,17 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     {if condition="isset($temp_res['ex_execut2_casenum']) || count($fayuan) neq 0 "}
                     {if condition="isset($temp_res['ex_execut2_casenum'])" }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院失信名单  </td>
+                        <td class="xu_l">法院失信名单</td>
                     </tr>
                     {/if}
                     {if condition="count($fayuan) neq 0 " }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">法院执行名单  </td>
+                        <td class="xu_l">法院执行名单</td>
                     </tr>
                     {/if}
                     {else/}
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">查询成功，未检测到风险点  </td>
+                        <td class="xu_l">查询成功，未检测到风险点</td>
                     </tr>
                     {/if}
                     {/if}
@@ -257,7 +263,7 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     {if condition="isset($temp_res['ex_execut2_casenum']) || count($fayuan) neq 0 "}
                     {if condition="isset($temp_res['ex_execut2_casenum'])" }
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">查询成功，法院失信名单  </td>
+                        <td class="xu_l">查询成功，法院失信名单</td>
                     </tr>
                     {/if}
                     {if condition="count($fayuan) neq 0 " }
@@ -267,7 +273,7 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     {/if}
                     {else/}
                     <tr style="font-size: 0.58rem;">
-                        <td class="xu_l">  查询成功，未检测到风险点</td>
+                        <td class="xu_l"> 查询成功，未检测到风险点</td>
                     </tr>
                     {/if}
                     {/if}
@@ -328,7 +334,9 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
 
                 <div style="clear: both;"></div>
 
-                <p class="teass"  style="padding:0.2rem 0.5rem 0.4rem 0.5rem; letter-spacing: 1px;font-size: 0.4rem;font-family: sans-serif;line-height: 26px;">授信额度由钻石报告风控模型评测，额度仅供参考，钻石报告仅做获取及展示，不对此额度做任何担保及保证。</p>
+                <p class="teass"
+                   style="padding:0.2rem 0.5rem 0.4rem 0.5rem; letter-spacing: 1px;font-size: 0.4rem;font-family: sans-serif;line-height: 26px;">
+                    授信额度由钻石报告风控模型评测，额度仅供参考，钻石报告仅做获取及展示，不对此额度做任何担保及保证。</p>
             </div>
         </div>
     </div>
@@ -339,9 +347,10 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
     <div class="shijian2">
         <div class="scend_cont">
             <div class="cont_box">
-                <table class="guanlian" style ="width: 105%;margin-left: -8px;margin-top: 16px;line-height: 43px;">
+                <table class="guanlian" style="width: 105%;margin-left: -8px;margin-top: 16px;line-height: 43px;">
                     <tr style="font-size: 0.58rem;background: #e8e8e8;width:100%;">
-                        <td class="xu_l" style="margin-left: 25px;">姓名：<span>{$opnames|mb_substr=0,1,'utf-8'}**</span></td>
+                        <td class="xu_l" style="margin-left: 25px;">姓名：<span>{$opnames|mb_substr=0,1,'utf-8'}**</span>
+                        </td>
                         <td class="xu_l" style="float: right;margin-right: 40px;">性别：<span>{$ren}</span></td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
@@ -400,12 +409,14 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
 
     {if condition="$priceid eq 3 and $isgetreport eq 1"/}
     <a href="https://prod.gxb.io/v2/auth?returnUrl=http://www.zsxycx.com/index.php/index/login/view/dingdanids/{$dingdanid}&token={$token}">
-        <div class="mui-card-content-inner" style="margin-top: 6%;padding: 30px;padding-bottom: 50px;height: 130px;background-image: url(/public/index/report/yunys.png);background-size: 100% 130px;background-repeat: no-repeat;"></div>
+        <div class="mui-card-content-inner"
+             style="margin-top: 6%;padding: 30px;padding-bottom: 50px;height: 130px;background-image: url(/public/index/report/yunys.png);background-size: 100% 130px;background-repeat: no-repeat;"></div>
     </a>
     {else/}
     {if condition="$priceid eq 3 and $isgetreport eq 2"/}
     <div style="text-align: center;color: #666;padding-top:8%;" id="yunyss">
-               			<span id="wenzis" style="font-size: 16px;color: #ffffff;text-align: center;border: 1px solid #fc8e2c;width: 27%;border-radius: 36px;padding: 5px 14px 5px 14px;background-color: #fc8e2c;">
+               			<span id="wenzis"
+                              style="font-size: 16px;color: #ffffff;text-align: center;border: 1px solid #fc8e2c;width: 27%;border-radius: 36px;padding: 5px 14px 5px 14px;background-color: #fc8e2c;">
           				    {if condition="$isgetreport eq 1"/}收起运营商报告{else/}查看运营商报告{/if}
                		    </span>
         <p style="margin-top: 3%;">
@@ -418,7 +429,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
     </div>
     {else/}
     <a href="#">
-        <div class="mui-card-content-inner" style="margin-top: 6%;padding: 30px;padding-bottom: 50px;height: 130px;background-image: url(/public/index/report/yunyss.png);background-size: 100% 130px;background-repeat: no-repeat;"></div>
+        <div class="mui-card-content-inner"
+             style="margin-top: 6%;padding: 30px;padding-bottom: 50px;height: 130px;background-image: url(/public/index/report/yunyss.png);background-size: 100% 130px;background-repeat: no-repeat;"></div>
     </a>
     {/if}
 
@@ -435,7 +447,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
             <div class="ivu-table-wrapper">
                 <div class="ivu-table ivu-table-border ivu-table-stripe">
                     <div class="ivu-table-body">
-                        <table class="data table table-striped" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                        <table class="data table table-striped" cellspacing="0" cellpadding="0" border="0"
+                               style="width: 100%;">
                             <tbody>
                             <tr>
                                 <td class="td_bg">姓名：</td>
@@ -471,11 +484,13 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
 
                                 <td class="td_bg">通讯地址：</td>
                                 <td colspan="3">{if
-                                    condition="isset($cell['address']) and !empty($cell['address'])"}{$cell['address']}{/if}
+                                    condition="isset($cell['address']) and
+                                    !empty($cell['address'])"}{$cell['address']}{/if}
                                 </td>
                                 <td class="td_bg">居住地址：</td>
                                 <td colspan="3">{if
-                                    condition="isset($cell['live_address']) and !empty($cell['live_address'])"}{$cell['live_address']}{else/}运营商未提供居住地址{/if}
+                                    condition="isset($cell['live_address']) and
+                                    !empty($cell['live_address'])"}{$cell['live_address']}{else/}运营商未提供居住地址{/if}
                                 </td>
                             </tr>
                             <tr>
@@ -492,7 +507,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                             <tr>
                                 <td class="td_bg">手机号码归属地：</td>
                                 <td colspan="7">{if
-                                    condition="isset($cell['phone_attribution']) and !empty($cell['phone_attribution'])"}{$cell['phone_attribution']}{/if}
+                                    condition="isset($cell['phone_attribution']) and
+                                    !empty($cell['phone_attribution'])"}{$cell['phone_attribution']}{/if}
                                 </td>
 
                             </tr>
@@ -1369,7 +1385,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                         <table class="data table table-striped" cellspacing="0" cellpadding="0" border="0"
                                style="width: 100%;">
                             <thead>
-                            {if condition="isset($retData['call_risk_analysis']) and !empty($retData['call_risk_analysis'])"}
+                            {if condition="isset($retData['call_risk_analysis']) and
+                            !empty($retData['call_risk_analysis'])"}
                             {volist name="$retData['call_risk_analysis']" id="vo"}
                             <tr class="center">
                                 <td>与{$vo.analysis_desc}通话次数</td>
@@ -1436,7 +1453,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                             </tr>
                             </thead>
                             <tbody>
-                            {if condition="isset($retData['call_family_detail']) and !empty($retData['call_family_detail'])"}
+                            {if condition="isset($retData['call_family_detail']) and
+                            !empty($retData['call_family_detail'])"}
                             {volist name="$retData['call_family_detail']" id="vo"}
                             <tr class="center">
                                 <td>{$vo.app_point_zh}</td>
@@ -1471,7 +1489,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                             </thead>
                             <tbody>
 
-                            {if condition="isset($retData['call_service_analysis']) and !empty($retData['call_service_analysis'])"}
+                            {if condition="isset($retData['call_service_analysis']) and
+                            !empty($retData['call_service_analysis'])"}
                             {volist name="$retData['call_service_analysis']" id="vo"}
                             <tr class="center">
                                 <td>与{$vo.analysis_desc}通话次数</td>
@@ -1698,7 +1717,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
             </div>
             <div style="font-size: 0.58rem;">数值越高，表示近期借贷意向越强烈。</div>
         </div>
-        <p class="teas" style="padding:0.2rem 0rem 0.4rem 0.5rem;margin-left: -13px;">通过科学的模型推算，分析您的借贷习惯，借贷偏好，借贷趋势等行为特征，为借贷平台提供借款审核参考。</p>
+        <p class="teas" style="padding:0.2rem 0rem 0.4rem 0.5rem;margin-left: -13px;">
+            通过科学的模型推算，分析您的借贷习惯，借贷偏好，借贷趋势等行为特征，为借贷平台提供借款审核参考。</p>
     </div>
 
     {if condition="$product_name eq '高级版'"/}
@@ -1713,44 +1733,60 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     <tr>
                         <td class="xu_l">执行案号：</td>
                         <td class="xu_r">
-                            {if condition="isset($temp_res['ex_execut2_casenum']) and !empty($temp_res['ex_execut2_casenum'])"}{$temp_res.ex_execut2_casenum}{/if}
+                            {if condition="isset($temp_res['ex_execut2_casenum']) and
+                            !empty($temp_res['ex_execut2_casenum'])"}{$temp_res.ex_execut2_casenum}{/if}
                         </td>
                     </tr>
                     <tr>
                         <td class="xu_l">执行标的：</td>
                         <td class="xu_r">
-                            {if condition="isset($temp_res['ex_execut1_money']) and !empty($temp_res['ex_execut1_money'])"}{$temp_res.ex_execut1_money}{/if}
+                            {if condition="isset($temp_res['ex_execut1_money']) and
+                            !empty($temp_res['ex_execut1_money'])"}{$temp_res.ex_execut1_money}{/if}
                         </td>
                     </tr>
                     <tr>
                         <td class="xu_l">执行法院：</td>
                         <td class="xu_r">
-                            {if condition="isset($temp_res['ex_bad1_court']) and !empty($temp_res['ex_bad1_court'])"}{$temp_res.ex_bad1_court}{/if}
+                            {if condition="isset($temp_res['ex_bad1_court']) and
+                            !empty($temp_res['ex_bad1_court'])"}{$temp_res.ex_bad1_court}{/if}
                         </td>
                     </tr>
                     <tr>
                         <td class="xu_l">立案时间：</td>
                         <td class="xu_r">
-                            {if condition="isset($temp_res['ex_bad1_datatime']) and !empty($temp_res['ex_bad1_datatime'])"}{$temp_res.ex_bad1_datatime}{/if}
+                            {if condition="isset($temp_res['ex_bad1_datatime']) and
+                            !empty($temp_res['ex_bad1_datatime'])"}{$temp_res.ex_bad1_datatime}{/if}
                         </td>
                     </tr>
                     <tr>
                         <td class="xu_l">发布时间：</td>
                         <td class="xu_r">
-                            {if condition="isset($temp_res['ex_bad1_posttime']) and !empty($temp_res['ex_bad1_posttime'])"}{$temp_res['ex_bad1_posttime']|date="Y-m-d",###}{/if}
+                            {if condition="isset($temp_res['ex_bad1_posttime']) and
+                            !empty($temp_res['ex_bad1_posttime'])"}{$temp_res['ex_bad1_posttime']|date="Y-m-d",###}{/if}
                         </td>
                     </tr>
                 </table>
                 <div class="xu_k" style="margin-top:0.5rem;height:0.05rem;"></div>
                 <div style="font-size:0.6rem;line-height: 35px;">
-                    <div>执行依据文号：{if condition="isset($temp_res['ex_bad1_base']) and !empty($temp_res['ex_bad1_base'])"}{$temp_res['ex_bad1_base']}{/if}</div>
-                    <div>做出执行依据单位：{if condition="isset($temp_res['ex_bad1_basecompany']) and !empty($temp_res['ex_bad1_basecompany'])"}{$temp_res['ex_bad1_basecompany']}{/if}</div>
-                    <div>被执行人的履行情况：{if condition="isset($temp_res['ex_bad1_performance']) and !empty($temp_res['ex_bad1_performance'])"}{$temp_res['ex_bad1_performance']}{/if}</div>
-                    <div>生效法律文书确定的义务：{if condition="isset($temp_res.ex_bad1_obligation) and !empty($temp_res.ex_bad1_obligation)"}{$temp_res.ex_bad1_obligation}{/if}</div>
-                    <div>失信被执行人行为具体情形：{if condition="isset($temp_res.ex_bad1_concretesituation) and !empty($temp_res.ex_bad1_concretesituation)"}{$temp_res.ex_bad1_concretesituation}{/if}</div>
+                    <div>执行依据文号：{if condition="isset($temp_res['ex_bad1_base']) and
+                        !empty($temp_res['ex_bad1_base'])"}{$temp_res['ex_bad1_base']}{/if}
+                    </div>
+                    <div>做出执行依据单位：{if condition="isset($temp_res['ex_bad1_basecompany']) and
+                        !empty($temp_res['ex_bad1_basecompany'])"}{$temp_res['ex_bad1_basecompany']}{/if}
+                    </div>
+                    <div>被执行人的履行情况：{if condition="isset($temp_res['ex_bad1_performance']) and
+                        !empty($temp_res['ex_bad1_performance'])"}{$temp_res['ex_bad1_performance']}{/if}
+                    </div>
+                    <div>生效法律文书确定的义务：{if condition="isset($temp_res.ex_bad1_obligation) and
+                        !empty($temp_res.ex_bad1_obligation)"}{$temp_res.ex_bad1_obligation}{/if}
+                    </div>
+                    <div>失信被执行人行为具体情形：{if condition="isset($temp_res.ex_bad1_concretesituation) and
+                        !empty($temp_res.ex_bad1_concretesituation)"}{$temp_res.ex_bad1_concretesituation}{/if}
+                    </div>
                 </div>
                 {else/}
-                <div class="mui-card-content-inner"style="padding: 30px;padding-bottom: 50px;height: 140px;background-image: url(/public/index/report/sfxx.png);background-size: 60% 155px;margin-left: 24%;background-repeat: no-repeat;"></div>
+                <div class="mui-card-content-inner"
+                     style="padding: 30px;padding-bottom: 50px;height: 140px;background-image: url(/public/index/report/sfxx.png);background-size: 60% 155px;margin-left: 24%;background-repeat: no-repeat;"></div>
                 <p style="text-align: center;clear: both;font-size:14px;">查询成功，无失信被执行人检测的相关信息。</p>
                 {/if}
             </div>
@@ -1793,7 +1829,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                 <div class="xu_k" style="margin-top:0.5rem;height:0.05rem;"></div>
                 {/volist}
                 {else/}
-                <div class="mui-card-content-inner" style="padding: 30px;padding-bottom: 50px;height: 140px;background-image: url(/public/index/report/sfxx.png);background-size: 60% 155px;margin-left: 24%;background-repeat: no-repeat;"></div>
+                <div class="mui-card-content-inner"
+                     style="padding: 30px;padding-bottom: 50px;height: 140px;background-image: url(/public/index/report/sfxx.png);background-size: 60% 155px;margin-left: 24%;background-repeat: no-repeat;"></div>
                 <p style="text-align: center;clear: both;font-size:14px;">查询成功，无法院被执行人检测的相关信息。</p>
                 {/if}
             </div>
@@ -1896,7 +1933,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     {/if}
                 </table>
                 {else/}
-                <div class="mui-card-content-inner" style="padding: 30px;padding-bottom: 50px;height: 160px;background-image: url(/public/index/report/tsmd.png);background-size: 82% 160px;margin-left: 15%;background-repeat: no-repeat;"></div>
+                <div class="mui-card-content-inner"
+                     style="padding: 30px;padding-bottom: 50px;height: 160px;background-image: url(/public/index/report/tsmd.png);background-size: 82% 160px;margin-left: 15%;background-repeat: no-repeat;"></div>
                 <p style="text-align: center;clear: both;font-size: 14px;">查询成功，未检测到相关信息。</p>
                 {/if}
             </div>
@@ -2221,7 +2259,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     </tr>
                     </tbody>
                 </table>
-                <p class="teas" style="padding:0.2rem 0rem 0.4rem 0.2rem;">借款前，放款机构会在金融平台共享信息中查询用户是否存在逾期或者违约行为、是否被其他机构拉入高风险名单</p>
+                <p class="teas" style="padding:0.2rem 0rem 0.4rem 0.2rem;">
+                    借款前，放款机构会在金融平台共享信息中查询用户是否存在逾期或者违约行为、是否被其他机构拉入高风险名单</p>
                 {else/}
                 {/if}
             </div>
@@ -4848,12 +4887,12 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                                 <a href="#" style="color:#f7572d;line-height: 2">
                                     <span style="color:#666666;margin-left:15px;font-size:12px;">小贷机构申请机构数</span>
                                     <span style="color:#666666;font-size:12px;float: right;">
-                              {if condition="!isset($temp_res['als_m12_cell_nbank_mc_orgnum'])"/}
-                                 0
-                              {else}
-                                {$temp_res.als_m12_cell_nbank_mc_orgnum}
-                              {/if}
-                          </span>
+                                        {if condition="!isset($temp_res['als_m12_cell_nbank_mc_orgnum'])"/}
+                                            0
+                                        {else}
+                                            {$temp_res.als_m12_cell_nbank_mc_orgnum}
+                                        {/if}
+                                    </span>
                                 </a>
                             </li>
 
@@ -4877,9 +4916,12 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         <div class="scend_cont">
             <div class="cont_box" style="margin-top:10px;">
                 <table class="guanlian" width="95%">
-                    <tbody><tr style="font-size: 0.58rem;">
+                    <tbody>
+                    <tr style="font-size: 0.58rem;">
                         <td class="xu_l">放款总金额：</td>
-                        <td class="xu_r">{$top_image['data']['totalAmount']?$top_image['data']['totalAmount'].'&nbsp 元':'查询成功,未检测到相关数据'}</td>
+                        <td class="xu_r">{$top_image['data']['totalAmount']?$top_image['data']['totalAmount'].'&nbsp
+                            元':'查询成功,未检测到相关数据'}
+                        </td>
                     </tr>
                     <tr class="gaodu">
                         <td class="xu_l">总记录条数：</td>
@@ -4939,7 +4981,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     </tr>
                     </tbody>
                 </table>
-                <p class="teas" style="padding:0.2rem 0rem 0.4rem 0.3rem;">数据来源8000信贷机构和网贷平台，因合作平台的数量和更新时间差因素，数据可能会存在偏差，此数据仅供参考。如和实际情况不符，请已实际情况为准。</p>
+                <p class="teas" style="padding:0.2rem 0rem 0.4rem 0.3rem;">
+                    数据来源8000信贷机构和网贷平台，因合作平台的数量和更新时间差因素，数据可能会存在偏差，此数据仅供参考。如和实际情况不符，请已实际情况为准。</p>
             </div>
         </div>
     </div>
@@ -4951,11 +4994,10 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
     <div class="shijian2">
 
         <div class="scend_cont scend_cont">
-            {if condition="isset($top_image) and isset($top_image['data']['loanInfos']) && is_array($top_image['data']['loanInfos']) && !empty($top_image['data']['loanInfos'])"/}
-
+            {if condition="isset($top_image) and isset($top_image['data']['loanInfos']) &&
+            is_array($top_image['data']['loanInfos']) && !empty($top_image['data']['loanInfos'])"/}
             {volist name="$top_image['data']['loanInfos']|array_slice=0,2" id="vo"}
             <div class="cont_box">
-
                 <table class="guanlian" width="100%">
                     <tr>
                         <td class="xu_l">借贷类型：</td>
@@ -4968,10 +5010,11 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     <tr>
                         <td class="xu_l">合同金额（元）：</td>
                         <td class="xu_r">
-                            {if condition = 'isset($borrowAmount[$vo.borrowAmount]) and !empty($borrowAmount[$vo.borrowAmount])'}
-                            {$borrowAmount[$vo.borrowAmount]}
+                            {if condition = 'isset($borrowAmount[$vo.borrowAmount]) and
+                            !empty($borrowAmount[$vo.borrowAmount])'}
+                                {$borrowAmount[$vo.borrowAmount]}
                             {else/}
-                            0
+                                0
                             {/if}
                         </td>
                     </tr>
@@ -5002,7 +5045,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
             </div>
             {/volist}
             <div style="text-align: center;color: #666;padding-top:10px;" id="zhankai">
-                <span style="padding: 5px 10px;color: #fc8e2c;margin-top: 0px;">查看更多<span class="mui-icon mui-icon-arrowdown" style="margin-top-top:5px;"></span></span>
+                <span style="padding: 5px 10px;color: #fc8e2c;margin-top: 0px;">查看更多<span
+                        class="mui-icon mui-icon-arrowdown" style="margin-top-top:5px;"></span></span>
             </div>
 
             <div class="cont_box" style="display:none" id="houx">
@@ -5019,7 +5063,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     <tr>
                         <td class="xu_l">合同金额（元）：</td>
                         <td class="xu_r">
-                            {if condition = 'isset($borrowAmount[$vo.borrowAmount]) and !empty($borrowAmount[$vo.borrowAmount])'}
+                            {if condition = 'isset($borrowAmount[$vo.borrowAmount]) and
+                            !empty($borrowAmount[$vo.borrowAmount])'}
                             {$borrowAmount[$vo.borrowAmount]}
                             {else/}
                             0
@@ -5060,7 +5105,7 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                         </span>
             </div>
             {else/}
-            <div class="cont_box" >
+            <div class="cont_box">
                 <table class="guanlian" width="100%">
                     <tr>
                         <td class="xu_l">借贷类型：</td>
@@ -5113,7 +5158,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         <div class="scend_cont" style="text-align:center;">
             <div class="cont_box">
                 <table class="guanlian guanlianss" width="100%">
-                    <tbody><tr style="font-size: 0.5rem;">
+                    <tbody>
+                    <tr style="font-size: 0.5rem;">
                         <td>近1个月</td>
                         <td>近2个月</td>
                         <td>近3个月</td>
@@ -5471,8 +5517,10 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                         </td>
                     </tr>
 
-                    </tbody></table>
-                <p class="teas" style="padding:0.6rem 0.5rem 0.4rem 0.5rem;text-align:left;">用户自查询日过去1-12个月，详细时间段的申请行为，例如查询当前日期为10月20日，近1个月指的是9月21日至10月20日，近2个月为8月21-9月20日，依此类推。</p>
+                    </tbody>
+                </table>
+                <p class="teas" style="padding:0.6rem 0.5rem 0.4rem 0.5rem;text-align:left;">
+                    用户自查询日过去1-12个月，详细时间段的申请行为，例如查询当前日期为10月20日，近1个月指的是9月21日至10月20日，近2个月为8月21-9月20日，依此类推。</p>
             </div>
         </div>
     </div>
@@ -5674,7 +5722,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         <div class="scend_cont" style="text-align:center;">
             <div class="cont_box">
                 <table class="guanlian guanlianss" width="100%">
-                    <tbody><tr style="font-size: 0.58rem;">
+                    <tbody>
+                    <tr style="font-size: 0.58rem;">
                         <td>身份证关联</td>
                         <td>近1个月</td>
                         <td>近3个月</td>
@@ -5683,50 +5732,99 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>手机号个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_id_x_cell_cnt)"}{$temp_res.ir_m1_id_x_cell_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_id_x_cell_cnt)"}{$temp_res.ir_m3_id_x_cell_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_id_x_cell_cnt)"}{$temp_res.ir_m6_id_x_cell_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_id_x_cell_cnt)"}{$temp_res.ir_m12_id_x_cell_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_id_x_cell_cnt)"}{$temp_res.ir_m1_id_x_cell_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_id_x_cell_cnt)"}{$temp_res.ir_m3_id_x_cell_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_id_x_cell_cnt)"}{$temp_res.ir_m6_id_x_cell_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_id_x_cell_cnt)"}{$temp_res.ir_m12_id_x_cell_cnt}{else/}0{/if}
+                        </td>
 
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>邮箱个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_id_x_mail_cnt)"}{$temp_res.ir_m1_id_x_mail_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_id_x_mail_cnt)"}{$temp_res.ir_m3_id_x_mail_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_id_x_mail_cnt)"}{$temp_res.ir_m6_id_x_mail_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_id_x_mail_cnt)"}{$temp_res.ir_m12_id_x_mail_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_id_x_mail_cnt)"}{$temp_res.ir_m1_id_x_mail_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_id_x_mail_cnt)"}{$temp_res.ir_m3_id_x_mail_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_id_x_mail_cnt)"}{$temp_res.ir_m6_id_x_mail_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_id_x_mail_cnt)"}{$temp_res.ir_m12_id_x_mail_cnt}{else/}0{/if}
+                        </td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>姓名个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_id_x_name_cnt)"}{$temp_res.ir_m1_id_x_name_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_id_x_name_cnt)"}{$temp_res.ir_m3_id_x_name_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_id_x_name_cnt)"}{$temp_res.ir_m6_id_x_name_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_id_x_name_cnt)"}{$temp_res.ir_m12_id_x_name_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_id_x_name_cnt)"}{$temp_res.ir_m1_id_x_name_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_id_x_name_cnt)"}{$temp_res.ir_m3_id_x_name_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_id_x_name_cnt)"}{$temp_res.ir_m6_id_x_name_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_id_x_name_cnt)"}{$temp_res.ir_m12_id_x_name_cnt}{else/}0{/if}
+                        </td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>家庭电话个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_id_x_tel_home_cnt)"}{$temp_res.ir_m1_id_x_tel_home_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_id_x_tel_home_cnt)"}{$temp_res.ir_m3_id_x_tel_home_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_id_x_tel_home_cnt)"}{$temp_res.ir_m6_id_x_tel_home_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_id_x_tel_home_cnt)"}{$temp_res.ir_m12_id_x_tel_home_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_id_x_tel_home_cnt)"}{$temp_res.ir_m1_id_x_tel_home_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_id_x_tel_home_cnt)"}{$temp_res.ir_m3_id_x_tel_home_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_id_x_tel_home_cnt)"}{$temp_res.ir_m6_id_x_tel_home_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_id_x_tel_home_cnt)"}{$temp_res.ir_m12_id_x_tel_home_cnt}{else/}0{/if}
+                        </td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>家庭地址个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_id_x_home_addr_cnt)"}{$temp_res.ir_m1_id_x_home_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_id_x_home_addr_cnt)"}{$temp_res.ir_m3_id_x_home_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_id_x_home_addr_cnt)"}{$temp_res.ir_m6_id_x_home_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_id_x_home_addr_cnt)"}{$temp_res.ir_m12_id_x_home_addr_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_id_x_home_addr_cnt)"}{$temp_res.ir_m1_id_x_home_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_id_x_home_addr_cnt)"}{$temp_res.ir_m3_id_x_home_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_id_x_home_addr_cnt)"}{$temp_res.ir_m6_id_x_home_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_id_x_home_addr_cnt)"}{$temp_res.ir_m12_id_x_home_addr_cnt}{else/}0{/if}
+                        </td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>公司地址个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_id_x_biz_addr_cnt)"}{$temp_res.ir_m1_id_x_biz_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_id_x_biz_addr_cnt)"}{$temp_res.ir_m3_id_x_biz_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_id_x_biz_addr_cnt)"}{$temp_res.ir_m6_id_x_biz_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_id_x_biz_addr_cnt)"}{$temp_res.ir_m12_id_x_biz_addr_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_id_x_biz_addr_cnt)"}{$temp_res.ir_m1_id_x_biz_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_id_x_biz_addr_cnt)"}{$temp_res.ir_m3_id_x_biz_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_id_x_biz_addr_cnt)"}{$temp_res.ir_m6_id_x_biz_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_id_x_biz_addr_cnt)"}{$temp_res.ir_m12_id_x_biz_addr_cnt}{else/}0{/if}
+                        </td>
                     </tr>
 
-                    </tbody></table>
-                </div>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -5738,7 +5836,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         <div class="scend_cont" style="text-align:center;">
             <div class="cont_box">
                 <table class="guanlian guanlianss" width="100%">
-                    <tbody><tr style="font-size: 0.58rem;">
+                    <tbody>
+                    <tr style="font-size: 0.58rem;">
                         <td>手机号关联</td>
                         <td>近1个月</td>
                         <td>近3个月</td>
@@ -5747,50 +5846,100 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>手机号个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_cell_x_id_cnt)"}{$temp_res.ir_m1_cell_x_id_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_cell_x_id_cnt)"}{$temp_res.ir_m3_cell_x_id_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_cell_x_id_cnt)"}{$temp_res.ir_m6_cell_x_id_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_cell_x_id_cnt)"}{$temp_res.ir_m12_cell_x_id_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_cell_x_id_cnt)"}{$temp_res.ir_m1_cell_x_id_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_cell_x_id_cnt)"}{$temp_res.ir_m3_cell_x_id_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_cell_x_id_cnt)"}{$temp_res.ir_m6_cell_x_id_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_cell_x_id_cnt)"}{$temp_res.ir_m12_cell_x_id_cnt}{else/}0{/if}
+                        </td>
 
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>邮箱个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_cell_x_mail_cnt)"}{$temp_res.ir_m1_cell_x_mail_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_cell_x_mail_cnt)"}{$temp_res.ir_m3_cell_x_mail_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_cell_x_mail_cnt)"}{$temp_res.ir_m6_cell_x_mail_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_cell_x_mail_cnt)"}{$temp_res.ir_m12_cell_x_mail_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_cell_x_mail_cnt)"}{$temp_res.ir_m1_cell_x_mail_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_cell_x_mail_cnt)"}{$temp_res.ir_m3_cell_x_mail_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_cell_x_mail_cnt)"}{$temp_res.ir_m6_cell_x_mail_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_cell_x_mail_cnt)"}{$temp_res.ir_m12_cell_x_mail_cnt}{else/}0{/if}
+                        </td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>姓名个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_cell_x_name_cnt)"}{$temp_res.ir_m1_cell_x_name_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_cell_x_name_cnt)"}{$temp_res.ir_m3_cell_x_name_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_cell_x_name_cnt)"}{$temp_res.ir_m6_cell_x_name_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_cell_x_name_cnt)"}{$temp_res.ir_m12_cell_x_name_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_cell_x_name_cnt)"}{$temp_res.ir_m1_cell_x_name_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_cell_x_name_cnt)"}{$temp_res.ir_m3_cell_x_name_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_cell_x_name_cnt)"}{$temp_res.ir_m6_cell_x_name_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_cell_x_name_cnt)"}{$temp_res.ir_m12_cell_x_name_cnt}{else/}0{/if}
+                        </td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>家庭电话个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_cell_x_tel_home_cnt)"}{$temp_res.ir_m1_cell_x_tel_home_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_cell_x_tel_home_cnt)"}{$temp_res.ir_m3_cell_x_tel_home_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_cell_x_tel_home_cnt)"}{$temp_res.ir_m6_cell_x_tel_home_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_cell_x_tel_home_cnt)"}{$temp_res.ir_m12_cell_x_tel_home_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_cell_x_tel_home_cnt)"}{$temp_res.ir_m1_cell_x_tel_home_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_cell_x_tel_home_cnt)"}{$temp_res.ir_m3_cell_x_tel_home_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_cell_x_tel_home_cnt)"}{$temp_res.ir_m6_cell_x_tel_home_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_cell_x_tel_home_cnt)"}{$temp_res.ir_m12_cell_x_tel_home_cnt}{else/}0{/if}
+                        </td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>家庭地址个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_cell_x_home_addr_cnt)"}{$temp_res.ir_m1_cell_x_home_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_cell_x_home_addr_cnt)"}{$temp_res.ir_m3_cell_x_home_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_cell_x_home_addr_cnt)"}{$temp_res.ir_m6_cell_x_home_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_cell_x_home_addr_cnt)"}{$temp_res.ir_m12_cell_x_home_addr_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_cell_x_home_addr_cnt)"}{$temp_res.ir_m1_cell_x_home_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_cell_x_home_addr_cnt)"}{$temp_res.ir_m3_cell_x_home_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_cell_x_home_addr_cnt)"}{$temp_res.ir_m6_cell_x_home_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_cell_x_home_addr_cnt)"}{$temp_res.ir_m12_cell_x_home_addr_cnt}{else/}0{/if}
+                        </td>
                     </tr>
                     <tr style="font-size: 0.58rem;">
                         <td>公司地址个数</td>
-                        <td>{if condition="isset($temp_res.ir_m1_cell_x_biz_addr_cnt)"}{$temp_res.ir_m1_cell_x_biz_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m3_cell_x_biz_addr_cnt)"}{$temp_res.ir_m3_cell_x_biz_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m6_cell_x_biz_addr_cnt)"}{$temp_res.ir_m6_cell_x_biz_addr_cnt}{else/}0{/if}</td>
-                        <td>{if condition="isset($temp_res.ir_m12_cell_x_biz_addr_cnt)"}{$temp_res.ir_m12_cell_x_biz_addr_cnt}{else/}0{/if}</td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m1_cell_x_biz_addr_cnt)"}{$temp_res.ir_m1_cell_x_biz_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m3_cell_x_biz_addr_cnt)"}{$temp_res.ir_m3_cell_x_biz_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m6_cell_x_biz_addr_cnt)"}{$temp_res.ir_m6_cell_x_biz_addr_cnt}{else/}0{/if}
+                        </td>
+                        <td>{if
+                            condition="isset($temp_res.ir_m12_cell_x_biz_addr_cnt)"}{$temp_res.ir_m12_cell_x_biz_addr_cnt}{else/}0{/if}
+                        </td>
                     </tr>
 
-                    </tbody></table>
-                <p class="teas" style="padding:0.4rem 0.5rem 0.4rem 0.5rem;text-align:left;">用户在其他机构的申请行为会被钻石报告共享平台记录，住址和工作单位作为重要的风控标准，如用户地址变更频繁，则代表用户生活稳定性偏低，或者有中介代办等行为。</p>
+                    </tbody>
+                </table>
+                <p class="teas" style="padding:0.4rem 0.5rem 0.4rem 0.5rem;text-align:left;">
+                    用户在其他机构的申请行为会被钻石报告共享平台记录，住址和工作单位作为重要的风控标准，如用户地址变更频繁，则代表用户生活稳定性偏低，或者有中介代办等行为。</p>
             </div>
         </div>
     </div>
@@ -5804,7 +5953,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         <div class="scend_cont">
             <div class="cont_box">
                 <table class="guanlian guanlianss" width="95%">
-                    <tbody><tr style="font-size: 0.58rem;">
+                    <tbody>
+                    <tr style="font-size: 0.58rem;">
                         <td class="xu_l">借贷意向异常</td>
                         <td class="xu_r">
                             {if condition="!isset($temp_res['Rule_name_CAE056'])"/}
@@ -5904,7 +6054,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         <div class="scend_cont">
             <div class="cont_box">
                 <table class="guanlian" width="95%" style="line-height: 30px;">
-                    <tbody><tr style="font-size: 0.58rem;">
+                    <tbody>
+                    <tr style="font-size: 0.58rem;">
                         <td class="xu_l">1、三个月不要注册申请超过20次贷款，控制申请频率</td>
                     </tr>
                     <tr class="gaodu">
@@ -5918,7 +6069,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     </tr>
                     <tr class="gaodu">
                         <td class="xu_l"> 5、减少和网贷黑名单这类人群的联系，使自己的朋友圈都是优良高素质群体
-                            网贷钻石报告之所以会变差的原因，都是因为大家申请网贷和使用网贷的不良行为导致的。只有停止当下的不良使用行为，以及减少当前申请次数，才有可能对其进行改善。放款机构一般看中用户半年的行为数据，想要改善自己当前钻石报告情况，大家可以及时还清欠款6个月后就会清除了。</td>
+                            网贷钻石报告之所以会变差的原因，都是因为大家申请网贷和使用网贷的不良行为导致的。只有停止当下的不良使用行为，以及减少当前申请次数，才有可能对其进行改善。放款机构一般看中用户半年的行为数据，想要改善自己当前钻石报告情况，大家可以及时还清欠款6个月后就会清除了。
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -5935,7 +6087,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         <div class="scend_cont">
             <div class="cont_box">
                 <table class="guanlian" width="95%" style="line-height: 30px;">
-                    <tbody><tr style="font-size: 0.58rem;">
+                    <tbody>
+                    <tr style="font-size: 0.58rem;">
                         <td class="xu_l"> 1、下载借款APP及申请的时候，平台需要获取定位，通讯录等权限，务必选择允许或者好和同意</td>
                     </tr>
                     <tr class="gaodu">
@@ -6003,7 +6156,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
                     </tbody>
                 </table>
                 <div style="text-align: center;color: #666;padding-top:10px;" id="caozuo">
-                                    <span id="wenzi" style="font-size: 14px;color: #ffffff;text-align: center;border: 1px solid #fc8e2c;width: 27%;border-radius: 36px;padding-left: 8px;padding-right: 8px;background-color: #fc8e2c;margin-left: 0%;">
+                                    <span id="wenzi"
+                                          style="font-size: 14px;color: #ffffff;text-align: center;border: 1px solid #fc8e2c;width: 27%;border-radius: 36px;padding-left: 8px;padding-right: 8px;background-color: #fc8e2c;margin-left: 0%;">
                                       阅读全部
                                     </span>
                     <p><img id="iiimmg" src="/public/index/report/down.png"/></p>
@@ -6023,7 +6177,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
             <div class="cont_box">
                 <table class="guanlian" width="95%" style="line-height: 30px;">
                     {if condition="$priceid eq '3'"}
-                    <tbody><tr style="font-size: 0.58rem;">
+                    <tbody>
+                    <tr style="font-size: 0.58rem;">
                         <td class="xu_l">1、房地产有关的所有行业，包括建筑，装饰，建材，房产中介</td>
                     </tr>
                     <tr class="gaodu">
@@ -6061,7 +6216,8 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
             <div class="cont_box">
                 <table class="guanlian" width="95%" style="line-height: 30px;">
                     {if condition="$priceid eq '3'"}
-                    <tbody><tr style="font-size: 0.58rem;">
+                    <tbody>
+                    <tr style="font-size: 0.58rem;">
                         <td class="xu_l">1、大型国企事业单位</td>
                     </tr>
                     <tr class="gaodu">
@@ -6126,7 +6282,9 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
 
     <div class="shuoming">
         <div class="biaoti">钻石报告报告说明</div>
-        <div class="dandu" style="">钻石报告报告由本人授权查询，数据来源包括芝麻信用、各大运营商、各类征信平台、各大贷款平台、京东、淘宝等众多平台，钻石报告只做钻石报告信息的获取及分析，不对原始数据做任何修改，信用报告仅供参考使用。如你对报告有异议，出于对合作平台数据隐私的保护，钻石报告将不做任何解释。</div>
+        <div class="dandu" style="">
+            钻石报告报告由本人授权查询，数据来源包括芝麻信用、各大运营商、各类征信平台、各大贷款平台、京东、淘宝等众多平台，钻石报告只做钻石报告信息的获取及分析，不对原始数据做任何修改，信用报告仅供参考使用。如你对报告有异议，出于对合作平台数据隐私的保护，钻石报告将不做任何解释。
+        </div>
     </div>
 
 
@@ -6170,32 +6328,31 @@ $borrowAmount = ['-7'=>'0-1000','-6'=>'1000-2000','-5'=>'2000-3000','-4'=>'3000-
         })
 
 
-
-        $(".list_dt").on("click",function () {
+        $(".list_dt").on("click", function () {
             $('.list_dd').stop();
             $(this).siblings("dt").removeAttr("id");
-            if($(this).attr("id")=="open"){
+            if ($(this).attr("id") == "open") {
                 $(this).removeAttr("id").siblings("dd").slideUp();
-            }else{
-                $(this).attr("id","open").next().slideDown().siblings("dd").slideUp();
+            } else {
+                $(this).attr("id", "open").next().slideDown().siblings("dd").slideUp();
             }
             var height = $('.dpt').offset().top - 50;
-            $('html,body').animate({scrollTop: height+'px'}, 300)
+            $('html,body').animate({scrollTop: height + 'px'}, 300)
         });
-        $(".list_dtyys").on("click",function () {
+        $(".list_dtyys").on("click", function () {
             $('.list_dd').stop();
             $(this).siblings("dt").removeAttr("id");
-            if($(this).attr("id")=="open"){
+            if ($(this).attr("id") == "open") {
                 $(this).removeAttr("id").siblings("dd").slideUp();
-            }else{
-                $(this).attr("id","open").next().slideDown().siblings("dd").slideUp();
+            } else {
+                $(this).attr("id", "open").next().slideDown().siblings("dd").slideUp();
             }
         });
-        $(".shouqi").on("click",function () {
+        $(".shouqi").on("click", function () {
             $(this).parent('.list_dd').siblings("dt").removeAttr("id");
             $(this).parent('.list_dd').slideUp();
             var height = $('.list_dtyys').offset().top - 50;
-            $('html,body').animate({scrollTop: height+'px'}, 300)
+            $('html,body').animate({scrollTop: height + 'px'}, 300)
         });
     </script>
 </body>

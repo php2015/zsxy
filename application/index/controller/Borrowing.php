@@ -14,9 +14,32 @@ class Borrowing extends Controller{
     
     
      public function indexs(){
-    	$data = self::index(['names'=>'师庆需','idcard'=>'372922198812236078','mobile'=>'18369161107']);
-    	
-    	echo "<pre>";var_dump($data);
+    	$data = self::query(['names'=>'陈泽众','idcard'=>'370827199301233739','mobile'=>'15953495523']);
+         echo "<pre>";var_dump($data);
+    }
+
+
+    public function query($params){
+        $data = [
+            'out_trade_no' => 'Test'.time(),
+            'tran_time' => time(),
+            'customer_code' => '1015491531563452',
+            'verify_type' => '0536',
+            'name' => $params['names'],
+            'cert_no' => $params['idcard'],
+            'phone' => $params['mobile'],
+            'sign' => '',
+        ];
+        $data['sign'] = $this->privateEncrypt($this->getSignContent($data), self::$config['private_key']);
+        $stream = $this->DesEncrypt(json_encode($data, 256), self::$config['des_key']);
+        $str = $this->post($stream,'http://api.jizhengyun.com/v1.0/realname/1015491531563452');
+        $result = json_decode($str, true);
+        if(isset($result['code']) && $result['code'] == 0000){
+            $result = $result['message'];
+        }else{
+            $result = [];
+        }
+        return $result;
     }
     
 
