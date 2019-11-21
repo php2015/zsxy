@@ -94,7 +94,7 @@ body{font-family: PingFang-SC-Regular;background: #F7F7F7;}
 .score_num{
     width: 2.04rem;
     height: 2.04rem;
-    background: url("../img/score_bgs.png") no-repeat;
+    background: url("../../img/newimg/score_bgs.png") no-repeat;
     background-size: 100%;
     margin: 0.1rem auto;
     position: relative;
@@ -383,7 +383,7 @@ body{font-family: PingFang-SC-Regular;background: #F7F7F7;}
     width: 5.03rem;
     height: 1.33rem;
     margin: 0 auto 0.2rem;
-    background: url("../img/see_more.png") center;
+    background: url("../../img/newimg/see_more.png") center;
     background-size: 100%;
     font-size: 0.34rem;
     color: #ffffff;
@@ -435,7 +435,7 @@ body{font-family: PingFang-SC-Regular;background: #F7F7F7;}
 .score_bot{
     width: 1.68rem;
     height: 1.68rem;
-    background: url("../img/score_bgn.png") no-repeat;
+    background: url("../../img/newimg/score_bgn.png") no-repeat;
     background-size: 100%;
     text-align: center;
     line-height: 1.68rem;
@@ -459,7 +459,7 @@ body{font-family: PingFang-SC-Regular;background: #F7F7F7;}
 .inten_risk1{
     width: 0.88rem;
     height: 0.88rem;
-    background: url("../img/score_cirs.png") no-repeat;
+    background: url("../../img/newimg/score_cirs.png") no-repeat;
     background-size: 100%;
     font-size: 0.24rem;
     color: #1e4c98;

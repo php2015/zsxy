@@ -18,7 +18,10 @@ class Complaint extends Controller
     public function comment(){
         $content = input('content');
         $type = input('type');
-        $uid = session('uid');
+        $uid = input('id');
+        if(!isset($uid) && empty($uid)){
+            $uid = session('uid');
+        }
         if(isset($uid) && !empty($uid)){
             $user = db('user')->where('id','=',$uid)->find();
             if($user){

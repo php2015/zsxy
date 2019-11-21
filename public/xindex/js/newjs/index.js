@@ -8,6 +8,15 @@ $(function(){
             }
         });
     })
+    $(".see_more_btn").click(function(){
+        $(".conceal_propose").slideToggle(function(){
+            if($(".conceal_propose").is(":hidden")){
+                $(".see_more_btn").html("点击查看更多信息")
+            }else{
+                $(".see_more_btn").html("收起信息详情列表")
+            }
+        });
+    })
     $(".go_top").click(function(){
         $('body,html').animate({scrollTop:0},500);
     })
@@ -40,5 +49,9 @@ $(function(){
         $(this).addClass("active").siblings().removeClass("active")
         var index = $(this).index()
         $(this).parent().siblings(".loan_tab").find(".loan_item").eq(index).addClass("active").siblings().removeClass("active")
+    })
+
+    $(".useful_box span").click(function(){
+        $(this).addClass("active").parent().siblings().find("span").removeClass("active")
     })
 })

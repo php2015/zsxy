@@ -128,12 +128,12 @@ class User extends Controller
             }
             $chaxun[$i]['json'] = isset($chaxun[$i]['json']) && !empty($chaxun[$i]['json']) ? json_decode($chaxun[$i]['json'], true) : [];
             if (isset($chaxun[$i]['json']) && !empty($chaxun[$i]['json'])) {
-            	$time_day = mktime(0,0,0,date('m'),date('d')-5,date('Y'));
-            	if($times < $time_day){
-        			 $chaxun[$i]['json']['scorecashon'] = $this->pingfenss($chaxun[$i]['json']);
-        		}else{
-        			$chaxun[$i]['json']['scorecashon']  = $this->agent_view($chaxun[$i]['json']);
-        		}
+                $time_day = mktime(00,00,00,date('m'),date('d')-1,date('Y'));
+                if($times < $time_day){
+                    $chaxun[$i]['json']['scorecashon']  = $this->agent_view($chaxun[$i]['json']);
+                }else{
+                    $chaxun[$i]['json']['scorecashon']  = $this->calculation($chaxun[$i]['json']);
+                }
                
             } else {
                 $chaxun[$i]['json']['scorecashon'] = 95;
@@ -141,7 +141,34 @@ class User extends Controller
         }
         return $chaxun;
     }
-    
+
+    /**
+     * 计算分数
+     * @param $num
+     */
+    public function calculation($params)
+    {
+        $result = isset($params['data']) && !empty($params['data']) ? $params['data'] : '';
+        $nallnum = isset($result['als_m12_id_nbank_allnum']) && !empty($result['als_m12_id_nbank_allnum']) ? $result['als_m12_id_nbank_allnum'] : 0;
+        $ballnum = isset($result['als_m12_id_bank_allnum']) && !empty($result['als_m12_id_bank_allnum']) ? $result['als_m12_id_bank_allnum'] : 0;
+        $num = $nallnum + $ballnum;
+        $fen = 100;
+        if (isset($num) && !empty($num)) {
+            $data['fen'] = ceil(($fen - $num)-5);
+        } else {
+            $data['fen'] = 95;
+        }
+
+        if (isset($result['ex_execut1_name']) || isset(	$result['ex_bad1_name'])) {
+            $data['fen'] = ceil(($data['fen']/2));
+        }
+
+        if ($data['fen'] < 28) {
+            $data['fen'] = 28;
+        }
+
+        return  $data['fen'];
+    }
     
     
      public function agent_view($params){

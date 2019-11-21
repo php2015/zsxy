@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>风险报告</title>
+    <title>资信报告</title>
     <link rel="stylesheet" href="__PUBLIC__/css/fxcss/mui.min.css">
     <link rel="stylesheet" href="__PUBLIC__/css/fxcss/style.css">
     <link rel="stylesheet" href="__PUBLIC__/css/newcss/index.css?v=123456">
     <script src="__PUBLIC__/js/mui.min.js"></script>
     <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__JS__/layui/lay/dest/layui.all.js"></script>
     <script src="__PUBLIC__/js/newjs/index.js?v=123"></script>
 </head>
 <body>
@@ -17,6 +18,10 @@
     .suggest img{
         width: 3rem;
         height: 1.8rem;
+    }
+    .erweima_box img{
+        width: 2.1rem;
+        height: 2.1rem;
     }
 </style>
 <div class="container">
@@ -2061,37 +2066,95 @@
         </div>
     </div>
     <button class="see_more_btn">点击查看更多信息</button>
-    {if condition="$agent['isoem_name'] eq '1'"/}
-    {if condition="!empty($agent['thumb'])"/}
-    <img src="/public/{$agent.thumb}" style="width: 30%;margin-top: 20px;margin-left: 34%;"/>
-    <p style="text-align: center;">
-        扫码成为
-        合伙人
-        <br>查信用，赚佣金
-    </p>
-    {/if}
-    {else/}
-    {if condition="$agent['isopen_ewm'] eq '1'" /}
-    <img src="__PUBLIC__/img/newimg/erweima.jpg" style="width: 30%;margin-top: 20px;margin-left: 34%;"/>
-    <p style="text-align: center;">
-        长按扫码关注
-        信千金报告
-        <br>查资质，查网黑
-    </p>
-    {/if}
-    {/if}
+
+    <div class="report_bot">
+        <p class="report_boti">这份报告对您有用吗？</p>
+        <div class="clearfix">
+            <div class="useful_box">
+                    <span>
+                        <img src="__PUBLIC__/img/newimg/useful.png" alt="">
+                    </span>
+                <p>有用</p>
+            </div>
+            <div class="useful_box">
+                    <span>
+                        <img src="__PUBLIC__/img/newimg/unseful.png" alt="">
+                    </span>
+                <p>没用</p>
+            </div>
+        </div>
+        <div class="area_box">
+            <textarea name="content" id="" cols="30" rows="10" placeholder="留下您的建议吧...."></textarea>
+            <input type="hidden" name= "id" value="{$result.uid}" >
+        </div>
+        <div class="advise_btn" id="sub">
+            <button>确认提交</button>
+        </div>
+    </div>
     <div class="bot_box">
-        <p class="bot_title">信千金</p>
+        <p class="bot_title">关注“信千金”公众号</p>
         <p class="bot_des">中国大数据信用模式开创者</p>
         <p class="bot_des">国内权威大数据信用服务平台</p>
         <p class="bot_des">服务用户5000万+，累积出具报告3.5亿份</p>
-        <p class="data_des">大数据报告说明</p>
-        <p class="data_txt">
-            信千金报告由本人授权查询，数据来源包括芝麻信用、各大运营商、各大贷款平台、信千金只做大数据信息的获取及分析，不对原始数据做任何修改，信千金仅供参考使用。如你对报告有异议，出于对合作平台数据隐私的保护，信千金将不做任何解释。</p>
-        <img class="go_top" src="__PUBLIC__/img/fanhuidingbu.png" alt="">
+        {if condition="$agent['isoem_name'] eq '1'"/}
+        {if condition="!empty($agent['thumb'])"/}
+        <div class="erweima_box">
+            <img src="/public/{$agent.thumb}" alt=""/>
+        </div>
+        {/if}
+        {else/}
+        {if condition="$agent['isopen_ewm'] eq '1'" /}
+        <div class="erweima_box">
+            <img src="__PUBLIC__/img/newimg/erweima.png" alt="">
+            <img src="__PUBLIC__/img/newimg/fingerprint.png" alt="">
+        </div>
+        <p class="bot_des">- 长按二维码识别并关注 -</p>
+        {/if}
+        {/if}
+
+        <div class="date_box">
+            <p class="data_des">大数据报告说明</p>
+            <p class="data_txt">1、 信千金大数据分析报告仅由用户本人授权查询，本平台只对数据做出整理分析和展示，不对数据的准确性和真实性做任何承诺和担保，报告展示评估结果仅供用参考。</p>
+            <p class="data_txt">2、信千金并未授权任何第三方公司以平台名义从事借贷相关业务，请谨慎堤防诈骗及套路贷的风险，保护好个人信息。</p>
+            <p class="data_txt"> 3、信千金大数据分析报告仅为用户本人提供技术分析及评估服务，仅供本人查阅，请您勿将本报告内容提供给任何第三方;若因您本人行为造成的报告信息泄漏或者提供报告信息从第三方获取某种服务，后续给您带来的一切后果均由您自行承担。</p>
+        </div>
+        <img class="go_top" src="__PUBLIC__/img/newimg/fanhuidingbu.png" alt="">
     </div>
 </div>
 <script>
+
+    $(document).ready(function(){
+        $('#sub').on('click',function(){
+            var content = $('textarea[name="content"]').val();
+            var id = $('input[name="id"]:hidden').val();
+
+            alert(id);
+            if(!content){
+                layer.msg('内容不能为空');
+                return ;
+            }
+            var loading = layer.load(0);
+            $(this).attr("disabled","true");
+            $.ajax({
+                url:'{:url("/api/complaint/comment")}',
+                type:'post',
+                dataType:'json',
+                data:{'content':content,'id':id,type:1},
+                success:function(json){
+                    layer.close(loading);
+                    $(this).removeAttr('disabled');
+                    if(json == 10){
+                        layer.msg('提交成功1');
+                    }else if(json == 0){
+                        layer.msg('提交失败');
+                    }else{
+                        layer.msg('提交成功')
+                    }
+                }
+            })
+        })
+    })
+
     var bu = 1;
     var nums = $(".score_num span").text();
 

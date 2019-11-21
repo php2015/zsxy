@@ -314,7 +314,7 @@ class Chaxun extends AdminBase
         $user = db('user')->where("id", "=", $chaxun['ma_id'])->find();
         $agent = db('agent')->where("id", "=", $user['agent_class'])->find();
         $product = db('product')->where("id", "=", $chaxun['pid'])->find();
-        $time_day = mktime(13,49,00,date('m'),date('d'),date('Y'));
+        $time_day = mktime(00,00,00,date('m'),date('d')-1,date('Y'));
         if($product['a_g_id'] == 3){
             if($chaxun['dates'] < $time_day){
                 $result = $this->agent_view($data);

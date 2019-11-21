@@ -1146,7 +1146,7 @@ class Chaxun extends Controller
         if(in_array($product['a_g_id'],[2,3,5,6,7]) && $chaxun['dates'] < $time_day){
             echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><p style="font-size:100px;text-align: center;margin-top:500px;">报告超过7天，数据已清理，该连接已失效</p>';die;
         }
-        $time_day = mktime(13,49,00,date('m'),date('d'),date('Y'));
+        $time_day = mktime(00,00,00,date('m'),date('d')-1,date('Y'));
         if($product['a_g_id'] == 3){
             if($chaxun['dates'] < $time_day){
                 $result = $this->agent_view($data);
@@ -1220,6 +1220,7 @@ class Chaxun extends Controller
         $result['createAt'] = !empty($params['sales']['createAt']) ? date('Y-m-d H:i', $params['sales']['createAt']) : date('Y-m-d H:i', $params['chaxun']['dates']);
         $result['createAts'] = !empty($params['sales']['createAt']) ? date('Y-m-d H:i', strtotime('+ 7 day', $params['sales']['createAt'])) : date('Y-m-d H:i', strtotime('+ 7 day', $params['chaxun']['dates']));
         $result['ren'] = $this->idcards($params['chaxun']['idcard']);
+        $result['uid'] = isset($params['chaxun']['uid']) && !empty($params['chaxun']['uid']) ? $params['chaxun']['uid'] : '';
         return $result;
     }
 
